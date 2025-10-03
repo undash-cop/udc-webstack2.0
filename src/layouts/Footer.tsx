@@ -17,23 +17,16 @@ const Footer = () => {
       { name: 'Careers', href: '/careers' },
       { name: 'Blog', href: '/blog' },
     ],
-    products: [
-      { name: 'All Products', href: '/products' },
-      { name: 'Enterprise Solutions', href: '/products#enterprise' },
-      { name: 'API Documentation', href: '/products#api' },
-      { name: 'Pricing', href: '/products#pricing' },
-    ],
     support: [
       { name: 'Contact Us', href: '/contact' },
       { name: 'Help Center', href: '/support' },
-      { name: 'Documentation', href: '/docs' },
       { name: 'Status', href: '/status' },
     ],
     legal: [
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' },
-      { name: 'Cookie Policy', href: '/cookies' },
-      { name: 'GDPR', href: '/gdpr' },
+      { name: 'Privacy Policy', href: '/privacy-policy', external: false },
+      { name: 'Terms & Conditions', href: '/terms-and-conditions', external: false },
+      { name: 'Refund Policy', href: '/refund-policy', external: false },
+      { name: 'Cookie Policy', href: '/cookies', external: false },
     ],
   };
 
@@ -93,24 +86,34 @@ const Footer = () => {
     <footer className="bg-gray-900 text-white">
       <div className="container-custom">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
+        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Logo variant="light" size="md" showText={true} className="mb-4" />
             <p className="text-gray-300 mb-6 max-w-md">
               {companyData.descriptorTag}
             </p>
-            <div className="space-y-3">
-              <div className="flex items-center space-x-3">
-                <EnvelopeIcon className="h-5 w-5 text-primary-400" />
-                <span className="text-gray-300">{companyData.address.email}</span>
+            <div className="space-y-4">
+              <div className="flex items-center space-x-3 group">
+                <EnvelopeIcon className="h-5 w-5 text-primary-400 group-hover:text-primary-300 transition-colors duration-200" />
+                <a 
+                  href={`mailto:${companyData.address.email}`}
+                  className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                >
+                  {companyData.address.email}
+                </a>
               </div>
-              <div className="flex items-center space-x-3">
-                <PhoneIcon className="h-5 w-5 text-primary-400" />
-                <span className="text-gray-300">{companyData.address.phoneno}</span>
+              <div className="flex items-center space-x-3 group">
+                <PhoneIcon className="h-5 w-5 text-primary-400 group-hover:text-primary-300 transition-colors duration-200" />
+                <a 
+                  href={`tel:${companyData.address.phoneno}`}
+                  className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                >
+                  {companyData.address.phoneno}
+                </a>
               </div>
-              <div className="flex items-center space-x-3">
-                <MapPinIcon className="h-5 w-5 text-primary-400" />
+              <div className="flex items-center space-x-3 group">
+                <MapPinIcon className="h-5 w-5 text-primary-400 group-hover:text-primary-300 transition-colors duration-200" />
                 <span className="text-gray-300">Hoskote, Karnataka, India</span>
               </div>
             </div>
@@ -118,30 +121,13 @@ const Footer = () => {
 
           {/* Company Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Company</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-semibold mb-4 text-white">Company</h3>
+            <ul className="space-y-2">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Products Links */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Products</h3>
-            <ul className="space-y-3">
-              {footerLinks.products.map((link) => (
-                <li key={link.name}>
-                  <Link
-                    to={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="group text-gray-300 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -152,13 +138,13 @@ const Footer = () => {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Support</h3>
-            <ul className="space-y-3">
+            <h3 className="text-lg font-semibold mb-4 text-white">Support</h3>
+            <ul className="space-y-2">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="group text-gray-300 hover:text-primary-400 transition-colors duration-200"
                   >
                     {link.name}
                   </Link>
@@ -171,19 +157,34 @@ const Footer = () => {
         {/* Bottom Footer */}
         <div className="border-t border-gray-800 py-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-6">
+            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
               <p className="text-gray-400 text-sm">
                 © {currentYear} Undash-cop. All rights reserved.
               </p>
-              <div className="flex space-x-6">
+              <div className="flex flex-wrap gap-4 md:gap-6">
                 {footerLinks.legal.map((link) => (
-                  <Link
-                    key={link.name}
-                    to={link.href}
-                    className="text-gray-400 hover:text-primary-400 text-sm transition-colors duration-200"
-                  >
-                    {link.name}
-                  </Link>
+                  link.external ? (
+                    <a
+                      key={link.name}
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group text-gray-400 hover:text-primary-400 text-sm transition-all duration-200 hover:underline"
+                    >
+                      {link.name}
+                      <svg className="inline-block w-3 h-3 ml-1 group-hover:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+                      </svg>
+                    </a>
+                  ) : (
+                    <Link
+                      key={link.name}
+                      to={link.href}
+                      className="group text-gray-400 hover:text-primary-400 text-sm transition-all duration-200 hover:underline"
+                    >
+                      {link.name}
+                    </Link>
+                  )
                 ))}
               </div>
             </div>
