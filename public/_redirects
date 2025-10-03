@@ -1,0 +1,18 @@
+# SPA Fallback - Handle all routes for React Router
+/*    /index.html   200
+
+# Legacy redirects (if migrating from old site)
+/old-page    /new-page    301
+
+# Force HTTPS
+http://your-domain.com/*    https://your-domain.com/:splat    301!
+
+# Handle www redirects
+https://www.your-domain.com/*    https://your-domain.com/:splat    301!
+
+# Remove trailing slashes
+/*/    /:splat    301
+
+# Error pages
+/404    /404.html    404
+/500    /500.html    500

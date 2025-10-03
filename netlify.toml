@@ -1,0 +1,394 @@
+[build]
+  # Build command
+  command = "npm run build"
+  
+  # Directory to publish
+  publish = "dist"
+  
+  # Node.js version
+  [build.environment]
+    NODE_VERSION = "20"
+    NPM_VERSION = "10"
+
+# Redirect rules for SPA routing
+[[redirects]]
+  # Handle all routes for React Router
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+# SEO and sitemap redirects
+[[redirects]]
+  # Sitemap
+  from = "/sitemap.xml"
+  to = "/sitemap.xml"
+  status = 200
+
+[[redirects]]
+  # Robots.txt
+  from = "/robots.txt"
+  to = "/robots.txt"
+  status = 200
+
+# Security headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # Content Security Policy
+    Content-Security-Policy = """
+      default-src 'self';
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://js.hs-scripts.com https://www.google-analytics.com;
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src 'self' https://fonts.gstatic.com;
+      img-src 'self' data: https: http: blob:;
+      connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://js.hs-scripts.com;
+      frame-src 'self' https://js.hs-scripts.com;
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    """
+    
+    # Cache control for HTML files
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache images
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.gif"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache fonts
+[[headers]]
+  for = "*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.ttf"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.eot"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache CSS and JS
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache manifest and other files
+[[headers]]
+  for = "*.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+# SEO-specific headers
+[[headers]]
+  for = "/"
+  [headers.values]
+    # Canonical URL
+    Link = '<https://your-domain.com/>; rel="canonical"'
+    
+    # Open Graph
+    og:title = "Undash Cop - Technology Solutions & Digital Transformation"
+    og:description = "Leading provider of technology solutions, automation, and digital transformation services. Expert software development, AI, and cloud solutions."
+    og:type = "website"
+    og:url = "https://your-domain.com"
+    og:image = "https://your-domain.com/logo.png"
+    og:site_name = "Undash Cop"
+    
+    # Twitter Card
+    twitter:card = "summary_large_image"
+    twitter:title = "Undash Cop - Technology Solutions & Digital Transformation"
+    twitter:description = "Leading provider of technology solutions, automation, and digital transformation services."
+    twitter:image = "https://your-domain.com/logo.png"
+    
+    # Additional SEO
+    robots = "index, follow"
+    googlebot = "index, follow"
+
+# Page-specific SEO headers
+[[headers]]
+  for = "/about"
+  [headers.values]
+    Link = '<https://your-domain.com/about>; rel="canonical"'
+    og:title = "About Us - Undash Cop"
+    og:description = "Learn about Undash Cop's mission, team, and commitment to delivering exceptional technology solutions."
+    og:url = "https://your-domain.com/about"
+
+[[headers]]
+  for = "/contact"
+  [headers.values]
+    Link = '<https://your-domain.com/contact>; rel="canonical"'
+    og:title = "Contact Us - Undash Cop"
+    og:description = "Get in touch with our team for technology solutions, project inquiries, and support."
+    og:url = "https://your-domain.com/contact"
+
+[[headers]]
+  for = "/products"
+  [headers.values]
+    Link = '<https://your-domain.com/products>; rel="canonical"'
+    og:title = "Our Products - Undash Cop"
+    og:description = "Explore our comprehensive suite of technology products and solutions."
+    og:url = "https://your-domain.com/products"
+
+[[headers]]
+  for = "/case-studies"
+  [headers.values]
+    Link = '<https://your-domain.com/case-studies>; rel="canonical"'
+    og:title = "Case Studies - Undash Cop"
+    og:description = "Discover our successful projects and client success stories across various industries."
+    og:url = "https://your-domain.com/case-studies"
+
+[[headers]]
+  for = "/blog"
+  [headers.values]
+    Link = '<https://your-domain.com/blog>; rel="canonical"'
+    og:title = "Blog - Undash Cop"
+    og:description = "Latest insights, trends, and best practices in technology and digital transformation."
+    og:url = "https://your-domain.com/blog"
+
+[[headers]]
+  for = "/resources"
+  [headers.values]
+    Link = '<https://your-domain.com/resources>; rel="canonical"'
+    og:title = "Resource Center - Undash Cop"
+    og:description = "Access our library of guides, templates, whitepapers, and technical resources."
+    og:url = "https://your-domain.com/resources"
+
+[[headers]]
+  for = "/careers"
+  [headers.values]
+    Link = '<https://your-domain.com/careers>; rel="canonical"'
+    og:title = "Careers - Undash Cop"
+    og:description = "Join our team and be part of innovative technology solutions and digital transformation."
+    og:url = "https://your-domain.com/careers"
+
+# Legal pages
+[[headers]]
+  for = "/privacy-policy"
+  [headers.values]
+    Link = '<https://your-domain.com/privacy-policy>; rel="canonical"'
+    og:title = "Privacy Policy - Undash Cop"
+    og:description = "Our privacy policy and data protection practices."
+    og:url = "https://your-domain.com/privacy-policy"
+
+[[headers]]
+  for = "/terms-and-conditions"
+  [headers.values]
+    Link = '<https://your-domain.com/terms-and-conditions>; rel="canonical"'
+    og:title = "Terms and Conditions - Undash Cop"
+    og:description = "Terms and conditions for using our services and website."
+    og:url = "https://your-domain.com/terms-and-conditions"
+
+[[headers]]
+  for = "/refund-policy"
+  [headers.values]
+    Link = '<https://your-domain.com/refund-policy>; rel="canonical"'
+    og:title = "Refund Policy - Undash Cop"
+    og:description = "Our refund policy and terms for service cancellations."
+    og:url = "https://your-domain.com/refund-policy"
+
+[[headers]]
+  for = "/cookie-policy"
+  [headers.values]
+    Link = '<https://your-domain.com/cookie-policy>; rel="canonical"'
+    og:title = "Cookie Policy - Undash Cop"
+    og:description = "Information about cookies and how we use them on our website."
+    og:url = "https://your-domain.com/cookie-policy"
+
+[[headers]]
+  for = "/support"
+  [headers.values]
+    Link = '<https://your-domain.com/support>; rel="canonical"'
+    og:title = "Support - Undash Cop"
+    og:description = "Get help and support for our products and services."
+    og:url = "https://your-domain.com/support"
+
+[[headers]]
+  for = "/status"
+  [headers.values]
+    Link = '<https://your-domain.com/status>; rel="canonical"'
+    og:title = "System Status - Undash Cop"
+    og:description = "Real-time status of our systems and services."
+    og:url = "https://your-domain.com/status"
+
+# Dynamic routes for blog posts and case studies
+[[headers]]
+  for = "/blog/*"
+  [headers.values]
+    Link = '<https://your-domain.com/blog/*>; rel="canonical"'
+    og:title = "Blog Post - Undash Cop"
+    og:description = "Read our latest blog posts and insights on technology and digital transformation."
+    og:url = "https://your-domain.com/blog/*"
+
+[[headers]]
+  for = "/case-studies/*"
+  [headers.values]
+    Link = '<https://your-domain.com/case-studies/*>; rel="canonical"'
+    og:title = "Case Study - Undash Cop"
+    og:description = "Explore our detailed case studies and project success stories."
+    og:url = "https://your-domain.com/case-studies/*"
+
+# Error pages
+[[redirects]]
+  from = "/404"
+  to = "/404.html"
+  status = 404
+
+[[redirects]]
+  from = "/500"
+  to = "/500.html"
+  status = 500
+
+# Legacy redirects (if migrating from old site)
+[[redirects]]
+  from = "/old-page"
+  to = "/new-page"
+  status = 301
+
+# Force HTTPS
+[[redirects]]
+  from = "http://your-domain.com/*"
+  to = "https://your-domain.com/:splat"
+  status = 301
+  force = true
+
+# Remove trailing slashes
+[[redirects]]
+  from = "/*/"
+  to = "/:splat"
+  status = 301
+
+# Handle www redirects
+[[redirects]]
+  from = "https://www.your-domain.com/*"
+  to = "https://your-domain.com/:splat"
+  status = 301
+  force = true
+
+# Plugin configurations
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Functions (if using Netlify Functions)
+[functions]
+  directory = "netlify/functions"
+
+# Edge functions (if using Netlify Edge Functions)
+[edge_functions]
+  directory = "netlify/edge-functions"
+
+# Form handling
+[build.processing.skip_processing]
+  - "*.pdf"
+  - "*.zip"
+  - "*.tar.gz"
+
+# Environment variables (these will be set in Netlify dashboard)
+# VITE_GA_TRACKING_ID
+# VITE_HUBSPOT_PORTAL_ID
+# VITE_HUBSPOT_CONTACT_FORM_ID
+# VITE_HUBSPOT_JOB_FORM_ID
+# VITE_APP_BASE_URL
+# VITE_APP_ENV
+
+# Build plugins
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.9
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+    buildDir = "dist"
+    exclude = ["/404", "/500"]
+
+# Branch-specific configurations
+[context.production]
+  command = "npm run build"
+  environment = { NODE_ENV = "production" }
+
+[context.deploy-preview]
+  command = "npm run build"
+  environment = { NODE_ENV = "development" }
+
+[context.branch-deploy]
+  command = "npm run build"
+  environment = { NODE_ENV = "development" }
