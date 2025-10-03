@@ -104,9 +104,11 @@ The `netlify.toml` file includes:
 4. Select the repository
 
 ### 2. Configure Build Settings
-- **Build Command**: `npm run build`
+- **Build Command**: `npm install --force && npm run build`
 - **Publish Directory**: `dist`
 - **Node Version**: 20
+
+**Note**: The `--force` flag is used to resolve React 19 compatibility issues with `react-helmet-async`.
 
 ### 3. Set Environment Variables
 1. Go to **Site Settings > Environment Variables**
@@ -164,6 +166,12 @@ The `netlify.toml` file includes:
 - Verify all dependencies are in package.json
 - Check for TypeScript errors
 - Ensure environment variables are set
+
+#### React 19 Dependency Conflicts
+If you encounter `ERESOLVE` errors with React 19 and `react-helmet-async`:
+- The `--force` flag is already configured in the build command
+- This resolves peer dependency conflicts between React 19 and older packages
+- The application will work correctly despite the warnings
 
 #### Forms Not Working
 - Verify HubSpot credentials

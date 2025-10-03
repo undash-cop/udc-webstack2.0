@@ -1,6 +1,6 @@
 [build]
   # Build command
-  command = "npm run build"
+  command = "npm install --force && npm run build"
   
   # Directory to publish
   publish = "dist"
