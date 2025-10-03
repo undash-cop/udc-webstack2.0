@@ -1,9 +1,12 @@
 import { useState } from 'react';
+import SEOHead from '../components/SEOHead';
 import Hero from '../components/Hero';
 import AnimatedCounter from '../components/AnimatedCounter';
 import ProgressBar from '../components/ProgressBar';
 import SearchBar from '../components/SearchBar';
 import FilterTabs from '../components/FilterTabs';
+import Testimonials from '../components/Testimonials';
+import NewsletterSignup from '../components/NewsletterSignup';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import companyData from '../data/companyData.js';
 import { 
@@ -95,8 +98,42 @@ const Home = () => {
     setSearchQuery(query);
   };
 
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Undash-cop",
+    "description": "Leading provider of technology solutions, automation services, and digital transformation",
+    "url": "https://undash-cop.com",
+    "logo": "https://undash-cop.com/logos/undash-cop-studio.png",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+1-555-0123",
+      "contactType": "customer service",
+      "availableLanguage": "English"
+    },
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "123 Tech Street",
+      "addressLocality": "San Francisco",
+      "addressRegion": "CA",
+      "postalCode": "94105",
+      "addressCountry": "US"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/undash-cop",
+      "https://twitter.com/undashcop",
+      "https://www.facebook.com/undashcop"
+    ]
+  };
+
   return (
     <div>
+      <SEOHead
+        title="Undash-cop - Technology Solutions & Automation Services"
+        description="Leading provider of technology solutions, automation services, and digital transformation. Discover our innovative products and services for your business growth."
+        keywords="technology solutions, automation, digital transformation, software development, business tools, AI, machine learning, cloud services"
+        structuredData={structuredData}
+      />
       {/* Hero Section */}
       <Hero
         title="Complete Software Solutions for Startups & Small Businesses"
@@ -290,6 +327,16 @@ const Home = () => {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Newsletter Section */}
+      <section className="py-20">
+        <div className="container-custom">
+          <NewsletterSignup variant="hero" />
         </div>
       </section>
 

@@ -1,0 +1,380 @@
+export const resourceData = [
+  {
+    id: 1,
+    title: "Complete Guide to Modern Web Development",
+    type: "Whitepaper",
+    category: "Development",
+    description: "A comprehensive guide covering the latest trends, tools, and best practices in modern web development.",
+    author: "Sarah Johnson",
+    authorRole: "Senior Developer",
+    publishedDate: "2025-01-15",
+    downloads: 1247,
+    fileSize: "2.3 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["Web Development", "Guide", "Best Practices"]
+  },
+  {
+    id: 2,
+    title: "Microservices Architecture Patterns",
+    type: "Technical Guide",
+    category: "Architecture",
+    description: "Learn about different microservices patterns and when to use each one for optimal system design.",
+    author: "Michael Chen",
+    authorRole: "Lead Architect",
+    publishedDate: "2025-01-12",
+    downloads: 892,
+    fileSize: "1.8 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["Microservices", "Architecture", "Patterns"]
+  },
+  {
+    id: 3,
+    title: "AI Integration in Web Applications",
+    type: "Case Study",
+    category: "AI/ML",
+    description: "Real-world case study showing how to integrate AI capabilities into web applications effectively.",
+    author: "Emily Rodriguez",
+    authorRole: "AI Specialist",
+    publishedDate: "2025-01-10",
+    downloads: 1156,
+    fileSize: "3.1 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["AI", "Integration", "Case Study"]
+  },
+  {
+    id: 4,
+    title: "React Performance Optimization Workshop",
+    type: "Video",
+    category: "Frontend",
+    description: "Step-by-step workshop covering advanced React performance optimization techniques.",
+    author: "David Kim",
+    authorRole: "Frontend Engineer",
+    publishedDate: "2025-01-08",
+    downloads: 743,
+    fileSize: "450 MB",
+    fileType: "MP4",
+    duration: "2h 30m",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["React", "Performance", "Workshop"]
+  },
+  {
+    id: 5,
+    title: "Cloud Security Checklist",
+    type: "Template",
+    category: "Security",
+    description: "Comprehensive checklist for securing your cloud-based applications and infrastructure.",
+    author: "Alex Thompson",
+    authorRole: "Security Engineer",
+    publishedDate: "2025-01-05",
+    downloads: 634,
+    fileSize: "0.5 MB",
+    fileType: "DOCX",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["Security", "Cloud", "Checklist"]
+  },
+  {
+    id: 6,
+    title: "Database Design Best Practices",
+    type: "Technical Guide",
+    category: "Database",
+    description: "Essential guidelines for designing scalable and efficient database schemas.",
+    author: "Lisa Wang",
+    authorRole: "Database Architect",
+    publishedDate: "2025-01-03",
+    downloads: 987,
+    fileSize: "1.2 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["Database", "Design", "Best Practices"]
+  },
+  {
+    id: 7,
+    title: "DevOps Implementation Guide",
+    type: "Whitepaper",
+    category: "DevOps",
+    description: "Complete guide to implementing DevOps practices in your development workflow.",
+    author: "James Wilson",
+    authorRole: "DevOps Engineer",
+    publishedDate: "2025-01-01",
+    downloads: 756,
+    fileSize: "2.8 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1556075798-4825dfaaf498?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["DevOps", "Implementation", "Guide"]
+  },
+  {
+    id: 8,
+    title: "API Design Standards",
+    type: "Template",
+    category: "API",
+    description: "Standardized templates and guidelines for designing RESTful APIs.",
+    author: "Maria Garcia",
+    authorRole: "API Designer",
+    publishedDate: "2024-12-28",
+    downloads: 1123,
+    fileSize: "0.8 MB",
+    fileType: "DOCX",
+    image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["API", "Design", "Standards"]
+  },
+  {
+    id: 9,
+    title: "Mobile App Development Trends 2025",
+    type: "Report",
+    category: "Mobile",
+    description: "Comprehensive report on the latest trends and technologies in mobile app development.",
+    author: "Kevin Lee",
+    authorRole: "Mobile Developer",
+    publishedDate: "2024-12-25",
+    downloads: 892,
+    fileSize: "1.5 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["Mobile", "Trends", "2025"]
+  },
+  {
+    id: 10,
+    title: "Testing Strategies for Modern Applications",
+    type: "Technical Guide",
+    category: "Testing",
+    description: "Comprehensive guide to implementing effective testing strategies for modern web applications.",
+    author: "Rachel Brown",
+    authorRole: "QA Engineer",
+    publishedDate: "2024-12-22",
+    downloads: 567,
+    fileSize: "1.9 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["Testing", "Strategies", "QA"]
+  },
+  {
+    id: 11,
+    title: "Advanced React Patterns and Best Practices",
+    type: "Technical Guide",
+    category: "Frontend",
+    description: "Master advanced React patterns including render props, higher-order components, custom hooks, and performance optimization techniques.",
+    author: "David Kim",
+    authorRole: "Senior React Developer",
+    publishedDate: "2025-01-30",
+    downloads: 2156,
+    fileSize: "3.2 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1633356122544-f134324a6cee?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["React", "JavaScript", "Frontend", "Patterns"]
+  },
+  {
+    id: 12,
+    title: "Database Design and Optimization Workshop",
+    type: "Video",
+    category: "Database",
+    description: "Comprehensive workshop covering database design principles, indexing strategies, query optimization, and performance tuning.",
+    author: "Lisa Wang",
+    authorRole: "Database Architect",
+    publishedDate: "2025-01-28",
+    downloads: 1876,
+    fileSize: "520 MB",
+    fileType: "MP4",
+    duration: "3h 15m",
+    image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["Database", "SQL", "Performance", "Design"]
+  },
+  {
+    id: 13,
+    title: "API Security Checklist",
+    type: "Template",
+    category: "Security",
+    description: "Comprehensive checklist for securing REST APIs, GraphQL endpoints, and microservices communication.",
+    author: "Alex Thompson",
+    authorRole: "Security Engineer",
+    publishedDate: "2025-01-26",
+    downloads: 1234,
+    fileSize: "0.7 MB",
+    fileType: "DOCX",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["API", "Security", "Checklist", "Best Practices"]
+  },
+  {
+    id: 14,
+    title: "Machine Learning Model Deployment Guide",
+    type: "Whitepaper",
+    category: "AI/ML",
+    description: "Complete guide to deploying machine learning models in production environments with MLOps best practices.",
+    author: "Dr. Sarah Chen",
+    authorRole: "ML Engineer",
+    publishedDate: "2025-01-24",
+    downloads: 1890,
+    fileSize: "2.8 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["Machine Learning", "MLOps", "Deployment", "AI"]
+  },
+  {
+    id: 15,
+    title: "Mobile App Performance Optimization",
+    type: "Technical Guide",
+    category: "Mobile",
+    description: "Strategies and techniques for optimizing mobile app performance across iOS and Android platforms.",
+    author: "Kevin Lee",
+    authorRole: "Mobile Developer",
+    publishedDate: "2025-01-22",
+    downloads: 1456,
+    fileSize: "1.9 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["Mobile", "Performance", "iOS", "Android"]
+  },
+  {
+    id: 16,
+    title: "Cloud Migration Strategy Template",
+    type: "Template",
+    category: "Cloud",
+    description: "Step-by-step template for planning and executing cloud migration projects with risk assessment and timeline planning.",
+    author: "Michael Brown",
+    authorRole: "Cloud Architect",
+    publishedDate: "2025-01-20",
+    downloads: 1678,
+    fileSize: "1.1 MB",
+    fileType: "DOCX",
+    image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["Cloud", "Migration", "Strategy", "Planning"]
+  },
+  {
+    id: 17,
+    title: "Cybersecurity Incident Response Playbook",
+    type: "Template",
+    category: "Security",
+    description: "Comprehensive playbook for handling cybersecurity incidents with step-by-step response procedures and communication templates.",
+    author: "Rachel Green",
+    authorRole: "CISO",
+    publishedDate: "2025-01-18",
+    downloads: 1123,
+    fileSize: "0.9 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["Cybersecurity", "Incident Response", "Security", "Crisis Management"]
+  },
+  {
+    id: 18,
+    title: "User Experience Design Principles",
+    type: "Whitepaper",
+    category: "Design",
+    description: "Fundamental UX design principles and methodologies for creating user-centered digital experiences.",
+    author: "Emma Wilson",
+    authorRole: "UX Designer",
+    publishedDate: "2025-01-16",
+    downloads: 2345,
+    fileSize: "2.1 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["UX", "Design", "User Experience", "Methodology"]
+  },
+  {
+    id: 19,
+    title: "Agile Project Management Toolkit",
+    type: "Template",
+    category: "Project Management",
+    description: "Complete toolkit for agile project management including sprint planning, retrospectives, and team collaboration templates.",
+    author: "Tom Anderson",
+    authorRole: "Agile Coach",
+    publishedDate: "2025-01-14",
+    downloads: 1987,
+    fileSize: "1.5 MB",
+    fileType: "ZIP",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: false,
+    tags: ["Agile", "Project Management", "Scrum", "Templates"]
+  },
+  {
+    id: 20,
+    title: "Data Visualization Best Practices",
+    type: "Technical Guide",
+    category: "Analytics",
+    description: "Comprehensive guide to creating effective data visualizations that communicate insights clearly and accurately.",
+    author: "Dr. Maria Garcia",
+    authorRole: "Data Visualization Expert",
+    publishedDate: "2025-01-12",
+    downloads: 1765,
+    fileSize: "2.3 MB",
+    fileType: "PDF",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format",
+    downloadUrl: "#",
+    featured: true,
+    tags: ["Data Visualization", "Analytics", "Charts", "Insights"]
+  }
+];
+
+export const getResourceById = (id) => {
+  return resourceData.find(resource => resource.id === parseInt(id));
+};
+
+export const getFeaturedResources = () => {
+  return resourceData.filter(resource => resource.featured);
+};
+
+export const getResourcesByCategory = (category) => {
+  if (category === 'All') return resourceData;
+  return resourceData.filter(resource => resource.category === category);
+};
+
+export const getResourcesByType = (type) => {
+  if (type === 'All') return resourceData;
+  return resourceData.filter(resource => resource.type === type);
+};
+
+export const getResourceCategories = () => {
+  const categories = [...new Set(resourceData.map(resource => resource.category))];
+  return categories.map(category => ({
+    id: category,
+    name: category,
+    count: resourceData.filter(resource => resource.category === category).length
+  }));
+};
+
+export const getResourceTypes = () => {
+  const types = [...new Set(resourceData.map(resource => resource.type))];
+  return types.map(type => ({
+    id: type,
+    name: type,
+    count: resourceData.filter(resource => resource.type === type).length
+  }));
+};

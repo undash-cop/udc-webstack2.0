@@ -1,42 +1,152 @@
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeftIcon, QuestionMarkCircleIcon, ChatBubbleLeftRightIcon, PhoneIcon, EnvelopeIcon, DocumentTextIcon, ExclamationTriangleIcon, CheckCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
+import SEOHead from '../components/SEOHead';
+import { 
+  ArrowLeftIcon, 
+  QuestionMarkCircleIcon, 
+  ChatBubbleLeftRightIcon, 
+  PhoneIcon, 
+  EnvelopeIcon, 
+  DocumentTextIcon, 
+  ExclamationTriangleIcon, 
+  CheckCircleIcon, 
+  ClockIcon,
+  ChevronDownIcon,
+  ChevronUpIcon,
+  MagnifyingGlassIcon
+} from '@heroicons/react/24/outline';
 import companyData from '../data/companyData';
 
 const Support = () => {
-  const faqs = [
+  const [openItems, setOpenItems] = useState<number[]>([]);
+  const [searchQuery, setSearchQuery] = useState('');
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  const faqCategories = [
+    { id: 'All', name: 'All Questions', count: 0 },
+    { id: 'General', name: 'General', count: 0 },
+    { id: 'Technical', name: 'Technical Support', count: 0 },
+    { id: 'Account', name: 'Account & Security', count: 0 },
+    { id: 'Integration', name: 'Integrations', count: 0 }
+  ];
+
+  const faqData = [
     {
-      question: "How do I get started with your services?",
-      answer: "Getting started is easy! Simply contact us through our contact form or call us directly. We'll schedule a consultation to understand your needs and provide a customized solution."
+      id: 1,
+      category: 'General',
+      question: 'What services does Undash-cop provide?',
+      answer: 'Undash-cop provides comprehensive technology solutions including custom software development, web applications, mobile apps, cloud solutions, automation services, and digital transformation consulting. We specialize in helping businesses streamline their operations and improve efficiency through innovative technology.'
     },
     {
-      question: "What types of software development services do you offer?",
-      answer: "We offer comprehensive software development services including web applications, mobile apps, custom software solutions, system integration, cloud computing, and technical consulting."
+      id: 2,
+      category: 'General',
+      question: 'How long has Undash-cop been in business?',
+      answer: 'Undash-cop has been providing technology solutions for over 5 years. We have successfully completed hundreds of projects for clients across various industries, from startups to enterprise-level organizations.'
     },
     {
-      question: "How long does a typical project take?",
-      answer: "Project timelines vary based on complexity and requirements. Simple websites may take 2-4 weeks, while complex enterprise solutions can take 3-6 months. We provide detailed timelines during the consultation phase."
+      id: 3,
+      category: 'General',
+      question: 'What industries do you serve?',
+      answer: 'We serve a wide range of industries including healthcare, finance, e-commerce, manufacturing, education, real estate, and more. Our team has extensive experience across different sectors and can adapt our solutions to meet industry-specific requirements and compliance standards.'
     },
     {
-      question: "Do you provide ongoing support and maintenance?",
-      answer: "Yes! We offer comprehensive support and maintenance packages including bug fixes, updates, security patches, performance monitoring, and technical support."
+      id: 4,
+      category: 'General',
+      question: 'How do you price your services?',
+      answer: 'Our pricing is based on project scope, complexity, timeline, and specific requirements. We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements. Contact us for a detailed quote tailored to your specific needs.'
     },
     {
-      question: "What technologies do you work with?",
-      answer: "We work with a wide range of technologies including React, Node.js, Python, Java, .NET, AWS, Azure, Docker, Kubernetes, and many more modern frameworks and tools."
+      id: 5,
+      category: 'General',
+      question: 'Do you offer free consultations?',
+      answer: 'Yes, we offer free initial consultations to discuss your project requirements, understand your goals, and provide preliminary recommendations. This helps us provide accurate estimates and ensures we\'re the right fit for your project.'
     },
     {
-      question: "How do you ensure data security?",
-      answer: "We implement industry-standard security measures including SSL encryption, secure coding practices, regular security audits, access controls, and compliance with data protection regulations."
+      id: 6,
+      category: 'Technical',
+      question: 'What technologies do you work with?',
+      answer: 'We work with a wide range of modern technologies including React, Vue.js, Angular, Node.js, Python, PHP, Java, .NET, AWS, Azure, Google Cloud, Docker, Kubernetes, and many more. We stay updated with the latest technologies to provide cutting-edge solutions.'
     },
     {
-      question: "Can you work with our existing systems?",
-      answer: "Absolutely! We specialize in system integration and can work with your existing infrastructure, databases, and third-party services to ensure seamless integration."
+      id: 7,
+      category: 'Technical',
+      question: 'Do you provide ongoing support and maintenance?',
+      answer: 'Yes, we offer comprehensive support and maintenance services including bug fixes, updates, security patches, performance optimization, and feature enhancements. We provide different support tiers to meet your specific needs and budget.'
     },
     {
-      question: "What is your pricing model?",
-      answer: "We offer flexible pricing models including fixed-price projects, hourly rates, and retainer agreements. Pricing depends on project scope, complexity, and timeline requirements."
+      id: 8,
+      category: 'Technical',
+      question: 'How do you ensure code quality and security?',
+      answer: 'We follow industry best practices including code reviews, automated testing, security audits, and adherence to coding standards. Our development process includes regular quality checks, security assessments, and performance optimization to ensure robust and secure applications.'
+    },
+    {
+      id: 9,
+      category: 'Technical',
+      question: 'Do you provide hosting and deployment services?',
+      answer: 'Yes, we offer hosting and deployment services using reliable cloud platforms like AWS, Azure, and Google Cloud. We handle server setup, configuration, monitoring, and maintenance to ensure your application runs smoothly and securely.'
+    },
+    {
+      id: 10,
+      category: 'Account',
+      question: 'How do I get started with a project?',
+      answer: 'Getting started is easy! Simply contact us through our website, email, or phone. We\'ll schedule a free consultation to discuss your requirements, provide recommendations, and create a detailed project plan with timeline and pricing.'
+    },
+    {
+      id: 11,
+      category: 'Account',
+      question: 'Can I track my project progress?',
+      answer: 'Absolutely! We provide regular project updates through our client portal, where you can track progress, view milestones, communicate with the team, and access project documentation. We also schedule regular check-in meetings to keep you informed.'
+    },
+    {
+      id: 12,
+      category: 'Account',
+      question: 'What if I need changes during development?',
+      answer: 'We understand that requirements can evolve during development. We have a flexible change management process that allows for modifications while keeping the project on track. Changes are evaluated for impact on timeline and budget, and we\'ll discuss options with you before implementation.'
+    },
+    {
+      id: 13,
+      category: 'Integration',
+      question: 'Do you integrate with third-party services?',
+      answer: 'Yes, we have extensive experience integrating with various third-party services including payment gateways, CRM systems, email marketing platforms, analytics tools, social media APIs, and many more. We can help you connect your application with the services you need.'
+    },
+    {
+      id: 14,
+      category: 'Integration',
+      question: 'Can you migrate data from our existing system?',
+      answer: 'Yes, we provide data migration services to help you transition from legacy systems to new platforms. We ensure data integrity, perform thorough testing, and provide a smooth migration process with minimal downtime.'
+    },
+    {
+      id: 15,
+      category: 'General',
+      question: 'What is your response time for support requests?',
+      answer: 'We aim to respond to all support requests within 24 hours during business days. For critical issues, we provide priority support with faster response times. Our support team is available Monday through Friday, 9 AM to 6 PM.'
     }
   ];
+
+  // Calculate category counts
+  faqCategories.forEach(category => {
+    if (category.id === 'All') {
+      category.count = faqData.length;
+    } else {
+      category.count = faqData.filter(item => item.category === category.id).length;
+    }
+  });
+
+  const toggleItem = (id: number) => {
+    setOpenItems(prev => 
+      prev.includes(id) 
+        ? prev.filter(item => item !== id)
+        : [...prev, id]
+    );
+  };
+
+  const filteredFAQs = faqData.filter(item => {
+    const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
+    const matchesSearch = searchQuery === '' || 
+      item.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      item.answer.toLowerCase().includes(searchQuery.toLowerCase());
+    return matchesCategory && matchesSearch;
+  });
 
   const supportCategories = [
     {
@@ -74,7 +184,14 @@ const Support = () => {
   ];
 
   return (
-    <div className="bg-gray-50 py-16">
+    <>
+      <SEOHead
+        title="Support Center - Get Help & Technical Support | Undash-cop"
+        description="Get help with technical issues, find answers to common questions, and contact our support team. We're here to help with your technology needs."
+        keywords="support, help, technical support, FAQ, contact support, customer service"
+        canonicalUrl="https://undash-cop.com/support"
+      />
+      <div className="bg-gray-50 py-16">
       <div className="container-custom">
         {/* Breadcrumbs */}
         <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
@@ -166,26 +283,82 @@ const Support = () => {
 
         {/* FAQ Section */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Frequently Asked Questions</h2>
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Find answers to common questions about our services, pricing, and support. 
+            </p>
+          </div>
+
+          {/* Search and Filter */}
+          <div className="max-w-4xl mx-auto mb-8">
+            <div className="relative mb-6">
+              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <input
+                type="text"
+                placeholder="Search FAQs..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              />
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex flex-wrap gap-2 justify-center">
+              {faqCategories.map((category) => (
+                <button
+                  key={category.id}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                    selectedCategory === category.id
+                      ? 'bg-primary-600 text-white'
+                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                  }`}
+                >
+                  {category.name} ({category.count})
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* FAQ Items */}
           <div className="max-w-4xl mx-auto">
             <div className="space-y-4">
-              {faqs.map((faq, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200">
-                  <details className="group">
-                    <summary className="flex items-center justify-between p-6 cursor-pointer hover:bg-gray-50 transition-colors duration-200">
-                      <h3 className="text-lg font-medium text-gray-900 pr-4">{faq.question}</h3>
-                      <div className="flex-shrink-0">
-                        <svg className="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                        </svg>
-                      </div>
-                    </summary>
-                    <div className="px-6 pb-6">
-                      <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
-                    </div>
-                  </details>
+              {filteredFAQs.length === 0 ? (
+                <div className="text-center py-12">
+                  <QuestionMarkCircleIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No FAQs found</h3>
+                  <p className="text-gray-600">Try adjusting your search or category filter.</p>
                 </div>
-              ))}
+              ) : (
+                filteredFAQs.map((faq) => (
+                  <div key={faq.id} className="bg-white rounded-lg shadow-sm border border-gray-200">
+                    <button
+                      onClick={() => toggleItem(faq.id)}
+                      className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                    >
+                      <div className="flex-1 pr-4">
+                        <h3 className="text-lg font-medium text-gray-900 mb-1">{faq.question}</h3>
+                        <span className="inline-block px-2 py-1 text-xs font-medium bg-primary-100 text-primary-800 rounded-full">
+                          {faq.category}
+                        </span>
+                      </div>
+                      <div className="flex-shrink-0">
+                        {openItems.includes(faq.id) ? (
+                          <ChevronUpIcon className="h-5 w-5 text-gray-500" />
+                        ) : (
+                          <ChevronDownIcon className="h-5 w-5 text-gray-500" />
+                        )}
+                      </div>
+                    </button>
+                    {openItems.includes(faq.id) && (
+                      <div className="px-6 pb-6 border-t border-gray-100">
+                        <p className="text-gray-700 leading-relaxed pt-4">{faq.answer}</p>
+                      </div>
+                    )}
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </div>
@@ -280,6 +453,7 @@ const Support = () => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 
