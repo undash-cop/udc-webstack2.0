@@ -7,6 +7,7 @@ import Products from './pages/Products';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Blog from './pages/Blog';
+import BlogPost from './pages/BlogPost';
 import Careers from './pages/Careers';
 import Support from './pages/Support';
 import Status from './pages/Status';
@@ -27,6 +28,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/support" element={<Support />} />
             <Route path="/status" element={<Status />} />
