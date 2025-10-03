@@ -283,12 +283,13 @@
   compress = true
 
 # Functions (if using Netlify Functions)
-[functions]
-  directory = "netlify/functions"
+# [functions]
+#   directory = "netlify/functions"
 
 # Edge functions (if using Netlify Edge Functions)
-[edge_functions]
-  directory = "netlify/edge-functions"
+# [[edge_functions]]
+#   path = "/hello"
+#   function = "hello"
 
 # Environment variables (these will be set in Netlify dashboard)
 # VITE_GA_TRACKING_ID
