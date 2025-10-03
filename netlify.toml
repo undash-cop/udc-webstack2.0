@@ -282,12 +282,6 @@
 [build.processing.images]
   compress = true
 
-[build.processing.skip_processing]
-  - "*.pdf"
-  - "*.zip"
-  - "*.tar.gz"
-
-
 # Functions (if using Netlify Functions)
 [functions]
   directory = "netlify/functions"
