@@ -5,10 +5,10 @@
 /old-page    /new-page    301
 
 # Force HTTPS
-http://your-domain.com/*    https://your-domain.com/:splat    301!
+http://undash-cop.com/*    https://undash-cop.com/:splat    301!
 
 # Handle www redirects
-https://www.your-domain.com/*    https://your-domain.com/:splat    301!
+https://www.undash-cop.com/*    https://undash-cop.com/:splat    301!
 
 # Remove trailing slashes
 /*/    /:splat    301

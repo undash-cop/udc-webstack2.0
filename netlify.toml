@@ -143,21 +143,7 @@
   for = "/"
   [headers.values]
     # Canonical URL
-    Link = '<https://your-domain.com/>; rel="canonical"'
-    
-    # Open Graph
-    og:title = "Undash Cop - Technology Solutions & Digital Transformation"
-    og:description = "Leading provider of technology solutions, automation, and digital transformation services. Expert software development, AI, and cloud solutions."
-    og:type = "website"
-    og:url = "https://your-domain.com"
-    og:image = "https://your-domain.com/logo.png"
-    og:site_name = "Undash Cop"
-    
-    # Twitter Card
-    twitter:card = "summary_large_image"
-    twitter:title = "Undash Cop - Technology Solutions & Digital Transformation"
-    twitter:description = "Leading provider of technology solutions, automation, and digital transformation services."
-    twitter:image = "https://your-domain.com/logo.png"
+    Link = '<https://undash-cop.com/>; rel="canonical"'
     
     # Additional SEO
     robots = "index, follow"
@@ -167,124 +153,79 @@
 [[headers]]
   for = "/about"
   [headers.values]
-    Link = '<https://your-domain.com/about>; rel="canonical"'
-    og:title = "About Us - Undash Cop"
-    og:description = "Learn about Undash Cop's mission, team, and commitment to delivering exceptional technology solutions."
-    og:url = "https://your-domain.com/about"
+    Link = '<https://undash-cop.com/about>; rel="canonical"'
 
 [[headers]]
   for = "/contact"
   [headers.values]
-    Link = '<https://your-domain.com/contact>; rel="canonical"'
-    og:title = "Contact Us - Undash Cop"
-    og:description = "Get in touch with our team for technology solutions, project inquiries, and support."
-    og:url = "https://your-domain.com/contact"
+    Link = '<https://undash-cop.com/contact>; rel="canonical"'
 
 [[headers]]
   for = "/products"
   [headers.values]
-    Link = '<https://your-domain.com/products>; rel="canonical"'
-    og:title = "Our Products - Undash Cop"
-    og:description = "Explore our comprehensive suite of technology products and solutions."
-    og:url = "https://your-domain.com/products"
+    Link = '<https://undash-cop.com/products>; rel="canonical"'
 
 [[headers]]
   for = "/case-studies"
   [headers.values]
-    Link = '<https://your-domain.com/case-studies>; rel="canonical"'
-    og:title = "Case Studies - Undash Cop"
-    og:description = "Discover our successful projects and client success stories across various industries."
-    og:url = "https://your-domain.com/case-studies"
+    Link = '<https://undash-cop.com/case-studies>; rel="canonical"'
 
 [[headers]]
   for = "/blog"
   [headers.values]
-    Link = '<https://your-domain.com/blog>; rel="canonical"'
-    og:title = "Blog - Undash Cop"
-    og:description = "Latest insights, trends, and best practices in technology and digital transformation."
-    og:url = "https://your-domain.com/blog"
+    Link = '<https://undash-cop.com/blog>; rel="canonical"'
 
 [[headers]]
   for = "/resources"
   [headers.values]
-    Link = '<https://your-domain.com/resources>; rel="canonical"'
-    og:title = "Resource Center - Undash Cop"
-    og:description = "Access our library of guides, templates, whitepapers, and technical resources."
-    og:url = "https://your-domain.com/resources"
+    Link = '<https://undash-cop.com/resources>; rel="canonical"'
 
 [[headers]]
   for = "/careers"
   [headers.values]
-    Link = '<https://your-domain.com/careers>; rel="canonical"'
-    og:title = "Careers - Undash Cop"
-    og:description = "Join our team and be part of innovative technology solutions and digital transformation."
-    og:url = "https://your-domain.com/careers"
+    Link = '<https://undash-cop.com/careers>; rel="canonical"'
 
 # Legal pages
 [[headers]]
   for = "/privacy-policy"
   [headers.values]
-    Link = '<https://your-domain.com/privacy-policy>; rel="canonical"'
-    og:title = "Privacy Policy - Undash Cop"
-    og:description = "Our privacy policy and data protection practices."
-    og:url = "https://your-domain.com/privacy-policy"
+    Link = '<https://undash-cop.com/privacy-policy>; rel="canonical"'
 
 [[headers]]
   for = "/terms-and-conditions"
   [headers.values]
-    Link = '<https://your-domain.com/terms-and-conditions>; rel="canonical"'
-    og:title = "Terms and Conditions - Undash Cop"
-    og:description = "Terms and conditions for using our services and website."
-    og:url = "https://your-domain.com/terms-and-conditions"
+    Link = '<https://undash-cop.com/terms-and-conditions>; rel="canonical"'
 
 [[headers]]
   for = "/refund-policy"
   [headers.values]
-    Link = '<https://your-domain.com/refund-policy>; rel="canonical"'
-    og:title = "Refund Policy - Undash Cop"
-    og:description = "Our refund policy and terms for service cancellations."
-    og:url = "https://your-domain.com/refund-policy"
+    Link = '<https://undash-cop.com/refund-policy>; rel="canonical"'
 
 [[headers]]
   for = "/cookie-policy"
   [headers.values]
-    Link = '<https://your-domain.com/cookie-policy>; rel="canonical"'
-    og:title = "Cookie Policy - Undash Cop"
-    og:description = "Information about cookies and how we use them on our website."
-    og:url = "https://your-domain.com/cookie-policy"
+    Link = '<https://undash-cop.com/cookie-policy>; rel="canonical"'
 
 [[headers]]
   for = "/support"
   [headers.values]
-    Link = '<https://your-domain.com/support>; rel="canonical"'
-    og:title = "Support - Undash Cop"
-    og:description = "Get help and support for our products and services."
-    og:url = "https://your-domain.com/support"
+    Link = '<https://undash-cop.com/support>; rel="canonical"'
 
 [[headers]]
   for = "/status"
   [headers.values]
-    Link = '<https://your-domain.com/status>; rel="canonical"'
-    og:title = "System Status - Undash Cop"
-    og:description = "Real-time status of our systems and services."
-    og:url = "https://your-domain.com/status"
+    Link = '<https://undash-cop.com/status>; rel="canonical"'
 
 # Dynamic routes for blog posts and case studies
 [[headers]]
   for = "/blog/*"
   [headers.values]
-    Link = '<https://your-domain.com/blog/*>; rel="canonical"'
-    og:title = "Blog Post - Undash Cop"
-    og:description = "Read our latest blog posts and insights on technology and digital transformation."
-    og:url = "https://your-domain.com/blog/*"
+    Link = '<https://undash-cop.com/blog/*>; rel="canonical"'
 
 [[headers]]
   for = "/case-studies/*"
   [headers.values]
-    Link = '<https://your-domain.com/case-studies/*>; rel="canonical"'
-    og:title = "Case Study - Undash Cop"
-    og:description = "Explore our detailed case studies and project success stories."
-    og:url = "https://your-domain.com/case-studies/*"
+    Link = '<https://undash-cop.com/case-studies/*>; rel="canonical"'
 
 # Error pages
 [[redirects]]
@@ -305,8 +246,8 @@
 
 # Force HTTPS
 [[redirects]]
-  from = "http://your-domain.com/*"
-  to = "https://your-domain.com/:splat"
+  from = "http://undash-cop.com/*"
+  to = "https://undash-cop.com/:splat"
   status = 301
   force = true
 
@@ -318,8 +259,8 @@
 
 # Handle www redirects
 [[redirects]]
-  from = "https://www.your-domain.com/*"
-  to = "https://your-domain.com/:splat"
+  from = "https://www.undash-cop.com/*"
+  to = "https://undash-cop.com/:splat"
   status = 301
   force = true
 
