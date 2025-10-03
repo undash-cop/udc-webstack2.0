@@ -173,6 +173,19 @@ If you encounter `ERESOLVE` errors with React 19 and `react-helmet-async`:
 - This resolves peer dependency conflicts between React 19 and older packages
 - The application will work correctly despite the warnings
 
+#### Build Command Override Issues
+If the build command in `netlify.toml` is being overridden:
+1. Check Netlify Dashboard > Site Settings > Build & Deploy > Build Settings
+2. Ensure "Build command" is set to: `npm install --force && npm run build`
+3. Or leave it empty to use the command from `netlify.toml`
+4. Make sure "Publish directory" is set to: `dist`
+
+#### TypeScript Not Found Error
+If you see `tsc: not found` error:
+- TypeScript is now moved to dependencies (not devDependencies)
+- This ensures it's available during the build process
+- The build command includes `npm install --force` to install all dependencies
+
 #### Forms Not Working
 - Verify HubSpot credentials
 - Check form IDs are correct
