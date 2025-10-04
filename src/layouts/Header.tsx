@@ -9,7 +9,7 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
-  const [dropdownTimeout, setDropdownTimeout] = useState<any>(null);
+  const [dropdownTimeout, setDropdownTimeout] = useState<number | null>(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -63,7 +63,7 @@ const Header = () => {
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className={`sticky-nav ${isScrolled ? 'sticky-nav-scrolled' : 'bg-white shadow-lg'} top-0 z-50 transition-all duration-300`}>
+    <header className={`sticky-nav ${isScrolled ? 'sticky-nav-scrolled' : ''} top-0 z-50 transition-all duration-300`}>
       <nav className="container-custom">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -197,7 +197,7 @@ const Header = () => {
               <XMarkIcon className="h-6 w-6" />
             </button>
           </div>
-          <div className="px-4 pt-4 pb-6 space-y-2">
+          <div className="px-4 pt-4 pb-6 space-y-2" style={{background: 'white'}}>
             {navigation.map((item) => (
               <div key={item.name}>
                 {item.dropdown ? (
@@ -217,7 +217,7 @@ const Header = () => {
                       }`} />
                     </button>
                     {activeDropdown === item.name && (
-                      <div className="ml-4 mt-2 space-y-1">
+                      <div className="ml-4 mt-2 space-y-1 bg-white rounded-lg p-2 border border-gray-200 shadow-sm">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.name}

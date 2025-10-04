@@ -186,6 +186,13 @@ If you see `tsc: not found` error:
 - This ensures it's available during the build process
 - The build command includes `npm install --force` to install all dependencies
 
+#### TypeScript Declaration Errors
+If you see errors like "Could not find a declaration file for module 'react-dom/client'":
+- `@types/react` and `@types/react-dom` are now in dependencies
+- `@vitejs/plugin-react` is now in dependencies
+- These packages are needed for TypeScript compilation during build
+- All TypeScript-related packages are available during the build process
+
 #### Forms Not Working
 - Verify HubSpot credentials
 - Check form IDs are correct
