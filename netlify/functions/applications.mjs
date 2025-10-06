@@ -4,6 +4,9 @@ import { z } from 'zod';
 import fs from 'fs';
 import cors from 'cors';
 
+// Increase max listeners to prevent memory leak warnings
+process.setMaxListeners(50);
+
 // Import our modules
 import { uploadFileToR2, validateFileType, validateFileSize } from '../../src/utils/fileUpload.cjs';
 import { sendConfirmationEmail, sendHRNotification } from '../../src/services/emailService.cjs';
@@ -38,7 +41,12 @@ app.post('/api/applications', async (req, res) => {
     // Parse form data with file upload
     const form = formidable({
       maxFileSize: 5 * 1024 * 1024, // 5MB
-      filter: ({ mimetype }) => validateFileType(mimetype || '')
+      maxFields: 20, // Limit number of fields
+      maxFieldsSize: 2 * 1024 * 1024, // 2MB for fields
+      filter: ({ mimetype }) => validateFileType(mimetype || ''),
+      keepExtensions: true,
+      uploadDir: '/tmp/uploads', // Use Netlify's temp directory
+      createDirsFromUploads: true
     });
 
     const [fields, files] = await form.parse(req);
@@ -114,7 +122,11 @@ app.post('/api/applications', async (req, res) => {
     ]);
 
     // Clean up temporary file
-    await fs.promises.unlink(resumeFile.filepath);
+    try {
+      await fs.promises.unlink(resumeFile.filepath);
+    } catch (cleanupError) {
+      console.warn('Failed to clean up temporary file:', cleanupError.message);
+    }
 
     res.status(201).json({
       success: true,
@@ -124,6 +136,15 @@ app.post('/api/applications', async (req, res) => {
 
   } catch (error) {
     console.error('Application submission error:', error);
+    
+    // Clean up any temporary files on error
+    if (files && files.resume && files.resume[0]) {
+      try {
+        await fs.promises.unlink(files.resume[0].filepath);
+      } catch (cleanupError) {
+        console.warn('Failed to clean up file on error:', cleanupError.message);
+      }
+    }
     
     if (error instanceof z.ZodError) {
       return res.status(400).json({ 

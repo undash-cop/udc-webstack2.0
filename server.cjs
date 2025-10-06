@@ -5,6 +5,9 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
+// Increase max listeners to prevent memory leak warnings
+process.setMaxListeners(50);
+
 // Import our modules (we'll need to convert them to CommonJS)
 const { uploadFileToR2, validateFileType, validateFileSize } = require('./src/utils/fileUpload.cjs');
 const { sendConfirmationEmail, sendHRNotification } = require('./src/services/emailService.cjs');
@@ -40,7 +43,12 @@ app.post('/api/applications', async (req, res) => {
     // Parse form data with file upload
     const form = formidable({
       maxFileSize: 5 * 1024 * 1024, // 5MB
-      filter: ({ mimetype }) => validateFileType(mimetype || '')
+      maxFields: 20, // Limit number of fields
+      maxFieldsSize: 2 * 1024 * 1024, // 2MB for fields
+      filter: ({ mimetype }) => validateFileType(mimetype || ''),
+      keepExtensions: true,
+      uploadDir: './uploads', // Use specific upload directory
+      createDirsFromUploads: true
     });
 
     const [fields, files] = await form.parse(req);
@@ -116,7 +124,11 @@ app.post('/api/applications', async (req, res) => {
     ]);
 
     // Clean up temporary file
-    await fs.promises.unlink(resumeFile.filepath);
+    try {
+      await fs.promises.unlink(resumeFile.filepath);
+    } catch (cleanupError) {
+      console.warn('Failed to clean up temporary file:', cleanupError.message);
+    }
 
     res.status(201).json({
       success: true,
@@ -126,6 +138,15 @@ app.post('/api/applications', async (req, res) => {
 
   } catch (error) {
     console.error('Application submission error:', error);
+    
+    // Clean up any temporary files on error
+    if (files && files.resume && files.resume[0]) {
+      try {
+        await fs.promises.unlink(files.resume[0].filepath);
+      } catch (cleanupError) {
+        console.warn('Failed to clean up file on error:', cleanupError.message);
+      }
+    }
     
     if (error instanceof z.ZodError) {
       return res.status(400).json({ 
@@ -144,11 +165,39 @@ app.get('/api/health', (req, res) => {
 });
 
 // Start server
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`🚀 Server running on port ${PORT}`);
   console.log(`📡 API available at http://localhost:${PORT}/api`);
   console.log(`🌍 Environment: ${process.env.NODE_ENV || 'development'}`);
   console.log(`📊 Health check: http://localhost:${PORT}/api/health`);
+});
+
+// Graceful shutdown
+process.on('SIGTERM', () => {
+  console.log('SIGTERM received, shutting down gracefully');
+  server.close(() => {
+    console.log('Process terminated');
+    process.exit(0);
+  });
+});
+
+process.on('SIGINT', () => {
+  console.log('SIGINT received, shutting down gracefully');
+  server.close(() => {
+    console.log('Process terminated');
+    process.exit(0);
+  });
+});
+
+// Handle uncaught exceptions
+process.on('uncaughtException', (error) => {
+  console.error('Uncaught Exception:', error);
+  process.exit(1);
+});
+
+process.on('unhandledRejection', (reason, promise) => {
+  console.error('Unhandled Rejection at:', promise, 'reason:', reason);
+  process.exit(1);
 });
 
 module.exports = app;
