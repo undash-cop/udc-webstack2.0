@@ -52,7 +52,7 @@ ls -la dist/
 5. **Configure build settings**:
    - **Build command**: `npm run build`
    - **Publish directory**: `dist`
-   - **Node version**: `18`
+   - **Node version**: `22`
 
 #### 2.2 Set Environment Variables
 In Netlify dashboard, go to **Site settings** → **Environment variables**:
