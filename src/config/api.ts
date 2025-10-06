@@ -1,11 +1,11 @@
 // API configuration for different environments
 const getApiUrl = () => {
   if (import.meta.env.DEV) {
-    // Development - use local server with configurable port
-    const port = import.meta.env.VITE_SERVER_PORT || '3001';
+    // Development - use FastAPI server
+    const port = import.meta.env.VITE_SERVER_PORT || '8000';
     return `http://localhost:${port}/api`;
   } else {
-    // Production - use Netlify functions
+    // Production - use Netlify functions (fallback)
     return '/api';
   }
 };
