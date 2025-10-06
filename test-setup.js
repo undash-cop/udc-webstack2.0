@@ -62,4 +62,4 @@ console.log('1. Set up environment variables (.env.local)');
 console.log('2. Configure Cloudflare R2');
 console.log('3. Set up Gmail app password');
 console.log('4. Run: npm run dev:full');
-console.log('5. Test form submission at http://localhost:5173/careers');
+console.log('5. Test form submission at https://undash-cop.com/careers');

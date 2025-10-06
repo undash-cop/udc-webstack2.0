@@ -1,73 +1,130 @@
-# React + TypeScript + Vite
+# Job Application System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern job application system built with React frontend and FastAPI backend.
 
-Currently, two official plugins are available:
+## 🚀 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Frontend**: React + TypeScript + Vite + Tailwind CSS
+- **Backend**: FastAPI + Python
+- **File Storage**: Cloudflare R2
+- **Email**: SendGrid
+- **Form Handling**: React Hook Form + Zod validation
+- **UI**: Headless UI + Heroicons
 
-## React Compiler
+## 📁 Project Structure
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+├── src/                    # React frontend
+│   ├── pages/             # Application pages
+│   ├── components/        # Reusable components
+│   ├── config/           # Configuration files
+│   └── data/             # Mock data
+├── backend/              # FastAPI backend
+│   ├── main.py          # Main FastAPI application
+│   ├── requirements.txt # Python dependencies
+│   ├── run.py          # Server startup script
+│   └── env.example     # Environment variables template
+└── README.md
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Setup
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Frontend Setup
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+1. **Install Dependencies**:
+   ```bash
+   npm install
+   ```
+
+2. **Start Development Server**:
+   ```bash
+   npm run dev
+   ```
+
+### Backend Setup
+
+1. **Install Python Dependencies**:
+   ```bash
+   npm run install:backend
+   ```
+
+2. **Set Environment Variables**:
+   ```bash
+   cd backend
+   cp env.example .env
+   # Edit .env with your actual values
+   ```
+
+3. **Start Backend Server**:
+   ```bash
+   npm run server
+   ```
+
+### Full Stack Development
+
+```bash
+# Start both frontend and backend
+npm run dev:full
 ```
+
+## 🌐 API Endpoints
+
+- `GET /api/health` - Health check
+- `POST /api/applications` - Submit job application
+- `GET /docs` - Interactive API documentation
+- `GET /redoc` - Alternative API documentation
+
+## 🔧 Environment Variables
+
+Create `backend/.env` with:
+
+```env
+# Cloudflare R2
+R2_ACCOUNT_ID=your_account_id
+R2_ACCESS_KEY_ID=your_access_key
+R2_SECRET_ACCESS_KEY=your_secret_key
+R2_BUCKET_NAME=resumes
+
+# SendGrid
+SENDGRID_API_KEY=your_sendgrid_key
+FROM_EMAIL=noreply@yourcompany.com
+FROM_NAME=Your Company
+HR_EMAIL=hr@yourcompany.com
+
+# Server
+PORT=8000
+HOST=0.0.0.0
+```
+
+## 📚 Available Scripts
+
+- `npm run dev` - Start frontend development server
+- `npm run build` - Build frontend for production
+- `npm run server` - Start FastAPI backend
+- `npm run dev:full` - Start both frontend and backend
+- `npm run install:backend` - Install Python dependencies
+
+## 🎯 Key Features
+
+- **Job Listings**: Browse available positions
+- **Job Details**: Detailed view of each position
+- **Apply Now**: Job-specific application form
+- **Send Resume**: General resume submission
+- **File Upload**: Resume upload with validation
+- **Email Notifications**: Confirmation and HR notifications
+- **Responsive Design**: Mobile-friendly interface
+
+## 🚀 Advantages of FastAPI Backend
+
+- ✅ **No Memory Leaks**: Python handles memory automatically
+- ✅ **Clean Code**: Pydantic models provide automatic validation
+- ✅ **Auto Documentation**: FastAPI generates interactive docs
+- ✅ **Type Safety**: Full type hints and validation
+- ✅ **Performance**: FastAPI is one of the fastest Python frameworks
+- ✅ **Simple**: No complex middleware or configuration needed
+
+## 📖 Documentation
+
+- Frontend runs on `http://localhost:5173`
+- Backend runs on `http://localhost:8000`
+- API docs available at `http://localhost:8000/docs`

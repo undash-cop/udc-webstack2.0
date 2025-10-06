@@ -119,14 +119,14 @@ const ApplyJob = () => {
     try {
       // Create FormData for file upload
       const formData = new FormData();
-      formData.append('jobId', jobId || '');
-      formData.append('firstName', data.firstName);
-      formData.append('lastName', data.lastName);
+      formData.append('job_id', jobId || '');
+      formData.append('first_name', data.firstName);
+      formData.append('last_name', data.lastName);
       formData.append('email', data.email);
       formData.append('phone', data.phone);
-      formData.append('currentCompany', data.currentCompany || '');
+      formData.append('current_company', data.currentCompany || '');
       formData.append('experience', data.experience);
-      formData.append('coverLetter', data.coverLetter || '');
+      formData.append('cover_letter', data.coverLetter || '');
       formData.append('linkedin', data.linkedin || '');
       formData.append('portfolio', data.portfolio || '');
       formData.append('resume', data.resume);
