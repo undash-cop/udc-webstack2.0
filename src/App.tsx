@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useEffect, lazy, Suspense } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { ToastProvider } from './contexts/ToastContext';
+import { Toaster } from 'react-hot-toast';
 import { initializeAnalytics } from './hooks/useAnalytics';
 import Layout from './layouts/Layout';
 import ScrollToTop from './components/ScrollToTop';
@@ -18,6 +19,9 @@ const BlogPost = lazy(() => import('./pages/BlogPost'));
 const CaseStudies = lazy(() => import('./pages/CaseStudies'));
 const CaseStudyDetail = lazy(() => import('./pages/CaseStudyDetail'));
 const Careers = lazy(() => import('./pages/Careers'));
+const ApplyJob = lazy(() => import('./pages/ApplyJob'));
+const SendResume = lazy(() => import('./pages/SendResume'));
+const JobDetails = lazy(() => import('./pages/JobDetails'));
 const Support = lazy(() => import('./pages/Support'));
 const Status = lazy(() => import('./pages/Status'));
 const PrivacyPolicy = lazy(() => import('./pages/PrivacyPolicy'));
@@ -35,8 +39,8 @@ function App() {
 
   return (
     <HelmetProvider>
-      <ToastProvider>
-        <Router>
+        <ToastProvider>
+          <Router>
             <ScrollToTop />
             <PerformanceMonitor />
             <AccessibilityEnhancer />
@@ -45,6 +49,30 @@ function App() {
                 { type: 'image', href: '/logo.png', as: 'image' }
               ]}
               priority={true}
+            />
+            <Toaster
+              position="top-center"
+              toastOptions={{
+                duration: 4000,
+                style: {
+                  background: '#363636',
+                  color: '#fff',
+                },
+                success: {
+                  duration: 5000,
+                  iconTheme: {
+                    primary: '#10b981',
+                    secondary: '#fff',
+                  },
+                },
+                error: {
+                  duration: 5000,
+                  iconTheme: {
+                    primary: '#ef4444',
+                    secondary: '#fff',
+                  },
+                },
+              }}
             />
             <Layout>
               <Suspense fallback={
@@ -62,6 +90,9 @@ function App() {
                   <Route path="/case-studies" element={<CaseStudies />} />
                   <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
                   <Route path="/careers" element={<Careers />} />
+                  <Route path="/apply/:jobId" element={<ApplyJob />} />
+                  <Route path="/send-resume" element={<SendResume />} />
+                  <Route path="/job/:jobId" element={<JobDetails />} />
                   <Route path="/support" element={<Support />} />
                   <Route path="/status" element={<Status />} />
                   <Route path="/privacy-policy" element={<PrivacyPolicy />} />

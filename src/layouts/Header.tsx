@@ -88,7 +88,7 @@ const Header = () => {
                       const timeout = setTimeout(() => {
                         setActiveDropdown(null);
                       }, 150);
-                      setDropdownTimeout(timeout);
+                      setDropdownTimeout(timeout as any);
                     }}
                   >
                     <span className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
@@ -115,7 +115,7 @@ const Header = () => {
                           const timeout = setTimeout(() => {
                             setActiveDropdown(null);
                           }, 150);
-                          setDropdownTimeout(timeout);
+                          setDropdownTimeout(timeout as any);
                         }}
                       >
                         {item.dropdown.map((subItem) => (
