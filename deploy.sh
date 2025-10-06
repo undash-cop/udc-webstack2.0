@@ -61,12 +61,28 @@ if ! command -v netlify &> /dev/null; then
     npm install -g netlify-cli
 fi
 
+# Install missing dependencies
+echo "📦 Installing Netlify dependencies..."
+npm install -g @netlify/edge-functions-bootstrap
+
 # Deploy to Netlify
 echo "🌐 Deploying to Netlify..."
 netlify deploy --prod
 
 if [ $? -ne 0 ]; then
-    echo "❌ Netlify deployment failed. Please check your configuration."
+    echo "❌ Netlify CLI deployment failed."
+    echo ""
+    echo "🔄 Alternative deployment methods:"
+    echo "1. GitHub + Netlify Dashboard (Recommended)"
+    echo "2. Manual drag & drop deployment"
+    echo ""
+    echo "📋 Next steps:"
+    echo "1. Go to https://netlify.com/"
+    echo "2. Click 'New site from Git'"
+    echo "3. Connect your GitHub repository"
+    echo "4. Set build command: npm run build"
+    echo "5. Set publish directory: dist"
+    echo "6. Deploy!"
     exit 1
 fi
 
