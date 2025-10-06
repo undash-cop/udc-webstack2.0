@@ -5,7 +5,11 @@ import fs from 'fs';
 import cors from 'cors';
 
 // Increase max listeners to prevent memory leak warnings
-process.setMaxListeners(50);
+process.setMaxListeners(100);
+
+// Set default max listeners for all EventEmitters
+import { EventEmitter } from 'events';
+EventEmitter.defaultMaxListeners = 100;
 
 // Import our modules
 import { uploadFileToR2, validateFileType, validateFileSize } from '../../src/utils/fileUpload.cjs';
@@ -34,6 +38,8 @@ const applicationSchema = z.object({
 
 // API Routes
 app.post('/api/applications', async (req, res) => {
+  let files = null;
+  
   try {
     // Validate environment variables
     validateEnvironment();
@@ -46,10 +52,19 @@ app.post('/api/applications', async (req, res) => {
       filter: ({ mimetype }) => validateFileType(mimetype || ''),
       keepExtensions: true,
       uploadDir: '/tmp/uploads', // Use Netlify's temp directory
-      createDirsFromUploads: true
+      createDirsFromUploads: true,
+      allowEmptyFiles: false,
+      minFileSize: 1
     });
 
-    const [fields, files] = await form.parse(req);
+    // Increase max listeners for this specific form instance
+    form.setMaxListeners(100);
+
+    // Increase max listeners for the request object
+    req.setMaxListeners(100);
+
+    const [fields, parsedFiles] = await form.parse(req);
+    files = parsedFiles;
     
     // Validate form data
     const validatedData = applicationSchema.parse({
@@ -66,7 +81,7 @@ app.post('/api/applications', async (req, res) => {
     });
 
     // Handle file upload
-    const resumeFile = files.resume?.[0];
+    const resumeFile = parsedFiles.resume?.[0];
     if (!resumeFile) {
       return res.status(400).json({ error: 'Resume file is required' });
     }

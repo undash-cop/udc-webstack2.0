@@ -6,7 +6,10 @@ const path = require('path');
 const cors = require('cors');
 
 // Increase max listeners to prevent memory leak warnings
-process.setMaxListeners(50);
+process.setMaxListeners(100);
+
+// Set default max listeners for all EventEmitters
+require('events').EventEmitter.defaultMaxListeners = 100;
 
 // Import our modules (we'll need to convert them to CommonJS)
 const { uploadFileToR2, validateFileType, validateFileSize } = require('./src/utils/fileUpload.cjs');
@@ -18,7 +21,15 @@ const PORT = process.env.SERVER_PORT || process.env.PORT || 3001;
 
 // Middleware
 app.use(cors());
-app.use(express.json());
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ extended: true, limit: '10mb' }));
+
+// Set request timeout
+app.use((req, res, next) => {
+  req.setTimeout(30000); // 30 seconds
+  res.setTimeout(30000); // 30 seconds
+  next();
+});
 
 // Validation schema
 const applicationSchema = z.object({
@@ -36,6 +47,8 @@ const applicationSchema = z.object({
 
 // API Routes
 app.post('/api/applications', async (req, res) => {
+  let files = null;
+  
   try {
     // Validate environment variables
     validateEnvironment();
@@ -48,10 +61,19 @@ app.post('/api/applications', async (req, res) => {
       filter: ({ mimetype }) => validateFileType(mimetype || ''),
       keepExtensions: true,
       uploadDir: './uploads', // Use specific upload directory
-      createDirsFromUploads: true
+      createDirsFromUploads: true,
+      allowEmptyFiles: false,
+      minFileSize: 1
     });
 
-    const [fields, files] = await form.parse(req);
+    // Increase max listeners for this specific form instance
+    form.setMaxListeners(100);
+
+    // Increase max listeners for the request object
+    req.setMaxListeners(100);
+
+    const [fields, parsedFiles] = await form.parse(req);
+    files = parsedFiles;
     
     // Validate form data
     const validatedData = applicationSchema.parse({
@@ -68,7 +90,7 @@ app.post('/api/applications', async (req, res) => {
     });
 
     // Handle file upload
-    const resumeFile = files.resume?.[0];
+    const resumeFile = parsedFiles.resume?.[0];
     if (!resumeFile) {
       return res.status(400).json({ error: 'Resume file is required' });
     }
