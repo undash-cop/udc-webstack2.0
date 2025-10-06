@@ -5,6 +5,16 @@ const fs = require('fs');
 const path = require('path');
 const cors = require('cors');
 
+// Suppress deprecation warnings
+process.removeAllListeners('warning');
+process.on('warning', (warning) => {
+  if (warning.name === 'DeprecationWarning' && warning.message.includes('util._extend')) {
+    // Suppress this specific deprecation warning
+    return;
+  }
+  console.warn(warning);
+});
+
 // Increase max listeners to prevent memory leak warnings
 process.setMaxListeners(100);
 
