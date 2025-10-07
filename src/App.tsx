@@ -30,6 +30,7 @@ const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const ResourceCenter = lazy(() => import('./pages/ResourceCenter'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
 // Optimized loading component
 const LoadingSpinner = memo(() => (
@@ -88,6 +89,7 @@ function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/products" element={<Products />} />
+                  <Route path="/products/:productId" element={<ProductDetail />} />
                   <Route path="/about" element={<About />} />
                   <Route path="/contact" element={<Contact />} />
                   <Route path="/blog" element={<Blog />} />

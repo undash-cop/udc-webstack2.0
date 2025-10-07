@@ -5,8 +5,8 @@ A modern, high-performance website for Undash-cop Private Limited built with Rea
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 20.19+ or 22.12+
-- npm or yarn
+- **Node.js 22+** (see [NODE_UPGRADE.md](./NODE_UPGRADE.md) for upgrade guide)
+- npm 10+ or yarn
 - Git
 
 ### Installation
@@ -14,6 +14,11 @@ A modern, high-performance website for Undash-cop Private Limited built with Rea
 # Clone and install dependencies
 git clone <repository-url>
 cd udc-webstack2.0
+
+# Upgrade to Node.js 22 (if needed)
+npm run upgrade:node22
+
+# Install dependencies
 npm install
 npm run install:worker
 ```
@@ -38,16 +43,53 @@ npm run dev:full
 
 ## 📦 Available Scripts
 
+### Development
 | Command | Description |
 |---------|-------------|
 | `npm run dev` | Start development server |
-| `npm run build` | Build for production |
-| `npm run build:optimized` | Build with optimizations |
+| `npm run dev:full` | Start both frontend and backend |
 | `npm run preview` | Preview production build |
+| `npm run start` | Build and preview |
+
+### Building
+| Command | Description |
+|---------|-------------|
+| `npm run build` | Build for development |
+| `npm run build:production` | Build with all optimizations (images, sitemap, etc.) |
+| `npm run build:analyze` | Build and analyze bundle size |
+
+### Code Quality
+| Command | Description |
+|---------|-------------|
 | `npm run lint` | Run ESLint |
-| `npm run clean` | Clean build artifacts |
+| `npm run lint:fix` | Fix ESLint issues |
+| `npm run type-check` | Run TypeScript type checking |
+| `npm run test` | Run tests |
+
+### Deployment
+| Command | Description |
+|---------|-------------|
+| `npm run deploy` | Deploy everything (frontend + backend) |
+| `npm run deploy:frontend` | Deploy frontend only |
+| `npm run deploy:backend` | Deploy backend only |
+
+### Worker (Cloudflare)
+| Command | Description |
+|---------|-------------|
 | `npm run worker:dev` | Start worker locally |
 | `npm run worker:deploy` | Deploy worker to Cloudflare |
+| `npm run worker:tail` | Tail worker logs |
+| `npm run worker:test` | Test worker |
+| `npm run worker:install` | Install worker dependencies |
+
+### Utilities
+| Command | Description |
+|---------|-------------|
+| `npm run clean` | Clean build artifacts |
+| `npm run check:node` | Check Node.js version |
+| `npm run upgrade:node22` | Upgrade to Node.js 22 |
+| `npm run optimize:images` | Optimize images |
+| `npm run generate:sitemap` | Generate sitemap |
 
 ## 🚀 Deployment
 

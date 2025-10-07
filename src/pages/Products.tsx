@@ -2,6 +2,7 @@ import Card from '../components/Card';
 import useScrollAnimation from '../hooks/useScrollAnimation';
 import companyData from '../data/companyData.js';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { 
   CheckCircleIcon,
   ArrowRightIcon,
@@ -200,13 +201,13 @@ const Products = () => {
 
                     {/* Action Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3">
-                      <button
-                        onClick={() => setSelectedProduct(product)}
+                      <Link
+                        to={`/products/${product.id}`}
                         className="flex-1 bg-primary-600 text-white hover:bg-primary-700 font-medium py-2 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center text-sm"
                       >
                         <EyeIcon className="w-4 h-4 mr-2" />
                         View Details
-                      </button>
+                      </Link>
                       <a
                         href={product.link}
                         target="_blank"
