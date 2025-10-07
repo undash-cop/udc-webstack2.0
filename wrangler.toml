@@ -1,4 +1,4 @@
-name = "udc-applications-worker"
+name = "udc-webstack"
 main = "workers/applications.js"
 compatibility_date = "2024-01-01"
 
