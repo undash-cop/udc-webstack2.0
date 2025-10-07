@@ -65,10 +65,10 @@ const Careers = () => {
 
   const employeeTestimonials = [
     {
-      name: 'Sarah Chen',
+      name: 'Priya Sharma',
       role: 'Senior Software Engineer',
       department: 'Engineering',
-      image: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face&auto=format',
+      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face&auto=format',
       quote: 'Working at Undash-cop has been an incredible journey. The team is supportive, the projects are challenging, and I\'ve grown tremendously in my career.',
       rating: 5
     },

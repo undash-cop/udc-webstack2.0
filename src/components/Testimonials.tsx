@@ -25,20 +25,20 @@ const Testimonials = () => {
   const testimonials: Testimonial[] = [
     {
       id: 1,
-      name: "Sarah Johnson",
+      name: "Priya Sharma",
       role: "CEO",
       company: "TechStart Inc.",
-      image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=150&h=150&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face&auto=format",
       rating: 5,
       content: "Undash-cop transformed our business operations completely. Their automation solutions saved us 40 hours per week and increased our productivity by 300%. The team is professional, responsive, and truly understands our needs.",
       featured: true
     },
     {
       id: 2,
-      name: "Michael Chen",
+      name: "Arjun Patel",
       role: "CTO",
       company: "DataFlow Solutions",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format",
       rating: 5,
       content: "The EUP Dashboard has been a game-changer for our HR and finance management. The interface is intuitive, and the reporting capabilities are exactly what we needed. Highly recommend their services.",
       featured: true
