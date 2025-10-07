@@ -343,6 +343,9 @@
   
   .sticky-nav {
     @apply fixed top-0 left-0 right-0 z-40 transition-all duration-300 bg-white shadow-lg;
+    overflow: visible !important;
+    height: auto !important;
+    min-height: 4rem;
   }
   
   .sticky-nav-scrolled {
@@ -756,6 +759,40 @@ header,
 footer {
   max-width: 100vw;
   overflow-x: hidden;
+}
+
+/* Ensure dropdown menus are visible without causing header scroll */
+header {
+  overflow: visible !important;
+}
+
+header nav {
+  overflow: visible !important;
+}
+
+header nav .container-custom {
+  overflow: visible !important;
+}
+
+header nav .container-custom > div {
+  overflow: visible !important;
+}
+
+/* Dropdown menu styles - positioned outside normal flow */
+[data-dropdown] {
+  position: absolute !important;
+  z-index: 9999 !important;
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: translateZ(0); /* Force hardware acceleration */
+  will-change: transform; /* Optimize for animations */
+}
+
+/* Ensure dropdown parent has proper positioning context */
+header nav .container-custom > div > div {
+  position: relative;
+  overflow: visible !important;
 }
 
 /* Additional overrides for HubSpot inline styles */

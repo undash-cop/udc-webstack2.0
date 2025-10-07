@@ -103,8 +103,16 @@ const Header = () => {
                     {/* Dropdown Menu */}
                     {activeDropdown === item.name && (
                       <div 
-                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-50" 
+                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-[9999]" 
                         data-dropdown
+                        style={{ 
+                          display: 'block',
+                          position: 'absolute',
+                          top: '100%',
+                          left: '0',
+                          marginTop: '0.5rem',
+                          zIndex: 9999
+                        }}
                         onMouseEnter={() => {
                           if (dropdownTimeout) {
                             clearTimeout(dropdownTimeout);
