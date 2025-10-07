@@ -190,6 +190,20 @@
     Cache-Control = "public, max-age=86400"
     Content-Type = "image/x-icon"
 
+# MIME type fixes for JavaScript files
+[[headers]]
+  for = "/assets/*.js"
+  [headers.values]
+    Content-Type = "application/javascript; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# MIME type fixes for CSS files
+[[headers]]
+  for = "/assets/*.css"
+  [headers.values]
+    Content-Type = "text/css; charset=utf-8"
+    Cache-Control = "public, max-age=31536000, immutable"
+
 # API proxy to Cloudflare Workers (if needed)
 [[redirects]]
   from = "/api/*"
