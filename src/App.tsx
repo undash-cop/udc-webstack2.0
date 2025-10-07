@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, lazy, Suspense, memo } from 'react';
-import { HelmetProvider } from 'react-helmet-async';
+import { lazy, Suspense, memo } from 'react';
+import LazyHelmetProvider from './components/LazyHelmetProvider';
 import { ToastProvider } from './contexts/ToastContext';
-import { Toaster } from 'react-hot-toast';
-import { initializeAnalytics } from './hooks/useAnalytics';
+import LazyToaster from './components/LazyToaster';
 import Layout from './layouts/Layout';
 import ScrollToTop from './components/ScrollToTop';
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
 const Products = lazy(() => import('./pages/Products'));
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 const About = lazy(() => import('./pages/About'));
 const Contact = lazy(() => import('./pages/Contact'));
 const Blog = lazy(() => import('./pages/Blog'));
@@ -28,8 +28,6 @@ const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const ResourceCenter = lazy(() => import('./pages/ResourceCenter'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-const ProductDetail = lazy(() => import('./pages/ProductDetail'));
-
 // Optimized loading component
 const LoadingSpinner = memo(() => (
   <div className="min-h-screen flex items-center justify-center bg-gray-50">
@@ -37,43 +35,12 @@ const LoadingSpinner = memo(() => (
   </div>
 ));
 
-LoadingSpinner.displayName = 'LoadingSpinner';
-
 function App() {
-  // Initialize analytics on app start
-  useEffect(() => {
-    initializeAnalytics();
-  }, []);
-
   return (
-    <HelmetProvider>
+    <LazyHelmetProvider>
       <ToastProvider>
         <Router>
           <ScrollToTop />
-          <Toaster
-            position="top-center"
-            toastOptions={{
-              duration: 4000,
-              style: {
-                background: '#363636',
-                color: '#fff',
-              },
-              success: {
-                duration: 5000,
-                iconTheme: {
-                  primary: '#10b981',
-                  secondary: '#fff',
-                },
-              },
-              error: {
-                duration: 5000,
-                iconTheme: {
-                  primary: '#ef4444',
-                  secondary: '#fff',
-                },
-              },
-            }}
-          />
           <Layout>
             <Suspense fallback={<LoadingSpinner />}>
               <Routes>
@@ -101,9 +68,10 @@ function App() {
               </Routes>
             </Suspense>
           </Layout>
+          <LazyToaster />
         </Router>
       </ToastProvider>
-    </HelmetProvider>
+    </LazyHelmetProvider>
   );
 }
 
