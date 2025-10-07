@@ -1,0 +1,14 @@
+{
+  "name": "udc-applications-worker",
+  "version": "1.0.0",
+  "description": "Cloudflare Worker for handling job applications",
+  "main": "applications.js",
+  "scripts": {
+    "deploy": "wrangler deploy",
+    "dev": "wrangler dev",
+    "tail": "wrangler tail"
+  },
+  "devDependencies": {
+    "wrangler": "^3.0.0"
+  }
+}

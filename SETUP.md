@@ -1,12 +1,12 @@
-# 🚀 Form Submission Setup Guide
+# 🚀 Cloudflare Workers Setup Guide
 
-This guide will help you set up the complete form submission system with Netlify and Cloudflare R2.
+This guide will help you set up the complete job application system with Cloudflare Workers and R2 storage.
 
 ## 📋 Prerequisites
 
-1. **Cloudflare Account** - For R2 storage
-2. **Gmail Account** - For email notifications
-3. **Netlify Account** - For deployment
+1. **Cloudflare Account** - For Workers and R2 storage
+2. **SendGrid Account** - For email notifications
+3. **Node.js 18+** - For development
 
 ## 🔧 Step 1: Cloudflare R2 Setup
 
@@ -20,7 +20,7 @@ This guide will help you set up the complete form submission system with Netlify
 ### 1.2 Generate API Token
 1. Go to **Manage R2 API tokens**
 2. Click **Create API token**
-3. Name: `Form Submissions`
+3. Name: `Job Applications`
 4. Permissions: **Object Read & Write**
 5. Bucket: Select your bucket
 6. Click **Create API token**
@@ -41,7 +41,7 @@ This guide will help you set up the complete form submission system with Netlify
 ### 2.2 Create API Key
 1. Go to **Settings** → **API Keys**
 2. Click **Create API Key**
-3. Name: `Form Submissions`
+3. Name: `Job Applications`
 4. Permissions: **Full Access** (or **Mail Send** only for security)
 5. Click **Create & View**
 6. **Copy the API key** - you'll only see it once!
@@ -56,150 +56,214 @@ This guide will help you set up the complete form submission system with Netlify
 4. Click **Create**
 5. **Check your email** and click the verification link
 
-## 🌐 Step 3: Environment Variables
+## 🛠️ Step 3: Local Development Setup
 
-Create a `.env.local` file in your project root:
-
+### 3.1 Install Dependencies
 ```bash
-# Cloudflare R2 Configuration
-R2_ACCOUNT_ID=your_account_id_here
-R2_ACCESS_KEY_ID=your_access_key_here
-R2_SECRET_ACCESS_KEY=your_secret_key_here
-R2_BUCKET_NAME=resumes
+# Install project dependencies
+npm install
 
-# SendGrid Email Configuration
-SENDGRID_API_KEY=your_sendgrid_api_key_here
-FROM_EMAIL=noreply@yourcompany.com
-FROM_NAME=Your Company Name
-HR_EMAIL=hr@yourcompany.com
+# Install worker dependencies
+npm run install:worker
 
-# Application Configuration
-NEXTAUTH_SECRET=your_random_secret_here
-NEXTAUTH_URL=http://localhost:3000
+# Install Wrangler CLI globally
+npm install -g wrangler
 ```
 
-## 🚀 Step 4: Netlify Deployment
+### 3.2 Configure Worker
+1. Edit `wrangler.toml`:
+   ```toml
+   name = "udc-applications-worker"
+   main = "workers/applications.js"
+   
+   [vars]
+   FROM_EMAIL = "noreply@yourcompany.com"
+   FROM_NAME = "Your Company"
+   HR_EMAIL = "hr@yourcompany.com"
+   
+   [[r2_buckets]]
+   binding = "R2_BUCKET"
+   bucket_name = "resumes"
+   ```
 
-### 4.1 Deploy to Netlify
-1. Push your code to GitHub
-2. Go to [Netlify](https://netlify.com/)
-3. Click **New site from Git**
-4. Connect your GitHub repository
-5. Build settings:
-   - **Build command**: `npm run build`
-   - **Publish directory**: `dist`
-   - **Node version**: `18`
+### 3.3 Set Worker Secrets
+```bash
+# Login to Cloudflare
+wrangler login
 
-### 4.2 Set Environment Variables in Netlify
-1. Go to **Site settings** → **Environment variables**
-2. Add all variables from your `.env.local` file
-3. Make sure to use the same names
+# Set secrets
+cd workers
+wrangler secret put R2_ACCOUNT_ID
+wrangler secret put R2_ACCESS_KEY_ID
+wrangler secret put R2_SECRET_ACCESS_KEY
+wrangler secret put R2_PUBLIC_URL
+wrangler secret put SENDGRID_API_KEY
+```
 
-### 4.3 Deploy
-1. Click **Deploy site**
-2. Wait for deployment to complete
-3. Your form will be available at `https://your-site.netlify.app`
+## 🚀 Step 4: Development & Testing
 
-## 🧪 Step 5: Testing
+### 4.1 Start Development
+```bash
+# Start both frontend and worker
+npm run dev:full
+```
 
-### 5.1 Test Form Submission
-1. Go to your deployed site
+This will start:
+- Frontend on `http://localhost:5173`
+- Worker on `http://localhost:8787`
+
+### 4.2 Test Worker
+```bash
+# Test worker functionality
+npm run worker:test
+```
+
+### 4.3 Test Full Application
+1. Go to `http://localhost:5173/careers`
+2. Click **Apply Now** on any job
+3. Fill out the form and submit
+4. Check your email for confirmation
+
+## 🌐 Step 5: Production Deployment
+
+### 5.1 Deploy Worker
+```bash
+# Deploy to Cloudflare Workers
+npm run worker:deploy
+```
+
+### 5.2 Update Frontend Configuration
+Edit `src/config/api.ts` and update the production URL:
+```typescript
+// Replace with your actual worker URL
+return 'https://udc-applications-worker.your-subdomain.workers.dev/api';
+```
+
+### 5.3 Deploy Frontend
+Deploy your frontend to your preferred hosting service (Vercel, Netlify, etc.):
+```bash
+npm run build
+# Deploy the dist/ folder
+```
+
+## 🧪 Step 6: Verification
+
+### 6.1 Health Check
+```bash
+curl https://your-worker.workers.dev/api/health
+```
+
+### 6.2 Test Application Submission
+1. Go to your deployed frontend
 2. Navigate to `/careers`
-3. Click **Apply Now** on any job
-4. Fill out the form and submit
-5. Check your email for confirmation
-
-### 5.2 Verify File Upload
-1. Check your Cloudflare R2 bucket
-2. You should see uploaded resume files
-3. Files are organized by timestamp
+3. Submit a job application
+4. Verify:
+   - Email confirmation sent
+   - HR notification sent
+   - File uploaded to R2
 
 ## 🔍 Troubleshooting
 
 ### Common Issues:
 
-#### 1. **File Upload Fails**
-- Check R2 credentials
-- Verify bucket name
-- Check file size (max 5MB)
+#### 1. **Worker Won't Start**
+```bash
+# Check if wrangler is installed
+wrangler --version
 
-#### 2. **Email Not Sending**
-- Verify SendGrid API key
-- Check sender email is verified
-- Test with SendGrid dashboard
+# Reinstall if needed
+npm install -g wrangler
 
-#### 3. **Form Validation Errors**
-- Check Zod schema
-- Verify all required fields
-- Check file type restrictions
+# Check worker logs
+npm run worker:tail
+```
 
-#### 4. **Netlify Deployment Issues**
-- Check build logs
-- Verify environment variables
-- Check Node.js version
+#### 2. **R2 Upload Fails**
+- Verify R2 bucket exists and is named `resumes`
+- Check API token has R2 permissions
+- Verify secrets are set correctly:
+  ```bash
+  wrangler secret list
+  ```
+
+#### 3. **Emails Not Sending**
+- Check SendGrid API key is set
+- Verify FROM_EMAIL and HR_EMAIL in wrangler.toml
+- Check worker logs: `npm run worker:tail`
+
+#### 4. **Frontend Can't Connect**
+- Verify worker is running: `npm run worker:dev`
+- Check API URL in `src/config/api.ts`
+- Check browser console for CORS errors
+
+#### 5. **CORS Issues**
+- Ensure worker includes proper CORS headers
+- Check vite.config.ts for allowed origins
 
 ## 📊 Monitoring
 
-### 1. **Application Logs**
-- Check Netlify function logs
-- Monitor error rates
-- Track successful submissions
+### 1. **Worker Logs**
+```bash
+# Real-time logs
+npm run worker:tail
 
-### 2. **File Storage**
-- Monitor R2 storage usage
+# Or use Wrangler directly
+wrangler tail
+```
+
+### 2. **Cloudflare Analytics**
+- Go to Cloudflare Dashboard → Workers & Pages
+- Select your worker
+- View analytics and logs
+
+### 3. **R2 Storage**
+- Monitor storage usage in R2 dashboard
 - Set up alerts for storage limits
-- Regular cleanup of old files
-
-### 3. **Email Delivery**
-- Monitor email bounce rates
-- Check spam folder
-- Verify email templates
 
 ## 🔒 Security Considerations
 
 ### 1. **Environment Variables**
-- Never commit `.env.local` to git
-- Use strong, unique secrets
+- Never commit secrets to git
+- Use `wrangler secret put` for sensitive data
 - Rotate credentials regularly
 
 ### 2. **File Uploads**
-- Validate file types
-- Limit file sizes
-- Scan for malware (optional)
+- File type validation (PDF, DOC, DOCX only)
+- File size limits (5MB max)
+- Virus scanning (optional)
 
 ### 3. **Rate Limiting**
-- Implement rate limiting
-- Monitor for abuse
-- Block suspicious IPs
+- Cloudflare Workers have built-in rate limiting
+- Monitor for abuse in Cloudflare dashboard
 
 ## 📈 Performance Optimization
 
-### 1. **File Uploads**
-- Compress images before upload
-- Use CDN for file delivery
-- Implement progress indicators
+### 1. **Worker Optimization**
+- Minimize bundle size
+- Use efficient algorithms
+- Cache frequently accessed data
 
-### 2. **Email Templates**
+### 2. **R2 Optimization**
+- Use appropriate file compression
+- Set proper cache headers
+- Implement cleanup for old files
+
+### 3. **Email Templates**
 - Optimize HTML templates
 - Use inline CSS
 - Test across email clients
 
-### 3. **Database (Future)**
-- Add database for persistence
-- Implement search functionality
-- Add analytics dashboard
-
 ## 🎯 Next Steps
 
 1. **Add Database Integration**
-   - Store applications in database
+   - Store applications in Cloudflare D1
    - Add admin dashboard
    - Implement search and filtering
 
-2. **Enhance Email Templates**
-   - Add company branding
-   - Create email templates
-   - Add unsubscribe options
+2. **Enhance Security**
+   - Add authentication
+   - Implement rate limiting
+   - Add input sanitization
 
 3. **Add Analytics**
    - Track form submissions
@@ -215,9 +279,9 @@ NEXTAUTH_URL=http://localhost:3000
 
 If you encounter any issues:
 1. Check the troubleshooting section
-2. Review Netlify function logs
-3. Check Cloudflare R2 logs
-4. Verify environment variables
+2. Review worker logs: `npm run worker:tail`
+3. Check Cloudflare dashboard
+4. Verify all secrets are set correctly
 
 ---
 

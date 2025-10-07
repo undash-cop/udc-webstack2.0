@@ -1,12 +1,12 @@
 // API configuration for different environments
 const getApiUrl = () => {
   if (import.meta.env.DEV) {
-    // Development - use FastAPI server
-    const port = import.meta.env.VITE_SERVER_PORT || '8000';
-    return `http://localhost:${port}/api`;
+    // Development - use Cloudflare Worker dev server
+    return 'http://localhost:8787/api';
   } else {
-    // Production - use Netlify functions (fallback)
-    return '/api';
+    // Production - use Cloudflare Worker
+    // Replace with your actual worker URL after deployment
+    return 'https://udc-applications-worker.your-subdomain.workers.dev/api';
   }
 };
 

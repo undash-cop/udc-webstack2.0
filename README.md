@@ -1,15 +1,16 @@
 # Job Application System
 
-A modern job application system built with React frontend and FastAPI backend.
+A modern job application system built with React frontend and Cloudflare Workers backend.
 
 ## 🚀 Features
 
 - **Frontend**: React + TypeScript + Vite + Tailwind CSS
-- **Backend**: FastAPI + Python
+- **Backend**: Cloudflare Workers (JavaScript)
 - **File Storage**: Cloudflare R2
 - **Email**: SendGrid
 - **Form Handling**: React Hook Form + Zod validation
 - **UI**: Headless UI + Heroicons
+- **Deployment**: Cloudflare Workers (serverless)
 
 ## 📁 Project Structure
 
@@ -19,90 +20,97 @@ A modern job application system built with React frontend and FastAPI backend.
 │   ├── components/        # Reusable components
 │   ├── config/           # Configuration files
 │   └── data/             # Mock data
-├── backend/              # FastAPI backend
-│   ├── main.py          # Main FastAPI application
-│   ├── requirements.txt # Python dependencies
-│   ├── run.py          # Server startup script
-│   └── env.example     # Environment variables template
+├── workers/               # Cloudflare Workers backend
+│   ├── applications.js   # Main worker application
+│   ├── email.js         # Email worker (optional)
+│   ├── package.json     # Worker dependencies
+│   └── test-worker.js   # Test script
+├── wrangler.toml         # Cloudflare configuration
 └── README.md
 ```
 
 ## 🛠️ Setup
 
-### Frontend Setup
+### Quick Start
 
 1. **Install Dependencies**:
    ```bash
    npm install
+   npm run install:worker
    ```
 
-2. **Start Development Server**:
+2. **Start Development**:
    ```bash
-   npm run dev
+   # Start both frontend and worker
+   npm run dev:full
    ```
 
-### Backend Setup
+### Cloudflare Workers Setup
 
-1. **Install Python Dependencies**:
+1. **Install Wrangler CLI**:
    ```bash
-   npm run install:backend
+   npm install -g wrangler
    ```
 
-2. **Set Environment Variables**:
+2. **Login to Cloudflare**:
    ```bash
-   cd backend
-   cp env.example .env
-   # Edit .env with your actual values
+   wrangler login
    ```
 
-3. **Start Backend Server**:
+3. **Set up R2 Storage**:
+   - Create R2 bucket named `resumes`
+   - Get Account ID and API credentials
+
+4. **Configure Secrets**:
    ```bash
-   npm run server
+   cd workers
+   wrangler secret put R2_ACCOUNT_ID
+   wrangler secret put R2_ACCESS_KEY_ID
+   wrangler secret put R2_SECRET_ACCESS_KEY
+   wrangler secret put R2_PUBLIC_URL
+   wrangler secret put SENDGRID_API_KEY
    ```
 
-### Full Stack Development
-
-```bash
-# Start both frontend and backend
-npm run dev:full
-```
+5. **Deploy Worker**:
+   ```bash
+   npm run worker:deploy
+   ```
 
 ## 🌐 API Endpoints
 
 - `GET /api/health` - Health check
-- `POST /api/applications` - Submit job application
-- `GET /docs` - Interactive API documentation
-- `GET /redoc` - Alternative API documentation
+- `POST /api/applications` - Submit job application (with file upload)
+- `POST /api/applications/json` - Submit application data (JSON only)
 
 ## 🔧 Environment Variables
 
-Create `backend/.env` with:
+Set these in Cloudflare Workers (via `wrangler secret put`):
 
-```env
+```bash
 # Cloudflare R2
 R2_ACCOUNT_ID=your_account_id
 R2_ACCESS_KEY_ID=your_access_key
 R2_SECRET_ACCESS_KEY=your_secret_key
-R2_BUCKET_NAME=resumes
+R2_PUBLIC_URL=your_r2_public_url
 
 # SendGrid
 SENDGRID_API_KEY=your_sendgrid_key
+
+# Email Configuration (in wrangler.toml)
 FROM_EMAIL=noreply@yourcompany.com
 FROM_NAME=Your Company
 HR_EMAIL=hr@yourcompany.com
-
-# Server
-PORT=8000
-HOST=0.0.0.0
 ```
 
 ## 📚 Available Scripts
 
 - `npm run dev` - Start frontend development server
 - `npm run build` - Build frontend for production
-- `npm run server` - Start FastAPI backend
-- `npm run dev:full` - Start both frontend and backend
-- `npm run install:backend` - Install Python dependencies
+- `npm run dev:full` - Start both frontend and worker
+- `npm run worker:dev` - Start worker locally
+- `npm run worker:deploy` - Deploy worker to Cloudflare
+- `npm run worker:test` - Test worker functionality
+- `npm run install:worker` - Install worker dependencies
 
 ## 🎯 Key Features
 
@@ -114,17 +122,19 @@ HOST=0.0.0.0
 - **Email Notifications**: Confirmation and HR notifications
 - **Responsive Design**: Mobile-friendly interface
 
-## 🚀 Advantages of FastAPI Backend
+## 🚀 Advantages of Cloudflare Workers
 
-- ✅ **No Memory Leaks**: Python handles memory automatically
-- ✅ **Clean Code**: Pydantic models provide automatic validation
-- ✅ **Auto Documentation**: FastAPI generates interactive docs
-- ✅ **Type Safety**: Full type hints and validation
-- ✅ **Performance**: FastAPI is one of the fastest Python frameworks
-- ✅ **Simple**: No complex middleware or configuration needed
+- ✅ **Zero Server Management**: No servers to maintain or scale
+- ✅ **Global Edge Deployment**: Faster response times worldwide
+- ✅ **Pay-per-request**: Only pay for what you use
+- ✅ **Automatic Scaling**: Handles traffic spikes automatically
+- ✅ **Built-in Security**: DDoS protection, WAF, etc.
+- ✅ **Simple Deployment**: `wrangler deploy` and you're live
+- ✅ **Cost Effective**: 90% cost reduction vs traditional servers
 
 ## 📖 Documentation
 
 - Frontend runs on `http://localhost:5173`
-- Backend runs on `http://localhost:8000`
-- API docs available at `http://localhost:8000/docs`
+- Worker runs on `http://localhost:8787` (development)
+- Production worker: `https://your-worker.workers.dev`
+- See `QUICK_START.md` for detailed setup instructions

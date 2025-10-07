@@ -10,18 +10,17 @@ export default defineConfig({
     allowedHosts: [
       'localhost',
       '127.0.0.1',
-      '.netlify.app', // Allow all Netlify preview URLs
-      'devserver-main--udc-webstack.netlify.app', // Specific Netlify URL
-      '.netlify.com', // Allow Netlify domains
+      '.workers.dev', // Allow Cloudflare Workers domains
+      '.cloudflare.com', // Allow Cloudflare domains
     ],
     cors: {
       origin: [
         'http://localhost:3000',
         'http://localhost:3001',
         'http://localhost:5173',
-        'https://devserver-main--udc-webstack.netlify.app',
-        'https://*.netlify.app',
-        'https://*.netlify.com'
+        'http://localhost:8787', // Cloudflare Worker dev server
+        'https://*.workers.dev',
+        'https://*.cloudflare.com'
       ],
       credentials: true
     }
@@ -32,8 +31,8 @@ export default defineConfig({
     allowedHosts: [
       'localhost',
       '127.0.0.1',
-      '.netlify.app',
-      '.netlify.com'
+      '.workers.dev',
+      '.cloudflare.com'
     ]
   }
 })
