@@ -45,41 +45,92 @@ const HubSpotForm = ({
   useEffect(() => {
     const loadHubSpotScript = () => {
       return new Promise<void>((resolve, reject) => {
-        // Check if script already exists
-        if (document.querySelector('script[src*="js.hs-scripts.com"]')) {
-          if (window.hbspt) {
-            resolve();
-            return;
-          }
+        // Check if HubSpot is already available
+        if (window.hbspt && window.hbspt.forms) {
+          console.log('HubSpot already available');
+          resolve();
+          return;
         }
 
-        // Create script element
-        const script = document.createElement('script');
-        script.src = `//js.hs-scripts.com/${portalId}.js`;
-        script.async = true;
-        script.defer = true;
-        
-        script.onload = () => {
-          console.log('HubSpot script loaded');
-          resolve();
-        };
-        
-        script.onerror = () => {
-          console.error('Failed to load HubSpot script');
-          reject(new Error('Failed to load HubSpot script'));
+        // Try loading the forms API directly (more reliable)
+        const loadFormsAPI = () => {
+          const formsScript = document.createElement('script');
+          formsScript.src = 'https://js.hsforms.net/forms/embed/v2.js';
+          formsScript.async = true;
+          formsScript.defer = true;
+          
+          formsScript.onload = () => {
+            console.log('HubSpot forms API loaded');
+            // Wait for hbspt object with longer timeout
+            let attempts = 0;
+            const maxAttempts = 100; // 10 seconds total
+            
+            const checkHubSpot = () => {
+              attempts++;
+              if (window.hbspt && window.hbspt.forms) {
+                console.log('HubSpot hbspt object available');
+                resolve();
+              } else if (attempts >= maxAttempts) {
+                console.error('HubSpot hbspt object not available after maximum attempts');
+                reject(new Error('HubSpot forms API loaded but hbspt object not available after timeout'));
+              } else {
+                setTimeout(checkHubSpot, 100);
+              }
+            };
+            
+            checkHubSpot();
+          };
+          
+          formsScript.onerror = () => {
+            console.error('Failed to load HubSpot forms API');
+            reject(new Error('Failed to load HubSpot forms API'));
+          };
+          
+          document.head.appendChild(formsScript);
         };
 
-        document.head.appendChild(script);
+        // Check if script already exists
+        const existingScript = document.querySelector('script[src*="js.hsforms.net"]');
+        if (existingScript) {
+          // Wait for the existing script to load
+          let attempts = 0;
+          const maxAttempts = 100;
+          
+          const checkHubSpot = () => {
+            attempts++;
+            if (window.hbspt && window.hbspt.forms) {
+              console.log('HubSpot loaded from existing script');
+              resolve();
+            } else if (attempts >= maxAttempts) {
+              console.log('Existing script found but hbspt not available, loading new script');
+              loadFormsAPI();
+            } else {
+              setTimeout(checkHubSpot, 100);
+            }
+          };
+          checkHubSpot();
+          return;
+        }
+
+        // Load the forms API directly
+        loadFormsAPI();
       });
     };
 
     const createForm = async () => {
       try {
-        await loadHubSpotScript();
+        // Add timeout to prevent infinite waiting
+        const timeoutPromise = new Promise((_, reject) => {
+          setTimeout(() => reject(new Error('HubSpot script loading timeout')), 10000);
+        });
+
+        await Promise.race([loadHubSpotScript(), timeoutPromise]);
         
         if (window.hbspt && window.hbspt.forms && formRef.current) {
           const containerId = `hubspot-form-${Date.now()}`;
           formRef.current.id = containerId;
+          
+          console.log('Creating HubSpot form with:', { portalId, formId, containerId });
           
           window.hbspt.forms.create({
             portalId: portalId,
@@ -100,6 +151,11 @@ const HubSpotForm = ({
             }
           });
         } else {
+          console.error('HubSpot not available:', { 
+            hbspt: !!window.hbspt, 
+            forms: !!(window.hbspt && window.hbspt.forms),
+            formRef: !!formRef.current 
+          });
           throw new Error('HubSpot not available');
         }
       } catch (error) {
