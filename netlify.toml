@@ -3,7 +3,7 @@
 
 [build]
   # Optimized build command
-  command = "npm run build:optimized"
+  command = "npm run build:production"
   
   # Directory to publish
   publish = "dist"
