@@ -6,11 +6,14 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
+    "build:optimized": "npm run optimize:images && tsc -b && vite build",
+    "build:analyze": "npm run build && npx vite-bundle-analyzer dist/assets/*.js",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "lint:fix": "eslint . --ext ts,tsx --fix",
     "preview": "vite preview",
-    "start": "npm run build",
-    "deploy": "npm run build && npm run worker:deploy",
-    "deploy:frontend": "npm run build",
+    "start": "npm run build && npm run preview",
+    "deploy": "npm run build:optimized && npm run worker:deploy",
+    "deploy:frontend": "npm run build:optimized",
     "deploy:backend": "npm run worker:deploy",
     "deploy:full": "npm run deploy:backend && npm run deploy:frontend",
     "worker:dev": "cd workers && wrangler dev",
@@ -19,8 +22,10 @@
     "worker:test": "cd workers && node test-worker.js",
     "dev:full": "concurrently \"npm run dev\" \"npm run worker:dev\"",
     "install:worker": "cd workers && npm install",
-    "setup:cloudflare": "./setup-cloudflare.sh",
-    "test:migration": "npm run install:worker && npm run worker:test"
+    "optimize:images": "node optimize-images.js",
+    "clean": "rm -rf dist node_modules/.vite",
+    "type-check": "tsc --noEmit",
+    "test": "echo \"No tests specified\" && exit 0"
   },
   "dependencies": {
     "@headlessui/react": "^2.2.9",
@@ -50,6 +55,8 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.22",
     "globals": "^16.4.0",
+    "sharp": "^0.34.4",
+    "terser": "^5.44.0",
     "typescript-eslint": "^8.45.0"
   }
 }

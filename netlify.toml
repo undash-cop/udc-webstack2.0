@@ -1,39 +1,223 @@
+# Netlify Configuration for Undash-cop Website
+# Production-ready configuration with performance and security optimizations
+
 [build]
-  # Build command for Netlify
-  command = "npm run build"
+  # Optimized build command
+  command = "npm run build:optimized"
   
   # Directory to publish
   publish = "dist"
   
-  # Node.js version
+  # Build environment
   [build.environment]
-    NODE_VERSION = "18"
+    NODE_VERSION = "20.19.0"
+    NPM_FLAGS = "--production=false"
+    NPM_CONFIG_PRODUCTION = "false"
+    
+    # Performance optimizations
+    VITE_APP_ENV = "production"
+    VITE_APP_BASE_URL = "https://undash-cop.com"
+    
+    # Enable optimizations
+    VITE_ENABLE_ANALYTICS = "true"
+    VITE_ENABLE_PWA = "true"
+    VITE_ENABLE_OFFLINE = "true"
 
-# Redirect rules for SPA
+# Build plugins for optimization
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  
+  [plugins.inputs.thresholds]
+    performance = 0.9
+    accessibility = 0.9
+    best-practices = 0.9
+    seo = 0.9
+
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+  
+  [plugins.inputs]
+    buildDir = "dist"
+    exclude = ["/404", "/offline"]
+
+# Redirect rules for SPA and SEO
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = {Role = ["admin"], Country = ["US"]}
 
-# Headers for security and performance
+# Force HTTPS redirects
+[[redirects]]
+  from = "http://undash-cop.com/*"
+  to = "https://undash-cop.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "http://www.undash-cop.com/*"
+  to = "https://undash-cop.com/:splat"
+  status = 301
+  force = true
+
+[[redirects]]
+  from = "https://www.undash-cop.com/*"
+  to = "https://undash-cop.com/:splat"
+  status = 301
+  force = true
+
+# Security headers for all pages
 [[headers]]
   for = "/*"
   [headers.values]
+    # Security headers
     X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
     X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # HSTS (HTTP Strict Transport Security)
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    
+    # Content Security Policy
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://js.hsforms.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://api.undash-cop.com; frame-src 'self' https://js.hsforms.net;"
+    
+    # Performance headers
+    X-DNS-Prefetch-Control = "on"
+    X-Download-Options = "noopen"
+    X-Permitted-Cross-Domain-Policies = "none"
 
-# Headers for static assets
+# Headers for static assets (JS, CSS, images)
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    X-Content-Type-Options = "nosniff"
+    Vary = "Accept-Encoding"
 
-# Headers for API calls to Cloudflare Workers
+# Headers for images
 [[headers]]
-  for = "/api/*"
+  for = "*.png"
   [headers.values]
-    Access-Control-Allow-Origin = "*"
-    Access-Control-Allow-Methods = "GET, POST, OPTIONS"
-    Access-Control-Allow-Headers = "Content-Type, Authorization"
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "image/png"
+
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "image/jpeg"
+
+[[headers]]
+  for = "*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "image/jpeg"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "image/webp"
+
+[[headers]]
+  for = "*.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "image/svg+xml"
+
+# Headers for fonts
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "font/woff2"
+
+[[headers]]
+  for = "*.woff"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "font/woff"
+
+[[headers]]
+  for = "*.ttf"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000"
+    Content-Type = "font/ttf"
+
+# Headers for HTML files
+[[headers]]
+  for = "*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+# Headers for service worker
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+    Service-Worker-Allowed = "/"
+
+# Headers for manifest
+[[headers]]
+  for = "/manifest.json"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/manifest+json"
+
+# Headers for robots.txt
+[[headers]]
+  for = "/robots.txt"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "text/plain"
+
+# Headers for sitemap
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "application/xml"
+
+# Headers for favicon
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+    Content-Type = "image/x-icon"
+
+# API proxy to Cloudflare Workers (if needed)
+[[redirects]]
+  from = "/api/*"
+  to = "https://udc-applications-worker.your-subdomain.workers.dev/api/:splat"
+  status = 200
+  force = true
+  headers = {X-From = "Netlify"}
+
+# Error pages
+[[redirects]]
+  from = "/404"
+  to = "/index.html"
+  status = 404
+
+# Sitemap and robots.txt generation
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true

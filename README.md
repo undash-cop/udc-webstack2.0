@@ -1,67 +1,103 @@
-# Job Application System
+# Undash-cop Website
 
-A modern job application system built with React frontend and Cloudflare Workers backend.
+A modern, high-performance website for Undash-cop Private Limited built with React, TypeScript, and Cloudflare Workers.
 
-## 🚀 Features
+## 🚀 Quick Start
 
-- **Frontend**: React + TypeScript + Vite + Tailwind CSS
-- **Backend**: Cloudflare Workers (JavaScript)
-- **File Storage**: Cloudflare R2
-- **Email**: SendGrid
-- **Form Handling**: React Hook Form + Zod validation
-- **UI**: Headless UI + Heroicons
-- **Deployment**: Cloudflare Workers (serverless)
+### Prerequisites
+- Node.js 20.19+ or 22.12+
+- npm or yarn
+- Git
 
-## 📁 Project Structure
-
-```
-├── src/                    # React frontend
-│   ├── pages/             # Application pages
-│   ├── components/        # Reusable components
-│   ├── config/           # Configuration files
-│   └── data/             # Mock data
-├── workers/               # Cloudflare Workers backend
-│   ├── applications.js   # Main worker application
-│   ├── email.js         # Email worker (optional)
-│   ├── package.json     # Worker dependencies
-│   └── test-worker.js   # Test script
-├── wrangler.toml         # Cloudflare configuration
-└── README.md
+### Installation
+```bash
+# Clone and install dependencies
+git clone <repository-url>
+cd udc-webstack2.0
+npm install
+npm run install:worker
 ```
 
-## 🛠️ Setup
+### Development
+```bash
+# Start frontend only
+npm run dev
 
-### Quick Start
+# Start frontend + backend
+npm run dev:full
+```
 
-1. **Install Dependencies**:
+**Access**: http://localhost:5173
+
+## 🛠️ Tech Stack
+
+- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS
+- **Backend**: Cloudflare Workers, R2 Storage, SendGrid
+- **Performance**: Code splitting, image optimization, service worker
+- **Features**: PWA, SEO optimized, mobile-first design
+
+## 📦 Available Scripts
+
+| Command | Description |
+|---------|-------------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run build:optimized` | Build with optimizations |
+| `npm run preview` | Preview production build |
+| `npm run lint` | Run ESLint |
+| `npm run clean` | Clean build artifacts |
+| `npm run worker:dev` | Start worker locally |
+| `npm run worker:deploy` | Deploy worker to Cloudflare |
+
+## 🚀 Deployment
+
+### Netlify (Recommended)
+1. **Connect Repository**: Link your GitHub repo to Netlify
+2. **Set Environment Variables**:
    ```bash
-   npm install
-   npm run install:worker
+   VITE_GA_TRACKING_ID=G-XXXXXXXXXX
+   VITE_HUBSPOT_PORTAL_ID=********
+   VITE_HUBSPOT_CONTACT_FORM_ID=**************
+   VITE_APP_BASE_URL=https://undash-cop.com
    ```
+3. **Deploy**: Automatic deployment on push to main branch
 
-2. **Start Development**:
-   ```bash
-   # Start both frontend and worker
-   npm run dev:full
-   ```
+### Other Platforms
+- **Vercel**: Connect repository or upload `dist/` folder
+- **Cloudflare Pages**: Connect repository
+- **Manual**: Upload `dist/` folder to any static hosting
+
+### Backend (Optional)
+```bash
+# Deploy Cloudflare Worker
+npm run worker:deploy
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+Create `.env.local` for local development:
+
+```bash
+# Application
+VITE_APP_BASE_URL=http://localhost:5173
+VITE_APP_ENV=development
+
+# Analytics
+VITE_GA_TRACKING_ID=G-XXXXXXXXXX
+
+# HubSpot Integration
+VITE_HUBSPOT_PORTAL_ID=********
+VITE_HUBSPOT_CONTACT_FORM_ID=**************
+
+# API Configuration
+VITE_API_BASE_URL=http://localhost:8787/api
+```
 
 ### Cloudflare Workers Setup
-
-1. **Install Wrangler CLI**:
-   ```bash
-   npm install -g wrangler
-   ```
-
-2. **Login to Cloudflare**:
-   ```bash
-   wrangler login
-   ```
-
-3. **Set up R2 Storage**:
-   - Create R2 bucket named `resumes`
-   - Get Account ID and API credentials
-
-4. **Configure Secrets**:
+1. **Install Wrangler**: `npm install -g wrangler`
+2. **Login**: `wrangler login`
+3. **Set Secrets**:
    ```bash
    cd workers
    wrangler secret put R2_ACCOUNT_ID
@@ -71,70 +107,101 @@ A modern job application system built with React frontend and Cloudflare Workers
    wrangler secret put SENDGRID_API_KEY
    ```
 
-5. **Deploy Worker**:
-   ```bash
-   npm run worker:deploy
-   ```
+## 📊 Performance
+
+This website is optimized for high performance:
+
+- **Mobile Performance**: 85-90+ PageSpeed score
+- **Bundle Size**: 247KB main bundle (77KB gzipped)
+- **Code Splitting**: Automatic chunk splitting
+- **Image Optimization**: WebP format with lazy loading
+- **Caching**: Service worker for offline support
+
+## 🔒 Security
+
+- **File Upload Validation**: PDF, DOC, DOCX only
+- **File Size Limits**: 5MB maximum
+- **CORS Protection**: Configured for production domains
+- **Environment Variables**: Secure secret management
+
+## 📁 Project Structure
+
+```
+├── src/
+│   ├── components/        # Reusable UI components
+│   ├── pages/            # Application pages
+│   ├── layouts/          # Layout components
+│   ├── hooks/            # Custom React hooks
+│   ├── contexts/         # React contexts
+│   ├── data/             # Static data files
+│   ├── styles/           # CSS and styling
+│   └── utils/            # Utility functions
+├── workers/              # Cloudflare Workers backend
+├── public/               # Static assets
+├── dist/                 # Build output
+├── netlify.toml          # Netlify configuration
+├── wrangler.toml         # Cloudflare Workers config
+└── package.json          # Dependencies and scripts
+```
 
 ## 🌐 API Endpoints
 
 - `GET /api/health` - Health check
-- `POST /api/applications` - Submit job application (with file upload)
-- `POST /api/applications/json` - Submit application data (JSON only)
+- `POST /api/applications` - Submit job application
+- `POST /api/applications/json` - Submit application data
 
-## 🔧 Environment Variables
+## 🔧 Troubleshooting
 
-Set these in Cloudflare Workers (via `wrangler secret put`):
+### Common Issues
 
+**Node.js Version**
 ```bash
-# Cloudflare R2
-R2_ACCOUNT_ID=your_account_id
-R2_ACCESS_KEY_ID=your_access_key
-R2_SECRET_ACCESS_KEY=your_secret_key
-R2_PUBLIC_URL=your_r2_public_url
-
-# SendGrid
-SENDGRID_API_KEY=your_sendgrid_key
-
-# Email Configuration (in wrangler.toml)
-FROM_EMAIL=noreply@yourcompany.com
-FROM_NAME=Your Company
-HR_EMAIL=hr@yourcompany.com
+# Check version (should be 20.19+ or 22.12+)
+node --version
 ```
 
-## 📚 Available Scripts
+**Build Failures**
+```bash
+# Clear cache and reinstall
+rm -rf node_modules package-lock.json
+npm install
+npm run build:optimized
+```
 
-- `npm run dev` - Start frontend development server
-- `npm run build` - Build frontend for production
-- `npm run dev:full` - Start both frontend and worker
-- `npm run worker:dev` - Start worker locally
-- `npm run worker:deploy` - Deploy worker to Cloudflare
-- `npm run worker:test` - Test worker functionality
-- `npm run install:worker` - Install worker dependencies
+**Worker Issues**
+```bash
+# Check wrangler installation
+wrangler --version
 
-## 🎯 Key Features
+# Reinstall if needed
+npm install -g wrangler
+```
 
-- **Job Listings**: Browse available positions
-- **Job Details**: Detailed view of each position
-- **Apply Now**: Job-specific application form
-- **Send Resume**: General resume submission
-- **File Upload**: Resume upload with validation
-- **Email Notifications**: Confirmation and HR notifications
-- **Responsive Design**: Mobile-friendly interface
+## 📈 Monitoring
 
-## 🚀 Advantages of Cloudflare Workers
+- **Performance Tracking**: Core Web Vitals monitoring
+- **Error Tracking**: Built-in error reporting
+- **Analytics**: Google Analytics integration
+- **Worker Logs**: Real-time Cloudflare Workers logs
 
-- ✅ **Zero Server Management**: No servers to maintain or scale
-- ✅ **Global Edge Deployment**: Faster response times worldwide
-- ✅ **Pay-per-request**: Only pay for what you use
-- ✅ **Automatic Scaling**: Handles traffic spikes automatically
-- ✅ **Built-in Security**: DDoS protection, WAF, etc.
-- ✅ **Simple Deployment**: `wrangler deploy` and you're live
-- ✅ **Cost Effective**: 90% cost reduction vs traditional servers
+## 🤝 Contributing
 
-## 📖 Documentation
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Run tests and linting
+5. Submit a pull request
 
-- Frontend runs on `http://localhost:5173`
-- Worker runs on `http://localhost:8787` (development)
-- Production worker: `https://your-worker.workers.dev`
-- See `QUICK_START.md` for detailed setup instructions
+## 📄 License
+
+This project is proprietary software of Undash-cop Private Limited.
+
+## 📞 Support
+
+For support and questions:
+- Email: support@undash-cop.com
+- Website: https://undash-cop.com
+
+---
+
+**Built with ❤️ by Undash-cop Private Limited**

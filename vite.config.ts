@@ -4,6 +4,41 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  build: {
+    // Enable code splitting
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          ui: ['@headlessui/react', '@heroicons/react'],
+          forms: ['react-hook-form', '@hookform/resolvers', 'zod'],
+          utils: ['react-hot-toast', 'react-helmet-async']
+        }
+      }
+    },
+    // Optimize chunk size
+    chunkSizeWarningLimit: 1000,
+    // Enable minification
+    minify: 'terser',
+    // Enable CSS code splitting
+    cssCodeSplit: true,
+    // Optimize assets
+    assetsInlineLimit: 4096, // Inline assets smaller than 4kb
+  },
+  // Optimize dependencies
+  optimizeDeps: {
+    include: [
+      'react',
+      'react-dom',
+      'react-router-dom',
+      '@headlessui/react',
+      '@heroicons/react',
+      'react-hook-form',
+      'react-hot-toast',
+      'react-helmet-async'
+    ]
+  },
   server: {
     host: true, // Allow external connections
     port: 5173,

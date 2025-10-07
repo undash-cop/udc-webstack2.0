@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useEffect, lazy, Suspense } from 'react';
+import { useEffect, lazy, Suspense, memo } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { ToastProvider } from './contexts/ToastContext';
 import { Toaster } from 'react-hot-toast';
@@ -30,6 +30,15 @@ const RefundPolicy = lazy(() => import('./pages/RefundPolicy'));
 const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const ResourceCenter = lazy(() => import('./pages/ResourceCenter'));
 const NotFound = lazy(() => import('./pages/NotFound'));
+
+// Optimized loading component
+const LoadingSpinner = memo(() => (
+  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+    <div className="loading-spinner"></div>
+  </div>
+));
+
+LoadingSpinner.displayName = 'LoadingSpinner';
 
 function App() {
   // Initialize analytics on app start
@@ -75,11 +84,7 @@ function App() {
               }}
             />
             <Layout>
-              <Suspense fallback={
-                <div className="min-h-screen flex items-center justify-center">
-                  <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600"></div>
-                </div>
-              }>
+              <Suspense fallback={<LoadingSpinner />}>
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/products" element={<Products />} />
