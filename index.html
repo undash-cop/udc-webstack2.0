@@ -10,10 +10,27 @@
     <meta name="keywords" content="IT services, software development, digital marketing, CRM, finance management, startup solutions, small business, Hoskote Bangalore" />
     <meta name="author" content="Undash-cop" />
     
-    <!-- Google Fonts - Optimized -->
+    <!-- Google Fonts - Optimized with local fallback -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Load font CSS with display=swap and local fallback -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"></noscript>
+    
+    <!-- Critical font loading optimization -->
+    <style>
+      /* Font fallback to prevent layout shift */
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+        font-display: swap;
+      }
+      
+      /* Apply Inter font when loaded */
+      .font-inter {
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+      }
+    </style>
     
     <!-- DNS prefetch for external resources -->
     <link rel="dns-prefetch" href="//js.hsforms.net">
@@ -33,8 +50,33 @@
     <meta property="twitter:image" content="/logo.png" />
   </head>
   <body>
-    <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/embed/v2.js"></script>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    
+    <!-- Font loading optimization -->
+    <script>
+      // Optimize font loading
+      if ('fonts' in document) {
+        document.fonts.ready.then(function() {
+          document.body.classList.add('font-inter');
+        });
+      }
+    </script>
+    
+    <!-- Load HubSpot script asynchronously after page content -->
+    <script>
+      // Load HubSpot script asynchronously to avoid render blocking
+      window.addEventListener('load', function() {
+        const script = document.createElement('script');
+        script.charset = 'utf-8';
+        script.type = 'text/javascript';
+        script.src = '//js.hsforms.net/forms/embed/v2.js';
+        script.async = true;
+        script.crossOrigin = 'anonymous';
+        // Add cache control hint
+        script.setAttribute('data-cache', 'max-age=86400');
+        document.head.appendChild(script);
+      });
+    </script>
   </body>
 </html>

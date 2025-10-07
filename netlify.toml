@@ -204,6 +204,33 @@
     Content-Type = "text/css; charset=utf-8"
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Cache headers for all JavaScript files
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Vary = "Accept-Encoding"
+
+# Cache headers for external CDN resources
+[[headers]]
+  for = "https://js.hsforms.net/*"
+  [headers.values]
+    Cache-Control = "public, max-age=86400, stale-while-revalidate=31536000"
+    Vary = "Accept-Encoding"
+
+# Cache headers for Google Fonts
+[[headers]]
+  for = "https://fonts.googleapis.com/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Vary = "Accept-Encoding"
+
+[[headers]]
+  for = "https://fonts.gstatic.com/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Vary = "Accept-Encoding"
+
 # API proxy to Cloudflare Workers (if needed)
 [[redirects]]
   from = "/api/*"
