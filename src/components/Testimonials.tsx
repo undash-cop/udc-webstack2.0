@@ -188,16 +188,18 @@ const Testimonials = () => {
               </button>
 
               {/* Dots Indicator */}
-              <div className="flex justify-center mt-8 space-x-2">
+              <div className="flex justify-center mt-8 space-x-3">
                 {featuredTestimonials.map((_, index) => (
                   <button
                     key={index}
                     onClick={() => setCurrentIndex(index)}
                     onMouseEnter={() => setIsAutoPlaying(false)}
                     onMouseLeave={() => setIsAutoPlaying(true)}
-                    className={`w-3 h-3 rounded-full transition-colors ${
+                    className={`w-4 h-4 rounded-full transition-colors p-2 ${
                       index === currentIndex ? 'bg-primary-600' : 'bg-gray-300'
                     }`}
+                    aria-label={`Go to testimonial ${index + 1}`}
+                    style={{ minWidth: '44px', minHeight: '44px' }}
                   />
                 ))}
               </div>

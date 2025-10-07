@@ -63,20 +63,6 @@
       }
     </script>
     
-    <!-- Load HubSpot script asynchronously after page content -->
-    <script>
-      // Load HubSpot script asynchronously to avoid render blocking
-      window.addEventListener('load', function() {
-        const script = document.createElement('script');
-        script.charset = 'utf-8';
-        script.type = 'text/javascript';
-        script.src = '//js.hsforms.net/forms/embed/v2.js';
-        script.async = true;
-        script.crossOrigin = 'anonymous';
-        // Add cache control hint
-        script.setAttribute('data-cache', 'max-age=86400');
-        document.head.appendChild(script);
-      });
-    </script>
+    <!-- HubSpot script is loaded on-demand by HubSpotForm component -->
   </body>
 </html>

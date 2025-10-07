@@ -167,7 +167,9 @@ const SearchModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
               />
               <button
                 onClick={onClose}
-                className="p-1 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                className="p-2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 rounded-md hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                aria-label="Close search"
+                style={{ minWidth: '44px', minHeight: '44px' }}
               >
                 <XMarkIcon className="w-6 h-6" />
               </button>

@@ -4,15 +4,25 @@ import { useLocation } from 'react-router-dom';
 // Google Analytics configuration
 const GA_TRACKING_ID = import.meta.env.VITE_GA_TRACKING_ID || 'G-XXXXXXXXXX';
 
-// Initialize Google Analytics
-export const initializeAnalytics = () => {
-  if (typeof window !== 'undefined' && GA_TRACKING_ID) {
-    // Load Google Analytics script
-    const script = document.createElement('script');
-    script.async = true;
-    script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
-    document.head.appendChild(script);
+// Lazy load Google Analytics only when needed
+let analyticsLoaded = false;
+let analyticsLoading = false;
 
+const loadAnalytics = () => {
+  if (analyticsLoaded || analyticsLoading || typeof window === 'undefined' || !GA_TRACKING_ID) {
+    return;
+  }
+  
+  analyticsLoading = true;
+  
+  // Load Google Analytics script
+  const script = document.createElement('script');
+  script.async = true;
+  script.src = `https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`;
+  script.onload = () => {
+    analyticsLoaded = true;
+    analyticsLoading = false;
+    
     // Initialize gtag
     window.gtag = window.gtag || function(...args: unknown[]) {
       (window.gtag.q = window.gtag.q || []).push(args);
@@ -22,27 +32,61 @@ export const initializeAnalytics = () => {
       page_title: document.title,
       page_location: window.location.href,
     });
+  };
+  document.head.appendChild(script);
+};
+
+// Initialize Google Analytics (lazy)
+export const initializeAnalytics = () => {
+  // Only load analytics after user interaction or after 3 seconds
+  if (typeof window !== 'undefined') {
+    const loadAfterInteraction = () => {
+      loadAnalytics();
+      document.removeEventListener('click', loadAfterInteraction);
+      document.removeEventListener('scroll', loadAfterInteraction);
+    };
+    
+    // Load on first user interaction
+    document.addEventListener('click', loadAfterInteraction, { once: true });
+    document.addEventListener('scroll', loadAfterInteraction, { once: true });
+    
+    // Fallback: load after 3 seconds
+    setTimeout(loadAnalytics, 3000);
   }
 };
 
 // Track page views
 export const trackPageView = (url: string, title?: string) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('config', GA_TRACKING_ID, {
-      page_path: url,
-      page_title: title || document.title,
-    });
+  if (typeof window !== 'undefined') {
+    // Ensure analytics is loaded
+    if (!analyticsLoaded) {
+      loadAnalytics();
+    }
+    
+    if (window.gtag) {
+      window.gtag('config', GA_TRACKING_ID, {
+        page_path: url,
+        page_title: title || document.title,
+      });
+    }
   }
 };
 
 // Track custom events
 export const trackEvent = (action: string, category: string, label?: string, value?: number) => {
-  if (typeof window !== 'undefined' && window.gtag) {
-    window.gtag('event', action, {
-      event_category: category,
-      event_label: label,
-      value: value,
-    });
+  if (typeof window !== 'undefined') {
+    // Ensure analytics is loaded
+    if (!analyticsLoaded) {
+      loadAnalytics();
+    }
+    
+    if (window.gtag) {
+      window.gtag('event', action, {
+        event_category: category,
+        event_label: label,
+        value: value,
+      });
+    }
   }
 };
 
