@@ -41,6 +41,26 @@ async function optimizeImages() {
 
   console.log('Starting image optimization...');
 
+  // Create logo size variants for responsive loading
+  const logoSizes = [32, 48, 64];
+  const logoInput = path.join(publicDir, 'logo.png');
+  
+  console.log('Creating logo size variants...');
+  for (const size of logoSizes) {
+    try {
+      if (fs.existsSync(logoInput)) {
+        const output = path.join(publicDir, `logo-${size}.png`);
+        await sharp(logoInput)
+          .resize(size, size, { fit: 'contain', background: { r: 255, g: 255, b: 255, alpha: 0 } })
+          .png({ quality: 90 })
+          .toFile(output);
+        console.log(`✓ Created logo-${size}.png`);
+      }
+    } catch (error) {
+      console.error(`Error creating logo-${size}.png:`, error.message);
+    }
+  }
+
   for (const image of imagesToOptimize) {
     try {
       if (fs.existsSync(image.input)) {
