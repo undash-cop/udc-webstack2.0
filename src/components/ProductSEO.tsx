@@ -1,4 +1,5 @@
 import { Helmet } from 'react-helmet-async';
+import { useMemo } from 'react';
 
 interface ProductSEOProps {
   product: {
@@ -20,7 +21,7 @@ interface ProductSEOProps {
 }
 
 const ProductSEO: React.FC<ProductSEOProps> = ({ product }) => {
-  const structuredData = {
+  const structuredData = useMemo(() => ({
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     "name": product.name,
@@ -84,9 +85,9 @@ const ProductSEO: React.FC<ProductSEOProps> = ({ product }) => {
       "https://twitter.com/undashcop",
       "https://www.facebook.com/undashcop"
     ]
-  };
+  }), [product.name, product.description, product.features, product.specifications?.platform]);
 
-  const breadcrumbStructuredData = {
+  const breadcrumbStructuredData = useMemo(() => ({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
@@ -109,7 +110,7 @@ const ProductSEO: React.FC<ProductSEOProps> = ({ product }) => {
         "item": `https://undash-cop.com/products/${product.name.toLowerCase().replace(/\s+/g, '-')}`
       }
     ]
-  };
+  }), [product.name]);
 
   const faqStructuredData = {
     "@context": "https://schema.org",

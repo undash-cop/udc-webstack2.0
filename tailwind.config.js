@@ -53,4 +53,32 @@ export default {
     },
   },
   plugins: [],
+  // Purge unused CSS for smaller bundle
+  purge: {
+    enabled: true,
+    content: [
+      "./index.html",
+      "./src/**/*.{js,ts,jsx,tsx}",
+    ],
+    options: {
+      safelist: [
+        // Keep essential classes that might be dynamically generated
+        'loading-spinner',
+        'animate-pulse',
+        'animate-spin',
+        'animate-bounce',
+        'animate-fade-in',
+        'animate-slide-up',
+        'animate-bounce-slow',
+        // Keep common utility classes
+        'container-custom',
+        'btn-primary',
+        'section-padding',
+      ],
+      // More aggressive purging
+      defaultExtractor: content => content.match(/[\w-/:]+(?<!:)/g) || [],
+      // Remove unused CSS more aggressively
+      whitelistPatterns: [/^bg-/, /^text-/, /^border-/, /^p-/, /^m-/, /^w-/, /^h-/],
+    }
+  },
 }

@@ -1,13 +1,13 @@
 import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import ProductSEO from '../components/ProductSEO';
+import ProductSEO from '../components/ProductSEOMinimal';
 import companyData from '../data/companyData.js';
 
 // Lazy load heavy components
 const ProductContent = lazy(() => import('../components/ProductContent'));
 
 // Import only essential icons
-import { ArrowRightIcon, ArrowLeftIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { ArrowRightIcon, ArrowLeftIcon } from '@heroicons/react/24/outline';
 
 interface Product {
   id: string;
@@ -42,12 +42,13 @@ interface Product {
   }>;
 }
 
-const ProductDetail = () => {
+const ProductDetailMinimal = () => {
   const { productId } = useParams<{ productId: string }>();
   const [product, setProduct] = useState<Product | null>(null);
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
 
+  // Simplified product data processing
   const enhancedProduct = useMemo(() => {
     const foundProduct = companyData.products.find((p: { name: string }) => 
       p.name.toLowerCase().replace(/\s+/g, '-') === productId
@@ -78,6 +79,7 @@ const ProductDetail = () => {
     setLoading(false);
   }, [enhancedProduct]);
 
+  // Simplified helper functions
   function getProductCategory(productName: string): string {
     const categoryMap: { [key: string]: string } = {
       'EUP Dashboard': 'HR & Finance',
@@ -92,41 +94,12 @@ const ProductDetail = () => {
 
   function getLongDescription(productName: string): string {
     const descriptions: { [key: string]: string } = {
-      'EUP Dashboard': `EUP Dashboard represents the pinnacle of integrated business management solutions, specifically engineered for modern enterprises seeking comprehensive control over their human resources and financial operations. This all-in-one platform eliminates the need for multiple disparate systems by providing a unified interface that seamlessly connects every aspect of your business operations.
-
-Built with scalability in mind, EUP Dashboard grows with your organization, from startup to enterprise level. Our advanced analytics engine provides real-time insights into your workforce performance, financial health, and operational efficiency, enabling data-driven decision making that drives growth and profitability.
-
-The platform's intuitive design ensures rapid adoption across your organization, while powerful automation features reduce manual workload and minimize errors. With enterprise-grade security and compliance features, EUP Dashboard ensures your sensitive data remains protected while maintaining the flexibility to adapt to your unique business processes.`,
-
-      'Undash-cop Studio': `Undash-cop Studio is a cutting-edge web development platform that empowers businesses to create stunning, high-performance websites and web applications with unprecedented ease and efficiency. Our comprehensive suite of tools and services combines the latest web technologies with user-friendly interfaces to deliver exceptional digital experiences.
-
-From concept to deployment, Undash-cop Studio provides everything you need to establish a powerful online presence. Our team of expert developers, designers, and strategists work collaboratively to understand your unique requirements and deliver solutions that exceed expectations.
-
-The platform leverages modern frameworks, responsive design principles, and performance optimization techniques to ensure your website not only looks great but also performs exceptionally across all devices and platforms. With built-in SEO optimization, security features, and analytics integration, Undash-cop Studio provides a complete solution for your digital needs.`,
-
-      'Serviso': `Serviso is a revolutionary business management platform designed to streamline operations and enhance productivity across all departments. This comprehensive solution integrates seamlessly with your existing workflows to provide real-time visibility into your business performance and automate routine tasks.
-
-Built for businesses of all sizes, Serviso adapts to your specific industry requirements and scales with your growth. The platform's modular architecture allows you to implement only the features you need while maintaining the flexibility to expand as your requirements evolve.
-
-With advanced reporting capabilities, automated workflows, and intelligent analytics, Serviso transforms raw data into actionable insights that drive informed decision-making. The platform's user-friendly interface ensures rapid adoption across your organization, while robust security features protect your sensitive business data.`,
-
-      'Futuro Expenses': `Futuro Expenses is a sophisticated personal finance management application that brings clarity and control to your financial life. Designed with the modern user in mind, this comprehensive platform helps you track expenses, manage budgets, plan for the future, and achieve your financial goals with confidence.
-
-The application's intelligent categorization system automatically sorts your transactions while learning from your spending patterns to provide increasingly accurate insights. Advanced budgeting tools help you stay on track with your financial objectives, while investment tracking features provide a complete picture of your wealth-building journey.
-
-With bank-level security, real-time synchronization across all your devices, and powerful reporting capabilities, Futuro Expenses gives you the tools you need to take control of your financial future. The platform's intuitive design makes complex financial management accessible to users of all experience levels.`,
-
-      'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently. Our expert team combines deep technical knowledge with industry best practices to deliver services that exceed expectations and drive business success.
-
-From network management and cybersecurity to cloud migration and digital transformation, YRB Services covers every aspect of your IT needs. Our proactive approach to service delivery ensures potential issues are identified and resolved before they impact your business operations.
-
-With 24/7 monitoring, rapid response times, and personalized support, YRB Services provides the peace of mind that comes from knowing your technology infrastructure is in expert hands. Our scalable solutions grow with your business, ensuring you always have the right level of support and expertise.`,
-
-      'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform goes beyond traditional travel booking to create meaningful connections and unforgettable memories.
-
-The platform's community-driven approach ensures that every recommendation comes from real travelers who have experienced destinations firsthand. From hidden gems and local favorites to cultural insights and practical tips, Fotralife provides the authentic travel information that guidebooks can't offer.
-
-With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`
+      'EUP Dashboard': `EUP Dashboard represents the pinnacle of integrated business management solutions, specifically engineered for modern enterprises seeking comprehensive control over their human resources and financial operations.`,
+      'Undash-cop Studio': `Undash-cop Studio is a cutting-edge web development platform that empowers businesses to create stunning, high-performance websites and web applications with unprecedented ease and efficiency.`,
+      'Serviso': `Serviso is a revolutionary business management platform designed to streamline operations and enhance productivity across all departments.`,
+      'Futuro Expenses': `Futuro Expenses is a sophisticated personal finance management application that brings clarity and control to your financial life.`,
+      'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently.`,
+      'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers.`
     };
     return descriptions[productName] || productName;
   }
@@ -200,7 +173,6 @@ With advanced matching algorithms, social features, and comprehensive destinatio
   }
 
   function getScreenshots(): string[] {
-    // Placeholder screenshots - in real implementation, these would be actual product screenshots
     return [
       'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop&auto=format',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&auto=format',
@@ -221,14 +193,7 @@ With advanced matching algorithms, social features, and comprehensive destinatio
           name: 'Sarah Johnson',
           company: 'TechCorp Solutions',
           role: 'HR Director',
-          content: 'EUP Dashboard has revolutionized our HR operations. The automation features have saved us countless hours, and the analytics provide insights we never had before.',
-          rating: 5
-        },
-        {
-          name: 'Michael Chen',
-          company: 'StartupXYZ',
-          role: 'CEO',
-          content: 'As a growing startup, we needed a solution that could scale with us. EUP Dashboard has been perfect - it grows with our team and adapts to our changing needs.',
+          content: 'EUP Dashboard has revolutionized our HR operations. The automation features have saved us countless hours.',
           rating: 5
         }
       ],
@@ -253,25 +218,13 @@ With advanced matching algorithms, social features, and comprehensive destinatio
       'EUP Dashboard': [
         {
           question: 'How quickly can we get started with EUP Dashboard?',
-          answer: 'Most organizations can be up and running within 2-4 weeks, depending on data migration complexity and customization requirements.'
-        },
-        {
-          question: 'Does EUP Dashboard integrate with our existing systems?',
-          answer: 'Yes, EUP Dashboard offers extensive integration capabilities with over 100 popular business applications and provides custom API development for unique requirements.'
-        },
-        {
-          question: 'What kind of support do you provide?',
-          answer: 'We provide 24/7 technical support, comprehensive training for your team, and ongoing maintenance to ensure optimal performance.'
+          answer: 'Most organizations can be up and running within 2-4 weeks, depending on data migration complexity.'
         }
       ],
       'Undash-cop Studio': [
         {
           question: 'What technologies do you use for web development?',
-          answer: 'We use modern technologies including React, Next.js, Node.js, TypeScript, and various other cutting-edge frameworks based on project requirements.'
-        },
-        {
-          question: 'Do you provide ongoing maintenance and support?',
-          answer: 'Yes, we offer comprehensive maintenance packages including security updates, performance optimization, and feature enhancements.'
+          answer: 'We use modern technologies including React, Next.js, Node.js, TypeScript, and various other cutting-edge frameworks.'
         }
       ]
     };
@@ -301,7 +254,6 @@ With advanced matching algorithms, social features, and comprehensive destinatio
     );
   }
 
-
   return (
     <div>
       <ProductSEO product={product} />
@@ -319,7 +271,7 @@ With advanced matching algorithms, social features, and comprehensive destinatio
         </div>
       </div>
 
-      {/* Hero Section */}
+      {/* Hero Section - Simplified */}
       <section className="py-16 bg-gradient-to-br from-primary-50 to-primary-100">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -368,7 +320,7 @@ With advanced matching algorithms, social features, and comprehensive destinatio
                 <div className="space-y-4">
                   {product.features.slice(0, 6).map((feature: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                      <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0 mt-2"></div>
                       <span className="text-gray-600">{feature}</span>
                     </div>
                   ))}
@@ -401,7 +353,7 @@ With advanced matching algorithms, social features, and comprehensive destinatio
         />
       </Suspense>
 
-      {/* CTA Section */}
+      {/* CTA Section - Simplified */}
       <section className="py-16 bg-primary-600">
         <div className="container-custom text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -433,4 +385,4 @@ With advanced matching algorithms, social features, and comprehensive destinatio
   );
 };
 
-export default ProductDetail;
+export default ProductDetailMinimal;

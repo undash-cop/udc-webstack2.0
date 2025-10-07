@@ -2,7 +2,7 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './styles/critical.css'
 import './index.css'
-import App from './App.tsx'
+import App from './AppMinimal.tsx'
 
 // Register service worker
 if ('serviceWorker' in navigator) {

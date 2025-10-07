@@ -57,6 +57,8 @@ npm run dev:full
 | `npm run build` | Build for development |
 | `npm run build:production` | Build with all optimizations (images, sitemap, etc.) |
 | `npm run build:analyze` | Build and analyze bundle size |
+| `npm run build:analyze-size` | Build and check bundle sizes (< 100KB) |
+| `npm run analyze:bundle` | Analyze current bundle sizes |
 
 ### Code Quality
 | Command | Description |
@@ -90,6 +92,31 @@ npm run dev:full
 | `npm run upgrade:node22` | Upgrade to Node.js 22 |
 | `npm run optimize:images` | Optimize images |
 | `npm run generate:sitemap` | Generate sitemap |
+
+## 🚀 Performance
+
+### Bundle Size Optimization
+- **Target**: < 100KB per JavaScript file
+- **Total Bundle**: < 200KB initial load
+- **Code Splitting**: Intelligent chunking by vendor and page
+- **Tree Shaking**: Dead code elimination
+- **Lazy Loading**: Heavy components loaded on demand
+
+### Performance Monitoring
+```bash
+# Check bundle sizes
+npm run build:analyze-size
+
+# Analyze current build
+npm run analyze:bundle
+```
+
+### Performance Features
+- **Aggressive Minification**: Terser with multiple passes
+- **Modern JavaScript**: ES2020 target for smaller bundles
+- **Asset Optimization**: Inline assets under 8KB
+- **Image Optimization**: WebP conversion and compression
+- **Critical CSS**: Inline critical styles
 
 ## 🚀 Deployment
 
