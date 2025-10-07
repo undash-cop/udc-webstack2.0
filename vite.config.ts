@@ -11,8 +11,8 @@ export default defineConfig({
       compress: {
         drop_console: true,
         drop_debugger: true,
-        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn'],
-        passes: 3,
+        pure_funcs: ['console.log', 'console.info', 'console.debug', 'console.warn', 'console.error'],
+        passes: 5,
         unsafe: true,
         unsafe_comps: true,
         unsafe_math: true,
@@ -28,7 +28,22 @@ export default defineConfig({
         reduce_vars: true,
         sequences: true,
         side_effects: false,
-        unused: true
+        unused: true,
+        collapse_vars: true,
+        comparisons: true,
+        computed_props: true,
+        hoist_funs: true,
+        hoist_props: true,
+        hoist_vars: true,
+        inline: true,
+        keep_fargs: false,
+        keep_infinity: true,
+        negate_iife: true,
+        properties: true,
+        reduce_funcs: true,
+        switches: true,
+        toplevel: true,
+        typeofs: true
       },
       mangle: {
         toplevel: true,
@@ -40,8 +55,8 @@ export default defineConfig({
         comments: false
       }
     },
-    chunkSizeWarningLimit: 30,
-    assetsInlineLimit: 2048,
+    chunkSizeWarningLimit: 25,
+    assetsInlineLimit: 1024,
     target: 'es2020',
     cssCodeSplit: true,
     sourcemap: false,
@@ -53,6 +68,8 @@ export default defineConfig({
         propertyReadSideEffects: false,
         tryCatchDeoptimization: false
       },
+      // Ensure proper module resolution
+      external: [],
       output: {
         manualChunks: (id) => {
           // Ultra-granular chunking for maximum tree shaking
@@ -71,25 +88,13 @@ export default defineConfig({
               return 'vendor-react-utils';
             }
             
-            // React DOM - ultra-granular splitting
+            // React DOM - ensure client is properly bundled
             if (id.includes('react-dom')) {
-              if (id.includes('client/index') || id.includes('client.js')) {
-                return 'vendor-react-dom-client-core';
-              }
-              if (id.includes('client/') && id.includes('events')) {
-                return 'vendor-react-dom-events';
-              }
-              if (id.includes('client/') && id.includes('scheduler')) {
-                return 'vendor-react-dom-scheduler';
-              }
-              if (id.includes('client/') && id.includes('legacy')) {
-                return 'vendor-react-dom-legacy';
+              if (id.includes('client')) {
+                return 'vendor-react-dom-client';
               }
               if (id.includes('server')) {
                 return 'vendor-react-dom-server';
-              }
-              if (id.includes('client/') && id.includes('shared')) {
-                return 'vendor-react-dom-shared';
               }
               return 'vendor-react-dom';
             }
@@ -219,6 +224,7 @@ export default defineConfig({
     include: [
       'react',
       'react-dom',
+      'react-dom/client',
       'react-router-dom',
       '@headlessui/react',
       '@heroicons/react',
@@ -228,8 +234,7 @@ export default defineConfig({
     ],
     exclude: [
       // Exclude heavy dependencies that are better loaded on-demand
-      'react-dom/server',
-      'react-dom/client'
+      'react-dom/server'
     ],
     force: true
   },
