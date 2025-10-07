@@ -1,102 +1,105 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 interface OptimizedImageProps {
   src: string;
   alt: string;
-  className?: string;
   width?: number;
   height?: number;
-  priority?: boolean;
-  loading?: 'lazy' | 'eager';
-  placeholder?: string;
+  className?: string;
   sizes?: string;
+  priority?: boolean;
+  fallback?: string;
 }
 
-const OptimizedImage: React.FC<OptimizedImageProps> = ({
+const OptimizedImage = ({
   src,
   alt,
-  className = '',
   width,
   height,
+  className = '',
+  sizes = '100vw',
   priority = false,
-  loading = 'lazy',
-  placeholder,
-  sizes = '100vw'
-}) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const [isInView, setIsInView] = useState(priority);
-  const imgRef = useRef<HTMLImageElement>(null);
+  fallback
+}: OptimizedImageProps) => {
+  const [imageError, setImageError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    if (priority) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsInView(true);
-          observer.disconnect();
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: '50px'
-      }
-    );
-
-    if (imgRef.current) {
-      observer.observe(imgRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [priority]);
-
-  const handleLoad = () => {
-    setIsLoaded(true);
+  // Generate responsive image sources
+  const generateSrcSet = (baseSrc: string, widths: number[]) => {
+    return widths
+      .map(w => `${baseSrc}?w=${w}&q=80 ${w}w`)
+      .join(', ');
   };
 
+  // Common responsive widths for different use cases
+  const getResponsiveWidths = (displayWidth?: number) => {
+    if (displayWidth) {
+      return [displayWidth, displayWidth * 2, displayWidth * 3];
+    }
+    return [48, 64, 96, 128, 256, 512];
+  };
+
+  const handleLoad = () => {
+    setIsLoading(false);
+  };
+
+  const handleError = () => {
+    setImageError(true);
+    setIsLoading(false);
+  };
+
+  // If it's an external image (like Unsplash), optimize the URL
+  const optimizeExternalImage = (url: string, targetWidth: number) => {
+    if (url.includes('unsplash.com')) {
+      const baseUrl = url.split('?')[0];
+      return `${baseUrl}?w=${targetWidth}&h=${targetWidth}&fit=crop&crop=face&auto=format&q=80`;
+    }
+    return url;
+  };
+
+  // If it's our logo, use different sizes
+  const getLogoWidths = () => {
+    if (src.includes('logo.png')) {
+      return [32, 48, 64, 96, 128];
+    }
+    return getResponsiveWidths(width);
+  };
+
+  const responsiveWidths = getLogoWidths();
+  const srcSet = generateSrcSet(src, responsiveWidths);
+  const optimizedSrc = width ? optimizeExternalImage(src, width) : src;
+
+  if (imageError && fallback) {
+    return (
+      <img
+        src={fallback}
+        alt={alt}
+        width={width}
+        height={height}
+        className={className}
+        loading={priority ? 'eager' : 'lazy'}
+      />
+    );
+  }
+
   return (
-    <div 
-      ref={imgRef}
-      className={`relative overflow-hidden ${className}`}
-      style={{ width, height }}
-    >
-      {/* Placeholder */}
-      {!isLoaded && (
-        <div 
-          className="absolute inset-0 bg-gray-200 animate-pulse flex items-center justify-center"
-          style={{ width, height }}
-        >
-          {placeholder && (
-            <img 
-              src={placeholder} 
-              alt="" 
-              className="w-8 h-8 opacity-50"
-              loading="eager"
-            />
-          )}
-        </div>
+    <div className={`relative ${className}`}>
+      {isLoading && (
+        <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />
       )}
-      
-      {/* Main image */}
-      {isInView && (
-        <img
-          src={src}
-          alt={alt}
-          width={width}
-          height={height}
-          loading={loading}
-          sizes={sizes}
-          onLoad={handleLoad}
-          className={`transition-opacity duration-300 ${
-            isLoaded ? 'opacity-100' : 'opacity-0'
-          } ${className}`}
-          style={{
-            width: width ? `${width}px` : '100%',
-            height: height ? `${height}px` : 'auto',
-            objectFit: 'cover'
-          }}
-        />
-      )}
+      <img
+        src={optimizedSrc}
+        srcSet={srcSet}
+        alt={alt}
+        width={width}
+        height={height}
+        sizes={sizes}
+        className={`${className} ${isLoading ? 'opacity-0' : 'opacity-100'} transition-opacity duration-300`}
+        loading={priority ? 'eager' : 'lazy'}
+        onLoad={handleLoad}
+        onError={handleError}
+        decoding="async"
+      />
     </div>
   );
 };

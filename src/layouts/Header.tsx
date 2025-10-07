@@ -153,6 +153,7 @@ const Header = () => {
               onClick={() => setIsSearchOpen(true)}
               className="p-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
               title="Search (Ctrl+/)"
+              aria-label="Open search"
             >
               <MagnifyingGlassIcon className="w-5 h-5" />
             </button>
@@ -169,6 +170,7 @@ const Header = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600"
+              aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
                 <XMarkIcon className="h-6 w-6" />
@@ -193,6 +195,7 @@ const Header = () => {
             <button
               onClick={() => setIsMenuOpen(false)}
               className="text-gray-700 hover:text-primary-600 focus:outline-none"
+              aria-label="Close menu"
             >
               <XMarkIcon className="h-6 w-6" />
             </button>

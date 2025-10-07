@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import OptimizedImage from './OptimizedImage';
 
 interface LogoProps {
   variant?: 'light' | 'dark';
@@ -19,6 +20,12 @@ const Logo = ({
     lg: 'h-16 w-16'
   };
 
+  const pixelSizes = {
+    sm: 32,
+    md: 48,
+    lg: 64
+  };
+
   const textSizeClasses = {
     sm: 'text-sm',
     md: 'text-lg',
@@ -30,10 +37,14 @@ const Logo = ({
   return (
     <Link to="/" className={`flex items-center space-x-3 ${className}`}>
       <div className={`${sizeClasses[size]} flex items-center justify-center`}>
-        <img 
-          src={logoSrc} 
-          alt="Undash-cop Logo" 
+        <OptimizedImage
+          src={logoSrc}
+          alt="Undash-cop Logo"
+          width={pixelSizes[size]}
+          height={pixelSizes[size]}
           className="h-full w-full object-contain"
+          priority={true}
+          sizes="(max-width: 768px) 32px, 48px"
         />
       </div>
       {showText && (

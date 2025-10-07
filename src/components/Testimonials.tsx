@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Card from './Card';
+import OptimizedImage from './OptimizedImage';
 import { 
   StarIcon, 
   ChevronLeftIcon, 
@@ -28,7 +29,7 @@ const Testimonials = () => {
       name: "Priya Sharma",
       role: "CEO",
       company: "TechStart Inc.",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&h=150&fit=crop&crop=face&auto=format",
+      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
       rating: 5,
       content: "Undash-cop transformed our business operations completely. Their automation solutions saved us 40 hours per week and increased our productivity by 300%. The team is professional, responsive, and truly understands our needs.",
       featured: true
@@ -38,7 +39,7 @@ const Testimonials = () => {
       name: "Arjun Patel",
       role: "CTO",
       company: "DataFlow Solutions",
-      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face&auto=format",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       rating: 5,
       content: "The EUP Dashboard has been a game-changer for our HR and finance management. The interface is intuitive, and the reporting capabilities are exactly what we needed. Highly recommend their services.",
       featured: true
@@ -48,7 +49,7 @@ const Testimonials = () => {
       name: "Emily Rodriguez",
       role: "Operations Manager",
       company: "GrowthCorp",
-      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       rating: 5,
       content: "Outstanding customer support and excellent products. The Serviso platform streamlined our business processes and helped us scale efficiently. The ROI was evident within the first month.",
       featured: true
@@ -58,7 +59,7 @@ const Testimonials = () => {
       name: "David Kim",
       role: "Founder",
       company: "InnovateLab",
-      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
       rating: 5,
       content: "The team at Undash-cop delivered exactly what they promised. Their custom development solutions are top-notch, and they went above and beyond to ensure our project's success.",
       featured: false
@@ -68,7 +69,7 @@ const Testimonials = () => {
       name: "Lisa Thompson",
       role: "Finance Director",
       company: "ScaleUp Ventures",
-      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&h=150&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
       rating: 5,
       content: "Futuro Expenses has revolutionized how we handle our financial tracking. The automation features are incredible, and the mobile app makes expense management so convenient.",
       featured: false
@@ -78,7 +79,7 @@ const Testimonials = () => {
       name: "James Wilson",
       role: "IT Director",
       company: "Enterprise Solutions",
-      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&h=150&fit=crop&crop=face",
+      image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
       rating: 5,
       content: "YRB Services provided exceptional IT support and infrastructure solutions. Their expertise and reliability have been crucial to our business operations. Highly professional team.",
       featured: false
@@ -152,10 +153,13 @@ const Testimonials = () => {
                 </blockquote>
                 
                 <div className="flex items-center justify-center">
-                  <img
+                  <OptimizedImage
                     src={featuredTestimonials[currentIndex]?.image}
                     alt={featuredTestimonials[currentIndex]?.name}
+                    width={64}
+                    height={64}
                     className="w-16 h-16 rounded-full object-cover mr-4"
+                    sizes="64px"
                   />
                   <div className="text-left">
                     <div className="font-semibold text-gray-900">
@@ -212,10 +216,13 @@ const Testimonials = () => {
           {regularTestimonials.map((testimonial) => (
             <Card key={testimonial.id} className="p-6 hover:shadow-lg transition-shadow">
               <div className="flex items-center mb-4">
-                <img
+                <OptimizedImage
                   src={testimonial.image}
                   alt={testimonial.name}
+                  width={48}
+                  height={48}
                   className="w-12 h-12 rounded-full object-cover mr-4"
+                  sizes="48px"
                 />
                 <div>
                   <div className="font-semibold text-gray-900">{testimonial.name}</div>

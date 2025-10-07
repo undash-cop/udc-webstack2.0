@@ -6,9 +6,6 @@ import { Toaster } from 'react-hot-toast';
 import { initializeAnalytics } from './hooks/useAnalytics';
 import Layout from './layouts/Layout';
 import ScrollToTop from './components/ScrollToTop';
-import PerformanceMonitor from './components/PerformanceMonitor';
-import ResourcePreloader from './components/ResourcePreloader';
-import AccessibilityEnhancer from './components/AccessibilityEnhancer';
 // Lazy load pages for better performance
 const Home = lazy(() => import('./pages/Home'));
 const Products = lazy(() => import('./pages/Products'));
@@ -50,70 +47,62 @@ function App() {
 
   return (
     <HelmetProvider>
-        <ToastProvider>
-          <Router>
-            <ScrollToTop />
-            <PerformanceMonitor />
-            <AccessibilityEnhancer />
-            <ResourcePreloader
-              resources={[
-                { type: 'image', href: '/logo.png', as: 'image' }
-              ]}
-              priority={true}
-            />
-            <Toaster
-              position="top-center"
-              toastOptions={{
-                duration: 4000,
-                style: {
-                  background: '#363636',
-                  color: '#fff',
+      <ToastProvider>
+        <Router>
+          <ScrollToTop />
+          <Toaster
+            position="top-center"
+            toastOptions={{
+              duration: 4000,
+              style: {
+                background: '#363636',
+                color: '#fff',
+              },
+              success: {
+                duration: 5000,
+                iconTheme: {
+                  primary: '#10b981',
+                  secondary: '#fff',
                 },
-                success: {
-                  duration: 5000,
-                  iconTheme: {
-                    primary: '#10b981',
-                    secondary: '#fff',
-                  },
+              },
+              error: {
+                duration: 5000,
+                iconTheme: {
+                  primary: '#ef4444',
+                  secondary: '#fff',
                 },
-                error: {
-                  duration: 5000,
-                  iconTheme: {
-                    primary: '#ef4444',
-                    secondary: '#fff',
-                  },
-                },
-              }}
-            />
-            <Layout>
-              <Suspense fallback={<LoadingSpinner />}>
-                <Routes>
-                  <Route path="/" element={<Home />} />
-                  <Route path="/products" element={<Products />} />
-                  <Route path="/products/:productId" element={<ProductDetail />} />
-                  <Route path="/about" element={<About />} />
-                  <Route path="/contact" element={<Contact />} />
-                  <Route path="/blog" element={<Blog />} />
-                  <Route path="/blog/:id" element={<BlogPost />} />
-                  <Route path="/case-studies" element={<CaseStudies />} />
-                  <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
-                  <Route path="/careers" element={<Careers />} />
-                  <Route path="/apply/:jobId" element={<ApplyJob />} />
-                  <Route path="/send-resume" element={<SendResume />} />
-                  <Route path="/job/:jobId" element={<JobDetails />} />
-                  <Route path="/support" element={<Support />} />
-                  <Route path="/status" element={<Status />} />
-                  <Route path="/privacy-policy" element={<PrivacyPolicy />} />
-                  <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
-                  <Route path="/refund-policy" element={<RefundPolicy />} />
-                  <Route path="/cookies" element={<CookiePolicy />} />
-                  <Route path="/resources" element={<ResourceCenter />} />
-                  <Route path="*" element={<NotFound />} />
-                </Routes>
-              </Suspense>
-            </Layout>
-          </Router>
-        </ToastProvider>
+              },
+            }}
+          />
+          <Layout>
+            <Suspense fallback={<LoadingSpinner />}>
+              <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/products" element={<Products />} />
+                <Route path="/products/:productId" element={<ProductDetail />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route path="/blog/:id" element={<BlogPost />} />
+                <Route path="/case-studies" element={<CaseStudies />} />
+                <Route path="/case-studies/:id" element={<CaseStudyDetail />} />
+                <Route path="/careers" element={<Careers />} />
+                <Route path="/apply/:jobId" element={<ApplyJob />} />
+                <Route path="/send-resume" element={<SendResume />} />
+                <Route path="/job/:jobId" element={<JobDetails />} />
+                <Route path="/support" element={<Support />} />
+                <Route path="/status" element={<Status />} />
+                <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+                <Route path="/refund-policy" element={<RefundPolicy />} />
+                <Route path="/cookies" element={<CookiePolicy />} />
+                <Route path="/resources" element={<ResourceCenter />} />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </Layout>
+        </Router>
+      </ToastProvider>
     </HelmetProvider>
   );
 }
