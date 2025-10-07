@@ -153,7 +153,6 @@
   for = "*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
-    Content-Encoding = "gzip, br"
     Vary = "Accept-Encoding"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
@@ -199,7 +198,6 @@
   for = "/assets/*.js"
   [headers.values]
     Content-Type = "application/javascript; charset=utf-8"
-    Content-Encoding = "gzip, br"
     Vary = "Accept-Encoding"
     Cache-Control = "public, max-age=31536000, immutable"
 
@@ -208,7 +206,6 @@
   for = "/assets/*.css"
   [headers.values]
     Content-Type = "text/css; charset=utf-8"
-    Content-Encoding = "gzip, br"
     Vary = "Accept-Encoding"
     Cache-Control = "public, max-age=31536000, immutable"
 
@@ -242,7 +239,7 @@
 # API proxy to Cloudflare Workers (if needed)
 [[redirects]]
   from = "/api/*"
-  to = "https://udc-applications-worker.your-subdomain.workers.dev/api/:splat"
+  to = "https://udc-applications-worker.undash-cop2737.workers.dev/api/:splat"
   status = 200
   force = true
   headers = {X-From = "Netlify"}
