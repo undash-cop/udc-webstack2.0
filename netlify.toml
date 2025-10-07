@@ -40,16 +40,9 @@
     buildDir = "dist"
     exclude = ["/404", "/offline"]
 
-# Redirect rules for SPA and SEO
+# Canonical domain redirects (order matters - most specific first)
 [[redirects]]
-  from = "/*"
-  to = "/index.html"
-  status = 200
-  conditions = {Role = ["admin"], Country = ["US"]}
-
-# Force HTTPS redirects
-[[redirects]]
-  from = "http://undash-cop.com/*"
+  from = "https://www.undash-cop.com/*"
   to = "https://undash-cop.com/:splat"
   status = 301
   force = true
@@ -61,10 +54,16 @@
   force = true
 
 [[redirects]]
-  from = "https://www.undash-cop.com/*"
+  from = "http://undash-cop.com/*"
   to = "https://undash-cop.com/:splat"
   status = 301
   force = true
+
+# SPA fallback (must be last)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
 
 # Security headers for all pages
 [[headers]]
@@ -76,6 +75,9 @@
     X-XSS-Protection = "1; mode=block"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # Performance headers
+    Vary = "Accept-Encoding"
     
     # HSTS (HTTP Strict Transport Security)
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
@@ -151,6 +153,8 @@
   for = "*.html"
   [headers.values]
     Cache-Control = "public, max-age=0, must-revalidate"
+    Content-Encoding = "gzip, br"
+    Vary = "Accept-Encoding"
     X-Content-Type-Options = "nosniff"
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
@@ -195,6 +199,8 @@
   for = "/assets/*.js"
   [headers.values]
     Content-Type = "application/javascript; charset=utf-8"
+    Content-Encoding = "gzip, br"
+    Vary = "Accept-Encoding"
     Cache-Control = "public, max-age=31536000, immutable"
 
 # MIME type fixes for CSS files
@@ -202,6 +208,8 @@
   for = "/assets/*.css"
   [headers.values]
     Content-Type = "text/css; charset=utf-8"
+    Content-Encoding = "gzip, br"
+    Vary = "Accept-Encoding"
     Cache-Control = "public, max-age=31536000, immutable"
 
 # Cache headers for all JavaScript files
