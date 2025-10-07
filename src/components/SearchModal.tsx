@@ -34,7 +34,7 @@ const SearchModal = ({ isOpen, onClose }: { isOpen: boolean; onClose: () => void
     { id: 'home', title: 'Home', description: 'Main landing page with company overview', url: '/', type: 'page' },
     { id: 'products', title: 'Products', description: 'Our software solutions and services', url: '/products', type: 'page' },
     { id: 'pricing', title: 'Pricing', description: 'Plans and pricing for our services', url: '/pricing', type: 'page' },
-    { id: 'about', title: 'About Us', description: 'Learn about our company and team', url: '/about', type: 'page' },
+    { id: 'about', title: 'About', description: 'Learn about our company and team', url: '/about', type: 'page' },
     { id: 'blog', title: 'Blog', description: 'Latest insights and technology articles', url: '/blog', type: 'page' },
     { id: 'contact', title: 'Contact', description: 'Get in touch with our team', url: '/contact', type: 'page' },
     { id: 'careers', title: 'Careers', description: 'Join our team and grow with us', url: '/careers', type: 'page' },
