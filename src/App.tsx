@@ -31,12 +31,7 @@ const CookiePolicy = lazy(() => import('./pages/CookiePolicy'));
 const ResourceCenter = lazy(() => import('./pages/ResourceCenter'));
 const NotFound = lazy(() => import('./pages/NotFound'));
 
-// ProductDetail is loaded separately for better code splitting
-const ProductDetail = lazy(() => 
-  import('./pages/ProductDetailMinimal').then(module => ({
-    default: module.default
-  }))
-);
+const ProductDetail = lazy(() => import('./pages/ProductDetail'));
 
 // Optimized loading component
 const LoadingSpinner = memo(() => (

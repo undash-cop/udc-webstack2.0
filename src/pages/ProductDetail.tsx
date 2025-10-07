@@ -1,13 +1,22 @@
-import { useEffect, useState, useMemo, lazy, Suspense } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import SEOHead from '../components/SEOHead';
 import ProductSEO from '../components/ProductSEO';
 import companyData from '../data/companyData.js';
-
-// Lazy load heavy components
-const ProductContent = lazy(() => import('../components/ProductContent'));
-
-// Import only essential icons
-import { ArrowRightIcon, ArrowLeftIcon, CheckCircleIcon } from '@heroicons/react/24/outline';
+import { 
+  CheckCircleIcon,
+  ArrowRightIcon,
+  ShieldCheckIcon,
+  CogIcon,
+  CloudIcon,
+  StarIcon,
+  ClockIcon,
+  UsersIcon,
+  ChartBarIcon,
+  GlobeAltIcon,
+  LockClosedIcon,
+  ArrowLeftIcon
+} from '@heroicons/react/24/outline';
 
 interface Product {
   id: string;
@@ -48,35 +57,33 @@ const ProductDetail = () => {
   const [loading, setLoading] = useState(true);
   const [activeTab, setActiveTab] = useState('overview');
 
-  const enhancedProduct = useMemo(() => {
-    const foundProduct = companyData.products.find((p: { name: string }) => 
+  useEffect(() => {
+    // Find product by ID
+    const foundProduct = companyData.products.find((p: any) => 
       p.name.toLowerCase().replace(/\s+/g, '-') === productId
     );
 
-    if (!foundProduct) return null;
-
-    return {
-      id: foundProduct.name.toLowerCase().replace(/\s+/g, '-'),
-      name: foundProduct.name,
-      description: foundProduct.description,
-      logo: foundProduct.photo,
-      features: foundProduct.features || [],
-      benefits: foundProduct.benefits || [],
-      pricing: 'Contact for pricing',
-      category: getProductCategory(foundProduct.name),
-      link: foundProduct.link,
-      longDescription: getLongDescription(foundProduct.name),
-      specifications: getSpecifications(foundProduct.name),
-      screenshots: getScreenshots(),
-      testimonials: getTestimonials(foundProduct.name),
-      faq: getFAQ(foundProduct.name)
-    } as Product;
-  }, [productId]);
-
-  useEffect(() => {
-    setProduct(enhancedProduct);
+    if (foundProduct) {
+      const enhancedProduct: Product = {
+        id: foundProduct.name.toLowerCase().replace(/\s+/g, '-'),
+        name: foundProduct.name,
+        description: foundProduct.description,
+        logo: foundProduct.photo,
+        features: foundProduct.features || [],
+        benefits: foundProduct.benefits || [],
+        pricing: 'Contact for pricing',
+        category: getProductCategory(foundProduct.name),
+        link: foundProduct.link,
+        longDescription: getLongDescription(foundProduct.name),
+        specifications: getSpecifications(foundProduct.name),
+        screenshots: getScreenshots(),
+        testimonials: getTestimonials(foundProduct.name),
+        faq: getFAQ(foundProduct.name)
+      };
+      setProduct(enhancedProduct);
+    }
     setLoading(false);
-  }, [enhancedProduct]);
+  }, [productId]);
 
   function getProductCategory(productName: string): string {
     const categoryMap: { [key: string]: string } = {
@@ -92,54 +99,18 @@ const ProductDetail = () => {
 
   function getLongDescription(productName: string): string {
     const descriptions: { [key: string]: string } = {
-      'EUP Dashboard': `EUP Dashboard represents the pinnacle of integrated business management solutions, specifically engineered for modern enterprises seeking comprehensive control over their human resources and financial operations. This all-in-one platform eliminates the need for multiple disparate systems by providing a unified interface that seamlessly connects every aspect of your business operations.
-
-Built with scalability in mind, EUP Dashboard grows with your organization, from startup to enterprise level. Our advanced analytics engine provides real-time insights into your workforce performance, financial health, and operational efficiency, enabling data-driven decision making that drives growth and profitability.
-
-The platform's intuitive design ensures rapid adoption across your organization, while powerful automation features reduce manual workload and minimize errors. With enterprise-grade security and compliance features, EUP Dashboard ensures your sensitive data remains protected while maintaining the flexibility to adapt to your unique business processes.`,
-
-      'Undash-cop Studio': `Undash-cop Studio is a cutting-edge web development platform that empowers businesses to create stunning, high-performance websites and web applications with unprecedented ease and efficiency. Our comprehensive suite of tools and services combines the latest web technologies with user-friendly interfaces to deliver exceptional digital experiences.
-
-From concept to deployment, Undash-cop Studio provides everything you need to establish a powerful online presence. Our team of expert developers, designers, and strategists work collaboratively to understand your unique requirements and deliver solutions that exceed expectations.
-
-The platform leverages modern frameworks, responsive design principles, and performance optimization techniques to ensure your website not only looks great but also performs exceptionally across all devices and platforms. With built-in SEO optimization, security features, and analytics integration, Undash-cop Studio provides a complete solution for your digital needs.`,
-
-      'Serviso': `Serviso is a revolutionary business management platform designed to streamline operations and enhance productivity across all departments. This comprehensive solution integrates seamlessly with your existing workflows to provide real-time visibility into your business performance and automate routine tasks.
-
-Built for businesses of all sizes, Serviso adapts to your specific industry requirements and scales with your growth. The platform's modular architecture allows you to implement only the features you need while maintaining the flexibility to expand as your requirements evolve.
-
-With advanced reporting capabilities, automated workflows, and intelligent analytics, Serviso transforms raw data into actionable insights that drive informed decision-making. The platform's user-friendly interface ensures rapid adoption across your organization, while robust security features protect your sensitive business data.`,
-
-      'Futuro Expenses': `Futuro Expenses is a sophisticated personal finance management application that brings clarity and control to your financial life. Designed with the modern user in mind, this comprehensive platform helps you track expenses, manage budgets, plan for the future, and achieve your financial goals with confidence.
-
-The application's intelligent categorization system automatically sorts your transactions while learning from your spending patterns to provide increasingly accurate insights. Advanced budgeting tools help you stay on track with your financial objectives, while investment tracking features provide a complete picture of your wealth-building journey.
-
-With bank-level security, real-time synchronization across all your devices, and powerful reporting capabilities, Futuro Expenses gives you the tools you need to take control of your financial future. The platform's intuitive design makes complex financial management accessible to users of all experience levels.`,
-
-      'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently. Our expert team combines deep technical knowledge with industry best practices to deliver services that exceed expectations and drive business success.
-
-From network management and cybersecurity to cloud migration and digital transformation, YRB Services covers every aspect of your IT needs. Our proactive approach to service delivery ensures potential issues are identified and resolved before they impact your business operations.
-
-With 24/7 monitoring, rapid response times, and personalized support, YRB Services provides the peace of mind that comes from knowing your technology infrastructure is in expert hands. Our scalable solutions grow with your business, ensuring you always have the right level of support and expertise.`,
-
-      'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform goes beyond traditional travel booking to create meaningful connections and unforgettable memories.
-
-The platform's community-driven approach ensures that every recommendation comes from real travelers who have experienced destinations firsthand. From hidden gems and local favorites to cultural insights and practical tips, Fotralife provides the authentic travel information that guidebooks can't offer.
-
-With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`
+      'EUP Dashboard': `EUP Dashboard represents the pinnacle of integrated business management solutions, specifically engineered for modern enterprises seeking comprehensive control over their human resources and financial operations. This powerful platform combines intuitive design with robust functionality, enabling organizations to streamline their workforce management, track employee performance, manage payroll systems, and maintain detailed financial records all from a single, unified interface. Built with scalability in mind, EUP Dashboard adapts to businesses of all sizes, from growing startups to established enterprises, providing the tools necessary to make informed decisions and drive organizational success.`,
+      'Undash-cop Studio': `Undash-cop Studio is a cutting-edge web development platform that empowers businesses to create stunning, high-performance websites and web applications with unprecedented ease and efficiency. Our comprehensive suite of tools and services combines the latest technologies with innovative design principles to deliver digital solutions that not only meet but exceed modern web standards. From responsive design and mobile optimization to advanced functionality and seamless user experiences, Undash-cop Studio transforms your digital vision into reality.`,
+      'Serviso': `Serviso is a revolutionary business management platform designed to streamline operations and enhance productivity across all departments. This comprehensive solution integrates seamlessly with your existing workflows, providing real-time insights, automated processes, and powerful analytics that drive informed decision-making. Whether you're managing customer relationships, tracking inventory, or coordinating team projects, Serviso delivers the tools and visibility you need to optimize your business operations and achieve sustainable growth.`,
+      'Futuro Expenses': `Futuro Expenses is a sophisticated personal finance management application that brings clarity and control to your financial life. Designed with the modern user in mind, this intuitive platform helps you track spending, set budgets, monitor investments, and plan for the future with confidence. Advanced categorization, smart notifications, and comprehensive reporting features provide the insights you need to make informed financial decisions and achieve your monetary goals.`,
+      'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently. Our expert team delivers round-the-clock support, proactive monitoring, and strategic guidance to ensure your systems remain secure, optimized, and aligned with your business objectives. From network management and cybersecurity to cloud solutions and digital transformation, YRB Services is your trusted partner in navigating the complex world of enterprise technology.`,
+      'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform combines social networking with travel planning, allowing users to discover hidden gems, share experiences, and build lasting connections with fellow travelers from around the world. With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`
     };
     return descriptions[productName] || productName;
   }
 
   function getSpecifications(productName: string) {
-    const specs: { [key: string]: {
-      platform: string;
-      deployment: string;
-      users: string;
-      support: string;
-      security: string;
-      integration: string;
-    } } = {
+    const specs: { [key: string]: any } = {
       'EUP Dashboard': {
         platform: 'Web-based, Mobile Responsive',
         deployment: 'Cloud, On-premise, Hybrid',
@@ -189,14 +160,7 @@ With advanced matching algorithms, social features, and comprehensive destinatio
         integration: 'Social media, Travel booking platforms, Maps'
       }
     };
-    return specs[productName] || {
-      platform: 'Web-based',
-      deployment: 'Cloud',
-      users: 'Unlimited',
-      support: 'Email support',
-      security: 'Standard encryption',
-      integration: 'REST APIs'
-    };
+    return specs[productName] || {};
   }
 
   function getScreenshots(): string[] {
@@ -209,26 +173,20 @@ With advanced matching algorithms, social features, and comprehensive destinatio
   }
 
   function getTestimonials(productName: string) {
-    const testimonials: { [key: string]: Array<{
-      name: string;
-      company: string;
-      role: string;
-      content: string;
-      rating: number;
-    }> } = {
+    const testimonials: { [key: string]: any[] } = {
       'EUP Dashboard': [
         {
           name: 'Sarah Johnson',
           company: 'TechCorp Solutions',
           role: 'HR Director',
-          content: 'EUP Dashboard has revolutionized our HR operations. The automation features have saved us countless hours, and the analytics provide insights we never had before.',
+          content: 'EUP Dashboard has revolutionized our HR operations. The automation features have saved us countless hours and the reporting capabilities give us insights we never had before.',
           rating: 5
         },
         {
           name: 'Michael Chen',
-          company: 'StartupXYZ',
-          role: 'CEO',
-          content: 'As a growing startup, we needed a solution that could scale with us. EUP Dashboard has been perfect - it grows with our team and adapts to our changing needs.',
+          company: 'FinanceFlow Inc',
+          role: 'CFO',
+          content: 'The financial management tools in EUP Dashboard are exceptional. We can now track expenses, manage budgets, and generate reports with ease.',
           rating: 5
         }
       ],
@@ -239,6 +197,49 @@ With advanced matching algorithms, social features, and comprehensive destinatio
           role: 'Creative Director',
           content: 'The quality of work from Undash-cop Studio is exceptional. They understood our vision and delivered beyond our expectations.',
           rating: 5
+        },
+        {
+          name: 'David Kim',
+          company: 'StartupXYZ',
+          role: 'Founder',
+          content: 'Undash-cop Studio helped us build a stunning website that perfectly represents our brand. The team is professional and the results speak for themselves.',
+          rating: 5
+        }
+      ],
+      'Serviso': [
+        {
+          name: 'Lisa Wang',
+          company: 'RetailMax',
+          role: 'Operations Manager',
+          content: 'Serviso has streamlined our business operations significantly. The dashboard gives us real-time visibility into all aspects of our business.',
+          rating: 5
+        }
+      ],
+      'Futuro Expenses': [
+        {
+          name: 'James Wilson',
+          company: 'Freelance Consultant',
+          role: 'Independent Professional',
+          content: 'Futuro Expenses has made managing my finances so much easier. The categorization and budgeting features are exactly what I needed.',
+          rating: 5
+        }
+      ],
+      'YRB Services': [
+        {
+          name: 'Maria Garcia',
+          company: 'Enterprise Corp',
+          role: 'IT Director',
+          content: 'YRB Services has been instrumental in keeping our IT infrastructure running smoothly. Their proactive approach prevents issues before they become problems.',
+          rating: 5
+        }
+      ],
+      'Fotralife': [
+        {
+          name: 'Alex Thompson',
+          company: 'Travel Enthusiast',
+          role: 'Community Member',
+          content: 'Fotralife has connected me with amazing people and places. The community features make travel planning so much more enjoyable.',
+          rating: 5
         }
       ]
     };
@@ -246,10 +247,7 @@ With advanced matching algorithms, social features, and comprehensive destinatio
   }
 
   function getFAQ(productName: string) {
-    const faqs: { [key: string]: Array<{
-      question: string;
-      answer: string;
-    }> } = {
+    const faqs: { [key: string]: any[] } = {
       'EUP Dashboard': [
         {
           question: 'How quickly can we get started with EUP Dashboard?',
@@ -257,26 +255,77 @@ With advanced matching algorithms, social features, and comprehensive destinatio
         },
         {
           question: 'Does EUP Dashboard integrate with our existing systems?',
-          answer: 'Yes, EUP Dashboard offers extensive integration capabilities with over 100 popular business applications and provides custom API development for unique requirements.'
+          answer: 'Yes, EUP Dashboard offers extensive integration capabilities with over 100+ popular business applications and systems.'
         },
         {
           question: 'What kind of support do you provide?',
-          answer: 'We provide 24/7 technical support, comprehensive training for your team, and ongoing maintenance to ensure optimal performance.'
+          answer: 'We provide 24/7 technical support, comprehensive training, and ongoing maintenance to ensure your success.'
         }
       ],
       'Undash-cop Studio': [
         {
           question: 'What technologies do you use for web development?',
-          answer: 'We use modern technologies including React, Next.js, Node.js, TypeScript, and various other cutting-edge frameworks based on project requirements.'
+          answer: 'We use modern technologies including React, Next.js, Node.js, TypeScript, and various other cutting-edge frameworks.'
         },
         {
           question: 'Do you provide ongoing maintenance and support?',
-          answer: 'Yes, we offer comprehensive maintenance packages including security updates, performance optimization, and feature enhancements.'
+          answer: 'Yes, we offer comprehensive maintenance packages including updates, security patches, and ongoing support.'
+        }
+      ],
+      'Serviso': [
+        {
+          question: 'Can Serviso scale with our growing business?',
+          answer: 'Absolutely! Serviso is designed to scale from small teams to large enterprises, adapting to your changing needs.'
+        }
+      ],
+      'Futuro Expenses': [
+        {
+          question: 'Is my financial data secure?',
+          answer: 'Yes, we use bank-level encryption and security measures to protect your financial information.'
+        }
+      ],
+      'YRB Services': [
+        {
+          question: 'What types of IT services do you provide?',
+          answer: 'We provide comprehensive IT services including network management, cybersecurity, cloud solutions, and digital transformation.'
+        }
+      ],
+      'Fotralife': [
+        {
+          question: 'How does the community feature work?',
+          answer: 'Fotralife connects you with fellow travelers through advanced matching algorithms and social features.'
         }
       ]
     };
     return faqs[productName] || [];
   }
+
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": product?.name,
+    "description": product?.description,
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": product?.specifications?.platform || "Web",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "150"
+    },
+    "screenshot": product?.screenshots?.[0] || "",
+    "featureList": product?.features,
+    "provider": {
+      "@type": "Organization",
+      "name": "Undash-cop Private Limited",
+      "url": "https://undash-cop.com"
+    }
+  };
 
   if (loading) {
     return (
@@ -301,9 +350,14 @@ With advanced matching algorithms, social features, and comprehensive destinatio
     );
   }
 
-
   return (
     <div>
+      <SEOHead 
+        title={`${product.name} - ${product.category} Solution | Undash-cop`}
+        description={product.description}
+        keywords={`${product.name}, ${product.category}, software solution, business tools`}
+        structuredData={structuredData}
+      />
       <ProductSEO product={product} />
 
       {/* Breadcrumb */}
@@ -368,7 +422,7 @@ With advanced matching algorithms, social features, and comprehensive destinatio
                 <div className="space-y-4">
                   {product.features.slice(0, 6).map((feature: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
-                      <CheckCircleIcon className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                      <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0 mt-2"></div>
                       <span className="text-gray-600">{feature}</span>
                     </div>
                   ))}
@@ -379,27 +433,174 @@ With advanced matching algorithms, social features, and comprehensive destinatio
         </div>
       </section>
 
-      {/* Lazy-loaded Product Content */}
-      <Suspense fallback={
-        <div className="py-16 bg-white">
-          <div className="container-custom">
-            <div className="animate-pulse">
-              <div className="h-8 bg-gray-200 rounded w-1/4 mb-8"></div>
-              <div className="space-y-4">
-                <div className="h-4 bg-gray-200 rounded"></div>
-                <div className="h-4 bg-gray-200 rounded w-5/6"></div>
-                <div className="h-4 bg-gray-200 rounded w-4/6"></div>
+      {/* Navigation Tabs */}
+      <section className="bg-white border-b border-gray-200">
+        <div className="container-custom">
+          <nav className="flex space-x-8">
+            {['overview', 'features', 'specifications', 'testimonials', 'faq'].map((tab) => (
+              <button
+                key={tab}
+                onClick={() => setActiveTab(tab)}
+                className={`py-4 px-2 border-b-2 font-medium text-sm capitalize transition-colors duration-200 ${
+                  activeTab === tab
+                    ? 'border-primary-600 text-primary-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </nav>
+        </div>
+      </section>
+
+      {/* Tab Content */}
+      <section className="py-16 bg-white">
+        <div className="container-custom">
+          {activeTab === 'overview' && (
+            <div className="max-w-4xl">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Product Overview</h2>
+              <div className="prose prose-lg max-w-none">
+                <p className="text-gray-600 leading-relaxed mb-6">
+                  {product.longDescription}
+                </p>
+              </div>
+
+              {/* Screenshots */}
+              {product.screenshots && product.screenshots.length > 0 && (
+                <div className="mt-12">
+                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Screenshots</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {product.screenshots.map((screenshot: string, index: number) => (
+                      <div key={index} className="rounded-lg overflow-hidden shadow-lg">
+                        <img 
+                          src={screenshot} 
+                          alt={`${product.name} screenshot ${index + 1}`}
+                          className="w-full h-48 object-cover"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </div>
+          )}
+
+          {activeTab === 'features' && (
+            <div className="max-w-4xl">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Features & Benefits</h2>
+              
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                {/* Features */}
+                <div>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <CogIcon className="w-6 h-6 mr-3 text-primary-600" />
+                    All Features
+                  </h3>
+                  <div className="space-y-4">
+                    {product.features.map((feature: string, index: number) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <CheckCircleIcon className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
+                        <span className="text-gray-600">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Benefits */}
+                <div>
+                  <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                    <ShieldCheckIcon className="w-6 h-6 mr-3 text-primary-600" />
+                    Benefits
+                  </h3>
+                  <div className="space-y-4">
+                    {product.benefits.map((benefit: string, index: number) => (
+                      <div key={index} className="flex items-start space-x-3">
+                        <div className="w-2 h-2 bg-primary-500 rounded-full flex-shrink-0 mt-2"></div>
+                        <span className="text-gray-600">{benefit}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
+          )}
+
+          {activeTab === 'specifications' && product.specifications && (
+            <div className="max-w-4xl">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Technical Specifications</h2>
+              
+              <div className="bg-gray-50 rounded-2xl p-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                  {Object.entries(product.specifications).map(([key, value]) => (
+                    <div key={key} className="flex items-start space-x-4">
+                      <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                        {key === 'platform' && <GlobeAltIcon className="w-6 h-6 text-primary-600" />}
+                        {key === 'deployment' && <CloudIcon className="w-6 h-6 text-primary-600" />}
+                        {key === 'users' && <UsersIcon className="w-6 h-6 text-primary-600" />}
+                        {key === 'support' && <ClockIcon className="w-6 h-6 text-primary-600" />}
+                        {key === 'security' && <LockClosedIcon className="w-6 h-6 text-primary-600" />}
+                        {key === 'integration' && <ChartBarIcon className="w-6 h-6 text-primary-600" />}
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-gray-900 capitalize mb-1">
+                          {key.replace(/([A-Z])/g, ' $1').trim()}
+                        </h4>
+                        <p className="text-gray-600">{value}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'testimonials' && product.testimonials && product.testimonials.length > 0 && (
+            <div className="max-w-4xl">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Customer Testimonials</h2>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                {product.testimonials.map((testimonial: any, index: number) => (
+                  <div key={index} className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                    <div className="flex items-center mb-4">
+                      <div className="flex text-yellow-400">
+                        {[...Array(5)].map((_, i) => (
+                          <StarIcon 
+                            key={i} 
+                            className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`} 
+                          />
+                        ))}
+                      </div>
+                    </div>
+                    <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
+                    <div className="flex items-center">
+                      <div>
+                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
+                        <p className="text-sm text-gray-500">{testimonial.role} at {testimonial.company}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {activeTab === 'faq' && product.faq && product.faq.length > 0 && (
+            <div className="max-w-4xl">
+              <h2 className="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
+              
+              <div className="space-y-6">
+                {product.faq.map((item: any, index: number) => (
+                  <div key={index} className="bg-gray-50 rounded-lg p-6">
+                    <h3 className="font-semibold text-gray-900 mb-3">{item.question}</h3>
+                    <p className="text-gray-600">{item.answer}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
-      }>
-        <ProductContent 
-          product={product} 
-          activeTab={activeTab} 
-          setActiveTab={setActiveTab} 
-        />
-      </Suspense>
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-primary-600">
