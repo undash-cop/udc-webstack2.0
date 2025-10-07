@@ -95,12 +95,14 @@ const CaseStudies = () => {
                 <button
                   onClick={() => setViewMode('grid')}
                   className={`px-3 py-3 ${viewMode === 'grid' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700'}`}
+                  aria-label="Switch to grid view"
                 >
                   <ChartBarIcon className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
                   className={`px-3 py-3 ${viewMode === 'list' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700'}`}
+                  aria-label="Switch to list view"
                 >
                   <DocumentTextIcon className="h-5 w-5" />
                 </button>

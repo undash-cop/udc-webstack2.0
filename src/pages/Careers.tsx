@@ -516,7 +516,10 @@ const Careers = () => {
                               View Details
                               <ArrowRightIcon className="w-4 h-4 ml-1" />
                             </button>
-                            <button className="btn-save px-4 py-2 flex items-center justify-center">
+                            <button 
+                              className="btn-save px-4 py-2 flex items-center justify-center"
+                              aria-label="Save job"
+                            >
                               <HeartIcon className="w-4 h-4" />
                             </button>
                           </div>
@@ -604,7 +607,10 @@ const Careers = () => {
                         View Details
                         <ArrowRightIcon className="w-4 h-4 ml-1" />
                       </button>
-                      <button className="btn-save px-4 py-2 flex items-center justify-center">
+                      <button 
+                        className="btn-save px-4 py-2 flex items-center justify-center"
+                        aria-label="Save job"
+                      >
                         <HeartIcon className="w-4 h-4" />
                       </button>
                     </div>

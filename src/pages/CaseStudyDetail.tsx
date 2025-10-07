@@ -141,7 +141,10 @@ const CaseStudyDetail = () => {
                 className="w-full h-96 object-cover rounded-lg shadow-lg"
               />
               {caseStudy.videoUrl && (
-                <button className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg hover:bg-opacity-60 transition-all">
+                <button 
+                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg hover:bg-opacity-60 transition-all"
+                  aria-label="Play video"
+                >
                   <PlayIcon className="h-16 w-16 text-white" />
                 </button>
               )}

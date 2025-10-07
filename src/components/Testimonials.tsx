@@ -178,6 +178,7 @@ const Testimonials = () => {
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
                 className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-colors"
+                aria-label="Previous testimonial"
               >
                 <ChevronLeftIcon className="w-6 h-6 text-gray-600" />
               </button>
@@ -187,6 +188,7 @@ const Testimonials = () => {
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
                 className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-colors"
+                aria-label="Next testimonial"
               >
                 <ChevronRightIcon className="w-6 h-6 text-gray-600" />
               </button>
