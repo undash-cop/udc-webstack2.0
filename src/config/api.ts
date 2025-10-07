@@ -6,7 +6,7 @@ const getApiUrl = () => {
   } else {
     // Production - use Cloudflare Worker
     // Replace with your actual worker URL after deployment
-    return 'https://udc-applications-worker.your-subdomain.workers.dev/api';
+    return 'https://udc-applications-worker.undash-cop2737.workers.dev/api';
   }
 };
 
