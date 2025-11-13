@@ -4,6 +4,7 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
+  publicDir: 'public',
   build: {
     minify: 'terser',
     terserOptions: {
@@ -22,7 +23,9 @@ export default defineConfig({
           utils: ['react-hot-toast', 'react-helmet-async']
         }
       }
-    }
+    },
+    // Ensure public assets are copied correctly
+    copyPublicDir: true
   },
   optimizeDeps: {
     include: [
