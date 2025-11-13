@@ -225,7 +225,60 @@ const settings = {
   ],
   products: [
     {
+      name: "Fotralife",
+      tagline: "Connect. Share. Discover. Travel Together.",
+      description:
+        "Fotralife is a feature-rich travel community platform built for travel enthusiasts to connect, share, and discover the world together. The platform enables users to upload and showcase travel photos, write detailed experience stories, and create interactive trip itineraries. Members can explore curated destination guides, participate in vibrant community forums, and exchange travel tips and recommendations. Fotralife offers advanced travel planning tools, personalized destination suggestions, and seamless social media integration for sharing adventures beyond the platform. With real-time messaging, event organization features, and a global network of like-minded travelers, Fotralife empowers users to build meaningful connections, find inspiration for their next journey, and document every step of their travel experiences.",
+      photo: "/logos/fotralife.png",
+      link: "//fotralife.com",
+      features: [
+        "Travel Photo Sharing",
+        "Experience Storytelling",
+        "Destination Discovery",
+        "Travel Planning Tools",
+        "Community Forums",
+        "Travel Recommendations",
+        "Trip Itinerary Sharing",
+        "Social Media Integration"
+      ],
+      benefits: [
+        "Connect with Travel Enthusiasts",
+        "Discover New Destinations",
+        "Share Travel Memories",
+        "Get Travel Inspiration",
+        "Plan Better Trips",
+        "Build Travel Community"
+      ]
+    },
+    {
+      name: "Aarha Dhvani",
+      tagline: "The Rising Voice of Intelligent Communication.",
+      description:
+        "Aarha Dhvani is an AI-powered content automation and engagement platform designed to help small businesses connect with customers in any language, across WhatsApp, email, and social media. The platform automates customer communication in 20+ Indian languages, enabling businesses to reach a wider audience and engage effectively in their preferred vernacular. With intelligent content generation, automated messaging workflows, and comprehensive analytics, Aarha Dhvani empowers businesses to streamline their communication processes, improve customer engagement, and scale their marketing efforts effortlessly.",
+      photo: "/logos/aarha-dhvani.png",
+      link: "//aarhadhvani.undash-cop.com",
+      features: [
+        "AI Content Generation",
+        "WhatsApp Automation",
+        "Email Automation",
+        "Social Media Management",
+        "Multi-language Support (20+ Indian languages)",
+        "Analytics Dashboard",
+        "Template Library",
+        "API Integration"
+      ],
+      benefits: [
+        "Reach Wider Audience",
+        "Automated Customer Communication",
+        "Multi-language Support",
+        "Improved Engagement Rates",
+        "Time-Saving Automation",
+        "Scalable Marketing Solutions"
+      ]
+    },
+    {
       name: "EUP Dashboard",
+      tagline: "Unified HR & Finance. Simplified Operations.",
       description:
         "EUP Dashboard is an integrated Human Resource Management and Financial Operations platform tailored for startups and small businesses. It centralizes employee data, automates payroll, manages recruitment through a built-in Applicant Tracking System (ATS), and provides robust financial tracking—all within a unified, user-friendly interface. EUP Dashboard empowers organizations to efficiently handle HR processes, monitor financial health, and generate actionable insights with real-time analytics and customizable dashboards, supporting scalable growth and operational excellence.",
       photo: "/logos/eup-dashboard.svg",
@@ -251,6 +304,7 @@ const settings = {
     },
     {
       name: "Undash-cop Studio",
+      tagline: "100+ Templates. 72-Hour Launch. Zero Code.",
       description:
         "Undash-cop Studio revolutionizes web development with an extensive suite of features designed to accelerate and simplify website creation. Access a vast library of 100+ professionally crafted HTML site templates, each fully responsive and optimized for SEO, ensuring your site looks stunning and performs flawlessly on any device. Enjoy a guaranteed 72-hour deployment, cross-browser compatibility, and easy drag-and-drop customization—no coding required. Every template includes comprehensive documentation, lifetime updates, and dedicated support, making it ideal for both technical and non-technical users. Benefit from modern, industry-specific designs, integrated contact forms, pre-built UI components, and seamless integration with popular analytics and marketing tools. With Undash-cop Studio, you can launch a high-quality, branded website quickly and effortlessly, empowering your business with a professional online presence.",
       photo: "/logos/undash-cop-studio.png",
@@ -276,6 +330,7 @@ const settings = {
     },
     {
       name: "Serviso",
+      tagline: "Smart Invoicing. Seamless Billing. Instant Receipts.",
       description:
         "Serviso is a feature-rich invoicing and acknowledgment generation software tailored for service centers and micro-sales companies. It streamlines billing operations with automated invoice creation, real-time payment tracking, and instant digital receipt generation. Serviso offers robust customer management tools, multi-currency and tax support, and customizable invoice templates to match your brand. Its comprehensive reporting suite delivers actionable insights on sales, payments, and outstanding balances, while built-in payment reminders help ensure timely collections. The intuitive, user-friendly interface enables even non-technical users to efficiently manage billing, track customer histories, and maintain professional documentation—all securely stored in the cloud for easy access anytime, anywhere.",
       photo: "/logos/serviso.svg",
@@ -301,6 +356,7 @@ const settings = {
     },
     {
       name: "Futuro Expenses",
+      tagline: "Take Control. Track Smart. Achieve Goals.",
       description:
         "Futuro Expenses is a feature-rich personal finance management application designed to give users complete control over their financial well-being. The platform offers real-time expense tracking, customizable budget planning, and advanced investment portfolio monitoring, all within an intuitive and user-friendly interface. Users can set and track financial goals, receive intelligent bill reminders, and categorize expenses for deeper insights. Futuro Expenses also provides powerful data visualization tools, comprehensive financial reports, and seamless bank account integration for automatic transaction syncing. With robust security, multi-device access, and personalized financial planning tools, Futuro Expenses equips users with everything they need to make informed decisions, optimize spending, and achieve their monetary goals.",
       photo: "/logos/future-expenses.png",
@@ -326,6 +382,7 @@ const settings = {
     },
     {
       name: "YRB Services",
+      tagline: "Complete Service Management. Maximum Efficiency.",
       description:
         "YRB Services is a comprehensive IT hardware service management platform packed with advanced features to optimize every aspect of service center and hardware repair business operations. The platform offers end-to-end service management, including seamless customer intake, detailed job and work order tracking, and automated billing processes. YRB Services boasts powerful technician scheduling and dispatch tools, real-time parts and inventory management, and a robust customer communication portal for status updates and feedback. Additional features include warranty and service history management, performance analytics dashboards, mobile technician app support, and customizable notifications. With its intuitive interface and extensive feature set, YRB Services empowers service centers to deliver exceptional customer experiences, maximize operational efficiency, and drive business growth.",
       photo: "/logos/yrb-services.png",
@@ -350,28 +407,29 @@ const settings = {
       ]
     },
     {
-      name: "Fotralife",
+      name: "RecruitAI",
+      tagline: "87% Automated. 100% Intelligent.",
       description:
-        "Fotralife is a feature-rich travel community platform built for travel enthusiasts to connect, share, and discover the world together. The platform enables users to upload and showcase travel photos, write detailed experience stories, and create interactive trip itineraries. Members can explore curated destination guides, participate in vibrant community forums, and exchange travel tips and recommendations. Fotralife offers advanced travel planning tools, personalized destination suggestions, and seamless social media integration for sharing adventures beyond the platform. With real-time messaging, event organization features, and a global network of like-minded travelers, Fotralife empowers users to build meaningful connections, find inspiration for their next journey, and document every step of their travel experiences.",
-      photo: "/logos/fotralife.png",
-      link: "//fotralife.com",
+        "RecruitAI is an advanced AI-powered recruitment system specifically designed for consultancies, automating 87% of the recruitment process to dramatically reduce time-to-hire and improve candidate quality. The platform intelligently sources candidates from multiple job pools, automatically matches them to job requirements using machine learning algorithms, and streamlines the entire hiring workflow from sourcing to onboarding. With intelligent candidate ranking, automated screening, interview scheduling, and comprehensive analytics, RecruitAI empowers consultancies to scale their recruitment operations efficiently while maintaining high-quality talent acquisition standards.",
+      photo: "/logos/recruitai.svg",
+      link: "//recruitai.undash-cop.com",
       features: [
-        "Travel Photo Sharing",
-        "Experience Storytelling",
-        "Destination Discovery",
-        "Travel Planning Tools",
-        "Community Forums",
-        "Travel Recommendations",
-        "Trip Itinerary Sharing",
-        "Social Media Integration"
+        "87% Automated Recruitment Process",
+        "AI-Powered Candidate Sourcing",
+        "Auto-Sourced Candidates from Job Pools",
+        "Intelligent Candidate Matching",
+        "Automated Resume Screening",
+        "Interview Scheduling & Coordination",
+        "Candidate Ranking & Scoring",
+        "Analytics & Reporting Dashboard"
       ],
       benefits: [
-        "Connect with Travel Enthusiasts",
-        "Discover New Destinations",
-        "Share Travel Memories",
-        "Get Travel Inspiration",
-        "Plan Better Trips",
-        "Build Travel Community"
+        "Dramatically Reduced Time-to-Hire",
+        "Improved Candidate Quality",
+        "Cost-Effective Recruitment",
+        "Scalable Hiring Operations",
+        "Reduced Manual Workload",
+        "Data-Driven Hiring Decisions"
       ]
     },
   ],
@@ -386,8 +444,7 @@ const settings = {
       title: "Founder | Chief Executive Officer",
       about:
         "There's something to be said about working with passionate business owners that truly love what they do. I'm no different. I started my business because I honestly enjoy coming to work every day to create something beautiful that has the ability to impact others. But Our weekends has a different passion off the work in the very own generous play of racing and drag race mastering, Since it is the one which made me stand till the date.",
-      photo:
-        "https://drive.google.com/thumbnail?id=1sPGoC4VTi1TBbMEM9rLeZxu7nqKMf3qp",
+      photo: "https://drive.google.com/thumbnail?id=1UmzllytJ3x5RRhgawS53AEntf-uXe68Y",
       website: "https://sumankn.undash-cop.com",
       linkedin: "https://in.linkedin.com/in/suman-kn",
       instagram: "https://www.instagram.com/suman_kn_racer",
@@ -425,7 +482,7 @@ const settings = {
       title: "Chief Technological Officer",
       about:
         "Best in site and bang the technologies, Make way for inventions all the times",
-      photo: "",
+      photo: "https://drive.google.com/thumbnail?id=1Yc3h-zx7RVFckE-eRgQkZOoet7nv6_zS",
       website: "",
       linkedin: "https://www.linkedin.com/in/karthik-r-352600103",
       instagram: "https://www.instagram.com/karthikhr7",

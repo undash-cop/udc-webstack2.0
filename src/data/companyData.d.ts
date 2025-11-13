@@ -54,6 +54,7 @@ export interface CompanyData {
   }>;
   products: Array<{
     name: string;
+    tagline?: string;
     description: string;
     photo: string;
     link: string;

@@ -17,6 +17,7 @@ import {
 interface Product {
   id: string;
   name: string;
+  tagline?: string;
   description: string;
   logo: string;
   features: string[];
@@ -44,6 +45,7 @@ const Products = () => {
   const products: Product[] = companyData.products.map((product: CompanyProduct) => ({
     id: product.name.toLowerCase().replace(/\s+/g, '-'),
     name: product.name,
+    tagline: (product as any).tagline,
     description: product.description,
     logo: product.photo,
     features: product.features || [
@@ -72,12 +74,14 @@ const Products = () => {
       'Serviso': 'Business Tools',
       'Futuro Expenses': 'Personal Finance',
       'YRB Services': 'IT Services',
-      'Fotralife': 'Travel & Community'
+      'Fotralife': 'Travel & Community',
+      'Aarha Dhvani': 'AI & Communication',
+      'RecruitAI': 'AI + ATS'
     };
     return categoryMap[productName] || 'Software Solutions';
   }
 
-  const categories = ['All', 'HR & Finance', 'Web Development', 'Business Tools', 'Personal Finance', 'IT Services', 'Travel & Community'];
+  const categories = ['All', 'HR & Finance', 'Web Development', 'Business Tools', 'Personal Finance', 'IT Services', 'Travel & Community', 'AI & Communication', 'AI + ATS'];
   
   const filteredProducts = selectedCategory === 'All' 
     ? products 
@@ -137,6 +141,11 @@ const Products = () => {
                         />
                       </div>
                       <h3 className="text-xl font-bold text-gray-900 mb-2">{product.name}</h3>
+                      {product.tagline && (
+                        <p className="text-sm text-primary-600 font-medium mb-2 italic">
+                          {product.tagline}
+                        </p>
+                      )}
                       <span className="inline-block px-3 py-1 bg-primary-600 text-white text-xs font-medium rounded-full">
                         {product.category}
                       </span>

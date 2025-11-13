@@ -21,6 +21,7 @@ import {
 interface Product {
   id: string;
   name: string;
+  tagline?: string;
   description: string;
   logo: string;
   features: string[];
@@ -67,6 +68,7 @@ const ProductDetail = () => {
       const enhancedProduct: Product = {
         id: foundProduct.name.toLowerCase().replace(/\s+/g, '-'),
         name: foundProduct.name,
+        tagline: foundProduct.tagline,
         description: foundProduct.description,
         logo: foundProduct.photo,
         features: foundProduct.features || [],
@@ -92,7 +94,9 @@ const ProductDetail = () => {
       'Serviso': 'Business Tools',
       'Futuro Expenses': 'Personal Finance',
       'YRB Services': 'IT Services',
-      'Fotralife': 'Travel & Community'
+      'Fotralife': 'Travel & Community',
+      'Aarha Dhvani': 'AI & Communication',
+      'RecruitAI': 'AI + ATS'
     };
     return categoryMap[productName] || 'Software Solutions';
   }
@@ -104,7 +108,9 @@ const ProductDetail = () => {
       'Serviso': `Serviso is a revolutionary business management platform designed to streamline operations and enhance productivity across all departments. This comprehensive solution integrates seamlessly with your existing workflows, providing real-time insights, automated processes, and powerful analytics that drive informed decision-making. Whether you're managing customer relationships, tracking inventory, or coordinating team projects, Serviso delivers the tools and visibility you need to optimize your business operations and achieve sustainable growth.`,
       'Futuro Expenses': `Futuro Expenses is a sophisticated personal finance management application that brings clarity and control to your financial life. Designed with the modern user in mind, this intuitive platform helps you track spending, set budgets, monitor investments, and plan for the future with confidence. Advanced categorization, smart notifications, and comprehensive reporting features provide the insights you need to make informed financial decisions and achieve your monetary goals.`,
       'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently. Our expert team delivers round-the-clock support, proactive monitoring, and strategic guidance to ensure your systems remain secure, optimized, and aligned with your business objectives. From network management and cybersecurity to cloud solutions and digital transformation, YRB Services is your trusted partner in navigating the complex world of enterprise technology.`,
-      'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform combines social networking with travel planning, allowing users to discover hidden gems, share experiences, and build lasting connections with fellow travelers from around the world. With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`
+      'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform combines social networking with travel planning, allowing users to discover hidden gems, share experiences, and build lasting connections with fellow travelers from around the world. With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`,
+      'Aarha Dhvani': `Aarha Dhvani represents the future of intelligent business communication, combining cutting-edge AI technology with deep understanding of Indian market needs. This revolutionary platform breaks down language barriers by enabling businesses to communicate seamlessly in 20+ Indian languages, reaching customers in their native tongues through WhatsApp, email, and social media channels. With intelligent content generation powered by advanced AI, automated workflow management, and comprehensive analytics, Aarha Dhvani transforms how small businesses engage with their customers. The platform's vernacular-first approach ensures that businesses can connect authentically with diverse audiences, while its automation capabilities free up valuable time for business owners to focus on growth and innovation.`,
+      'RecruitAI': `RecruitAI revolutionizes the recruitment landscape for consultancies by leveraging advanced artificial intelligence to automate 87% of the hiring process. This intelligent platform seamlessly integrates with multiple job pools and recruitment channels, automatically sourcing qualified candidates that match your specific requirements. Using sophisticated machine learning algorithms, RecruitAI analyzes candidate profiles, skills, experience, and cultural fit to provide intelligent matching and ranking. The platform handles everything from initial candidate sourcing and resume screening to interview scheduling and candidate communication, dramatically reducing the time and effort required from your recruitment team. With comprehensive analytics and reporting, RecruitAI provides actionable insights into your hiring pipeline, helping you optimize your recruitment strategy and make data-driven decisions. Designed specifically for consultancies, the platform understands the unique challenges of high-volume, quality-focused recruitment, enabling you to scale your hiring operations while maintaining exceptional candidate quality standards.`
     };
     return descriptions[productName] || productName;
   }
@@ -158,6 +164,22 @@ const ProductDetail = () => {
         support: 'Community support, Premium support available',
         security: 'User data protection, Secure payments',
         integration: 'Social media, Travel booking platforms, Maps'
+      },
+      'Aarha Dhvani': {
+        platform: 'Web-based, Mobile Responsive',
+        deployment: 'Cloud-based SaaS',
+        users: 'Scalable from individual to enterprise',
+        support: 'Email support, Priority support available',
+        security: 'Data encryption, Secure API access',
+        integration: 'WhatsApp Business API, Email providers, Social media platforms, CRM systems'
+      },
+      'RecruitAI': {
+        platform: 'Web-based, Mobile Responsive',
+        deployment: 'Cloud-based SaaS',
+        users: 'Unlimited users with role-based access',
+        support: '24/7 technical support, Dedicated account manager',
+        security: 'Enterprise-grade encryption, GDPR compliant, Data privacy protection',
+        integration: 'Job boards, ATS systems, Email providers, Calendar systems, HRIS platforms'
       }
     };
     return specs[productName] || {};
@@ -241,6 +263,45 @@ const ProductDetail = () => {
           content: 'Fotralife has connected me with amazing people and places. The community features make travel planning so much more enjoyable.',
           rating: 5
         }
+      ],
+      'Aarha Dhvani': [
+        {
+          name: 'Rajesh Kumar',
+          company: 'Local Retail Business',
+          role: 'Business Owner',
+          content: 'Aarha Dhvani has transformed how we communicate with our customers. Being able to send messages in multiple Indian languages has significantly increased our customer engagement.',
+          rating: 5
+        },
+        {
+          name: 'Priya Sharma',
+          company: 'E-commerce Startup',
+          role: 'Marketing Manager',
+          content: 'The AI content generation and automation features have saved us countless hours. We can now focus on strategy while Aarha Dhvani handles our customer communication.',
+          rating: 5
+        }
+      ],
+      'RecruitAI': [
+        {
+          name: 'Michael Chen',
+          company: 'TechConsult Solutions',
+          role: 'Head of Talent Acquisition',
+          content: 'RecruitAI has transformed our recruitment process. The 87% automation rate means our team can focus on building relationships with top candidates instead of sifting through resumes. We\'ve reduced our time-to-hire by 60% while improving candidate quality.',
+          rating: 5
+        },
+        {
+          name: 'Sarah Johnson',
+          company: 'Global Consulting Group',
+          role: 'Recruitment Director',
+          content: 'The AI-powered candidate sourcing from job pools is incredible. RecruitAI finds candidates we would have never discovered manually. The intelligent matching algorithm has significantly improved our placement success rate.',
+          rating: 5
+        },
+        {
+          name: 'David Kumar',
+          company: 'Executive Search Partners',
+          role: 'Managing Partner',
+          content: 'As a consultancy, we handle high-volume recruitment. RecruitAI has scaled our operations without compromising quality. The automated screening and ranking features ensure we only interview the best candidates.',
+          rating: 5
+        }
       ]
     };
     return testimonials[productName] || [];
@@ -294,6 +355,42 @@ const ProductDetail = () => {
         {
           question: 'How does the community feature work?',
           answer: 'Fotralife connects you with fellow travelers through advanced matching algorithms and social features.'
+        }
+      ],
+      'Aarha Dhvani': [
+        {
+          question: 'Which languages does Aarha Dhvani support?',
+          answer: 'Aarha Dhvani supports 20+ Indian languages including Hindi, Kannada, Tamil, Telugu, Bengali, Marathi, Gujarati, and many more, enabling businesses to communicate with customers in their preferred language.'
+        },
+        {
+          question: 'Can I integrate Aarha Dhvani with my existing systems?',
+          answer: 'Yes, Aarha Dhvani offers comprehensive API integration capabilities, allowing you to connect with WhatsApp Business API, email providers, social media platforms, and CRM systems.'
+        },
+        {
+          question: 'How does the AI content generation work?',
+          answer: 'Aarha Dhvani uses advanced AI to generate contextually appropriate content in multiple languages, helping you create engaging messages that resonate with your audience while maintaining brand consistency.'
+        }
+      ],
+      'RecruitAI': [
+        {
+          question: 'How does the 87% automation work?',
+          answer: 'RecruitAI automates candidate sourcing from multiple job pools, resume screening, initial candidate matching, interview scheduling, candidate communication, and ranking. Only final interviews and hiring decisions require human intervention, resulting in 87% process automation.'
+        },
+        {
+          question: 'Which job pools does RecruitAI source candidates from?',
+          answer: 'RecruitAI integrates with major job boards, professional networks, and recruitment platforms. The system automatically searches and sources candidates from these pools based on your job requirements and preferences.'
+        },
+        {
+          question: 'How accurate is the AI candidate matching?',
+          answer: 'RecruitAI uses advanced machine learning algorithms that continuously learn from your hiring decisions. The system analyzes skills, experience, qualifications, and cultural fit to provide highly accurate candidate matches, with most consultancies reporting 85%+ match accuracy.'
+        },
+        {
+          question: 'Can RecruitAI integrate with our existing ATS?',
+          answer: 'Yes, RecruitAI offers comprehensive integration capabilities with popular ATS systems, HRIS platforms, and recruitment tools, ensuring seamless workflow and data synchronization.'
+        },
+        {
+          question: 'Is RecruitAI suitable for high-volume recruitment?',
+          answer: 'Absolutely. RecruitAI is specifically designed for consultancies that handle high-volume recruitment. The platform can process hundreds of candidates simultaneously, making it ideal for scaling your hiring operations without increasing your team size.'
         }
       ]
     };
@@ -388,6 +485,11 @@ const ProductDetail = () => {
                 </div>
                 <div>
                   <h1 className="text-4xl font-bold text-gray-900 mb-2">{product.name}</h1>
+                  {product.tagline && (
+                    <p className="text-lg text-primary-600 font-semibold mb-3 italic">
+                      {product.tagline}
+                    </p>
+                  )}
                   <span className="inline-block px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-full">
                     {product.category}
                   </span>
