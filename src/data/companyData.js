@@ -411,7 +411,7 @@ const settings = {
       tagline: "87% Automated. 100% Intelligent.",
       description:
         "RecruitAI is an advanced AI-powered recruitment system specifically designed for consultancies, automating 87% of the recruitment process to dramatically reduce time-to-hire and improve candidate quality. The platform intelligently sources candidates from multiple job pools, automatically matches them to job requirements using machine learning algorithms, and streamlines the entire hiring workflow from sourcing to onboarding. With intelligent candidate ranking, automated screening, interview scheduling, and comprehensive analytics, RecruitAI empowers consultancies to scale their recruitment operations efficiently while maintaining high-quality talent acquisition standards.",
-      photo: "/logos/recruitai.svg",
+      photo: "/logos/recruitai.png",
       link: "//recruitai.undash-cop.com",
       features: [
         "87% Automated Recruitment Process",
