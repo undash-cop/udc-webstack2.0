@@ -12,7 +12,7 @@ command = "npm run build"
 functions = "/Users/suman.nanjappa/WebstromProjects/Undash-cop/udc-webstack2.0/netlify/functions"
 
 [build.environment]
-NODE_VERSION = "18"
+NODE_VERSION = "22"
 
 [build.processing]
 
