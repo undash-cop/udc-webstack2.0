@@ -470,7 +470,7 @@ const settings = {
       about:
         "As the co-founder is a person who worked for more over 9 years had a great challenge in managing all the stuff in his industry with the small scale budgets",
       photo:
-        "https://drive.google.com/thumbnail?id=1qWi_KgOaDRlJEiBjrW6zDZViWK5NCP0T",
+        "https://drive.google.com/thumbnail?id=1Ox51HTawBCKXSQprsm-Tfd_Vt992KzVx",
       website: "",
       linkedin: "https://in.linkedin.com/in/nawaz-a",
       instagram: "https://www.instagram.com/nawazf37",
