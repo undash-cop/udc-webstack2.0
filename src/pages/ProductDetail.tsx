@@ -95,7 +95,7 @@ const ProductDetail = () => {
       'Futuro Expenses': 'Personal Finance',
       'YRB Services': 'IT Services',
       'Fotralife': 'Travel & Community',
-      'Aarha Dhvani': 'AI & Communication',
+      'Aurum Signal': 'AI & Communication',
       'RecruitAI': 'AI + ATS'
     };
     return categoryMap[productName] || 'Software Solutions';
@@ -109,7 +109,7 @@ const ProductDetail = () => {
       'Futuro Expenses': `Futuro Expenses is a sophisticated personal finance management application that brings clarity and control to your financial life. Designed with the modern user in mind, this intuitive platform helps you track spending, set budgets, monitor investments, and plan for the future with confidence. Advanced categorization, smart notifications, and comprehensive reporting features provide the insights you need to make informed financial decisions and achieve your monetary goals.`,
       'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently. Our expert team delivers round-the-clock support, proactive monitoring, and strategic guidance to ensure your systems remain secure, optimized, and aligned with your business objectives. From network management and cybersecurity to cloud solutions and digital transformation, YRB Services is your trusted partner in navigating the complex world of enterprise technology.`,
       'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform combines social networking with travel planning, allowing users to discover hidden gems, share experiences, and build lasting connections with fellow travelers from around the world. With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`,
-      'Aarha Dhvani': `Aarha Dhvani represents the future of intelligent business communication, combining cutting-edge AI technology with deep understanding of Indian market needs. This revolutionary platform breaks down language barriers by enabling businesses to communicate seamlessly in 20+ Indian languages, reaching customers in their native tongues through WhatsApp, email, and social media channels. With intelligent content generation powered by advanced AI, automated workflow management, and comprehensive analytics, Aarha Dhvani transforms how small businesses engage with their customers. The platform's vernacular-first approach ensures that businesses can connect authentically with diverse audiences, while its automation capabilities free up valuable time for business owners to focus on growth and innovation.`,
+      'Aurum Signal': `Aurum Signal represents the future of intelligent business communication, combining cutting-edge AI technology with deep understanding of Indian market needs. This revolutionary platform breaks down language barriers by enabling businesses to communicate seamlessly in 20+ Indian languages, reaching customers in their native tongues through WhatsApp, email, and social media channels. With intelligent content generation powered by advanced AI, automated workflow management, and comprehensive analytics, Aurum Signal transforms how small businesses engage with their customers. The platform's vernacular-first approach ensures that businesses can connect authentically with diverse audiences, while its automation capabilities free up valuable time for business owners to focus on growth and innovation.`,
       'RecruitAI': `RecruitAI revolutionizes the recruitment landscape for consultancies by leveraging advanced artificial intelligence to automate 87% of the hiring process. This intelligent platform seamlessly integrates with multiple job pools and recruitment channels, automatically sourcing qualified candidates that match your specific requirements. Using sophisticated machine learning algorithms, RecruitAI analyzes candidate profiles, skills, experience, and cultural fit to provide intelligent matching and ranking. The platform handles everything from initial candidate sourcing and resume screening to interview scheduling and candidate communication, dramatically reducing the time and effort required from your recruitment team. With comprehensive analytics and reporting, RecruitAI provides actionable insights into your hiring pipeline, helping you optimize your recruitment strategy and make data-driven decisions. Designed specifically for consultancies, the platform understands the unique challenges of high-volume, quality-focused recruitment, enabling you to scale your hiring operations while maintaining exceptional candidate quality standards.`
     };
     return descriptions[productName] || productName;
@@ -165,7 +165,7 @@ const ProductDetail = () => {
         security: 'User data protection, Secure payments',
         integration: 'Social media, Travel booking platforms, Maps'
       },
-      'Aarha Dhvani': {
+      'Aurum Signal': {
         platform: 'Web-based, Mobile Responsive',
         deployment: 'Cloud-based SaaS',
         users: 'Scalable from individual to enterprise',
@@ -264,19 +264,19 @@ const ProductDetail = () => {
           rating: 5
         }
       ],
-      'Aarha Dhvani': [
+      'Aurum Signal': [
         {
           name: 'Rajesh Kumar',
           company: 'Local Retail Business',
           role: 'Business Owner',
-          content: 'Aarha Dhvani has transformed how we communicate with our customers. Being able to send messages in multiple Indian languages has significantly increased our customer engagement.',
+          content: 'Aurum Signal has transformed how we communicate with our customers. Being able to send messages in multiple Indian languages has significantly increased our customer engagement.',
           rating: 5
         },
         {
           name: 'Priya Sharma',
           company: 'E-commerce Startup',
           role: 'Marketing Manager',
-          content: 'The AI content generation and automation features have saved us countless hours. We can now focus on strategy while Aarha Dhvani handles our customer communication.',
+          content: 'The AI content generation and automation features have saved us countless hours. We can now focus on strategy while Aurum Signal handles our customer communication.',
           rating: 5
         }
       ],
@@ -357,18 +357,18 @@ const ProductDetail = () => {
           answer: 'Fotralife connects you with fellow travelers through advanced matching algorithms and social features.'
         }
       ],
-      'Aarha Dhvani': [
+      'Aurum Signal': [
         {
-          question: 'Which languages does Aarha Dhvani support?',
-          answer: 'Aarha Dhvani supports 20+ Indian languages including Hindi, Kannada, Tamil, Telugu, Bengali, Marathi, Gujarati, and many more, enabling businesses to communicate with customers in their preferred language.'
+          question: 'Which languages does Aurum Signal support?',
+          answer: 'Aurum Signal supports 20+ Indian languages including Hindi, Kannada, Tamil, Telugu, Bengali, Marathi, Gujarati, and many more, enabling businesses to communicate with customers in their preferred language.'
         },
         {
-          question: 'Can I integrate Aarha Dhvani with my existing systems?',
-          answer: 'Yes, Aarha Dhvani offers comprehensive API integration capabilities, allowing you to connect with WhatsApp Business API, email providers, social media platforms, and CRM systems.'
+          question: 'Can I integrate Aurum Signal with my existing systems?',
+          answer: 'Yes, Aurum Signal offers comprehensive API integration capabilities, allowing you to connect with WhatsApp Business API, email providers, social media platforms, and CRM systems.'
         },
         {
           question: 'How does the AI content generation work?',
-          answer: 'Aarha Dhvani uses advanced AI to generate contextually appropriate content in multiple languages, helping you create engaging messages that resonate with your audience while maintaining brand consistency.'
+          answer: 'Aurum Signal uses advanced AI to generate contextually appropriate content in multiple languages, helping you create engaging messages that resonate with your audience while maintaining brand consistency.'
         }
       ],
       'RecruitAI': [

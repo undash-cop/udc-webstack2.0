@@ -251,12 +251,12 @@ const settings = {
       ]
     },
     {
-      name: "Aarha Dhvani",
+      name: "Aurum Signal",
       tagline: "The Rising Voice of Intelligent Communication.",
       description:
-        "Aarha Dhvani is an AI-powered content automation and engagement platform designed to help small businesses connect with customers in any language, across WhatsApp, email, and social media. The platform automates customer communication in 20+ Indian languages, enabling businesses to reach a wider audience and engage effectively in their preferred vernacular. With intelligent content generation, automated messaging workflows, and comprehensive analytics, Aarha Dhvani empowers businesses to streamline their communication processes, improve customer engagement, and scale their marketing efforts effortlessly.",
-      photo: "/logos/aarha-dhvani.png",
-      link: "//aarhadhvani.undash-cop.com",
+        "Aurum Signal is an AI-powered content automation and engagement platform designed to help small businesses connect with customers in any language, across WhatsApp, email, and social media. The platform automates customer communication in 20+ Indian languages, enabling businesses to reach a wider audience and engage effectively in their preferred vernacular. With intelligent content generation, automated messaging workflows, and comprehensive analytics, Aurum Signal empowers businesses to streamline their communication processes, improve customer engagement, and scale their marketing efforts effortlessly.",
+      photo: "/logos/aurum-signal.png",
+      link: "//aurumsignal.undash-cop.com",
       features: [
         "AI Content Generation",
         "WhatsApp Automation",

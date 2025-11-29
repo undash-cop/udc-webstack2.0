@@ -75,7 +75,7 @@ const Products = () => {
       'Futuro Expenses': 'Personal Finance',
       'YRB Services': 'IT Services',
       'Fotralife': 'Travel & Community',
-      'Aarha Dhvani': 'AI & Communication',
+      'Aurum Signal': 'AI & Communication',
       'RecruitAI': 'AI + ATS'
     };
     return categoryMap[productName] || 'Software Solutions';
