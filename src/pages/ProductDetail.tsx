@@ -96,7 +96,8 @@ const ProductDetail = () => {
       'YRB Services': 'IT Services',
       'Fotralife': 'Travel & Community',
       'Aurum Signal': 'AI & Communication',
-      'RecruitAI': 'AI + ATS'
+      'RecruitAI': 'AI + ATS',
+      'Game Of Coders': 'AI & Interview Tools'
     };
     return categoryMap[productName] || 'Software Solutions';
   }
@@ -110,7 +111,8 @@ const ProductDetail = () => {
       'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently. Our expert team delivers round-the-clock support, proactive monitoring, and strategic guidance to ensure your systems remain secure, optimized, and aligned with your business objectives. From network management and cybersecurity to cloud solutions and digital transformation, YRB Services is your trusted partner in navigating the complex world of enterprise technology.`,
       'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform combines social networking with travel planning, allowing users to discover hidden gems, share experiences, and build lasting connections with fellow travelers from around the world. With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`,
       'Aurum Signal': `Aurum Signal represents the future of intelligent business communication, combining cutting-edge AI technology with deep understanding of Indian market needs. This revolutionary platform breaks down language barriers by enabling businesses to communicate seamlessly in 20+ Indian languages, reaching customers in their native tongues through WhatsApp, email, and social media channels. With intelligent content generation powered by advanced AI, automated workflow management, and comprehensive analytics, Aurum Signal transforms how small businesses engage with their customers. The platform's vernacular-first approach ensures that businesses can connect authentically with diverse audiences, while its automation capabilities free up valuable time for business owners to focus on growth and innovation.`,
-      'RecruitAI': `RecruitAI revolutionizes the recruitment landscape for consultancies by leveraging advanced artificial intelligence to automate 87% of the hiring process. This intelligent platform seamlessly integrates with multiple job pools and recruitment channels, automatically sourcing qualified candidates that match your specific requirements. Using sophisticated machine learning algorithms, RecruitAI analyzes candidate profiles, skills, experience, and cultural fit to provide intelligent matching and ranking. The platform handles everything from initial candidate sourcing and resume screening to interview scheduling and candidate communication, dramatically reducing the time and effort required from your recruitment team. With comprehensive analytics and reporting, RecruitAI provides actionable insights into your hiring pipeline, helping you optimize your recruitment strategy and make data-driven decisions. Designed specifically for consultancies, the platform understands the unique challenges of high-volume, quality-focused recruitment, enabling you to scale your hiring operations while maintaining exceptional candidate quality standards.`
+      'RecruitAI': `RecruitAI revolutionizes the recruitment landscape for consultancies by leveraging advanced artificial intelligence to automate 87% of the hiring process. This intelligent platform seamlessly integrates with multiple job pools and recruitment channels, automatically sourcing qualified candidates that match your specific requirements. Using sophisticated machine learning algorithms, RecruitAI analyzes candidate profiles, skills, experience, and cultural fit to provide intelligent matching and ranking. The platform handles everything from initial candidate sourcing and resume screening to interview scheduling and candidate communication, dramatically reducing the time and effort required from your recruitment team. With comprehensive analytics and reporting, RecruitAI provides actionable insights into your hiring pipeline, helping you optimize your recruitment strategy and make data-driven decisions. Designed specifically for consultancies, the platform understands the unique challenges of high-volume, quality-focused recruitment, enabling you to scale your hiring operations while maintaining exceptional candidate quality standards.`,
+      'Game Of Coders': `Game Of Coders is a revolutionary AI-powered interview assistant that transforms how you approach technical interviews. This cutting-edge desktop application provides real-time AI assistance during technical interviews, giving you instant answers and insights when you need them most. With advanced screenshot analysis capabilities, Game Of Coders can instantly analyze code, diagrams, and technical problems, providing comprehensive explanations and solutions. The platform features dual audio capture technology that automatically detects interview questions and provides contextual AI responses in real-time. The stealth overlay mode ensures complete privacy and undetectability, working seamlessly during screen sharing sessions without being visible to interviewers. Available for Mac, Windows, and Linux, Game Of Coders is designed to give you the confidence and edge needed to ace your technical interviews while maintaining complete privacy and professionalism.`
     };
     return descriptions[productName] || productName;
   }
@@ -180,6 +182,14 @@ const ProductDetail = () => {
         support: '24/7 technical support, Dedicated account manager',
         security: 'Enterprise-grade encryption, GDPR compliant, Data privacy protection',
         integration: 'Job boards, ATS systems, Email providers, Calendar systems, HRIS platforms'
+      },
+      'Game Of Coders': {
+        platform: 'Desktop Application (Mac, Windows, Linux)',
+        deployment: 'Local installation, No cloud required',
+        users: 'Single user per license',
+        support: 'Email support, Documentation, Community forum',
+        security: 'Private & undetectable, Local processing, No data collection',
+        integration: 'Screen sharing platforms, Interview tools, AI API integration'
       }
     };
     return specs[productName] || {};
@@ -302,6 +312,29 @@ const ProductDetail = () => {
           content: 'As a consultancy, we handle high-volume recruitment. RecruitAI has scaled our operations without compromising quality. The automated screening and ranking features ensure we only interview the best candidates.',
           rating: 5
         }
+      ],
+      'Game Of Coders': [
+        {
+          name: 'Alex Rodriguez',
+          company: 'Software Engineer',
+          role: 'Job Seeker',
+          content: 'Game Of Coders helped me ace my technical interview at a FAANG company. The real-time AI assistance gave me the confidence I needed, and the stealth overlay worked perfectly during screen sharing. Highly recommended!',
+          rating: 5
+        },
+        {
+          name: 'Priya Patel',
+          company: 'Full Stack Developer',
+          role: 'Career Changer',
+          content: 'The screenshot analysis feature is incredible. It instantly helped me understand complex algorithms and coding problems during my interview. The auto-scroll feature kept everything visible and organized.',
+          rating: 5
+        },
+        {
+          name: 'James Wilson',
+          company: 'Data Scientist',
+          role: 'Interview Candidate',
+          content: 'Game Of Coders is a game-changer for technical interviews. The dual audio capture automatically detected questions and provided relevant answers. The privacy features gave me peace of mind during the entire process.',
+          rating: 5
+        }
       ]
     };
     return testimonials[productName] || [];
@@ -391,6 +424,28 @@ const ProductDetail = () => {
         {
           question: 'Is RecruitAI suitable for high-volume recruitment?',
           answer: 'Absolutely. RecruitAI is specifically designed for consultancies that handle high-volume recruitment. The platform can process hundreds of candidates simultaneously, making it ideal for scaling your hiring operations without increasing your team size.'
+        }
+      ],
+      'Game Of Coders': [
+        {
+          question: 'Is Game Of Coders detectable during screen sharing?',
+          answer: 'No, Game Of Coders features a stealth overlay mode that is completely undetectable during screen sharing. The transparent overlay works seamlessly without being visible to interviewers or screen recording software.'
+        },
+        {
+          question: 'Which operating systems are supported?',
+          answer: 'Game Of Coders is available for Mac, Windows, and Linux, ensuring compatibility with all major desktop operating systems.'
+        },
+        {
+          question: 'How does the real-time audio transcription work?',
+          answer: 'Game Of Coders uses dual audio capture technology to automatically detect interview questions in real-time. The system transcribes audio and provides instant AI-powered responses to help you during your interview.'
+        },
+        {
+          question: 'Is my data private and secure?',
+          answer: 'Yes, Game Of Coders is designed with complete privacy in mind. The application processes data locally and does not collect or store any personal information. All AI processing can be done with your own API keys.'
+        },
+        {
+          question: 'How does the screenshot analysis feature work?',
+          answer: 'You can capture screenshots of code, diagrams, or technical problems during your interview, and Game Of Coders will instantly analyze them using AI to provide comprehensive explanations, solutions, and insights.'
         }
       ]
     };

@@ -251,6 +251,32 @@ const settings = {
       ]
     },
     {
+      name: "Game Of Coders",
+      tagline: "Your Real-Time AI Interview Assistant",
+      description:
+        "Game Of Coders is a powerful AI-powered interview assistant designed to help you ace technical interviews. The platform provides instant AI-powered answers during technical interviews with screenshot analysis, real-time audio transcription, and a stealth overlay that works seamlessly during screen sharing. With features like automatic question detection, dual audio capture, and auto-scroll typing sync, Game Of Coders gives you the edge you need to succeed. The always-on-top transparent overlay works during screen sharing without being detected, ensuring complete privacy and undetectability. Available for Mac, Windows, and Linux, Game Of Coders is your secret weapon for technical interview success.",
+      photo: "/logos/game-of-coders.svg",
+      link: "https://gameofcoders.app/",
+      features: [
+        "Screenshot + AI Analysis",
+        "Real-Time Audio Interview Assistant",
+        "Dual Audio Capture",
+        "Automatic Question Detection",
+        "Auto-Scroll Typing Sync",
+        "Stealth Overlay Mode",
+        "Screen Sharing Compatible",
+        "Cross-Platform Support (Mac, Windows, Linux)"
+      ],
+      benefits: [
+        "Ace Technical Interviews",
+        "Instant AI-Powered Answers",
+        "Private & Undetectable",
+        "Works During Screen Sharing",
+        "Real-Time Assistance",
+        "Complete Privacy"
+      ]
+    },
+    {
       name: "Aurum Signal",
       tagline: "The Rising Voice of Intelligent Communication.",
       description:

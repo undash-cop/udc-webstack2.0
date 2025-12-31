@@ -76,12 +76,13 @@ const Products = () => {
       'YRB Services': 'IT Services',
       'Fotralife': 'Travel & Community',
       'Aurum Signal': 'AI & Communication',
-      'RecruitAI': 'AI + ATS'
+      'RecruitAI': 'AI + ATS',
+      'Game Of Coders': 'AI & Interview Tools'
     };
     return categoryMap[productName] || 'Software Solutions';
   }
 
-  const categories = ['All', 'HR & Finance', 'Web Development', 'Business Tools', 'Personal Finance', 'IT Services', 'Travel & Community', 'AI & Communication', 'AI + ATS'];
+  const categories = ['All', 'HR & Finance', 'Web Development', 'Business Tools', 'Personal Finance', 'IT Services', 'Travel & Community', 'AI & Communication', 'AI + ATS', 'AI & Interview Tools'];
   
   const filteredProducts = selectedCategory === 'All' 
     ? products 

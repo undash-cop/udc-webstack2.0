@@ -1,0 +1,47 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <linearGradient id="gameGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366f1;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="200" height="200" rx="20" fill="url(#gameGrad)" opacity="0.1"/>
+  
+  <!-- Main Container -->
+  <g transform="translate(100, 100)">
+    <!-- Code Brackets Container -->
+    <g filter="url(#shadow)">
+      <!-- Left Bracket -->
+      <path d="M -50 -35 L -60 -35 L -60 35 L -50 35 L -50 25 L -55 25 L -55 -25 L -50 -25 Z" fill="#6366f1"/>
+      
+      <!-- Right Bracket -->
+      <path d="M 50 -35 L 60 -35 L 60 35 L 50 35 L 50 25 L 55 25 L 55 -25 L 50 -25 Z" fill="#ec4899"/>
+      
+      <!-- Code Lines -->
+      <line x1="-35" y1="-25" x2="35" y2="-25" stroke="#6366f1" stroke-width="4" stroke-linecap="round"/>
+      <line x1="-30" y1="-5" x2="30" y2="-5" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
+      <line x1="-35" y1="15" x2="35" y2="15" stroke="#ec4899" stroke-width="4" stroke-linecap="round"/>
+      <line x1="-25" y1="25" x2="25" y2="25" stroke="#8b5cf6" stroke-width="4" stroke-linecap="round"/>
+    </g>
+    
+    <!-- AI/Game Icon - Hexagon with Brain/Code Symbol -->
+    <g transform="translate(0, -50)">
+      <circle cx="0" cy="0" r="18" fill="url(#gameGrad)" opacity="0.2"/>
+      <path d="M -12 -8 L -8 -12 L 8 -12 L 12 -8 L 12 8 L 8 12 L -8 12 L -12 8 Z" fill="url(#gameGrad)" opacity="0.9"/>
+      <!-- Code Symbol Inside -->
+      <circle cx="-4" cy="-2" r="2" fill="white"/>
+      <circle cx="4" cy="-2" r="2" fill="white"/>
+      <line x1="-4" y1="4" x2="4" y2="4" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </g>
+  </g>
+  
+  <!-- Text -->
+  <text x="100" y="155" font-family="Arial, sans-serif" font-size="14" font-weight="bold" text-anchor="middle" fill="#1f2937" opacity="0.9">GAME OF</text>
+  <text x="100" y="175" font-family="Arial, sans-serif" font-size="18" font-weight="bold" text-anchor="middle" fill="url(#gameGrad)">CODERS</text>
+</svg>
