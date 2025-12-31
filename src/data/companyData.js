@@ -17,7 +17,7 @@ const settings = {
     facebook: "//www.facebook.com/undashcop7",
     twitter: "//twitter.com/UndashI",
     linkedin: "//www.linkedin.com/company/undash-cop",
-    instagram: "//www.instagram.com/undashcop7",
+    instagram: "//www.instagram.com/undash_cop",
   },
   features: [
     {
