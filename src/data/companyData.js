@@ -458,6 +458,58 @@ const settings = {
         "Data-Driven Hiring Decisions"
       ]
     },
+    {
+      name: "My Macros",
+      tagline: "Your Personal Health & Fitness Companion (Beta)",
+      description:
+        "My Macros is an AI-powered nutrition and fitness platform currently in beta. Transform your health journey with intelligent nutrition tracking, personalized fitness goals, and insights that adapt to your lifestyle. The platform combines cutting-edge AI with proven health science—featuring an AI health assistant for instant answers and meal suggestions, smart diet tracking with macro and micronutrient monitoring, personalized goals, and a supportive community. My Macros offers real-time sync, offline support, and privacy-first design. Now in beta—join early and help shape the future of health tracking.",
+      photo: "/logos/my-macros.svg",
+      link: "https://noobstoday.netlify.app/",
+      features: [
+        "AI Health Assistant",
+        "Smart Diet & Macro Tracking",
+        "Personalized Fitness Goals",
+        "AI-Powered Food Recognition",
+        "Macro & Micronutrient Tracking",
+        "Progress & Goal Tracking",
+        "Community & Support",
+        "Real-Time Sync & Offline Support"
+      ],
+      benefits: [
+        "Transform Your Health Journey",
+        "Personalized Nutrition Advice",
+        "Achieve Fitness Goals",
+        "Data-Driven Insights",
+        "Privacy-First Design",
+        "Cross-Platform Access"
+      ]
+    },
+    {
+      name: "Metrics Billing Platform",
+      tagline: "Multi-Tenant, Usage-Based Billing (Open Source)",
+      description:
+        "Metrics Billing Platform is an open-source, production-ready multi-tenant usage-based billing platform with enterprise-grade security and reliability. Designed for India-first payments using Razorpay, it uses Cloudflare Workers for ingestion and APIs, Cloudflare D1 for hot event storage, and Amazon RDS (Postgres) as the financial source of truth. Features include usage-based billing, monthly invoice generation, Razorpay integration with webhook reconciliation, high-throughput idempotent event ingestion, invoice PDF generation, email notifications, refund handling, usage dashboards, multi-currency support, and usage alerts. Fully open source on GitHub—clone, deploy, and customize for your business.",
+      photo: "/logos/metrics-billing-platform.svg",
+      link: "https://github.com/undash-cop/metrics-billable-platform",
+      features: [
+        "Multi-Tenant Architecture",
+        "Usage-Based Billing",
+        "Razorpay Integration (India)",
+        "Monthly Invoice Generation",
+        "Event Ingestion (D1 + RDS)",
+        "Invoice PDF & Email Notifications",
+        "Refund Handling & Usage Dashboards",
+        "Multi-Currency & Usage Alerts"
+      ],
+      benefits: [
+        "Enterprise-Grade Security",
+        "Production-Ready & Cost-Effective",
+        "Full Audit Trail & Observability",
+        "Open Source on GitHub",
+        "Cloud-Native (Workers, D1, RDS)",
+        "Customizable & Self-Hosted"
+      ]
+    },
   ],
   hs_form_contact: {
     portalId: "9104225",

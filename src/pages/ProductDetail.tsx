@@ -73,7 +73,7 @@ const ProductDetail = () => {
         logo: foundProduct.photo,
         features: foundProduct.features || [],
         benefits: foundProduct.benefits || [],
-        pricing: 'Contact for pricing',
+        pricing: getProductCategory(foundProduct.name) === 'Open Source' ? 'Free / Open Source' : 'Contact for pricing',
         category: getProductCategory(foundProduct.name),
         link: foundProduct.link,
         longDescription: getLongDescription(foundProduct.name),
@@ -97,7 +97,9 @@ const ProductDetail = () => {
       'Fotralife': 'Travel & Community',
       'Aurum Signal': 'AI & Communication',
       'RecruitAI': 'AI + ATS',
-      'Game Of Coders': 'AI & Interview Tools'
+      'Game Of Coders': 'AI & Interview Tools',
+      'My Macros': 'Health & Fitness (Beta)',
+      'Metrics Billing Platform': 'Open Source'
     };
     return categoryMap[productName] || 'Software Solutions';
   }
@@ -112,7 +114,9 @@ const ProductDetail = () => {
       'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform combines social networking with travel planning, allowing users to discover hidden gems, share experiences, and build lasting connections with fellow travelers from around the world. With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`,
       'Aurum Signal': `Aurum Signal represents the future of intelligent business communication, combining cutting-edge AI technology with deep understanding of Indian market needs. This revolutionary platform breaks down language barriers by enabling businesses to communicate seamlessly in 20+ Indian languages, reaching customers in their native tongues through WhatsApp, email, and social media channels. With intelligent content generation powered by advanced AI, automated workflow management, and comprehensive analytics, Aurum Signal transforms how small businesses engage with their customers. The platform's vernacular-first approach ensures that businesses can connect authentically with diverse audiences, while its automation capabilities free up valuable time for business owners to focus on growth and innovation.`,
       'RecruitAI': `RecruitAI revolutionizes the recruitment landscape for consultancies by leveraging advanced artificial intelligence to automate 87% of the hiring process. This intelligent platform seamlessly integrates with multiple job pools and recruitment channels, automatically sourcing qualified candidates that match your specific requirements. Using sophisticated machine learning algorithms, RecruitAI analyzes candidate profiles, skills, experience, and cultural fit to provide intelligent matching and ranking. The platform handles everything from initial candidate sourcing and resume screening to interview scheduling and candidate communication, dramatically reducing the time and effort required from your recruitment team. With comprehensive analytics and reporting, RecruitAI provides actionable insights into your hiring pipeline, helping you optimize your recruitment strategy and make data-driven decisions. Designed specifically for consultancies, the platform understands the unique challenges of high-volume, quality-focused recruitment, enabling you to scale your hiring operations while maintaining exceptional candidate quality standards.`,
-      'Game Of Coders': `Game Of Coders is a revolutionary AI-powered interview assistant that transforms how you approach technical interviews. This cutting-edge desktop application provides real-time AI assistance during technical interviews, giving you instant answers and insights when you need them most. With advanced screenshot analysis capabilities, Game Of Coders can instantly analyze code, diagrams, and technical problems, providing comprehensive explanations and solutions. The platform features dual audio capture technology that automatically detects interview questions and provides contextual AI responses in real-time. The stealth overlay mode ensures complete privacy and undetectability, working seamlessly during screen sharing sessions without being visible to interviewers. Available for Mac, Windows, and Linux, Game Of Coders is designed to give you the confidence and edge needed to ace your technical interviews while maintaining complete privacy and professionalism.`
+      'Game Of Coders': `Game Of Coders is a revolutionary AI-powered interview assistant that transforms how you approach technical interviews. This cutting-edge desktop application provides real-time AI assistance during technical interviews, giving you instant answers and insights when you need them most. With advanced screenshot analysis capabilities, Game Of Coders can instantly analyze code, diagrams, and technical problems, providing comprehensive explanations and solutions. The platform features dual audio capture technology that automatically detects interview questions and provides contextual AI responses in real-time. The stealth overlay mode ensures complete privacy and undetectability, working seamlessly during screen sharing sessions without being visible to interviewers. Available for Mac, Windows, and Linux, Game Of Coders is designed to give you the confidence and edge needed to ace your technical interviews while maintaining complete privacy and professionalism.`,
+      'My Macros': `My Macros is your personal health and fitness companion, currently in beta. The platform combines cutting-edge AI with proven health science to help you transform your health journey. Get instant answers to health questions, personalized meal suggestions, and expert guidance 24/7 from the AI health assistant. Monitor daily nutrition with AI-powered food recognition and detailed macro and micronutrient tracking. Set and achieve personalized fitness goals with plans that adapt to your progress and lifestyle. Join a supportive community of like-minded individuals on similar health journeys. My Macros offers real-time sync, offline support, and privacy-first design with enterprise-grade security. As a beta product, we're actively improving based on early user feedback—join now and help shape the future of health tracking.`,
+      'Metrics Billing Platform': `Metrics Billing Platform is a production-ready, open-source multi-tenant usage-based billing system built by Undash-cop. It is designed for India-first payments using Razorpay, with Cloudflare Workers handling event ingestion and APIs, Cloudflare D1 as hot event storage (acting as a queue with cron polling every 5 minutes), and Amazon RDS (PostgreSQL) as the financial source of truth. The platform supports high-throughput idempotent event ingestion, automated monthly invoice generation, Razorpay webhook reconciliation, professional PDF invoices, email notifications for invoices and payments, full and partial refunds, usage dashboards and analytics APIs, multi-currency support, and threshold, spike, and cost alerts. Security features include API key hashing, role-based access control, rate limiting, optional IP whitelisting, and full audit logging. The entire codebase is open source on GitHub—you can clone, deploy, and customize it for your organisation.`
     };
     return descriptions[productName] || productName;
   }
@@ -190,6 +194,22 @@ const ProductDetail = () => {
         support: 'Email support, Documentation, Community forum',
         security: 'Private & undetectable, Local processing, No data collection',
         integration: 'Screen sharing platforms, Interview tools, AI API integration'
+      },
+      'My Macros': {
+        platform: 'Web-based, Mobile Responsive',
+        deployment: 'Cloud-based SaaS (Beta)',
+        users: 'Personal and family accounts',
+        support: 'Community support, Beta feedback welcome',
+        security: 'Privacy-first design, End-to-end encryption, Data ownership',
+        integration: 'Health devices, Nutrition databases, Fitness trackers'
+      },
+      'Metrics Billing Platform': {
+        platform: 'Cloudflare Workers, Admin API',
+        deployment: 'Cloud-native (Workers, D1, RDS)',
+        users: 'Multi-tenant, organisations and projects',
+        support: 'Open source, Documentation, Community',
+        security: 'API key hashing, RBAC, Rate limiting, Audit logging',
+        integration: 'Razorpay, PostgreSQL (RDS), Cloudflare D1'
       }
     };
     return specs[productName] || {};
@@ -335,6 +355,38 @@ const ProductDetail = () => {
           content: 'Game Of Coders is a game-changer for technical interviews. The dual audio capture automatically detected questions and provided relevant answers. The privacy features gave me peace of mind during the entire process.',
           rating: 5
         }
+      ],
+      'My Macros': [
+        {
+          name: 'Sarah Mitchell',
+          company: 'Fitness Enthusiast',
+          role: 'Beta User',
+          content: 'My Macros has transformed how I track my nutrition. The AI health assistant gives instant meal suggestions and the macro tracking is so intuitive. Excited to be part of the beta!',
+          rating: 5
+        },
+        {
+          name: 'David Chen',
+          company: 'Health Coach',
+          role: 'Beta Tester',
+          content: 'The personalized goals and progress tracking are exactly what my clients need. The privacy-first design and offline support make it reliable for daily use. Great beta experience.',
+          rating: 5
+        }
+      ],
+      'Metrics Billing Platform': [
+        {
+          name: 'Tech Lead',
+          company: 'SaaS Startup',
+          role: 'Engineering Lead',
+          content: 'We needed usage-based billing with Razorpay and multi-tenant support. Metrics Billing Platform gave us a production-ready, open-source solution we could deploy on Cloudflare and RDS. Saved months of build time.',
+          rating: 5
+        },
+        {
+          name: 'DevOps Engineer',
+          company: 'Enterprise',
+          role: 'Platform Engineer',
+          content: 'Enterprise-grade security, idempotent ingestion, and full audit trail out of the box. The D1-as-queue and RDS as source of truth architecture is clean and cost-effective. Great open source project.',
+          rating: 5
+        }
       ]
     };
     return testimonials[productName] || [];
@@ -446,6 +498,42 @@ const ProductDetail = () => {
         {
           question: 'How does the screenshot analysis feature work?',
           answer: 'You can capture screenshots of code, diagrams, or technical problems during your interview, and Game Of Coders will instantly analyze them using AI to provide comprehensive explanations, solutions, and insights.'
+        }
+      ],
+      'My Macros': [
+        {
+          question: 'What does "Beta" mean for My Macros?',
+          answer: 'My Macros is currently in beta, which means we\'re actively improving the product based on early user feedback. You get early access to new features and can help shape the future of the platform. Some features may change as we refine the experience.'
+        },
+        {
+          question: 'How does the AI health assistant work?',
+          answer: 'The AI health assistant provides instant answers to health questions, personalized meal suggestions, and expert guidance 24/7. It uses proven health science combined with AI to give recommendations that adapt to your goals and lifestyle.'
+        },
+        {
+          question: 'Is my health data private?',
+          answer: 'Yes. My Macros is designed with privacy-first principles. Your health data is protected with enterprise-grade security, end-to-end encryption where applicable, and you retain full ownership of your data.'
+        },
+        {
+          question: 'Where can I try My Macros?',
+          answer: 'You can try My Macros at https://noobstoday.netlify.app/. Sign up to join the beta and start your health journey today.'
+        }
+      ],
+      'Metrics Billing Platform': [
+        {
+          question: 'Is Metrics Billing Platform really open source?',
+          answer: 'Yes. The full source code is available on GitHub at https://github.com/undash-cop/metrics-billable-platform. You can clone, deploy, and customize it for your organisation. It is production-ready with enterprise-grade security and reliability.'
+        },
+        {
+          question: 'What payment providers are supported?',
+          answer: 'The platform is designed for India-first payments using Razorpay, with webhook reconciliation for invoices, payments, and refunds. Multi-currency support and currency conversion are also available.'
+        },
+        {
+          question: 'What is the architecture?',
+          answer: 'Clients send events to Cloudflare Workers (/events). Events are stored in Cloudflare D1 (hot storage). A cron job runs every 5 minutes to migrate and aggregate data to Amazon RDS (PostgreSQL), which is the financial source of truth. Invoices and payments are processed via the Admin API and Razorpay.'
+        },
+        {
+          question: 'How do I get started?',
+          answer: 'Clone the repository from GitHub, run the RDS and D1 migrations, configure Razorpay and environment variables, then deploy with wrangler. Full documentation and quick start guides are available in the repository.'
         }
       ]
     };

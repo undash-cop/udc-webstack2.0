@@ -62,7 +62,7 @@ const Products = () => {
       'Easy to Use',
       'Scalable Solution'
     ],
-    pricing: 'Contact for pricing',
+    pricing: getProductCategory(product.name) === 'Open Source' ? 'Free / Open Source' : 'Contact for pricing',
     category: getProductCategory(product.name),
     link: product.link
   }));
@@ -77,12 +77,14 @@ const Products = () => {
       'Fotralife': 'Travel & Community',
       'Aurum Signal': 'AI & Communication',
       'RecruitAI': 'AI + ATS',
-      'Game Of Coders': 'AI & Interview Tools'
+      'Game Of Coders': 'AI & Interview Tools',
+      'My Macros': 'Health & Fitness (Beta)',
+      'Metrics Billing Platform': 'Open Source'
     };
     return categoryMap[productName] || 'Software Solutions';
   }
 
-  const categories = ['All', 'HR & Finance', 'Web Development', 'Business Tools', 'Personal Finance', 'IT Services', 'Travel & Community', 'AI & Communication', 'AI + ATS', 'AI & Interview Tools'];
+  const categories = ['All', 'HR & Finance', 'Web Development', 'Business Tools', 'Personal Finance', 'IT Services', 'Travel & Community', 'AI & Communication', 'AI + ATS', 'AI & Interview Tools', 'Health & Fitness (Beta)', 'Open Source'];
   
   const filteredProducts = selectedCategory === 'All' 
     ? products 
