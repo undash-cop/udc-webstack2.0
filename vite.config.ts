@@ -20,7 +20,7 @@ export default defineConfig({
           vendor: ['react', 'react-dom', 'react-router-dom'],
           ui: ['@headlessui/react', '@heroicons/react'],
           forms: ['react-hook-form'],
-          utils: ['react-hot-toast', 'react-helmet-async']
+          utils: ['react-hot-toast', 'react-meta-seo']
         }
       }
     },
@@ -36,7 +36,7 @@ export default defineConfig({
       '@heroicons/react',
       'react-hook-form',
       'react-hot-toast',
-      'react-helmet-async'
+      'react-meta-seo'
     ]
   },
   server: {

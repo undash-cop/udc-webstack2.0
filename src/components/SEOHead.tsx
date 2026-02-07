@@ -1,4 +1,4 @@
-import { Helmet } from 'react-helmet-async';
+import { Title, Meta, Link, OpenGraph, TwitterCard, Schema } from 'react-meta-seo';
 
 interface SEOHeadProps {
   title?: string;
@@ -7,7 +7,7 @@ interface SEOHeadProps {
   canonicalUrl?: string;
   ogImage?: string;
   ogType?: string;
-  twitterCard?: string;
+  twitterCard?: 'summary' | 'summary_large_image' | 'app' | 'player';
   structuredData?: Record<string, unknown>;
   noIndex?: boolean;
 }
@@ -24,45 +24,41 @@ const SEOHead = ({
   noIndex = false
 }: SEOHeadProps) => {
   const fullTitle = title.includes("Undash-cop") ? title : `${title} | Undash-cop`;
-  const currentUrl = canonicalUrl || window.location.href;
+  const currentUrl = canonicalUrl || (typeof window !== 'undefined' ? window.location.href : 'https://undash-cop.com');
+  const absoluteOgImage = ogImage.startsWith('http') ? ogImage : `https://undash-cop.com${ogImage.startsWith('/') ? '' : '/'}${ogImage}`;
 
   return (
-    <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      <link rel="canonical" href={currentUrl} />
-      
-      {/* Robots */}
-      {noIndex && <meta name="robots" content="noindex, nofollow" />}
-      
-      {/* Open Graph */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={currentUrl} />
-      <meta property="og:image" content={ogImage} />
-      <meta property="og:site_name" content="Undash-cop" />
-      
-      {/* Twitter Card */}
-      <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:image" content={ogImage} />
-      
-      {/* Additional SEO */}
-      <meta name="author" content="Undash-cop" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-      
-      {/* Structured Data */}
-      {structuredData && (
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      )}
-    </Helmet>
+    <>
+      <Title>{fullTitle}</Title>
+
+      <Meta name="description" content={description} />
+      <Meta name="keywords" content={keywords} />
+      <Meta name="author" content="Undash-cop" />
+      <Meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <Meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
+      {noIndex && <Meta name="robots" content="noindex, nofollow" />}
+
+      <Link rel="canonical" href={currentUrl} />
+
+      <OpenGraph
+        title={fullTitle}
+        description={description}
+        type={ogType}
+        url={currentUrl}
+        image={absoluteOgImage}
+        siteName="Undash-cop"
+        locale="en_US"
+      />
+
+      <TwitterCard
+        card={twitterCard}
+        title={fullTitle}
+        description={description}
+        image={absoluteOgImage}
+      />
+
+      {structuredData && <Schema data={structuredData} />}
+    </>
   );
 };
 

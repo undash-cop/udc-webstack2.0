@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { lazy, Suspense, memo } from 'react';
-import LazyHelmetProvider from './components/LazyHelmetProvider';
 import { ToastProvider } from './contexts/ToastContext';
 import LazyToaster from './components/LazyToaster';
 import Layout from './layouts/Layout';
@@ -37,13 +36,12 @@ const LoadingSpinner = memo(() => (
 
 function App() {
   return (
-    <LazyHelmetProvider>
-      <ToastProvider>
-        <Router>
-          <ScrollToTop />
-          <Layout>
-            <Suspense fallback={<LoadingSpinner />}>
-              <Routes>
+    <ToastProvider>
+      <Router>
+        <ScrollToTop />
+        <Layout>
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/products" element={<Products />} />
                 <Route path="/products/:productId" element={<ProductDetail />} />
@@ -66,12 +64,11 @@ function App() {
                 <Route path="/resources" element={<ResourceCenter />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
-            </Suspense>
-          </Layout>
-          <LazyToaster />
-        </Router>
-      </ToastProvider>
-    </LazyHelmetProvider>
+          </Suspense>
+        </Layout>
+        <LazyToaster />
+      </Router>
+    </ToastProvider>
   );
 }
 
