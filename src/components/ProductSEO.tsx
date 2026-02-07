@@ -180,10 +180,10 @@ const ProductSEO: React.FC<ProductSEOProps> = ({ product }) => {
         image={productImage}
       />
 
-      <Schema data={structuredData as Record<string, unknown>} />
-      <Schema data={breadcrumbStructuredData as Record<string, unknown>} />
-      <Schema data={faqStructuredData as Record<string, unknown>} />
-      <Schema data={organizationStructuredData as Record<string, unknown>} />
+      <Schema data={structuredData as never} />
+      <Schema data={breadcrumbStructuredData as never} />
+      <Schema data={faqStructuredData as never} />
+      <Schema data={organizationStructuredData as never} />
     </>
   );
 };

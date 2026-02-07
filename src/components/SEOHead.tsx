@@ -57,7 +57,7 @@ const SEOHead = ({
         image={absoluteOgImage}
       />
 
-      {structuredData && <Schema data={structuredData} />}
+      {structuredData && <Schema data={structuredData as never} />}
     </>
   );
 };
