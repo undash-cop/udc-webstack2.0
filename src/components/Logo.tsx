@@ -31,14 +31,7 @@ const Logo = ({
     lg: 'text-2xl'
   };
 
-  const getLogoSrc = () => {
-    const sizeMap = {
-      sm: '/logo-32.png',
-      md: '/logo-48.png', 
-      lg: '/logo-64.png'
-    };
-    return sizeMap[size];
-  };
+  const getLogoSrc = () => '/logo.png';
 
   return (
     <Link to="/" className={`flex items-center space-x-3 ${className}`}>
@@ -54,7 +47,7 @@ const Logo = ({
         />
       </div>
       {showText && (
-        <span className={`font-bold text-gray-900 ${textSizeClasses[size]} ${variant === 'light' ? 'text-white' : 'text-gray-900'}`}>
+        <span className={`font-bold text-neutral-900 ${textSizeClasses[size]} ${variant === 'light' ? 'text-white' : 'text-neutral-900'}`}>
           Undash-cop
         </span>
       )}

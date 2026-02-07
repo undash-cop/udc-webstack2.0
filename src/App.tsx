@@ -29,7 +29,7 @@ const NotFound = lazy(() => import('./pages/NotFound'));
 
 // Optimized loading component
 const LoadingSpinner = memo(() => (
-  <div className="min-h-screen flex items-center justify-center bg-gray-50">
+  <div className="min-h-screen flex items-center justify-center bg-neutral-50">
     <div className="loading-spinner"></div>
   </div>
 ));

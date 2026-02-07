@@ -35,13 +35,13 @@ const Support = () => {
       id: 1,
       category: 'General',
       question: 'What services does Undash-cop provide?',
-      answer: 'Undash-cop provides comprehensive technology solutions including custom software development, web applications, mobile apps, cloud solutions, automation services, and digital transformation consulting. We specialize in helping businesses streamline their operations and improve efficiency through innovative technology.'
+      answer: 'Undash-cop provides software, cloud, and automation solutions including custom development, web and mobile apps, cloud services, and automation. AI is a core capability across many of our products—used in production to improve reliability, speed, and outcomes.'
     },
     {
       id: 2,
       category: 'General',
       question: 'How long has Undash-cop been in business?',
-      answer: 'Undash-cop has been providing technology solutions for over 5 years. We have successfully completed hundreds of projects for clients across various industries, from startups to enterprise-level organizations.'
+      answer: 'Undash-cop has a proven track record providing software, cloud, and automation solutions. We have completed hundreds of projects for startups and growing businesses.'
     },
     {
       id: 3,
@@ -65,7 +65,7 @@ const Support = () => {
       id: 6,
       category: 'Technical',
       question: 'What technologies do you work with?',
-      answer: 'We work with a wide range of modern technologies including React, Vue.js, Angular, Node.js, Python, PHP, Java, .NET, AWS, Azure, Google Cloud, Docker, Kubernetes, and many more. We stay updated with the latest technologies to provide cutting-edge solutions.'
+      answer: 'We work with a wide range of modern technologies including React, Vue.js, Angular, Node.js, Python, PHP, Java, .NET, AWS, Azure, Google Cloud, Docker, Kubernetes, and many more. We stay current with modern technologies to deliver stable, reliable solutions.'
     },
     {
       id: 7,
@@ -186,18 +186,18 @@ const Support = () => {
   return (
     <>
       <SEOHead
-        title="Support Center - Get Help & Technical Support | Undash-cop"
-        description="Get help with technical issues, find answers to common questions, and contact our support team. We're here to help with your technology needs."
-        keywords="support, help, technical support, FAQ, contact support, customer service"
+        title="Support - Help & Technical Support | Undash-cop"
+        description="Technical support, FAQs, and contact. We're here to help with software, cloud, and automation."
+        keywords="support, technical support, FAQ, contact, software, cloud"
         canonicalUrl="https://undash-cop.com/support"
       />
-      <div className="bg-gray-50 py-16">
+      <div className="bg-neutral-50 section-padding">
       <div className="container-custom">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center space-x-2 text-sm text-neutral-600 mb-8">
           <Link to="/" className="hover:text-primary-600 transition-colors duration-200">Home</Link>
           <span>/</span>
-          <span className="text-gray-900 font-medium">Support</span>
+          <span className="text-neutral-900 font-medium">Support</span>
         </nav>
 
         {/* Back Button */}
@@ -216,18 +216,18 @@ const Support = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-6">
             <QuestionMarkCircleIcon className="h-8 w-8 text-primary-600" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">Support Center</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're here to help! Find answers to common questions, get technical support, or contact our team directly.
+          <h1 className="heading-page">Support Center</h1>
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+            Find answers to common questions, get technical support, or contact our team.
           </p>
         </div>
 
         {/* Quick Contact Options */}
         <div className="grid md:grid-cols-3 gap-6 mb-12">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+          <div className="card p-6 text-center">
             <PhoneIcon className="h-8 w-8 text-primary-600 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Call Us</h3>
-            <p className="text-gray-600 mb-4">Speak directly with our support team</p>
+            <h3 className="heading-card mb-2">Call Us</h3>
+            <p className="text-neutral-600 mb-4">Available during business hours</p>
             <a 
               href={`tel:${companyData.address.phoneno}`}
               className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
@@ -236,10 +236,10 @@ const Support = () => {
             </a>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+          <div className="card p-6 text-center">
             <EnvelopeIcon className="h-8 w-8 text-primary-600 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Email Us</h3>
-            <p className="text-gray-600 mb-4">Send us a detailed message</p>
+            <h3 className="heading-card mb-2">Email Us</h3>
+            <p className="text-neutral-600 mb-4">We respond within 24 hours</p>
             <a 
               href={`mailto:${companyData.address.email}`}
               className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
@@ -248,10 +248,10 @@ const Support = () => {
             </a>
           </div>
 
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+          <div className="card p-6 text-center">
             <ChatBubbleLeftRightIcon className="h-8 w-8 text-primary-600 mx-auto mb-4" />
-            <h3 className="text-lg font-semibold text-gray-900 mb-2">Live Chat</h3>
-            <p className="text-gray-600 mb-4">Chat with our support team</p>
+            <h3 className="heading-card mb-2">Live Chat</h3>
+            <p className="text-neutral-600 mb-4">Contact us via the form</p>
             <Link 
               to="/contact"
               className="inline-flex items-center text-primary-600 hover:text-primary-700 font-medium"
@@ -263,7 +263,7 @@ const Support = () => {
 
         {/* Support Categories */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">How Can We Help You?</h2>
+          <h2 className="heading-section text-center">How Can We Help You?</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {supportCategories.map((category, index) => {
               const IconComponent = category.icon;
@@ -273,8 +273,8 @@ const Support = () => {
                   className={`${category.bgColor} ${category.borderColor} border rounded-lg p-6 hover:shadow-md transition-shadow duration-200`}
                 >
                   <IconComponent className={`h-8 w-8 ${category.color} mb-4`} />
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2">{category.title}</h3>
-                  <p className="text-gray-600 text-sm">{category.description}</p>
+                  <h3 className="heading-card mb-2">{category.title}</h3>
+                  <p className="text-neutral-600 text-sm">{category.description}</p>
                 </div>
               );
             })}
@@ -284,22 +284,22 @@ const Support = () => {
         {/* FAQ Section */}
         <div className="mb-12">
           <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Frequently Asked Questions</h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Find answers to common questions about our services, pricing, and support. 
+            <h2 className="heading-section">Frequently Asked Questions</h2>
+            <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+              Common questions about our services, pricing, and support.
             </p>
           </div>
 
           {/* Search and Filter */}
           <div className="max-w-4xl mx-auto mb-8">
             <div className="relative mb-6">
-              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <MagnifyingGlassIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-400" />
               <input
                 type="text"
                 placeholder="Search FAQs..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </div>
 
@@ -312,7 +312,7 @@ const Support = () => {
                   className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
                     selectedCategory === category.id
                       ? 'bg-primary-600 text-white'
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                   }`}
                 >
                   {category.name} ({category.count})
@@ -326,34 +326,34 @@ const Support = () => {
             <div className="space-y-4">
               {filteredFAQs.length === 0 ? (
                 <div className="text-center py-12">
-                  <QuestionMarkCircleIcon className="h-12 w-12 text-gray-400 mx-auto mb-4" />
-                  <h3 className="text-lg font-medium text-gray-900 mb-2">No FAQs found</h3>
-                  <p className="text-gray-600">Try adjusting your search or category filter.</p>
+                  <QuestionMarkCircleIcon className="h-12 w-12 text-neutral-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-medium text-neutral-900 mb-2">No FAQs found</h3>
+                  <p className="text-neutral-600">Try adjusting your search or category filter.</p>
                 </div>
               ) : (
                 filteredFAQs.map((faq) => (
-                  <div key={faq.id} className="bg-white rounded-lg shadow-sm border border-gray-200">
+                  <div key={faq.id} className="card">
                     <button
                       onClick={() => toggleItem(faq.id)}
-                      className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors duration-200"
+                      className="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-50 transition-colors duration-200"
                     >
                       <div className="flex-1 pr-4">
-                        <h3 className="text-lg font-medium text-gray-900 mb-1">{faq.question}</h3>
+                        <h3 className="text-lg font-medium text-neutral-900 mb-1">{faq.question}</h3>
                         <span className="inline-block px-2 py-1 text-xs font-medium bg-primary-100 text-primary-800 rounded-full">
                           {faq.category}
                         </span>
                       </div>
                       <div className="flex-shrink-0">
                         {openItems.includes(faq.id) ? (
-                          <ChevronUpIcon className="h-5 w-5 text-gray-500" />
+                          <ChevronUpIcon className="h-5 w-5 text-neutral-500" />
                         ) : (
-                          <ChevronDownIcon className="h-5 w-5 text-gray-500" />
+                          <ChevronDownIcon className="h-5 w-5 text-neutral-500" />
                         )}
                       </div>
                     </button>
                     {openItems.includes(faq.id) && (
-                      <div className="px-6 pb-6 border-t border-gray-100">
-                        <p className="text-gray-700 leading-relaxed pt-4">{faq.answer}</p>
+                      <div className="px-6 pb-6 border-t border-neutral-100">
+                        <p className="text-neutral-700 leading-relaxed pt-4">{faq.answer}</p>
                       </div>
                     )}
                   </div>
@@ -364,37 +364,37 @@ const Support = () => {
         </div>
 
         {/* Response Times */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Response Times</h2>
+        <div className="card p-8 mb-12">
+          <h2 className="heading-section text-center">Response Times</h2>
           <div className="grid md:grid-cols-3 gap-6">
             <div className="text-center">
               <ClockIcon className="h-8 w-8 text-green-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Critical Issues</h3>
-              <p className="text-gray-600">Within 2 hours</p>
-              <p className="text-sm text-gray-500 mt-1">System down, security issues</p>
+              <h3 className="heading-card mb-2">Critical Issues</h3>
+              <p className="text-neutral-600">Within 2 hours</p>
+              <p className="text-sm text-neutral-500 mt-1">System down, security issues</p>
             </div>
             <div className="text-center">
               <ClockIcon className="h-8 w-8 text-yellow-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">High Priority</h3>
-              <p className="text-gray-600">Within 24 hours</p>
-              <p className="text-sm text-gray-500 mt-1">Feature requests, bugs</p>
+              <h3 className="heading-card mb-2">High Priority</h3>
+              <p className="text-neutral-600">Within 24 hours</p>
+              <p className="text-sm text-neutral-500 mt-1">Feature requests, bugs</p>
             </div>
             <div className="text-center">
               <ClockIcon className="h-8 w-8 text-blue-600 mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">General Inquiries</h3>
-              <p className="text-gray-600">Within 48 hours</p>
-              <p className="text-sm text-gray-500 mt-1">Questions, information</p>
+              <h3 className="heading-card mb-2">General Inquiries</h3>
+              <p className="text-neutral-600">Within 48 hours</p>
+              <p className="text-sm text-neutral-500 mt-1">Questions, information</p>
             </div>
           </div>
         </div>
 
         {/* Business Hours */}
         <div className="bg-primary-50 rounded-lg p-8 mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Business Hours</h2>
+          <h2 className="heading-section text-center">Business Hours</h2>
           <div className="grid md:grid-cols-2 gap-8">
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Support Hours</h3>
-              <div className="space-y-2 text-gray-700">
+              <h3 className="text-lg font-semibold text-neutral-900 mb-4">Support Hours</h3>
+              <div className="space-y-2 text-neutral-700">
                 <div className="flex justify-between">
                   <span>Monday - Friday</span>
                   <span>9:00 AM - 6:00 PM IST</span>
@@ -410,15 +410,15 @@ const Support = () => {
               </div>
             </div>
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Emergency Support</h3>
-              <p className="text-gray-700 mb-4">
+              <h3 className="text-lg font-semibold text-neutral-900 mb-4">Emergency Support</h3>
+              <p className="text-neutral-700 mb-4">
                 For critical issues outside business hours, please call our emergency line or send an urgent email.
               </p>
               <div className="space-y-2">
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-neutral-600">
                   <strong>Emergency Phone:</strong> {companyData.address.phoneno}
                 </p>
-                <p className="text-sm text-gray-600">
+                <p className="text-sm text-neutral-600">
                   <strong>Emergency Email:</strong> {companyData.address.email}
                 </p>
               </div>
@@ -427,23 +427,23 @@ const Support = () => {
         </div>
 
         {/* Contact Information */}
-        <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6 text-center">Still Need Help?</h2>
+        <div className="card p-8">
+          <h2 className="heading-section text-center">Still Need Help?</h2>
           <div className="text-center">
-            <p className="text-gray-700 mb-6">
+            <p className="text-neutral-700 mb-6">
               Can't find what you're looking for? Our support team is ready to help you with any questions or issues.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link 
                 to="/contact"
-                className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200"
+                className="btn-primary inline-flex items-center justify-center"
               >
                 <ChatBubbleLeftRightIcon className="h-5 w-5 mr-2" />
                 Contact Support
               </Link>
               <a 
                 href={`mailto:${companyData.address.email}`}
-                className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-medium rounded-lg border border-primary-600 hover:bg-primary-50 transition-colors duration-200"
+                className="btn-outline inline-flex items-center justify-center"
               >
                 <EnvelopeIcon className="h-5 w-5 mr-2" />
                 Send Email

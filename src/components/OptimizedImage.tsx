@@ -110,7 +110,7 @@ const OptimizedImage = ({
     return (
       <div className={`relative ${className}`}>
         {isLoading && (
-          <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />
+          <div className="absolute inset-0 bg-neutral-200 animate-pulse rounded" />
         )}
         <picture>
           <source srcSet={webpSrcSet} sizes={sizes} type="image/webp" />
@@ -135,7 +135,7 @@ const OptimizedImage = ({
   return (
     <div className={`relative ${className}`}>
       {isLoading && (
-        <div className="absolute inset-0 bg-gray-200 animate-pulse rounded" />
+        <div className="absolute inset-0 bg-neutral-200 animate-pulse rounded" />
       )}
       <img
         src={optimizedSrc}

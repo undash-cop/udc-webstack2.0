@@ -23,47 +23,46 @@ const About = () => {
   const values = [
     {
       icon: LightBulbIcon,
-      title: 'Innovation',
-      description: 'We constantly push the boundaries of technology to deliver cutting-edge solutions.'
+      title: 'Engineering maturity',
+      description: 'Technical depth and domain expertise. We ship with consistent execution, not hype.'
     },
     {
       icon: UserGroupIcon,
-      title: 'Collaboration',
-      description: 'We believe in the power of teamwork and building strong partnerships with our clients.'
+      title: 'Long-term partnership',
+      description: 'We act as a technology partner, not a one-off vendor. Relationships that last.'
     },
     {
       icon: TrophyIcon,
-      title: 'Excellence',
-      description: 'We strive for excellence in everything we do, from code quality to customer service.'
+      title: 'Consistent execution',
+      description: 'Code quality, on-time delivery, and support that stays with you. Proven track record.'
     },
     {
       icon: GlobeAltIcon,
-      title: 'Impact',
-      description: 'We build solutions that make a real difference in our clients\' businesses and communities.'
+      title: 'Domain expertise',
+      description: 'We understand software, cloud, and automation at depth. Solutions that fit and scale.'
     }
   ];
 
   const milestones = [
-    { year: '2019', title: 'Company Founded', description: 'Undash-cop was established with a vision to transform businesses through technology.' },
-    { year: '2020', title: 'First Major Client', description: 'Secured our first enterprise client and delivered a comprehensive analytics platform.' },
-    { year: '2021', title: 'Team Expansion', description: 'Grew our team to 20+ professionals and opened our Bangalore office.' },
-    { year: '2022', title: 'Product Launch', description: 'Launched our flagship AI platform and reached 100+ active clients.' },
-    { year: '2023', title: 'International Expansion', description: 'Expanded operations to 5 countries and achieved ISO 27001 certification.' },
-    { year: '2024', title: 'Future Ready', description: 'Continuing to innovate with next-generation technologies and solutions.' }
+    { year: '2019', title: 'Company founded', description: 'Undash-cop started with a focus on software and automation for startups.' },
+    { year: '2020', title: 'First major client', description: 'Delivered a comprehensive analytics platform for an enterprise client.' },
+    { year: '2021', title: 'Team expansion', description: 'Grew the team and opened our Bangalore development office.' },
+    { year: '2022', title: 'AI in production', description: 'Launched products with AI built in for reliability and speed; scaled to 100+ active clients.' },
+    { year: '2023', title: 'Broader reach', description: 'Expanded operations and achieved ISO 27001 certification.' },
+    { year: '2024', title: 'Steady growth', description: 'Continuing to build software, cloud, and products with AI as a core capability for startups and founders.' }
   ];
 
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-primary-100">
+      <section className="section-padding bg-neutral-50">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-display md:text-display-lg font-semibold text-neutral-900 mb-6">
               About Undash-cop
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
-              We are a technology company dedicated to empowering businesses with innovative 
-              solutions that drive growth, efficiency, and transformation.
+            <p className="text-body-lg text-neutral-600 leading-relaxed">
+              We deliver with consistent execution, engineering maturity, and domain expertise. Undash-cop is a long-term technology partner—stable, not early-stage. Built for clients who value reliability and depth.
             </p>
           </div>
         </div>
@@ -75,30 +74,28 @@ const About = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <Card>
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <LightBulbIcon className="w-8 h-8 text-primary-600" />
+                <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <LightBulbIcon className="w-6 h-6 text-primary-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  To democratize technology and make advanced digital solutions accessible 
-                  to businesses of all sizes. We believe that every organization deserves 
-                  access to cutting-edge technology that can transform their operations 
-                  and drive sustainable growth.
+                <h2 className="text-xl font-semibold text-neutral-900 mb-4">Our Mission</h2>
+                <p className="text-body text-neutral-600 leading-relaxed">
+                  To deliver with proven, consistent execution. We combine engineering maturity 
+                  and domain expertise so startups and growing businesses have a technology partner 
+                  they can rely on over the long term—not a vendor, a partner.
                 </p>
               </div>
             </Card>
 
             <Card>
               <div className="text-center">
-                <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <TrophyIcon className="w-8 h-8 text-primary-600" />
+                <div className="w-12 h-12 bg-primary-50 rounded-xl flex items-center justify-center mx-auto mb-6">
+                  <TrophyIcon className="w-6 h-6 text-primary-600" />
                 </div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  To be the leading technology partner for businesses worldwide, known for 
-                  our innovation, reliability, and commitment to client success. We envision 
-                  a future where technology seamlessly integrates with business processes 
-                  to create unprecedented value and opportunities.
+                <h2 className="text-xl font-semibold text-neutral-900 mb-4">Our Vision</h2>
+                <p className="text-body text-neutral-600 leading-relaxed">
+                  To be the long-term technology partner for startups and growing businesses—known 
+                  for consistent execution, engineering maturity, and domain expertise. We build 
+                  relationships that last and systems that scale with our clients.
                 </p>
               </div>
             </Card>
@@ -107,14 +104,14 @@ const About = () => {
       </section>
 
       {/* Values */}
-      <section className="py-16 bg-gray-50">
+      <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="heading-section-lg mb-4">
               Our Core Values
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              These principles guide everything we do and shape our company culture.
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+              These principles reflect how we operate—stability, depth, and long-term partnership.
             </p>
           </div>
 
@@ -124,10 +121,10 @@ const About = () => {
                 <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
                   <value.icon className="w-8 h-8 text-primary-600" />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                <h3 className="text-xl font-semibold text-neutral-900 mb-3">
                   {value.title}
                 </h3>
-                <p className="text-gray-600">
+                <p className="text-neutral-600">
                   {value.description}
                 </p>
               </Card>
@@ -140,11 +137,11 @@ const About = () => {
       <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="heading-section-lg mb-4">
               Our Journey
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From a small startup to a trusted technology partner, here's our story.
+            <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
+              A track record of consistent execution—engineering maturity and domain expertise over time.
             </p>
           </div>
 
@@ -158,10 +155,10 @@ const About = () => {
                       <div className="text-primary-600 font-bold text-lg mb-2">
                         {milestone.year}
                       </div>
-                      <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      <h3 className="text-xl font-semibold text-neutral-900 mb-2">
                         {milestone.title}
                       </h3>
-                      <p className="text-gray-600">
+                      <p className="text-neutral-600">
                         {milestone.description}
                       </p>
                     </Card>
@@ -176,19 +173,18 @@ const About = () => {
       </section>
 
       {/* Team */}
-      <section ref={teamRef} className="py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section ref={teamRef} className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 ${
+            <h2 className={`heading-section-lg mb-6 ${
               teamVisible ? 'animate-fade-in-up' : 'opacity-0'
             }`}>
               Meet Our <span className="text-gradient">Team</span>
             </h2>
-            <p className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto ${
+            <p className={`text-lg md:text-xl text-neutral-600 max-w-3xl mx-auto ${
               teamVisible ? 'animate-fade-in-up' : 'opacity-0'
             }`} style={{ animationDelay: '0.2s' }}>
-              The talented individuals behind our success, dedicated to delivering 
-              exceptional results for our clients.
+              Experienced leadership and teams—engineering maturity and domain expertise across product and operations.
             </p>
           </div>
 
@@ -205,9 +201,9 @@ const About = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-20 h-20 rounded-2xl mx-auto object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-20 h-20 rounded-xl mx-auto object-cover transition-shadow duration-250"
                   />
-                  <div className="absolute inset-0 w-20 h-20 rounded-2xl mx-auto bg-primary-600 bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-300 flex items-center justify-center">
+                  <div className="absolute inset-0 w-20 h-20 rounded-xl mx-auto bg-primary-600/0 group-hover:bg-primary-600/10 transition-colors duration-250 flex items-center justify-center">
                     <a
                       href={member.linkedin}
                       target="_blank"
@@ -218,13 +214,13 @@ const About = () => {
                     </a>
                   </div>
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-2 group-hover:text-primary-600 transition-colors duration-300">
                   {member.name}
                 </h3>
                 <p className="text-primary-600 font-medium mb-3 text-sm">
                   {member.position}
                 </p>
-                <p className="text-gray-600 text-xs leading-relaxed line-clamp-3">
+                <p className="text-neutral-600 text-xs leading-relaxed line-clamp-3">
                   {member.bio}
                 </p>
               </div>
@@ -234,26 +230,26 @@ const About = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary-600">
+      <section className="section-padding bg-primary-600">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Work With Us?
+          <h2 className="heading-section text-white mb-0">
+            Looking for a Long-Term Technology Partner?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Join the growing number of businesses that trust Undash-cop for their 
-            technology needs. Let's build something amazing together.
+            We deliver with consistent execution and engineering maturity. Get in touch to discuss 
+            how we can work together over the long term.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center"
+              className="btn-secondary btn-lg inline-flex items-center justify-center"
             >
               Get in Touch
               <ArrowRightIcon className="w-5 h-5 ml-2" />
             </a>
             <a
               href="/careers"
-              className="border border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center"
+              className="btn-outline-light btn-lg inline-flex items-center justify-center"
             >
               Join Our Team
             </a>

@@ -66,7 +66,6 @@ const Header = () => {
     <header className={`sticky-nav ${isScrolled ? 'sticky-nav-scrolled' : ''} top-0 z-50 transition-all duration-300`}>
       <nav className="container-custom">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
           <Logo variant="dark" size="md" showText={true} />
 
           {/* Desktop Navigation */}
@@ -91,19 +90,19 @@ const Header = () => {
                       setDropdownTimeout(timeout as any);
                     }}
                   >
-                    <span className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    <span className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-250 ${
                       item.dropdown.some(subItem => isActive(subItem.href))
                         ? 'text-primary-600 bg-primary-50'
-                        : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                        : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
                     }`}>
                       {item.name}
                     </span>
-                    <ChevronDownIcon className="h-4 w-4 text-gray-500" />
+                    <ChevronDownIcon className="h-4 w-4 text-neutral-500" />
                     
                     {/* Dropdown Menu */}
                     {activeDropdown === item.name && (
                       <div 
-                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-md shadow-lg border border-gray-200 py-2 z-[9999]" 
+                        className="absolute top-full left-0 mt-2 w-48 bg-white rounded-xl shadow-soft border border-neutral-200 py-2 z-[9999]" 
                         data-dropdown
                         style={{ 
                           display: 'block',
@@ -130,10 +129,10 @@ const Header = () => {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className={`block px-4 py-2 text-sm transition-colors duration-200 ${
+                            className={`block px-4 py-2 text-sm transition-colors duration-250 ${
                               isActive(subItem.href)
                                 ? 'text-primary-600 bg-primary-50'
-                                : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                                : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
                             }`}
                             onClick={() => setActiveDropdown(null)}
                           >
@@ -146,10 +145,10 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200 ${
+                    className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-250 ${
                       isActive(item.href)
                         ? 'text-primary-600 bg-primary-50'
-                        : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                        : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
                     }`}
                   >
                     {item.name}
@@ -159,7 +158,7 @@ const Header = () => {
             ))}
             <button
               onClick={() => setIsSearchOpen(true)}
-              className="p-2 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-md transition-colors"
+              className="p-2 text-neutral-700 hover:text-primary-600 hover:bg-neutral-50 rounded-md transition-colors duration-250"
               title="Search (Ctrl+/)"
               aria-label="Open search"
             >
@@ -177,7 +176,7 @@ const Header = () => {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none focus:text-primary-600"
+              className="text-neutral-700 hover:text-primary-600 focus:outline-none transition-colors duration-250"
               aria-label={isMenuOpen ? "Close menu" : "Open menu"}
             >
               {isMenuOpen ? (
@@ -193,22 +192,17 @@ const Header = () => {
         <div className={`md:hidden mobile-menu ${isMenuOpen ? 'mobile-menu-open' : 'mobile-menu-closed'}`}>
           <div className="flex items-center justify-between p-4 border-b">
             <div onClick={() => setIsMenuOpen(false)} style={{ cursor: 'pointer' }}>
-              <Logo 
-                variant="dark" 
-                size="sm" 
-                showText={true} 
-                className="text-gray-900"
-              />
+              <Logo variant="dark" size="sm" showText={true} className="text-neutral-900" />
             </div>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="text-gray-700 hover:text-primary-600 focus:outline-none"
+              className="text-neutral-700 hover:text-primary-600 focus:outline-none transition-colors duration-250"
               aria-label="Close menu"
             >
               <XMarkIcon className="h-6 w-6" />
             </button>
           </div>
-          <div className="px-4 pt-4 pb-6 space-y-2" style={{background: 'white'}}>
+          <div className="px-4 pt-4 pb-6 space-y-2 bg-white">
             {navigation.map((item) => (
               <div key={item.name}>
                 {item.dropdown ? (
@@ -216,10 +210,10 @@ const Header = () => {
                     <button
                       data-dropdown-trigger
                       onClick={() => setActiveDropdown(activeDropdown === item.name ? null : item.name)}
-                      className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                      className={`w-full flex items-center justify-between px-4 py-3 rounded-lg text-base font-medium transition-colors duration-250 ${
                         item.dropdown.some(subItem => isActive(subItem.href))
                           ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
-                          : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                          : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
                       }`}
                     >
                       {item.name}
@@ -228,15 +222,15 @@ const Header = () => {
                       }`} />
                     </button>
                     {activeDropdown === item.name && (
-                      <div className="ml-4 mt-2 space-y-1 bg-white rounded-lg p-2 border border-gray-200 shadow-sm">
+                      <div className="ml-4 mt-2 space-y-1 bg-white rounded-xl p-2 border border-neutral-200 shadow-soft">
                         {item.dropdown.map((subItem) => (
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                            className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-250 ${
                               isActive(subItem.href)
                                 ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
-                                : 'text-gray-600 hover:text-primary-600 hover:bg-gray-50'
+                                : 'text-neutral-600 hover:text-primary-600 hover:bg-neutral-50'
                             }`}
                             onClick={() => {
                               setIsMenuOpen(false);
@@ -252,10 +246,10 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-200 ${
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-250 ${
                       isActive(item.href)
                         ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
-                        : 'text-gray-700 hover:text-primary-600 hover:bg-gray-50'
+                        : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >
@@ -269,7 +263,7 @@ const Header = () => {
                 setIsSearchOpen(true);
                 setIsMenuOpen(false);
               }}
-              className="w-full flex items-center justify-center px-4 py-3 text-gray-700 hover:text-primary-600 hover:bg-gray-50 rounded-lg transition-colors"
+              className="w-full flex items-center justify-center px-4 py-3 text-neutral-700 hover:text-primary-600 hover:bg-neutral-50 rounded-lg transition-colors duration-250"
             >
               <MagnifyingGlassIcon className="w-5 h-5 mr-2" />
               Search

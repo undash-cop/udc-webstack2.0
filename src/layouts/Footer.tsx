@@ -83,51 +83,51 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-neutral-900 text-white">
       <div className="container-custom">
         {/* Main Footer Content */}
-        <div className="py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="section-padding grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Logo variant="light" size="md" showText={true} className="mb-4" />
-            <p className="text-gray-300 mb-6 max-w-md">
+            <Logo variant="light" size="md" showText={true} className="mb-6" />
+            <p className="text-neutral-400 text-body mb-8 max-w-md leading-relaxed">
               {companyData.descriptorTag}
             </p>
             <div className="space-y-4">
-              <div className="flex items-center space-x-3 group">
-                <EnvelopeIcon className="h-5 w-5 text-primary-400 group-hover:text-primary-300 transition-colors duration-200" />
+              <div className="flex items-center gap-3">
+                <EnvelopeIcon className="h-5 w-5 text-neutral-500 shrink-0" />
                 <a 
                   href={`mailto:${companyData.address.email}`}
-                  className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                  className="text-neutral-300 hover:text-primary-400 transition-colors duration-250"
                 >
                   {companyData.address.email}
                 </a>
               </div>
-              <div className="flex items-center space-x-3 group">
-                <PhoneIcon className="h-5 w-5 text-primary-400 group-hover:text-primary-300 transition-colors duration-200" />
+              <div className="flex items-center gap-3">
+                <PhoneIcon className="h-5 w-5 text-neutral-500 shrink-0" />
                 <a 
                   href={`tel:${companyData.address.phoneno}`}
-                  className="text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                  className="text-neutral-300 hover:text-primary-400 transition-colors duration-250"
                 >
                   {companyData.address.phoneno}
                 </a>
               </div>
-              <div className="flex items-center space-x-3 group">
-                <MapPinIcon className="h-5 w-5 text-primary-400 group-hover:text-primary-300 transition-colors duration-200" />
-                <span className="text-gray-300">Hoskote, Karnataka, India</span>
+              <div className="flex items-center gap-3">
+                <MapPinIcon className="h-5 w-5 text-neutral-500 shrink-0" />
+                <span className="text-neutral-400">Hoskote, Karnataka, India</span>
               </div>
             </div>
           </div>
 
           {/* Company Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Company</h3>
-            <ul className="space-y-2">
+            <h3 className="text-body font-semibold mb-4 text-white">Company</h3>
+            <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="group text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="text-neutral-400 hover:text-primary-400 transition-colors duration-250 text-body-sm"
                   >
                     {link.name}
                   </Link>
@@ -138,13 +138,13 @@ const Footer = () => {
 
           {/* Support Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-4 text-white">Support</h3>
-            <ul className="space-y-2">
+            <h3 className="text-body font-semibold mb-4 text-white">Support</h3>
+            <ul className="space-y-3">
               {footerLinks.support.map((link) => (
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="group text-gray-300 hover:text-primary-400 transition-colors duration-200"
+                    className="text-neutral-400 hover:text-primary-400 transition-colors duration-250 text-body-sm"
                   >
                     {link.name}
                   </Link>
@@ -155,13 +155,13 @@ const Footer = () => {
         </div>
 
         {/* Bottom Footer */}
-        <div className="border-t border-gray-800 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-8">
-              <p className="text-gray-400 text-sm">
+        <div className="border-t border-neutral-800 py-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6 md:gap-0">
+            <div className="flex flex-col md:flex-row items-center gap-4 md:gap-8">
+              <p className="text-neutral-500 text-body-sm">
                 © {currentYear} Undash-cop. All rights reserved.
               </p>
-              <div className="flex flex-wrap gap-4 md:gap-6">
+              <div className="flex flex-wrap justify-center gap-6">
                 {footerLinks.legal.map((link) => (
                   link.external ? (
                     <a
@@ -169,10 +169,10 @@ const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group text-gray-400 hover:text-primary-400 text-sm transition-all duration-200 hover:underline"
+                      className="text-neutral-500 hover:text-primary-400 text-body-sm transition-colors duration-250 hover:underline"
                     >
                       {link.name}
-                      <svg className="inline-block w-3 h-3 ml-1 group-hover:text-primary-400" fill="currentColor" viewBox="0 0 20 20">
+                      <svg className="inline-block w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
                       </svg>
                     </a>
@@ -180,7 +180,7 @@ const Footer = () => {
                     <Link
                       key={link.name}
                       to={link.href}
-                      className="group text-gray-400 hover:text-primary-400 text-sm transition-all duration-200 hover:underline"
+                      className="text-neutral-500 hover:text-primary-400 text-body-sm transition-colors duration-250 hover:underline"
                     >
                       {link.name}
                     </Link>
@@ -190,7 +190,7 @@ const Footer = () => {
             </div>
             
             {/* Social Links */}
-            <div className="flex space-x-4">
+            <div className="flex gap-2">
               {socialLinks.map((social) => {
                 const IconComponent = social.icon;
                 return (
@@ -199,7 +199,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-gray-400 ${social.color} transition-all duration-300 p-2 rounded-lg hover:bg-gray-800 group`}
+                    className={`text-neutral-500 ${social.color} transition-colors duration-250 p-2 rounded-lg hover:bg-neutral-800`}
                     aria-label={social.name}
                   >
                     <IconComponent />

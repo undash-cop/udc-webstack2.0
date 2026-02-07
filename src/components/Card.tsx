@@ -24,7 +24,7 @@ const Card = ({
       className={`
         card
         ${paddingClasses[padding]}
-        ${hover ? 'hover:shadow-xl' : ''}
+        ${hover ? 'hover:shadow-soft-lg' : ''}
         ${className}
       `}
     >

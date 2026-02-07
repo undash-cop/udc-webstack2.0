@@ -95,20 +95,20 @@ const BlogPost = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading article...</p>
+          <p className="text-neutral-600">Loading article...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <div className="bg-white border-b">
         <div className="container-custom py-4">
           <Link 
             to="/blog" 
-            className="inline-flex items-center text-gray-600 hover:text-primary-600 transition-colors"
+            className="inline-flex items-center text-neutral-600 hover:text-primary-600 transition-colors"
           >
             <ArrowLeftIcon className="h-5 w-5 mr-2" />
             Back to Blog
@@ -131,16 +131,16 @@ const BlogPost = () => {
               )}
             </div>
             
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+            <h1 className="heading-page mb-6">
               {post.title}
             </h1>
             
-            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+            <p className="text-xl text-neutral-600 mb-8 leading-relaxed">
               {post.excerpt}
             </p>
 
             {/* Author and Meta Info */}
-            <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-8 border-b border-gray-200">
+            <div className="flex flex-col md:flex-row md:items-center justify-between mb-8 pb-8 border-b border-neutral-200">
               <div className="flex items-center gap-4 mb-4 md:mb-0">
                 <img
                   src={post.authorImage}
@@ -148,12 +148,12 @@ const BlogPost = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <h3 className="font-semibold text-gray-900">{post.author}</h3>
-                  <p className="text-sm text-gray-600">{post.authorRole}</p>
+                  <h3 className="font-semibold text-neutral-900">{post.author}</h3>
+                  <p className="text-sm text-neutral-600">{post.authorRole}</p>
                 </div>
               </div>
               
-              <div className="flex items-center gap-6 text-sm text-gray-500">
+              <div className="flex items-center gap-6 text-sm text-neutral-500">
                 <div className="flex items-center gap-1">
                   <CalendarIcon className="h-4 w-4" />
                   {formatDate(post.publishedDate)}
@@ -176,7 +176,7 @@ const BlogPost = () => {
                 className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-colors ${
                   isLiked 
                     ? 'bg-red-100 text-red-600' 
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
                 }`}
               >
                 <HeartIcon className={`h-5 w-5 ${isLiked ? 'fill-current' : ''}`} />
@@ -185,7 +185,7 @@ const BlogPost = () => {
               
               <button
                 onClick={handleShare}
-                className="flex items-center gap-2 px-4 py-2 bg-gray-100 text-gray-600 rounded-lg hover:bg-gray-200 transition-colors"
+                className="flex items-center gap-2 px-4 py-2 bg-neutral-100 text-neutral-600 rounded-lg hover:bg-neutral-200 transition-colors"
               >
                 <ShareIcon className="h-5 w-5" />
                 Share
@@ -220,10 +220,10 @@ const BlogPost = () => {
 
       {/* Sources */}
       {post.sources && post.sources.length > 0 && (
-        <div className="bg-gray-50">
+        <div className="bg-neutral-50">
           <div className="container-custom py-12">
             <div className="max-w-4xl mx-auto">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Sources & References</h3>
+              <h3 className="heading-section mb-6">Sources & References</h3>
               <div className="space-y-3">
                 {post.sources.map((source, index) => (
                   <a
@@ -248,14 +248,14 @@ const BlogPost = () => {
         <div className="container-custom py-8">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center gap-2 mb-4">
-              <TagIcon className="h-5 w-5 text-gray-500" />
-              <span className="font-medium text-gray-900">Tags:</span>
+              <TagIcon className="h-5 w-5 text-neutral-500" />
+              <span className="font-medium text-neutral-900">Tags:</span>
             </div>
             <div className="flex flex-wrap gap-2">
               {post.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm hover:bg-gray-200 transition-colors cursor-pointer"
+                  className="bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full text-sm hover:bg-neutral-200 transition-colors cursor-pointer"
                 >
                   {tag}
                 </span>
@@ -267,10 +267,10 @@ const BlogPost = () => {
 
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
-        <div className="bg-gray-50">
+        <div className="bg-neutral-50">
           <div className="container-custom py-16">
             <div className="max-w-6xl mx-auto">
-              <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">
+              <h3 className="heading-section-lg mb-8 text-center">
                 Related Articles
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -278,7 +278,7 @@ const BlogPost = () => {
                   <Link
                     key={relatedPost.id}
                     to={`/blog/${relatedPost.id}`}
-                    className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300"
+                    className="card overflow-hidden"
                   >
                     <img
                       src={relatedPost.image}
@@ -287,18 +287,18 @@ const BlogPost = () => {
                     />
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm font-medium">
+                        <span className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-sm font-medium">
                           {relatedPost.category}
                         </span>
-                        <span className="text-sm text-gray-500">{relatedPost.readTime}</span>
+                        <span className="text-sm text-neutral-500">{relatedPost.readTime}</span>
                       </div>
-                      <h4 className="text-lg font-bold text-gray-900 mb-2 line-clamp-2">
+                      <h4 className="text-lg font-bold text-neutral-900 mb-2 line-clamp-2">
                         {relatedPost.title}
                       </h4>
-                      <p className="text-gray-600 text-sm line-clamp-3">
+                      <p className="text-neutral-600 text-sm line-clamp-3">
                         {relatedPost.excerpt}
                       </p>
-                      <div className="flex items-center justify-between mt-4 text-sm text-gray-500">
+                      <div className="flex items-center justify-between mt-4 text-sm text-neutral-500">
                         <span>{relatedPost.author}</span>
                         <span>{formatDate(relatedPost.publishedDate)}</span>
                       </div>
@@ -315,7 +315,7 @@ const BlogPost = () => {
       <div className="bg-primary-600">
         <div className="container-custom py-12">
           <div className="text-center">
-            <h3 className="text-2xl font-bold text-white mb-4">
+            <h3 className="heading-section text-white mb-0">
               Discover More Insights
             </h3>
             <p className="text-primary-100 mb-6">
@@ -323,7 +323,7 @@ const BlogPost = () => {
             </p>
             <Link
               to="/blog"
-              className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors"
+              className="inline-flex items-center gap-2 bg-white text-primary-600 px-6 py-3 rounded-lg font-medium hover:bg-neutral-100 transition-colors"
             >
               <BookOpenIcon className="h-5 w-5" />
               Browse All Articles

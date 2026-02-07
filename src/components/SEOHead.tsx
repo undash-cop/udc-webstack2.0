@@ -14,8 +14,8 @@ interface SEOHeadProps {
 
 const SEOHead = ({
   title = "Undash-cop - Technology Solutions & Automation Services",
-  description = "Leading provider of technology solutions, automation services, and digital transformation. Discover our products, services, and innovative solutions for your business.",
-  keywords = "technology solutions, automation, digital transformation, software development, business tools, AI, machine learning",
+  description = "Software, cloud, and automation for startups and growing businesses. Proven delivery. Engineering-first. AI built into our products for reliability and outcomes.",
+  keywords = "software, cloud, automation, AI, startups, founders, engineering, SaaS, production AI",
   canonicalUrl,
   ogImage = "/logos/undash-cop-studio.png",
   ogType = "website",

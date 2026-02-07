@@ -10,9 +10,9 @@ interface LayoutProps {
 
 const Layout = ({ children }: LayoutProps) => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-neutral-50">
       <Header />
-      <div className="bg-gray-50 dark:bg-gray-900 border-b border-gray-200 dark:border-gray-700">
+      <div className="bg-neutral-50 border-b border-neutral-200">
         <div className="container-custom py-4">
           <Breadcrumb />
         </div>

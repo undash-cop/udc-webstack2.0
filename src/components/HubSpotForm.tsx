@@ -189,7 +189,7 @@ const HubSpotForm = ({
           <h5 className="text-lg font-semibold text-yellow-800 mb-2">Form Loading Issue</h5>
           <p className="text-yellow-700 mb-3">There was a problem loading the contact form. This might be due to network connectivity or ad blockers.</p>
           <button 
-            className="bg-primary-600 text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200" 
+            className="btn-primary text-sm" 
             onClick={handleRetry}
           >
             Try Again
@@ -208,13 +208,13 @@ const HubSpotForm = ({
           <div className="flex flex-col gap-2">
             <a 
               href={`mailto:${companyData.address.email}`} 
-              className="bg-transparent border border-primary-600 text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-600 hover:text-white transition-colors duration-200"
+              className="btn-outline text-sm"
             >
               📧 Send us an Email
             </a>
             <a 
               href={`tel:${companyData.address.phoneno}`} 
-              className="bg-transparent border border-primary-600 text-primary-600 px-4 py-2 rounded-lg hover:bg-primary-600 hover:text-white transition-colors duration-200"
+              className="btn-outline text-sm"
             >
               📞 Call us directly
             </a>
@@ -227,9 +227,9 @@ const HubSpotForm = ({
   return (
     <div className={`hubspot-form-container ${className}`}>
       {!isLoaded && (
-        <div className="text-center p-8 bg-gray-50 rounded-lg">
+        <div className="text-center p-8 bg-neutral-50 rounded-lg">
           <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading contact form...</p>
+          <p className="text-neutral-600">Loading contact form...</p>
         </div>
       )}
       

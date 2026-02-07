@@ -32,7 +32,7 @@ const ProgressBar = ({
 
   const colorClasses = {
     primary: 'from-primary-500 to-primary-600',
-    secondary: 'from-gray-500 to-gray-600',
+    secondary: 'from-neutral-500 to-neutral-600',
     success: 'from-green-500 to-green-600',
     warning: 'from-yellow-500 to-yellow-600',
     danger: 'from-red-500 to-red-600',
@@ -48,8 +48,8 @@ const ProgressBar = ({
     <div className={`w-full ${className}`}>
       {label && (
         <div className="flex justify-between items-center mb-2">
-          <span className="text-sm font-medium text-gray-700">{label}</span>
-          <span className="text-sm text-gray-500">{percentage}%</span>
+          <span className="text-sm font-medium text-neutral-700">{label}</span>
+          <span className="text-sm text-neutral-500">{percentage}%</span>
         </div>
       )}
       <div className={`progress-bar ${sizeClasses[size]}`}>

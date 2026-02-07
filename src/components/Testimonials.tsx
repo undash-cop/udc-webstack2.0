@@ -31,7 +31,7 @@ const Testimonials = () => {
       company: "TechStart Inc.",
       image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2",
       rating: 5,
-      content: "Undash-cop transformed our business operations completely. Their automation solutions saved us 40 hours per week and increased our productivity by 300%. The team is professional, responsive, and truly understands our needs.",
+      content: "Undash-cop's automation solutions saved us significant time and improved how we operate. The team is professional, responsive, and understands what we need.",
       featured: true
     },
     {
@@ -41,7 +41,7 @@ const Testimonials = () => {
       company: "DataFlow Solutions",
       image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d",
       rating: 5,
-      content: "The EUP Dashboard has been a game-changer for our HR and finance management. The interface is intuitive, and the reporting capabilities are exactly what we needed. Highly recommend their services.",
+      content: "The EUP Dashboard fits our HR and finance workflows well. The interface is clear, and the reporting gives us what we need. We recommend their services.",
       featured: true
     },
     {
@@ -51,7 +51,7 @@ const Testimonials = () => {
       company: "GrowthCorp",
       image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80",
       rating: 5,
-      content: "Outstanding customer support and excellent products. The Serviso platform streamlined our business processes and helped us scale efficiently. The ROI was evident within the first month.",
+      content: "Strong support and solid products. Serviso streamlined our processes and helped us scale. Results were clear within the first month.",
       featured: true
     },
     {
@@ -61,7 +61,7 @@ const Testimonials = () => {
       company: "InnovateLab",
       image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e",
       rating: 5,
-      content: "The team at Undash-cop delivered exactly what they promised. Their custom development solutions are top-notch, and they went above and beyond to ensure our project's success.",
+      content: "Undash-cop delivered what they promised. Their custom development is solid, and they were thorough in making sure our project succeeded.",
       featured: false
     },
     {
@@ -71,7 +71,7 @@ const Testimonials = () => {
       company: "ScaleUp Ventures",
       image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
       rating: 5,
-      content: "Futuro Expenses has revolutionized how we handle our financial tracking. The automation features are incredible, and the mobile app makes expense management so convenient.",
+      content: "Futuro Expenses improved how we handle financial tracking. The automation and mobile app make expense management straightforward.",
       featured: false
     },
     {
@@ -81,7 +81,7 @@ const Testimonials = () => {
       company: "Enterprise Solutions",
       image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e",
       rating: 5,
-      content: "YRB Services provided exceptional IT support and infrastructure solutions. Their expertise and reliability have been crucial to our business operations. Highly professional team.",
+      content: "YRB Services provided reliable IT support and infrastructure. Their expertise has been important to our operations. Professional team.",
       featured: false
     }
   ];
@@ -118,22 +118,22 @@ const Testimonials = () => {
       <StarIcon
         key={index}
         className={`w-5 h-5 ${
-          index < rating ? 'text-yellow-400 fill-current' : 'text-gray-300'
+          index < rating ? 'text-yellow-400 fill-current' : 'text-neutral-300'
         }`}
       />
     ));
   };
 
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="section-padding bg-neutral-50">
       <div className="container-custom">
         {/* Header */}
         <div className="text-center mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+          <h2 className="heading-section-lg mb-4">
             What Our Customers Say
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Don't just take our word for it. Here's what our satisfied customers have to say about their experience with Undash-cop.
+          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+            What our clients say about working with Undash-cop.
           </p>
         </div>
 
@@ -148,7 +148,7 @@ const Testimonials = () => {
                   {renderStars(featuredTestimonials[currentIndex]?.rating || 5)}
                 </div>
                 
-                <blockquote className="text-xl md:text-2xl text-gray-700 mb-8 leading-relaxed">
+                <blockquote className="text-xl md:text-2xl text-neutral-700 mb-8 leading-relaxed">
                   "{featuredTestimonials[currentIndex]?.content}"
                 </blockquote>
                 
@@ -162,12 +162,10 @@ const Testimonials = () => {
                     sizes="64px"
                   />
                   <div className="text-left">
-                    <div className="font-semibold text-gray-900">
+                    <div className="font-semibold text-neutral-900">
                       {featuredTestimonials[currentIndex]?.name}
                     </div>
-                    <div className="text-gray-600">
-                      {featuredTestimonials[currentIndex]?.role}, {featuredTestimonials[currentIndex]?.company}
-                    </div>
+                    <div className="text-neutral-600">{featuredTestimonials[currentIndex]?.role}, {featuredTestimonials[currentIndex]?.company}</div>
                   </div>
                 </div>
               </div>
@@ -177,20 +175,20 @@ const Testimonials = () => {
                 onClick={prevTestimonial}
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-colors"
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-soft hover:bg-neutral-50 transition-colors"
                 aria-label="Previous testimonial"
               >
-                <ChevronLeftIcon className="w-6 h-6 text-gray-600" />
+                <ChevronLeftIcon className="w-6 h-6 text-neutral-600" />
               </button>
               
               <button
                 onClick={nextTestimonial}
                 onMouseEnter={() => setIsAutoPlaying(false)}
                 onMouseLeave={() => setIsAutoPlaying(true)}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-lg hover:bg-gray-50 transition-colors"
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 p-2 rounded-full bg-white shadow-soft hover:bg-neutral-50 transition-colors"
                 aria-label="Next testimonial"
               >
-                <ChevronRightIcon className="w-6 h-6 text-gray-600" />
+                <ChevronRightIcon className="w-6 h-6 text-neutral-600" />
               </button>
 
               {/* Dots Indicator */}
@@ -202,7 +200,7 @@ const Testimonials = () => {
                     onMouseEnter={() => setIsAutoPlaying(false)}
                     onMouseLeave={() => setIsAutoPlaying(true)}
                     className={`w-4 h-4 rounded-full transition-colors p-2 ${
-                      index === currentIndex ? 'bg-primary-600' : 'bg-gray-300'
+                      index === currentIndex ? 'bg-primary-600' : 'bg-neutral-300'
                     }`}
                     aria-label={`Go to testimonial ${index + 1}`}
                     style={{ minWidth: '44px', minHeight: '44px' }}
@@ -227,8 +225,8 @@ const Testimonials = () => {
                   sizes="48px"
                 />
                 <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}, {testimonial.company}</div>
+                  <div className="font-semibold text-neutral-900">{testimonial.name}</div>
+                  <div className="text-sm text-neutral-600">{testimonial.role}, {testimonial.company}</div>
                 </div>
               </div>
               
@@ -236,7 +234,7 @@ const Testimonials = () => {
                 {renderStars(testimonial.rating)}
               </div>
               
-              <blockquote className="text-gray-700 italic">
+              <blockquote className="text-neutral-700 italic">
                 "{testimonial.content}"
               </blockquote>
             </Card>
@@ -247,19 +245,19 @@ const Testimonials = () => {
         <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <div>
             <div className="text-3xl font-bold text-primary-600 mb-2">500+</div>
-            <div className="text-gray-600">Happy Customers</div>
+            <div className="text-neutral-600">Clients</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-primary-600 mb-2">99%</div>
-            <div className="text-gray-600">Customer Satisfaction</div>
+            <div className="text-neutral-600">Satisfaction</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-primary-600 mb-2">24/7</div>
-            <div className="text-gray-600">Support Available</div>
+            <div className="text-neutral-600">Support</div>
           </div>
           <div>
             <div className="text-3xl font-bold text-primary-600 mb-2">5★</div>
-            <div className="text-gray-600">Average Rating</div>
+            <div className="text-neutral-600">Rating</div>
           </div>
         </div>
       </div>

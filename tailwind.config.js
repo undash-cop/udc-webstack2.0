@@ -6,7 +6,7 @@ export default {
   ],
   theme: {
     fontFamily: {
-      sans: ['Inter', 'system-ui', 'sans-serif'],
+      sans: ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'sans-serif'],
     },
     extend: {
       colors: {
@@ -33,10 +33,49 @@ export default {
           700: '#334155',
           800: '#1e293b',
           900: '#0f172a',
-        }
+        },
+        neutral: {
+          50: '#fafafa',
+          100: '#f5f5f5',
+          150: '#ededed',
+          200: '#e5e5e5',
+          300: '#d4d4d4',
+          400: '#a3a3a3',
+          500: '#737373',
+          600: '#525252',
+          700: '#404040',
+          800: '#262626',
+          900: '#171717',
+        },
+      },
+      fontSize: {
+        'display-xl': ['3.5rem', { lineHeight: '1.1', letterSpacing: '-0.02em' }],
+        'display-lg': ['2.75rem', { lineHeight: '1.15', letterSpacing: '-0.02em' }],
+        'display': ['2.25rem', { lineHeight: '1.2', letterSpacing: '-0.02em' }],
+        'body-lg': ['1.125rem', { lineHeight: '1.7' }],
+        'body': ['1rem', { lineHeight: '1.65' }],
+        'body-sm': ['0.9375rem', { lineHeight: '1.6' }],
+      },
+      spacing: {
+        '18': '4.5rem',
+        '22': '5.5rem',
+        '30': '7.5rem',
+      },
+      maxWidth: {
+        'content': '65ch',
+        'wide': '80ch',
+      },
+      boxShadow: {
+        'soft': '0 2px 8px rgba(0,0,0,0.04)',
+        'soft-lg': '0 4px 20px rgba(0,0,0,0.06)',
+        'subtle': '0 1px 3px rgba(0,0,0,0.04)',
+      },
+      transitionDuration: {
+        '250': '250ms',
+        '400': '400ms',
       },
       animation: {
-        'fade-in': 'fadeIn 0.5s ease-in-out',
+        'fade-in': 'fadeIn 0.5s ease-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'bounce-slow': 'bounce 2s infinite',
       },
@@ -46,7 +85,7 @@ export default {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '0%': { transform: 'translateY(12px)', opacity: '0' },
           '100%': { transform: 'translateY(0)', opacity: '1' },
         },
       },

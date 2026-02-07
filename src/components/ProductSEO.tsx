@@ -117,7 +117,7 @@ const ProductSEO: React.FC<ProductSEOProps> = ({ product }) => {
     "name": "Undash-cop Private Limited",
     "url": "https://undash-cop.com",
     "logo": "https://undash-cop.com/logo.png",
-    "description": "Leading provider of technology solutions, automation services, and digital transformation",
+    "description": "Software, cloud, and automation for startups and growing businesses. Engineering-first. AI-driven products.",
     "foundingDate": "2020",
     "contactPoint": {
       "@type": "ContactPoint",

@@ -169,20 +169,20 @@ const ApplyJob = () => {
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
           <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary-600 mx-auto mb-4"></div>
-          <p className="text-gray-600">Loading job details...</p>
+          <p className="text-neutral-600">Loading job details...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="container-custom py-6">
           <button
             onClick={() => navigate('/careers')}
-            className="flex items-center text-gray-600 hover:text-gray-900 mb-4 transition-colors"
+            className="flex items-center text-neutral-600 hover:text-neutral-900 mb-4 transition-colors"
           >
             <ArrowLeftIcon className="w-5 h-5 mr-2" />
             Back to Careers
@@ -190,8 +190,8 @@ const ApplyJob = () => {
           
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900 mb-2">Apply for {job.title}</h1>
-              <div className="flex flex-wrap items-center gap-4 text-gray-600">
+              <h1 className="heading-page mb-2">Apply for {job.title}</h1>
+              <div className="flex flex-wrap items-center gap-4 text-neutral-600">
                 <div className="flex items-center">
                   <BriefcaseIcon className="w-4 h-4 mr-2 text-primary-600" />
                   <span>{job.department}</span>
@@ -212,7 +212,7 @@ const ApplyJob = () => {
             </div>
             <div className="text-right">
               <div className="text-2xl font-bold text-primary-600 mb-1">{job.salary}</div>
-              <div className="text-sm text-gray-500">Posted {job.posted}</div>
+              <div className="text-sm text-neutral-500">Posted {job.posted}</div>
             </div>
           </div>
         </div>
@@ -221,10 +221,10 @@ const ApplyJob = () => {
       {/* Application Form */}
       <div className="container-custom py-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="card p-8">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Application Form</h2>
-              <p className="text-gray-600">
+              <h2 className="heading-section mb-4">Application Form</h2>
+              <p className="text-neutral-600">
                 Please fill out the form below to apply for this position. All fields marked with * are required.
               </p>
             </div>
@@ -232,20 +232,20 @@ const ApplyJob = () => {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
               {/* Personal Information */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <CheckCircleIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Personal Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       First Name *
                     </label>
                     <input
                       type="text"
                       {...register('firstName')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.firstName ? 'border-red-500' : 'border-gray-300'
+                        errors.firstName ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder="Enter your first name"
                     />
@@ -256,14 +256,14 @@ const ApplyJob = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Last Name *
                     </label>
                     <input
                       type="text"
                       {...register('lastName')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.lastName ? 'border-red-500' : 'border-gray-300'
+                        errors.lastName ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder="Enter your last name"
                     />
@@ -277,14 +277,14 @@ const ApplyJob = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Email Address *
                     </label>
                     <input
                       type="email"
                       {...register('email')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.email ? 'border-red-500' : 'border-gray-300'
+                        errors.email ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder="Enter your email"
                     />
@@ -295,14 +295,14 @@ const ApplyJob = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Phone Number *
                     </label>
                     <input
                       type="tel"
                       {...register('phone')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.phone ? 'border-red-500' : 'border-gray-300'
+                        errors.phone ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder="Enter your phone number"
                     />
@@ -317,20 +317,20 @@ const ApplyJob = () => {
 
               {/* Professional Information */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <CheckCircleIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Professional Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Current Company
                     </label>
                     <input
                       type="text"
                       {...register('currentCompany')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.currentCompany ? 'border-red-500' : 'border-gray-300'
+                        errors.currentCompany ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder="Enter your current company"
                     />
@@ -341,13 +341,13 @@ const ApplyJob = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Years of Experience *
                     </label>
                     <select
                       {...register('experience')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.experience ? 'border-red-500' : 'border-gray-300'
+                        errors.experience ? 'border-red-500' : 'border-neutral-300'
                       }`}
                     >
                       <option value="">Select experience</option>
@@ -368,20 +368,20 @@ const ApplyJob = () => {
 
               {/* Online Presence */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <CheckCircleIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Online Presence
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       LinkedIn Profile
                     </label>
                     <input
                       type="url"
                       {...register('linkedin')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.linkedin ? 'border-red-500' : 'border-gray-300'
+                        errors.linkedin ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder="https://linkedin.com/in/yourprofile"
                     />
@@ -392,14 +392,14 @@ const ApplyJob = () => {
                     )}
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Portfolio/Website
                     </label>
                     <input
                       type="url"
                       {...register('portfolio')}
                       className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                        errors.portfolio ? 'border-red-500' : 'border-gray-300'
+                        errors.portfolio ? 'border-red-500' : 'border-neutral-300'
                       }`}
                       placeholder="https://yourportfolio.com"
                     />
@@ -414,12 +414,12 @@ const ApplyJob = () => {
 
               {/* Documents */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <CheckCircleIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Documents
                 </h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Resume/CV *
                   </label>
                   <input
@@ -427,10 +427,10 @@ const ApplyJob = () => {
                     accept=".pdf,.doc,.docx"
                     onChange={handleFileChange}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                      errors.resume ? 'border-red-500' : 'border-gray-300'
+                      errors.resume ? 'border-red-500' : 'border-neutral-300'
                     }`}
                   />
-                  <p className="text-sm text-gray-500 mt-2">PDF, DOC, or DOCX files only (Max 5MB)</p>
+                  <p className="text-sm text-neutral-500 mt-2">PDF, DOC, or DOCX files only (Max 5MB)</p>
                   {errors.resume && (
                     <p className="text-red-600 text-sm mt-1" role="alert">
                       {errors.resume.message}
@@ -441,19 +441,19 @@ const ApplyJob = () => {
 
               {/* Cover Letter */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <CheckCircleIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Cover Letter
                 </h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Why are you interested in this position?
                   </label>
                   <textarea
                     {...register('coverLetter')}
                     rows={6}
                     className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors ${
-                      errors.coverLetter ? 'border-red-500' : 'border-gray-300'
+                      errors.coverLetter ? 'border-red-500' : 'border-neutral-300'
                     }`}
                     placeholder="Tell us why you're interested in this position and what makes you a great fit..."
                   />
@@ -466,11 +466,11 @@ const ApplyJob = () => {
               </div>
 
               {/* Submit Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-gray-200">
+              <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-neutral-200">
                 <button
                   type="button"
                   onClick={() => navigate('/careers')}
-                  className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="px-8 py-3 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50 transition-colors font-medium"
                 >
                   Cancel
                 </button>

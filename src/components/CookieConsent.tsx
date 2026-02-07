@@ -81,38 +81,38 @@ const CookieConsent = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 z-50 bg-white border-t border-neutral-200 shadow-soft-lg">
       <div className="container-custom py-6">
         {!showPreferences ? (
           // Main consent banner
           <div className="flex flex-col lg:flex-row items-start lg:items-center justify-between gap-4">
             <div className="flex-1">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">
-                We use cookies to enhance your experience
+              <h3 className="text-lg font-semibold text-neutral-900 mb-2">
+                We use cookies
               </h3>
-              <p className="text-gray-600 dark:text-gray-300 text-sm">
-                We use cookies to improve your browsing experience, serve personalized content, 
-                and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
+              <p className="text-neutral-600 text-sm">
+                We use cookies to improve your experience, serve content, and analyze traffic. 
+                By clicking "Accept All", you consent to our use of cookies.
               </p>
             </div>
             
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => setShowPreferences(true)}
-                className="px-4 py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium flex items-center"
+                className="px-4 py-2 text-neutral-700 hover:text-neutral-900 font-medium flex items-center"
               >
                 <CogIcon className="w-4 h-4 mr-2" />
                 Customize
               </button>
               <button
                 onClick={handleRejectAll}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
+                className="px-4 py-2 border border-neutral-300 text-neutral-700 hover:bg-neutral-50 rounded-lg font-medium"
               >
                 Reject All
               </button>
               <button
                 onClick={handleAcceptAll}
-                className="px-6 py-2 bg-primary-600 text-white hover:bg-primary-700 rounded-lg font-medium"
+                className="btn-primary"
               >
                 Accept All
               </button>
@@ -122,12 +122,12 @@ const CookieConsent = () => {
           // Preferences panel
           <div>
             <div className="flex items-center justify-between mb-6">
-              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+              <h3 className="text-lg font-semibold text-neutral-900">
                 Cookie Preferences
               </h3>
               <button
                 onClick={() => setShowPreferences(false)}
-                className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
+                className="text-neutral-400 hover:text-neutral-600"
               >
                 <XMarkIcon className="w-5 h-5" />
               </button>
@@ -135,12 +135,12 @@ const CookieConsent = () => {
 
             <div className="space-y-4 mb-6">
               {/* Necessary Cookies */}
-              <div className="flex items-start justify-between p-4 bg-gray-50 dark:bg-gray-700 rounded-lg">
+              <div className="flex items-start justify-between p-4 bg-neutral-50 rounded-lg">
                 <div className="flex-1">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-1">
+                  <h4 className="font-medium text-neutral-900 mb-1">
                     Necessary Cookies
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-neutral-600">
                     These cookies are essential for the website to function properly. They cannot be disabled.
                   </p>
                 </div>
@@ -150,19 +150,19 @@ const CookieConsent = () => {
               </div>
 
               {/* Analytics Cookies */}
-              <div className="flex items-start justify-between p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
+              <div className="flex items-start justify-between p-4 border border-neutral-200 rounded-lg">
                 <div className="flex-1">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-1">
+                  <h4 className="font-medium text-neutral-900 mb-1">
                     Analytics Cookies
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-neutral-600">
                     These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.
                   </p>
                 </div>
                 <button
                   onClick={() => handlePreferenceChange('analytics')}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    preferences.analytics ? 'bg-primary-600' : 'bg-gray-200 dark:bg-gray-600'
+                    preferences.analytics ? 'bg-primary-600' : 'bg-neutral-200'
                   }`}
                 >
                   <span
@@ -174,19 +174,19 @@ const CookieConsent = () => {
               </div>
 
               {/* Marketing Cookies */}
-              <div className="flex items-start justify-between p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
+              <div className="flex items-start justify-between p-4 border border-neutral-200 rounded-lg">
                 <div className="flex-1">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-1">
+                  <h4 className="font-medium text-neutral-900 mb-1">
                     Marketing Cookies
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-neutral-600">
                     These cookies are used to track visitors across websites to display relevant and engaging advertisements.
                   </p>
                 </div>
                 <button
                   onClick={() => handlePreferenceChange('marketing')}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    preferences.marketing ? 'bg-primary-600' : 'bg-gray-200 dark:bg-gray-600'
+                    preferences.marketing ? 'bg-primary-600' : 'bg-neutral-200'
                   }`}
                 >
                   <span
@@ -198,19 +198,19 @@ const CookieConsent = () => {
               </div>
 
               {/* Functional Cookies */}
-              <div className="flex items-start justify-between p-4 border border-gray-200 dark:border-gray-600 rounded-lg">
+              <div className="flex items-start justify-between p-4 border border-neutral-200 rounded-lg">
                 <div className="flex-1">
-                  <h4 className="font-medium text-gray-900 dark:text-white mb-1">
+                  <h4 className="font-medium text-neutral-900 mb-1">
                     Functional Cookies
                   </h4>
-                  <p className="text-sm text-gray-600 dark:text-gray-300">
+                  <p className="text-sm text-neutral-600">
                     These cookies enable enhanced functionality and personalization, such as remembering your preferences.
                   </p>
                 </div>
                 <button
                   onClick={() => handlePreferenceChange('functional')}
                   className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                    preferences.functional ? 'bg-primary-600' : 'bg-gray-200 dark:bg-gray-600'
+                    preferences.functional ? 'bg-primary-600' : 'bg-neutral-200'
                   }`}
                 >
                   <span
@@ -225,13 +225,13 @@ const CookieConsent = () => {
             <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={handleRejectAll}
-                className="px-4 py-2 border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 rounded-lg font-medium"
+                className="px-4 py-2 border border-neutral-300 text-neutral-700 hover:bg-neutral-50 rounded-lg font-medium"
               >
                 Reject All
               </button>
               <button
                 onClick={handleSavePreferences}
-                className="px-6 py-2 bg-primary-600 text-white hover:bg-primary-700 rounded-lg font-medium"
+                className="btn-primary"
               >
                 Save Preferences
               </button>

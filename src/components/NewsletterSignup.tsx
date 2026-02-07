@@ -39,8 +39,8 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
         <div className="inline-flex items-center justify-center w-16 h-16 bg-green-100 rounded-full mb-4">
           <CheckIcon className="w-8 h-8 text-green-600" />
         </div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Thank you for subscribing!</h3>
-        <p className="text-gray-600">You'll receive our latest updates and insights directly in your inbox.</p>
+        <h3 className="text-xl font-semibold text-neutral-900 mb-2">Thank you for subscribing!</h3>
+        <p className="text-neutral-600">You'll receive our latest updates and insights directly in your inbox.</p>
       </div>
     );
   }
@@ -50,8 +50,8 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
       <div className={`bg-primary-50 rounded-lg p-6 ${className}`}>
         <div className="flex items-center justify-between">
           <div>
-            <h3 className="text-lg font-semibold text-gray-900 mb-1">Stay Updated</h3>
-            <p className="text-sm text-gray-600">Get the latest news and insights</p>
+            <h3 className="text-lg font-semibold text-neutral-900 mb-1">Stay Updated</h3>
+            <p className="text-sm text-neutral-600">Product updates and insights</p>
           </div>
           <form onSubmit={handleSubmit} className="flex gap-2">
             <input
@@ -59,13 +59,13 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="px-3 py-2 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="px-3 py-2 border border-neutral-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               required
             />
             <button
               type="submit"
               disabled={isLoading}
-              className="px-4 py-2 bg-primary-600 text-white rounded-md text-sm font-medium hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50"
+              className="btn-primary text-sm disabled:opacity-50"
             >
               {isLoading ? '...' : 'Subscribe'}
             </button>
@@ -78,35 +78,34 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
   if (variant === 'hero') {
     return (
       <div className={`text-center ${className}`}>
-        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+        <h2 className="heading-section-lg mb-4">
           Stay in the Loop
         </h2>
-        <p className="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
-          Get the latest updates, insights, and exclusive content delivered straight to your inbox. 
-          Join our community of innovators and thought leaders.
+        <p className="text-lg text-neutral-600 mb-8 max-w-2xl mx-auto">
+          Get product updates, technical insights, and company news delivered to your inbox.
         </p>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
           <div className="flex gap-4">
             <div className="flex-1 relative">
-              <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-gray-400" />
+              <EnvelopeIcon className="absolute left-3 top-1/2 transform -translate-y-1/2 w-5 h-5 text-neutral-400" />
               <input
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full pl-10 pr-4 py-3 border border-neutral-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent"
                 required
               />
             </div>
             <button
               type="submit"
               disabled={isLoading}
-              className="px-8 py-3 bg-primary-600 text-white rounded-lg font-medium hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 whitespace-nowrap"
+              className="btn-primary px-8 whitespace-nowrap"
             >
               {isLoading ? 'Subscribing...' : 'Subscribe'}
             </button>
           </div>
-          <p className="text-sm text-gray-500 mt-3">
+          <p className="text-sm text-neutral-500 mt-3">
             No spam, unsubscribe at any time. We respect your privacy.
           </p>
         </form>
@@ -118,11 +117,11 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
   return (
     <div className={`bg-gradient-to-r from-primary-600 to-primary-700 rounded-lg p-8 ${className}`}>
       <div className="text-center">
-        <h3 className="text-2xl font-bold text-white mb-2">
+        <h3 className="heading-section text-white mb-2">
           Subscribe to Our Newsletter
         </h3>
         <p className="text-primary-100 mb-6">
-          Get the latest technology insights, product updates, and industry news delivered to your inbox.
+          Product updates, technical insights, and company news delivered to your inbox.
         </p>
         <form onSubmit={handleSubmit} className="max-w-md mx-auto">
           <div className="flex gap-3">
@@ -137,13 +136,13 @@ const NewsletterSignup = ({ variant = 'default', className = '' }: NewsletterSig
             <button
               type="submit"
               disabled={isLoading}
-              className="px-6 py-3 bg-white text-primary-600 rounded-lg font-medium hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary-600 disabled:opacity-50"
+              className="px-6 py-3 bg-white text-primary-600 rounded-lg font-medium hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 focus:ring-offset-neutral-950 disabled:opacity-50"
             >
               {isLoading ? '...' : 'Subscribe'}
             </button>
           </div>
           <p className="text-sm text-primary-200 mt-3">
-            Join 10,000+ subscribers. Unsubscribe anytime.
+            Unsubscribe anytime.
           </p>
         </form>
       </div>

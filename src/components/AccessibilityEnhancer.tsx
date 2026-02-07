@@ -121,17 +121,17 @@ const AccessibilityEnhancer = () => {
       });
     };
 
-    // Add high contrast mode support
+    // Add high contrast mode support (gray + neutral for compatibility)
     const addHighContrastSupport = () => {
       const style = document.createElement('style');
       style.textContent = `
         @media (prefers-contrast: high) {
-          .bg-gray-100 { background-color: #000 !important; color: #fff !important; }
-          .bg-gray-200 { background-color: #000 !important; color: #fff !important; }
-          .text-gray-600 { color: #fff !important; }
-          .text-gray-700 { color: #fff !important; }
-          .border-gray-200 { border-color: #fff !important; }
-          .border-gray-300 { border-color: #fff !important; }
+          .bg-gray-100, .bg-neutral-100 { background-color: #000 !important; color: #fff !important; }
+          .bg-gray-200, .bg-neutral-200 { background-color: #000 !important; color: #fff !important; }
+          .text-gray-600, .text-neutral-600 { color: #fff !important; }
+          .text-gray-700, .text-neutral-700 { color: #fff !important; }
+          .border-gray-200, .border-neutral-200 { border-color: #fff !important; }
+          .border-gray-300, .border-neutral-300 { border-color: #fff !important; }
         }
       `;
       document.head.appendChild(style);

@@ -58,7 +58,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div>
-          <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="name" className="block text-sm font-medium text-neutral-700 mb-2">
             Full Name <span className="text-red-500">*</span>
           </label>
           <input
@@ -68,13 +68,13 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
             placeholder="Enter your full name"
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="email" className="block text-sm font-medium text-neutral-700 mb-2">
             Email Address <span className="text-red-500">*</span>
           </label>
           <input
@@ -84,13 +84,13 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
             placeholder="Enter your email address"
           />
         </div>
 
         <div>
-          <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="company" className="block text-sm font-medium text-neutral-700 mb-2">
             Company
           </label>
           <input
@@ -99,13 +99,13 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
             placeholder="Enter your company name"
           />
         </div>
 
         <div>
-          <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+          <label htmlFor="phone" className="block text-sm font-medium text-neutral-700 mb-2">
             Phone Number
           </label>
           <input
@@ -114,14 +114,14 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
             placeholder="Enter your phone number"
           />
         </div>
       </div>
 
       <div>
-        <label htmlFor="inquiry" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="inquiry" className="block text-sm font-medium text-neutral-700 mb-2">
           Type of Inquiry <span className="text-red-500">*</span>
         </label>
         <select
@@ -130,7 +130,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
           value={formData.inquiry}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
         >
           <option value="general">General Inquiry</option>
           <option value="sales">Sales Inquiry</option>
@@ -141,7 +141,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
       </div>
 
       <div>
-        <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
+        <label htmlFor="message" className="block text-sm font-medium text-neutral-700 mb-2">
           Message <span className="text-red-500">*</span>
         </label>
         <textarea
@@ -151,7 +151,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 resize-y min-h-[120px]"
+          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 resize-y min-h-[120px]"
           placeholder="Tell us about your project or inquiry"
         />
       </div>
@@ -160,7 +160,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
         <button
           type="submit"
           disabled={isSubmitting}
-          className="w-full bg-primary-600 text-white font-medium py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="btn-primary w-full disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </button>

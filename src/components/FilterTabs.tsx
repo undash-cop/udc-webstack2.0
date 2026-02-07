@@ -28,8 +28,8 @@ const FilterTabs = ({
             relative px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-200
             ${
               activeFilter === option.id
-                ? 'bg-gradient-to-r from-primary-600 to-primary-700 text-white shadow-xl'
-                : 'bg-white/80 backdrop-blur-sm text-gray-700 hover:bg-primary-50 hover:text-primary-600 shadow-lg hover:shadow-xl border border-gray-200'
+                ? 'bg-primary-600 text-white shadow-soft'
+                : 'bg-white/80 backdrop-blur-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 shadow-soft border border-neutral-200'
             }
           `}
         >

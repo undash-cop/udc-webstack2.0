@@ -45,7 +45,7 @@ const SendResume = () => {
     await new Promise(resolve => setTimeout(resolve, 2000));
     
     console.log('Resume submitted:', formData);
-    alert('Resume submitted successfully! We will keep you in mind for future opportunities.');
+    alert('Resume submitted. We will keep you in mind for future roles.');
     
     // Reset form
     setFormData({
@@ -67,23 +67,23 @@ const SendResume = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-neutral-50">
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="container-custom py-8">
           <button
             onClick={() => navigate('/careers')}
-            className="flex items-center text-gray-600 hover:text-gray-900 mb-6 transition-colors"
+            className="flex items-center text-neutral-600 hover:text-neutral-900 mb-6 transition-colors"
           >
             <ArrowLeftIcon className="w-5 h-5 mr-2" />
             Back to Careers
           </button>
           
           <div className="text-center max-w-3xl mx-auto">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Send Your Resume</h1>
-            <p className="text-xl text-gray-600">
-              We're always looking for exceptional talent. Send us your resume and 
-              we'll keep you in mind for future opportunities that match your skills and interests.
+            <h1 className="heading-page">Send Your Resume</h1>
+            <p className="text-xl text-neutral-600">
+              We're always open to hearing from strong candidates. Send your resume and 
+              we'll keep you in mind for future roles that match your skills and interests.
             </p>
           </div>
         </div>
@@ -92,10 +92,10 @@ const SendResume = () => {
       {/* Application Form */}
       <div className="container-custom py-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl shadow-lg p-8">
+          <div className="card p-8">
             <div className="mb-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">General Application Form</h2>
-              <p className="text-gray-600">
+              <h2 className="heading-section mb-4">General Application Form</h2>
+              <p className="text-neutral-600">
                 Please fill out the form below to submit your resume. All fields marked with * are required.
               </p>
             </div>
@@ -103,13 +103,13 @@ const SendResume = () => {
             <form onSubmit={handleSubmit} className="space-y-8">
               {/* Personal Information */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <UserIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Personal Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       First Name *
                     </label>
                     <input
@@ -118,12 +118,12 @@ const SendResume = () => {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                       placeholder="Enter your first name"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Last Name *
                     </label>
                     <input
@@ -132,7 +132,7 @@ const SendResume = () => {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                       placeholder="Enter your last name"
                     />
                   </div>
@@ -140,7 +140,7 @@ const SendResume = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Email Address *
                     </label>
                     <input
@@ -149,12 +149,12 @@ const SendResume = () => {
                       value={formData.email}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                       placeholder="Enter your email"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Phone Number *
                     </label>
                     <input
@@ -163,7 +163,7 @@ const SendResume = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                       placeholder="Enter your phone number"
                     />
                   </div>
@@ -172,13 +172,13 @@ const SendResume = () => {
 
               {/* Professional Information */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <BriefcaseIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Professional Information
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Current Role
                     </label>
                     <input
@@ -186,12 +186,12 @@ const SendResume = () => {
                       name="currentRole"
                       value={formData.currentRole}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                       placeholder="Enter your current role"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Years of Experience *
                     </label>
                     <select
@@ -199,7 +199,7 @@ const SendResume = () => {
                       value={formData.experience}
                       onChange={handleInputChange}
                       required
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                     >
                       <option value="">Select experience</option>
                       <option value="0-1">0-1 years</option>
@@ -212,7 +212,7 @@ const SendResume = () => {
                 </div>
 
                 <div className="mt-6">
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Skills & Technologies
                   </label>
                   <textarea
@@ -220,7 +220,7 @@ const SendResume = () => {
                     value={formData.skills}
                     onChange={handleInputChange}
                     rows={4}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                     placeholder="List your key skills and technologies (e.g., React, Python, AWS, etc.)"
                   />
                 </div>
@@ -228,13 +228,13 @@ const SendResume = () => {
 
               {/* Online Presence */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <EnvelopeIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Online Presence
                 </h3>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       LinkedIn Profile
                     </label>
                     <input
@@ -242,12 +242,12 @@ const SendResume = () => {
                       name="linkedin"
                       value={formData.linkedin}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                       placeholder="https://linkedin.com/in/yourprofile"
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                    <label className="block text-sm font-medium text-neutral-700 mb-2">
                       Portfolio/Website
                     </label>
                     <input
@@ -255,7 +255,7 @@ const SendResume = () => {
                       name="portfolio"
                       value={formData.portfolio}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                       placeholder="https://yourportfolio.com"
                     />
                   </div>
@@ -264,12 +264,12 @@ const SendResume = () => {
 
               {/* Documents */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <DocumentTextIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Documents
                 </h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Resume/CV *
                   </label>
                   <input
@@ -277,20 +277,20 @@ const SendResume = () => {
                     accept=".pdf,.doc,.docx"
                     onChange={handleFileChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                   />
-                  <p className="text-sm text-gray-500 mt-2">PDF, DOC, or DOCX files only (Max 5MB)</p>
+                  <p className="text-sm text-neutral-500 mt-2">PDF, DOC, or DOCX files only (Max 5MB)</p>
                 </div>
               </div>
 
               {/* Additional Message */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-6 flex items-center">
+                <h3 className="text-lg font-semibold text-neutral-900 mb-6 flex items-center">
                   <CheckCircleIcon className="w-5 h-5 mr-2 text-primary-600" />
                   Additional Information
                 </h3>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                  <label className="block text-sm font-medium text-neutral-700 mb-2">
                     Tell us about your career goals
                   </label>
                   <textarea
@@ -298,18 +298,18 @@ const SendResume = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
+                    className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors"
                     placeholder="Tell us about your career goals, what type of opportunities you're looking for, and why you'd like to work with us..."
                   />
                 </div>
               </div>
 
               {/* Submit Buttons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-gray-200">
+              <div className="flex flex-col sm:flex-row gap-4 pt-8 border-t border-neutral-200">
                 <button
                   type="button"
                   onClick={() => navigate('/careers')}
-                  className="px-8 py-3 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors font-medium"
+                  className="px-8 py-3 border border-neutral-300 text-neutral-700 rounded-lg hover:bg-neutral-50 transition-colors font-medium"
                 >
                   Cancel
                 </button>

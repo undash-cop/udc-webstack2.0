@@ -1,7 +1,7 @@
 export const caseStudiesData = [
   {
     id: 1,
-    title: "E-Commerce Platform Transformation",
+    title: "E-Commerce Platform",
     client: "TechRetail Inc.",
     industry: "E-Commerce",
     duration: "6 months",
@@ -18,7 +18,7 @@ export const caseStudiesData = [
     ],
     technologies: ["React", "Node.js", "AWS", "MongoDB", "Redis"],
     testimonial: {
-      quote: "Undash-cop transformed our entire digital presence. The new platform not only looks amazing but performs exceptionally well. Our sales have increased significantly.",
+      quote: "Undash-cop rebuilt our digital presence. The new platform looks good and performs well. Our sales have increased.",
       author: "Sarah Johnson",
       role: "CTO",
       company: "TechRetail Inc."
@@ -77,7 +77,7 @@ export const caseStudiesData = [
     ],
     technologies: ["Vue.js", "Python", "PostgreSQL", "Docker", "AWS"],
     testimonial: {
-      quote: "The new system has revolutionized our patient care. Everything is now organized, secure, and easily accessible.",
+      quote: "The new system has improved our patient care. Everything is organized, secure, and easily accessible.",
       author: "Dr. Michael Chen",
       role: "Medical Director",
       company: "MediCare Solutions"
@@ -111,7 +111,7 @@ export const caseStudiesData = [
     ],
     technologies: ["React", "Node.js", "Kafka", "PostgreSQL", "Redis", "Docker"],
     testimonial: {
-      quote: "The platform has transformed our trading operations. We can now handle 10x more volume with better performance and security.",
+      quote: "The platform has improved our trading operations. We can handle more volume with better performance and security.",
       author: "Jennifer Martinez",
       role: "Head of Technology",
       company: "TradeMax Financial"
@@ -145,7 +145,7 @@ export const caseStudiesData = [
     ],
     technologies: ["React", "Python", "InfluxDB", "Grafana", "MQTT", "Docker"],
     testimonial: {
-      quote: "The IoT dashboard has given us unprecedented visibility into our operations. We've significantly improved our efficiency and reduced waste.",
+      quote: "The IoT dashboard has given us clear visibility into our operations. We've improved efficiency and reduced waste.",
       author: "Robert Kim",
       role: "Operations Director",
       company: "Industrial Dynamics"
@@ -179,7 +179,7 @@ export const caseStudiesData = [
     ],
     technologies: ["React", "Node.js", "MongoDB", "AWS", "FFmpeg", "Stripe"],
     testimonial: {
-      quote: "The LMS has revolutionized our teaching approach. Students are more engaged and we can track their progress effectively.",
+      quote: "The LMS has improved our teaching approach. Students are more engaged and we can track their progress effectively.",
       author: "Dr. Lisa Thompson",
       role: "Academic Director",
       company: "EduTech Academy"
@@ -213,7 +213,7 @@ export const caseStudiesData = [
     ],
     technologies: ["Vue.js", "Laravel", "MySQL", "Redis", "Twilio"],
     testimonial: {
-      quote: "The CRM system has transformed how we manage our business. We're closing more deals and providing better service to our clients.",
+      quote: "The CRM system has improved how we manage our business. We're closing more deals and providing better service to our clients.",
       author: "Robert Martinez",
       role: "Managing Partner",
       company: "PropertyMax Realty"
@@ -238,7 +238,7 @@ export const caseStudiesData = [
       budget: "$500,000",
       image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&h=400&fit=crop&auto=format",
       challenge: "City government needed an integrated IoT platform to monitor traffic, air quality, waste management, and public safety across the entire metropolitan area.",
-      solution: "Comprehensive smart city platform with real-time data collection, AI-powered analytics, citizen mobile app, and automated response systems.",
+      solution: "Comprehensive smart city platform with real-time data collection, analytics with AI, citizen mobile app, and automated response systems.",
       results: [
         "35% reduction in traffic congestion",
         "40% improvement in air quality monitoring",
@@ -247,7 +247,7 @@ export const caseStudiesData = [
       ],
       technologies: ["React", "Python", "IoT", "Machine Learning", "PostgreSQL", "Redis"],
       testimonial: {
-        quote: "The smart city platform has transformed how we manage urban services. Citizens are happier, and our operational efficiency has dramatically improved.",
+        quote: "The smart city platform has improved how we manage urban services. Citizens are happier, and our operational efficiency has improved.",
         author: "Mayor Jennifer Liu",
         role: "City Mayor",
         company: "MetroCity Government"
@@ -281,7 +281,7 @@ export const caseStudiesData = [
       ],
       technologies: ["Vue.js", "Python", "IoT", "Computer Vision", "MongoDB", "AWS"],
       testimonial: {
-        quote: "This system has revolutionized our farming operations. We're producing more with less resources and making data-driven decisions every day.",
+        quote: "This system has improved our farming operations. We're producing more with less resources and making data-driven decisions.",
         author: "Robert Thompson",
         role: "Farm Operations Director",
         company: "GreenFields Agriculture"
@@ -315,7 +315,7 @@ export const caseStudiesData = [
       ],
       technologies: ["React", "Node.js", "Machine Learning", "PostgreSQL", "Redis", "Docker"],
       testimonial: {
-        quote: "The logistics platform has transformed our operations. We're delivering faster, more efficiently, and our customers are extremely satisfied.",
+        quote: "The logistics platform has improved our operations. We're delivering faster and more efficiently, and our customers are satisfied.",
         author: "Maria Rodriguez",
         role: "Chief Operations Officer",
         company: "Global Logistics Corp"
@@ -349,7 +349,7 @@ export const caseStudiesData = [
       ],
       technologies: ["React", "Python", "Machine Learning", "PostgreSQL", "Redis", "Tableau"],
       testimonial: {
-        quote: "The analytics platform has given us unprecedented insights into our customers. Our sales have increased significantly, and we're making smarter inventory decisions.",
+        quote: "The analytics platform has given us clear insights into our customers. Our sales have increased, and we're making smarter inventory decisions.",
         author: "Sarah Chen",
         role: "VP of Marketing",
         company: "Fashion Forward Retail"

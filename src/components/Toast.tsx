@@ -67,7 +67,7 @@ const Toast = ({ id, type, title, message, duration = 5000, onClose }: ToastProp
   return (
     <div
       className={`
-        relative w-full max-w-sm bg-white/95 backdrop-blur-sm rounded-2xl shadow-xl border p-4 transition-all duration-300 transform
+        relative w-full max-w-sm bg-white backdrop-blur-sm rounded-xl shadow-soft-lg border border-neutral-200 p-4 transition-all duration-300
         ${isVisible && !isLeaving ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'}
         ${getColors()}
       `}
@@ -77,14 +77,14 @@ const Toast = ({ id, type, title, message, duration = 5000, onClose }: ToastProp
           {getIcon()}
         </div>
         <div className="flex-1 min-w-0">
-          <h4 className="text-sm font-semibold text-gray-900">{title}</h4>
+          <h4 className="text-sm font-semibold text-neutral-900">{title}</h4>
           {message && (
-            <p className="mt-1 text-sm text-gray-600">{message}</p>
+            <p className="mt-1 text-sm text-neutral-600">{message}</p>
           )}
         </div>
         <button
           onClick={handleClose}
-          className="flex-shrink-0 p-1 text-gray-400 hover:text-gray-600 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+          className="flex-shrink-0 p-1 text-neutral-400 hover:text-neutral-600 rounded-lg hover:bg-neutral-100 transition-colors duration-200"
         >
           <XMarkIcon className="h-4 w-4" />
         </button>

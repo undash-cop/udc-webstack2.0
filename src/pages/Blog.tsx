@@ -62,30 +62,30 @@ const Blog = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-primary-100">
+      <section className="section-padding bg-neutral-50">
         <div className="container-custom text-center">
-          <div className="inline-flex items-center gap-2 bg-primary-100 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
+          <div className="inline-flex items-center gap-2 bg-primary-50 text-primary-700 px-4 py-2 rounded-full text-sm font-medium mb-6">
             <SparklesIcon className="h-4 w-4" />
-            Latest Insights & Trends
+            Insights & Updates
           </div>
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-display md:text-display-lg font-semibold text-neutral-900 mb-6">
             Technology & Automation Blog
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Stay ahead with the latest insights on technology, automation, and digital transformation. 
-            Discover practical tips, industry trends, and expert advice to accelerate your business growth.
+          <p className="text-body-lg text-neutral-600 max-w-3xl mx-auto mb-8">
+            Technical insights on software, automation, and AI. Practical tips and updates 
+            for startups and growing businesses.
           </p>
           
           {/* Search Bar */}
           <div className="max-w-2xl mx-auto mb-8">
             <div className="relative">
-              <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <MagnifyingGlassIcon className="absolute left-4 top-1/2 transform -translate-y-1/2 h-5 w-5 text-neutral-400" />
               <input
                 type="text"
                 placeholder="Search articles, topics, or authors..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full pl-12 pr-4 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-lg"
+                className="w-full pl-12 pr-4 py-4 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-lg"
               />
             </div>
           </div>
@@ -99,7 +99,7 @@ const Blog = () => {
                 className={`px-6 py-3 rounded-full font-medium transition-all duration-200 ${
                   selectedCategory === category.name
                     ? 'bg-primary-600 text-white shadow-lg'
-                    : 'bg-white text-gray-700 hover:bg-primary-50 hover:text-primary-600'
+                    : 'bg-white text-neutral-700 hover:bg-primary-50 hover:text-primary-600'
                 }`}
               >
                 {category.name} ({category.count})
@@ -113,23 +113,23 @@ const Blog = () => {
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="px-4 py-2 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="latest">Latest</option>
                 <option value="popular">Most Popular</option>
                 <option value="trending">Trending</option>
               </select>
-              <div className="flex border border-gray-300 rounded-lg overflow-hidden">
+              <div className="flex border border-neutral-300 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`px-3 py-2 ${viewMode === 'grid' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700'}`}
+                  className={`px-3 py-2 ${viewMode === 'grid' ? 'bg-primary-600 text-white' : 'bg-white text-neutral-700'}`}
                   aria-label="Switch to grid view"
                 >
                   <ChartBarIcon className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`px-3 py-2 ${viewMode === 'list' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700'}`}
+                  className={`px-3 py-2 ${viewMode === 'list' ? 'bg-primary-600 text-white' : 'bg-white text-neutral-700'}`}
                   aria-label="Switch to list view"
                 >
                   <BookOpenIcon className="h-5 w-5" />
@@ -144,7 +144,7 @@ const Blog = () => {
       {featuredPosts.length > 0 && (
         <section className="py-16">
           <div className="container-custom">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Featured Articles</h2>
+            <h2 className="heading-section mb-8 text-center">Featured Articles</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {featuredPosts.slice(0, 3).map((post: any) => (
                 <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow duration-300">
@@ -160,14 +160,14 @@ const Blog = () => {
                   </div>
                   <div className="p-6">
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm font-medium">
+                      <span className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-sm font-medium">
                         {post.category}
                       </span>
-                      <span className="text-sm text-gray-500">{post.readTime}</span>
+                      <span className="text-sm text-neutral-500">{post.readTime}</span>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
-                    <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                    <h3 className="text-xl font-bold text-neutral-900 mb-3">{post.title}</h3>
+                    <p className="text-neutral-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
+                    <div className="flex items-center justify-between text-sm text-neutral-500 mb-4">
                       <div className="flex items-center gap-4">
                         <div className="flex items-center gap-1">
                           <EyeIcon className="h-4 w-4" />
@@ -199,11 +199,11 @@ const Blog = () => {
       )}
 
       {/* Latest Articles */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-gray-100">
+      <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Latest Articles</h2>
-            <p className="text-lg text-gray-600">
+            <h2 className="heading-section mb-4">Latest Articles</h2>
+            <p className="text-lg text-neutral-600">
               {filteredPosts.length} article{filteredPosts.length !== 1 ? 's' : ''} found
             </p>
           </div>
@@ -227,14 +227,14 @@ const Blog = () => {
                     </div>
                     <div className="p-6">
                       <div className="flex items-center gap-2 mb-3">
-                        <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm font-medium">
+                        <span className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-sm font-medium">
                           {post.category}
                         </span>
-                        <span className="text-sm text-gray-500">{post.readTime}</span>
+                        <span className="text-sm text-neutral-500">{post.readTime}</span>
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h3>
-                      <p className="text-gray-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
-                      <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
+                      <h3 className="text-xl font-bold text-neutral-900 mb-3">{post.title}</h3>
+                      <p className="text-neutral-600 text-sm mb-4 line-clamp-3">{post.excerpt}</p>
+                      <div className="flex items-center justify-between text-sm text-neutral-500 mb-4">
                         <div className="flex items-center gap-4">
                           <div className="flex items-center gap-1">
                             <EyeIcon className="h-4 w-4" />
@@ -245,7 +245,7 @@ const Blog = () => {
                             {post.likes}
                           </div>
                         </div>
-                        <span className="text-xs text-gray-400">{formatDate(post.publishedDate)}</span>
+                        <span className="text-xs text-neutral-400">{formatDate(post.publishedDate)}</span>
                       </div>
                       <div className="text-primary-600 hover:text-primary-700 font-medium text-sm flex items-center">
                         Read More
@@ -271,19 +271,19 @@ const Blog = () => {
                       </div>
                       <div className="md:w-2/3 p-6">
                         <div className="flex items-center gap-2 mb-3">
-                          <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm font-medium">
+                          <span className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-sm font-medium">
                             {post.category}
                           </span>
-                          <span className="text-sm text-gray-500">{post.readTime}</span>
+                          <span className="text-sm text-neutral-500">{post.readTime}</span>
                           {post.featured && (
                             <span className="bg-primary-100 text-primary-700 px-2 py-1 rounded text-xs font-medium">
                               Featured
                             </span>
                           )}
                         </div>
-                        <h3 className="text-xl font-bold text-gray-900 mb-3">{post.title}</h3>
-                        <p className="text-gray-600 mb-4">{post.excerpt}</p>
-                        <div className="flex items-center justify-between text-sm text-gray-500">
+                        <h3 className="text-xl font-bold text-neutral-900 mb-3">{post.title}</h3>
+                        <p className="text-neutral-600 mb-4">{post.excerpt}</p>
+                        <div className="flex items-center justify-between text-sm text-neutral-500">
                           <div className="flex items-center gap-4">
                             <div className="flex items-center gap-1">
                               <EyeIcon className="h-4 w-4" />
@@ -298,7 +298,7 @@ const Blog = () => {
                               {post.comments}
                             </div>
                           </div>
-                          <span className="text-xs text-gray-400">{formatDate(post.publishedDate)}</span>
+                          <span className="text-xs text-neutral-400">{formatDate(post.publishedDate)}</span>
                         </div>
                       </div>
                     </div>

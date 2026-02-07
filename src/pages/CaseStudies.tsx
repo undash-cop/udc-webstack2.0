@@ -53,20 +53,20 @@ const CaseStudies = () => {
   return (
     <div>
       <SEOHead
-        title="Case Studies - Success Stories & Project Showcases"
-        description="Explore our portfolio of successful projects across various industries. See how we've helped businesses transform their operations with innovative technology solutions."
-        keywords="case studies, success stories, project portfolio, technology solutions, business transformation, software development"
+        title="Case Studies - Project Showcases"
+        description="Portfolio of projects across industries. See how we've helped startups and businesses with software, cloud, and automation."
+        keywords="case studies, project portfolio, software, cloud, automation, startups"
       />
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-primary-50 to-primary-100">
+      <section className="section-padding bg-neutral-50">
         <div className="container-custom text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Success Stories & Case Studies
+          <h1 className="text-display md:text-display-lg font-semibold text-neutral-900 mb-6">
+            Case Studies
           </h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
-            Discover how we've helped businesses across various industries transform their operations 
-            with innovative technology solutions. Each case study showcases real results and measurable impact.
+          <p className="text-body-lg text-neutral-600 max-w-3xl mx-auto mb-8">
+            How we've helped startups and businesses across industries with software, cloud, 
+            and automation. Each case study shows real results and measurable impact.
           </p>
           
 
@@ -78,30 +78,30 @@ const CaseStudies = () => {
                 placeholder="Search case studies..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               />
             </div>
             <div className="flex gap-2">
               <select
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+                className="px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
               >
                 <option value="recent">Most Recent</option>
                 <option value="popular">Most Popular</option>
                 <option value="featured">Featured</option>
               </select>
-              <div className="flex border border-gray-300 rounded-lg overflow-hidden">
+              <div className="flex border border-neutral-300 rounded-lg overflow-hidden">
                 <button
                   onClick={() => setViewMode('grid')}
-                  className={`px-3 py-3 ${viewMode === 'grid' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700'}`}
+                  className={`px-3 py-3 ${viewMode === 'grid' ? 'bg-primary-600 text-white' : 'bg-white text-neutral-700'}`}
                   aria-label="Switch to grid view"
                 >
                   <ChartBarIcon className="h-5 w-5" />
                 </button>
                 <button
                   onClick={() => setViewMode('list')}
-                  className={`px-3 py-3 ${viewMode === 'list' ? 'bg-primary-600 text-white' : 'bg-white text-gray-700'}`}
+                  className={`px-3 py-3 ${viewMode === 'list' ? 'bg-primary-600 text-white' : 'bg-white text-neutral-700'}`}
                   aria-label="Switch to list view"
                 >
                   <DocumentTextIcon className="h-5 w-5" />
@@ -113,17 +113,17 @@ const CaseStudies = () => {
       </section>
 
       {/* Featured Case Studies */}
-      <section className="py-20">
+      <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-            <p className="text-lg text-gray-600">Our most impactful and successful project implementations</p>
+            <h2 className="heading-section">Featured Projects</h2>
+            <p className="text-lg text-neutral-600">Our most impactful and successful project implementations</p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {featuredStudies.map((study: any) => (
               <Link key={study.id} to={`/case-studies/${study.id}`} className="block group">
-                <Card className="overflow-hidden hover:shadow-xl transition-shadow duration-300 group-hover:scale-105">
+                <Card className="overflow-hidden hover:shadow-soft-lg transition-shadow duration-250">
                 <div className="relative">
                   <img
                     src={study.image}
@@ -139,34 +139,34 @@ const CaseStudies = () => {
                 
                 <div className="p-8">
                   <div className="flex items-center justify-between mb-4">
-                    <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                    <span className="bg-neutral-100 text-neutral-700 px-3 py-1 rounded-full text-sm font-medium">
                       {study.industry}
                     </span>
-                    <div className="flex items-center text-sm text-gray-500">
+                    <div className="flex items-center text-sm text-neutral-500">
                       <ClockIcon className="w-4 h-4 mr-1" />
                       {study.duration}
                     </div>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-gray-900 mb-4">{study.title}</h3>
-                  <p className="text-gray-600 mb-6">{study.challenge}</p>
+                  <h3 className="heading-section mb-4">{study.title}</h3>
+                  <p className="text-neutral-600 mb-6">{study.challenge}</p>
 
                   <div className="grid grid-cols-2 gap-4 mb-6 text-sm">
                     <div className="flex items-center">
-                      <UserGroupIcon className="w-4 h-4 text-gray-400 mr-2" />
+                      <UserGroupIcon className="w-4 h-4 text-neutral-400 mr-2" />
                       <span>{study.teamSize}</span>
                     </div>
                     <div className="flex items-center">
-                      <CurrencyDollarIcon className="w-4 h-4 text-gray-400 mr-2" />
+                      <CurrencyDollarIcon className="w-4 h-4 text-neutral-400 mr-2" />
                       <span>{study.budget}</span>
                     </div>
                   </div>
 
                   <div className="mb-6">
-                    <h4 className="font-semibold text-gray-900 mb-2">Key Results:</h4>
+                    <h4 className="font-semibold text-neutral-900 mb-2">Key Results:</h4>
                     <ul className="space-y-1">
                       {study.results.slice(0, 2).map((result: any, index: number) => (
-                        <li key={index} className="flex items-center text-sm text-gray-600">
+                        <li key={index} className="flex items-center text-sm text-neutral-600">
                           <CheckCircleIcon className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
                           {result}
                         </li>
@@ -177,12 +177,12 @@ const CaseStudies = () => {
                   <div className="flex items-center justify-between">
                     <div className="flex flex-wrap gap-1">
                       {study.technologies.slice(0, 3).map((tech: any, index: number) => (
-                        <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                        <span key={index} className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-xs">
                           {tech}
                         </span>
                       ))}
                       {study.technologies.length > 3 && (
-                        <span className="text-gray-500 text-xs">+{study.technologies.length - 3} more</span>
+                        <span className="text-neutral-500 text-xs">+{study.technologies.length - 3} more</span>
                       )}
                     </div>
                     <button className="text-primary-600 hover:text-primary-700 font-medium flex items-center">
@@ -199,11 +199,11 @@ const CaseStudies = () => {
       </section>
 
       {/* Category Filter */}
-      <section className="py-12 bg-gray-50">
+      <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-8">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Browse by Industry</h2>
-            <p className="text-gray-600">Filter case studies by industry to find relevant examples</p>
+            <h2 className="heading-section">Browse by Industry</h2>
+            <p className="text-neutral-600">Filter case studies by industry to find relevant examples</p>
           </div>
           
           <div className="flex flex-wrap justify-center gap-4">
@@ -225,13 +225,13 @@ const CaseStudies = () => {
       </section>
 
       {/* All Case Studies */}
-      <section className="py-20">
+      <section className="section-padding">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="heading-section">
               {selectedCategory === 'All' ? 'All Case Studies' : `${selectedCategory} Projects`}
             </h2>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-neutral-600">
               {filteredStudies.length} case study{filteredStudies.length !== 1 ? 'ies' : ''} found
             </p>
           </div>
@@ -243,7 +243,7 @@ const CaseStudies = () => {
                 to={`/case-studies/${study.id}`} 
                 className="block group"
               >
-                <div className="bg-white rounded-2xl shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 group-hover:scale-105 border border-gray-200 group-hover:border-primary-300 group-hover:-translate-y-1">
+                <div className="card overflow-hidden group-hover:border-primary-300">
                   <div className="relative">
                     <img
                       src={study.image}
@@ -269,23 +269,23 @@ const CaseStudies = () => {
                   
                   <div className="p-6">
                     <div className="flex items-center justify-between mb-3">
-                      <span className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-sm font-medium">
+                      <span className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-sm font-medium">
                         {study.industry}
                       </span>
-                      <div className="flex items-center text-sm text-gray-500">
+                      <div className="flex items-center text-sm text-neutral-500">
                         <ClockIcon className="w-4 h-4 mr-1" />
                         {study.duration}
                       </div>
                     </div>
 
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{study.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4 line-clamp-3">{study.challenge}</p>
+                    <h3 className="text-xl font-bold text-neutral-900 mb-3">{study.title}</h3>
+                    <p className="text-neutral-600 text-sm mb-4 line-clamp-3">{study.challenge}</p>
 
                     <div className="mb-4">
-                      <h4 className="font-semibold text-gray-900 mb-2 text-sm">Key Results:</h4>
+                      <h4 className="font-semibold text-neutral-900 mb-2 text-sm">Key Results:</h4>
                       <ul className="space-y-1">
                         {study.results.slice(0, 2).map((result: any, index: number) => (
-                          <li key={index} className="flex items-center text-xs text-gray-600">
+                          <li key={index} className="flex items-center text-xs text-neutral-600">
                             <CheckCircleIcon className="w-3 h-3 text-green-500 mr-2 flex-shrink-0" />
                             {result}
                           </li>
@@ -296,12 +296,12 @@ const CaseStudies = () => {
                     <div className="flex items-center justify-between">
                       <div className="flex flex-wrap gap-1">
                         {study.technologies.slice(0, 2).map((tech: any, index: number) => (
-                          <span key={index} className="bg-gray-100 text-gray-700 px-2 py-1 rounded text-xs">
+                          <span key={index} className="bg-neutral-100 text-neutral-700 px-2 py-1 rounded text-xs">
                             {tech}
                           </span>
                         ))}
                         {study.technologies.length > 2 && (
-                          <span className="text-gray-500 text-xs">+{study.technologies.length - 2}</span>
+                          <span className="text-neutral-500 text-xs">+{study.technologies.length - 2}</span>
                         )}
                       </div>
                       <div className="text-primary-600 group-hover:text-primary-700 font-medium text-sm flex items-center transition-colors">
@@ -318,26 +318,26 @@ const CaseStudies = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-primary-600">
+      <section className="section-padding bg-primary-600">
         <div className="container-custom text-center">
-          <h2 className="text-3xl font-bold text-white mb-4">
+          <h2 className="heading-section text-white mb-0">
             Ready to Start Your Success Story?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Let's discuss how we can help transform your business with innovative technology solutions. 
+            Discuss how we can help with software, cloud, or automation for your business. 
             Join the ranks of our successful clients.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors inline-flex items-center justify-center"
+              className="btn-secondary btn-lg inline-flex items-center justify-center"
             >
               Start Your Project
               <ArrowRightIcon className="w-5 h-5 ml-2" />
             </a>
             <a
               href="/pricing"
-              className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors inline-flex items-center justify-center"
+              className="btn-outline-light btn-lg inline-flex items-center justify-center"
             >
               View Pricing
             </a>

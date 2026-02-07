@@ -65,18 +65,18 @@ const Modal = ({
       <div
         ref={modalRef}
         className={`
-          relative w-full ${sizeClasses[size]} bg-white/95 backdrop-blur-md rounded-3xl shadow-2xl border border-white/20 animate-scale-in
+          relative w-full ${sizeClasses[size]} bg-white backdrop-blur-md rounded-xl shadow-soft-lg border border-neutral-200
           ${className}
         `}
         tabIndex={-1}
       >
         {/* Header */}
         {title && (
-          <div className="flex items-center justify-between p-6 border-b border-gray-200">
-            <h2 className="text-2xl font-bold text-gray-900">{title}</h2>
+          <div className="flex items-center justify-between p-6 border-b border-neutral-200">
+            <h2 className="heading-section mb-0">{title}</h2>
             <button
               onClick={onClose}
-              className="p-2 text-gray-400 hover:text-gray-600 hover:bg-gray-100 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-200"
+              className="p-2 text-neutral-400 hover:text-neutral-600 hover:bg-neutral-100 rounded-xl transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-primary-200"
             >
               <XMarkIcon className="h-6 w-6" />
             </button>

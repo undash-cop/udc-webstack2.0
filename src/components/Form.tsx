@@ -68,7 +68,7 @@ const Form = ({
   const renderField = (field: FormField) => {
     const baseClasses = `
       w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200
-      ${errors[field.name] ? 'border-red-500' : 'border-gray-300'}
+      ${errors[field.name] ? 'border-red-500' : 'border-neutral-300'}
     `;
 
     switch (field.type) {
@@ -121,9 +121,9 @@ const Form = ({
   return (
     <div className={`max-w-2xl mx-auto ${className}`}>
       <div className="text-center mb-8">
-        <h2 className="text-3xl font-bold text-gray-900 mb-4">{title}</h2>
+        <h2 className="heading-section-lg mb-4">{title}</h2>
         {description && (
-          <p className="text-lg text-gray-600">{description}</p>
+          <p className="text-lg text-neutral-600">{description}</p>
         )}
       </div>
 
@@ -132,7 +132,7 @@ const Form = ({
           <div key={field.name}>
             <label 
               htmlFor={field.name}
-              className="block text-sm font-medium text-gray-700 mb-2"
+              className="block text-sm font-medium text-neutral-700 mb-2"
             >
               {field.label}
               {field.required && <span className="text-red-500 ml-1">*</span>}

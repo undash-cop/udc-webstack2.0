@@ -21,50 +21,50 @@ const settings = {
   },
   features: [
     {
-      title: "Complete solutions for global organisations",
+      title: "Content and analytics for global organisations",
       description:
-        "Copywrite, blogpublic realations content translation, SEO, analytics.",
+        "Copywriting, content translation, SEO, and analytics—backed by engineering rigor.",
     },
     {
-      title: "Complete solutions for IT/Hardware and networking support",
+      title: "IT, hardware, and networking support",
       description:
-        "Network solutions, Repair services, Installation of servers, routers, firewalls, switches, printers and more.",
+        "Network design, repair, and installation of servers, routers, firewalls, switches, and printers.",
     },
     {
-      title: "Provide Product Engineering advice by our advisor",
+      title: "Product engineering advisory",
       description:
-        "Services and Solutions across the entire product engineering spectrum - right from consulting to designing the user interface, from developing to testing and deploying the product.",
+        "End-to-end product engineering—consulting, UI design, development, testing, and deployment.",
     },
     {
-      title: "Provide financial advisor tools for organisations",
+      title: "Financial and operations tools for organisations",
       description:
-        "Complete Finacial Managment tools, Employee CRM, ATS, Fin Tools, and lot more.",
+        "Finance management, employee CRM, ATS, and related tools built for growing teams.",
     },
     {
-      title: "Provide Ease use of E-Commerce Platform Solutions",
+      title: "E-Commerce platform solutions",
       description:
-        "In essence, e-Commerce website business activities focuse on selling, buying, and product catalogue transactions.",
+        "E-Commerce platforms for selling, buying, and product catalogue operations.",
     },
     {
-      title: "Provide UI/UX Approaches and Software Solutions",
+      title: "UI/UX and software solutions",
       description:
-        "We offer you unique web design with interactive UI that have better user experience, stand out to give you an edge over competitors, lesser bounce rates, less loading time. And Software Solutions for Integrations.",
+        "Web design and interactive UI with strong performance and integration capabilities.",
     },
   ],
   descriptorTag:
-    "We provide complete software solutions to startups & small business to looking for partner for their digital media, design & dev lead generation & communication, software developement, finance management, CRM, etc.",
+    "Proven delivery. AI is a core capability across our products—used in production to improve reliability, speed, and outcomes. Established. Reliable. Built for startups, growing businesses, and founders.",
   benefits: [
     {
-      title: "High Performance",
-      description: "High Performance Tools with Faster Response Rates",
+      title: "High performance",
+      description: "Tools built for fast response and reliability.",
     },
     {
-      title: "Friendly Prices",
-      description: "Cheap and afordable prices compared with competitors",
+      title: "Transparent pricing",
+      description: "Clear, competitive pricing for teams and founders.",
     },
     {
-      title: "No time-confusing",
-      description: "100% On time product delivery rates without delay",
+      title: "On-time delivery",
+      description: "Consistent delivery timelines without compromise.",
     },
   ],
   pricing: [
@@ -228,7 +228,7 @@ const settings = {
       name: "Fotralife",
       tagline: "Connect. Share. Discover. Travel Together.",
       description:
-        "Fotralife is a feature-rich travel community platform built for travel enthusiasts to connect, share, and discover the world together. The platform enables users to upload and showcase travel photos, write detailed experience stories, and create interactive trip itineraries. Members can explore curated destination guides, participate in vibrant community forums, and exchange travel tips and recommendations. Fotralife offers advanced travel planning tools, personalized destination suggestions, and seamless social media integration for sharing adventures beyond the platform. With real-time messaging, event organization features, and a global network of like-minded travelers, Fotralife empowers users to build meaningful connections, find inspiration for their next journey, and document every step of their travel experiences.",
+        "Fotralife is a travel community platform for enthusiasts to connect, share, and discover. Users upload travel photos, write experience stories, and create trip itineraries. Members explore destination guides, join community forums, and exchange tips. Fotralife offers travel planning tools, destination suggestions, and social media integration. Real-time messaging and event features help users connect and document their travels.",
       photo: "/logos/fotralife.png",
       link: "//fotralife.com",
       features: [
@@ -252,9 +252,9 @@ const settings = {
     },
     {
       name: "Game Of Coders",
-      tagline: "Your Real-Time AI Interview Assistant",
+      tagline: "Real-time AI assistance for technical interviews",
       description:
-        "Game Of Coders is a powerful AI-powered interview assistant designed to help you ace technical interviews. The platform provides instant AI-powered answers during technical interviews with screenshot analysis, real-time audio transcription, and a stealth overlay that works seamlessly during screen sharing. With features like automatic question detection, dual audio capture, and auto-scroll typing sync, Game Of Coders gives you the edge you need to succeed. The always-on-top transparent overlay works during screen sharing without being detected, ensuring complete privacy and undetectability. Available for Mac, Windows, and Linux, Game Of Coders is your secret weapon for technical interview success.",
+        "Game Of Coders uses AI in production to assist during technical interviews. Screenshot analysis, real-time transcription, and automatic question detection improve speed and consistency. Dual audio capture and a stealth overlay work during screen sharing. Available for Mac, Windows, and Linux.",
       photo: "/logos/game-of-coders.svg",
       link: "https://gameofcoders.app/",
       features: [
@@ -269,7 +269,7 @@ const settings = {
       ],
       benefits: [
         "Ace Technical Interviews",
-        "Instant AI-Powered Answers",
+        "Real-time AI assistance",
         "Private & Undetectable",
         "Works During Screen Sharing",
         "Real-Time Assistance",
@@ -280,7 +280,7 @@ const settings = {
       name: "Aurum Signal",
       tagline: "The Rising Voice of Intelligent Communication.",
       description:
-        "Aurum Signal is an AI-powered content automation and engagement platform designed to help small businesses connect with customers in any language, across WhatsApp, email, and social media. The platform automates customer communication in 20+ Indian languages, enabling businesses to reach a wider audience and engage effectively in their preferred vernacular. With intelligent content generation, automated messaging workflows, and comprehensive analytics, Aurum Signal empowers businesses to streamline their communication processes, improve customer engagement, and scale their marketing efforts effortlessly.",
+        "Aurum Signal uses AI in production for content and engagement. Customer communication in 20+ Indian languages via WhatsApp, email, and social media—AI generates and adapts content to improve response quality and consistency. Automated workflows and analytics support reliability and scale.",
       photo: "/logos/aurum-signal.png",
       link: "//aurumsignal.undash-cop.com",
       features: [
@@ -306,7 +306,7 @@ const settings = {
       name: "EUP Dashboard",
       tagline: "Unified HR & Finance. Simplified Operations.",
       description:
-        "EUP Dashboard is an integrated Human Resource Management and Financial Operations platform tailored for startups and small businesses. It centralizes employee data, automates payroll, manages recruitment through a built-in Applicant Tracking System (ATS), and provides robust financial tracking—all within a unified, user-friendly interface. EUP Dashboard empowers organizations to efficiently handle HR processes, monitor financial health, and generate actionable insights with real-time analytics and customizable dashboards, supporting scalable growth and operational excellence.",
+        "EUP Dashboard is an integrated HR and Financial Operations platform for startups and small businesses. It centralizes employee data, automates payroll, manages recruitment via a built-in ATS, and provides financial tracking in a unified interface. Organizations use it to handle HR processes, monitor financial health, and get actionable insights with real-time analytics and customizable dashboards.",
       photo: "/logos/eup-dashboard.svg",
       link: "//eup.undash-cop.com",
       features: [
@@ -332,7 +332,7 @@ const settings = {
       name: "Undash-cop Studio",
       tagline: "100+ Templates. 72-Hour Launch. Zero Code.",
       description:
-        "Undash-cop Studio revolutionizes web development with an extensive suite of features designed to accelerate and simplify website creation. Access a vast library of 100+ professionally crafted HTML site templates, each fully responsive and optimized for SEO, ensuring your site looks stunning and performs flawlessly on any device. Enjoy a guaranteed 72-hour deployment, cross-browser compatibility, and easy drag-and-drop customization—no coding required. Every template includes comprehensive documentation, lifetime updates, and dedicated support, making it ideal for both technical and non-technical users. Benefit from modern, industry-specific designs, integrated contact forms, pre-built UI components, and seamless integration with popular analytics and marketing tools. With Undash-cop Studio, you can launch a high-quality, branded website quickly and effortlessly, empowering your business with a professional online presence.",
+        "Undash-cop Studio delivers 100+ professional HTML templates with responsive design and SEO in mind. Launch in 72 hours with drag-and-drop customization, no code required. Templates include documentation, updates, and support. Modern designs, contact forms, and integrations with analytics and marketing tools help you get a professional site live quickly.",
       photo: "/logos/undash-cop-studio.png",
       link: "//demos.undash-cop.com",
       features: [
@@ -410,7 +410,7 @@ const settings = {
       name: "YRB Services",
       tagline: "Complete Service Management. Maximum Efficiency.",
       description:
-        "YRB Services is a comprehensive IT hardware service management platform packed with advanced features to optimize every aspect of service center and hardware repair business operations. The platform offers end-to-end service management, including seamless customer intake, detailed job and work order tracking, and automated billing processes. YRB Services boasts powerful technician scheduling and dispatch tools, real-time parts and inventory management, and a robust customer communication portal for status updates and feedback. Additional features include warranty and service history management, performance analytics dashboards, mobile technician app support, and customizable notifications. With its intuitive interface and extensive feature set, YRB Services empowers service centers to deliver exceptional customer experiences, maximize operational efficiency, and drive business growth.",
+        "YRB Services is an IT hardware service management platform for service centers and hardware repair businesses. It offers end-to-end service management: customer intake, job and work order tracking, and automated billing. Features include technician scheduling and dispatch, parts and inventory management, and a customer portal for status and feedback. Warranty and service history, analytics dashboards, mobile technician app, and notifications help service centers run efficiently and serve customers well.",
       photo: "/logos/yrb-services.png",
       link: "//yrb-services.undash-cop.com",
       features: [
@@ -436,12 +436,12 @@ const settings = {
       name: "RecruitAI",
       tagline: "87% Automated. 100% Intelligent.",
       description:
-        "RecruitAI is an advanced AI-powered recruitment system specifically designed for consultancies, automating 87% of the recruitment process to dramatically reduce time-to-hire and improve candidate quality. The platform intelligently sources candidates from multiple job pools, automatically matches them to job requirements using machine learning algorithms, and streamlines the entire hiring workflow from sourcing to onboarding. With intelligent candidate ranking, automated screening, interview scheduling, and comprehensive analytics, RecruitAI empowers consultancies to scale their recruitment operations efficiently while maintaining high-quality talent acquisition standards.",
+        "RecruitAI uses AI in production for recruitment. It automates sourcing, matching, screening, and scheduling—reducing time-to-hire and improving candidate fit. ML-based matching and ranking run on real hiring data. Built for consultancies that need reliable, scalable hiring without sacrificing quality.",
       photo: "/logos/recruitai.png",
       link: "//recruitai.undash-cop.com",
       features: [
         "87% Automated Recruitment Process",
-        "AI-Powered Candidate Sourcing",
+        "Candidate sourcing with AI",
         "Auto-Sourced Candidates from Job Pools",
         "Intelligent Candidate Matching",
         "Automated Resume Screening",
@@ -462,21 +462,21 @@ const settings = {
       name: "My Macros",
       tagline: "Your Personal Health & Fitness Companion (Beta)",
       description:
-        "My Macros is an AI-powered nutrition and fitness platform currently in beta. Transform your health journey with intelligent nutrition tracking, personalized fitness goals, and insights that adapt to your lifestyle. The platform combines cutting-edge AI with proven health science—featuring an AI health assistant for instant answers and meal suggestions, smart diet tracking with macro and micronutrient monitoring, personalized goals, and a supportive community. My Macros offers real-time sync, offline support, and privacy-first design. Now in beta—join early and help shape the future of health tracking.",
+        "My Macros uses AI for nutrition and fitness guidance. Nutrition tracking, personalized goals, and meal suggestions are driven by models trained on health data—improving consistency and outcomes. Macro and micronutrient tracking, real-time sync, offline support, and privacy-first design. Currently in beta.",
       photo: "/logos/my-macros.svg",
       link: "https://noobstoday.netlify.app/",
       features: [
-        "AI Health Assistant",
+        "Health guidance with AI",
         "Smart Diet & Macro Tracking",
         "Personalized Fitness Goals",
-        "AI-Powered Food Recognition",
+        "Food recognition with AI",
         "Macro & Micronutrient Tracking",
         "Progress & Goal Tracking",
         "Community & Support",
         "Real-Time Sync & Offline Support"
       ],
       benefits: [
-        "Transform Your Health Journey",
+        "Improve Your Health Tracking",
         "Personalized Nutrition Advice",
         "Achieve Fitness Goals",
         "Data-Driven Insights",
@@ -521,7 +521,7 @@ const settings = {
       name: "Suman KN",
       title: "Founder | Chief Executive Officer",
       about:
-        "There's something to be said about working with passionate business owners that truly love what they do. I'm no different. I started my business because I honestly enjoy coming to work every day to create something beautiful that has the ability to impact others. But Our weekends has a different passion off the work in the very own generous play of racing and drag race mastering, Since it is the one which made me stand till the date.",
+        "I started Undash-cop to build software that helps startups and founders ship faster. We focus on engineering-first delivery and products where AI is built in for reliability and outcomes. Outside work, I race and pursue motorsport.",
       photo: "https://drive.google.com/thumbnail?id=1UmzllytJ3x5RRhgawS53AEntf-uXe68Y",
       website: "https://sumankn.undash-cop.com",
       linkedin: "https://in.linkedin.com/in/suman-kn",
@@ -533,7 +533,7 @@ const settings = {
       name: "Yashwanth H R",
       title: "Co-Founder | Chief Operating Officer",
       about:
-        "One of the Co-founder with high tech skills in balancing the responsibility of our support team and our resources. 8 year of Experience in Sourcing and resource Management.",
+        "Co-founder with deep experience in operations and resource management. Eight years in sourcing and team coordination.",
       photo:
         "https://drive.google.com/thumbnail?id=1W1ARN1r2w0xlH-vA0B04mhlUkDJ3LlIz",
       website: "",
@@ -546,7 +546,7 @@ const settings = {
       name: "Mohammed Nawaz A",
       title: "Co-Founder | Chief Financial Officer",
       about:
-        "As the co-founder is a person who worked for more over 9 years had a great challenge in managing all the stuff in his industry with the small scale budgets",
+        "Co-founder with over nine years in finance and operations, focused on running lean and scaling efficiently.",
       photo:
         "https://drive.google.com/thumbnail?id=1Ox51HTawBCKXSQprsm-Tfd_Vt992KzVx",
       website: "",
@@ -559,7 +559,7 @@ const settings = {
       name: "Karthik",
       title: "Chief Technological Officer",
       about:
-        "Best in site and bang the technologies, Make way for inventions all the times",
+        "Leads technology strategy and engineering. Focused on stable, scalable systems and products where AI is a core capability.",
       photo: "https://drive.google.com/thumbnail?id=1Yc3h-zx7RVFckE-eRgQkZOoet7nv6_zS",
       website: "",
       linkedin: "https://www.linkedin.com/in/karthik-r-352600103",
@@ -571,7 +571,7 @@ const settings = {
       name: "Purushottam Gour",
       title: "Cheif Product Officer",
       about:
-        "Most of the Products comes handy when a correct Product Management has been taken care.  ",
+        "Product management and roadmap. Ensures our products stay aligned with customer needs and engineering capacity.",
       photo:
         "https://drive.google.com/thumbnail?id=1XNO92CHpgnSGwM38hzYOfOUKhGREeuLq",
       website: "",

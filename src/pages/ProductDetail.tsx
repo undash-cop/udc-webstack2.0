@@ -107,15 +107,15 @@ const ProductDetail = () => {
   function getLongDescription(productName: string): string {
     const descriptions: { [key: string]: string } = {
       'EUP Dashboard': `EUP Dashboard represents the pinnacle of integrated business management solutions, specifically engineered for modern enterprises seeking comprehensive control over their human resources and financial operations. This powerful platform combines intuitive design with robust functionality, enabling organizations to streamline their workforce management, track employee performance, manage payroll systems, and maintain detailed financial records all from a single, unified interface. Built with scalability in mind, EUP Dashboard adapts to businesses of all sizes, from growing startups to established enterprises, providing the tools necessary to make informed decisions and drive organizational success.`,
-      'Undash-cop Studio': `Undash-cop Studio is a cutting-edge web development platform that empowers businesses to create stunning, high-performance websites and web applications with unprecedented ease and efficiency. Our comprehensive suite of tools and services combines the latest technologies with innovative design principles to deliver digital solutions that not only meet but exceed modern web standards. From responsive design and mobile optimization to advanced functionality and seamless user experiences, Undash-cop Studio transforms your digital vision into reality.`,
-      'Serviso': `Serviso is a revolutionary business management platform designed to streamline operations and enhance productivity across all departments. This comprehensive solution integrates seamlessly with your existing workflows, providing real-time insights, automated processes, and powerful analytics that drive informed decision-making. Whether you're managing customer relationships, tracking inventory, or coordinating team projects, Serviso delivers the tools and visibility you need to optimize your business operations and achieve sustainable growth.`,
+      'Undash-cop Studio': `Undash-cop Studio is a web development platform for building high-performance websites and web applications. Our tools and templates combine modern technologies with clear design to deliver sites that meet current web standards. Responsive design, mobile optimization, and straightforward functionality help you get a professional site live.`,
+      'Serviso': `Serviso is a business management platform that streamlines operations and productivity. It integrates with your existing workflows, providing real-time insights, automated processes, and analytics for decision-making. Whether you're managing customer relationships, inventory, or team projects, Serviso gives you the tools and visibility you need.`,
       'Futuro Expenses': `Futuro Expenses is a sophisticated personal finance management application that brings clarity and control to your financial life. Designed with the modern user in mind, this intuitive platform helps you track spending, set budgets, monitor investments, and plan for the future with confidence. Advanced categorization, smart notifications, and comprehensive reporting features provide the insights you need to make informed financial decisions and achieve your monetary goals.`,
-      'YRB Services': `YRB Services represents the future of IT service management, providing comprehensive solutions that keep your technology infrastructure running smoothly and efficiently. Our expert team delivers round-the-clock support, proactive monitoring, and strategic guidance to ensure your systems remain secure, optimized, and aligned with your business objectives. From network management and cybersecurity to cloud solutions and digital transformation, YRB Services is your trusted partner in navigating the complex world of enterprise technology.`,
-      'Fotralife': `Fotralife is a vibrant travel and community platform that connects travelers with authentic local experiences and like-minded adventurers. This innovative platform combines social networking with travel planning, allowing users to discover hidden gems, share experiences, and build lasting connections with fellow travelers from around the world. With advanced matching algorithms, social features, and comprehensive destination guides, Fotralife makes it easy to discover new places, connect with fellow travelers, and create the perfect itinerary for your next adventure. The platform's mobile-first design ensures you have access to all features and community insights wherever your travels take you.`,
-      'Aurum Signal': `Aurum Signal represents the future of intelligent business communication, combining cutting-edge AI technology with deep understanding of Indian market needs. This revolutionary platform breaks down language barriers by enabling businesses to communicate seamlessly in 20+ Indian languages, reaching customers in their native tongues through WhatsApp, email, and social media channels. With intelligent content generation powered by advanced AI, automated workflow management, and comprehensive analytics, Aurum Signal transforms how small businesses engage with their customers. The platform's vernacular-first approach ensures that businesses can connect authentically with diverse audiences, while its automation capabilities free up valuable time for business owners to focus on growth and innovation.`,
-      'RecruitAI': `RecruitAI revolutionizes the recruitment landscape for consultancies by leveraging advanced artificial intelligence to automate 87% of the hiring process. This intelligent platform seamlessly integrates with multiple job pools and recruitment channels, automatically sourcing qualified candidates that match your specific requirements. Using sophisticated machine learning algorithms, RecruitAI analyzes candidate profiles, skills, experience, and cultural fit to provide intelligent matching and ranking. The platform handles everything from initial candidate sourcing and resume screening to interview scheduling and candidate communication, dramatically reducing the time and effort required from your recruitment team. With comprehensive analytics and reporting, RecruitAI provides actionable insights into your hiring pipeline, helping you optimize your recruitment strategy and make data-driven decisions. Designed specifically for consultancies, the platform understands the unique challenges of high-volume, quality-focused recruitment, enabling you to scale your hiring operations while maintaining exceptional candidate quality standards.`,
-      'Game Of Coders': `Game Of Coders is a revolutionary AI-powered interview assistant that transforms how you approach technical interviews. This cutting-edge desktop application provides real-time AI assistance during technical interviews, giving you instant answers and insights when you need them most. With advanced screenshot analysis capabilities, Game Of Coders can instantly analyze code, diagrams, and technical problems, providing comprehensive explanations and solutions. The platform features dual audio capture technology that automatically detects interview questions and provides contextual AI responses in real-time. The stealth overlay mode ensures complete privacy and undetectability, working seamlessly during screen sharing sessions without being visible to interviewers. Available for Mac, Windows, and Linux, Game Of Coders is designed to give you the confidence and edge needed to ace your technical interviews while maintaining complete privacy and professionalism.`,
-      'My Macros': `My Macros is your personal health and fitness companion, currently in beta. The platform combines cutting-edge AI with proven health science to help you transform your health journey. Get instant answers to health questions, personalized meal suggestions, and expert guidance 24/7 from the AI health assistant. Monitor daily nutrition with AI-powered food recognition and detailed macro and micronutrient tracking. Set and achieve personalized fitness goals with plans that adapt to your progress and lifestyle. Join a supportive community of like-minded individuals on similar health journeys. My Macros offers real-time sync, offline support, and privacy-first design with enterprise-grade security. As a beta product, we're actively improving based on early user feedback—join now and help shape the future of health tracking.`,
+      'YRB Services': `YRB Services provides IT service management solutions that keep your technology infrastructure running smoothly. Our team delivers support, monitoring, and guidance so your systems stay secure, optimized, and aligned with your objectives. We cover network management, cybersecurity, and cloud solutions.`,
+      'Fotralife': `Fotralife is a travel and community platform that connects travelers with local experiences and fellow adventurers. It combines social networking with travel planning—discover places, share experiences, and build connections. Matching algorithms, social features, and destination guides help you plan trips and connect with other travelers. Mobile-first design so you have access wherever you go.`,
+      'Aurum Signal': `Aurum Signal uses AI in production for business communication in the Indian market. Communicate in 20+ Indian languages via WhatsApp, email, and social media. AI generates and adapts content to improve response quality and consistency. Automated workflows and analytics support reliability and scale.`,
+      'RecruitAI': `RecruitAI uses AI in production for recruitment. It automates sourcing, matching, screening, and scheduling—reducing time-to-hire and improving candidate fit. ML-based matching and ranking run on real hiring data. Built for consultancies that need reliable, scalable hiring without sacrificing quality.`,
+      'Game Of Coders': `Game Of Coders uses AI in production to assist during technical interviews. Screenshot analysis, real-time transcription, and automatic question detection improve speed and consistency. Dual audio capture and stealth overlay work during screen sharing. Available for Mac, Windows, and Linux.`,
+      'My Macros': `My Macros uses AI for nutrition and fitness guidance. Meal suggestions and health answers are driven by models trained on health data—improving consistency and outcomes. Nutrition tracking, macro and micronutrient tracking, real-time sync, offline support. Currently in beta; we're improving based on feedback.`,
       'Metrics Billing Platform': `Metrics Billing Platform is a production-ready, open-source multi-tenant usage-based billing system built by Undash-cop. It is designed for India-first payments using Razorpay, with Cloudflare Workers handling event ingestion and APIs, Cloudflare D1 as hot event storage (acting as a queue with cron polling every 5 minutes), and Amazon RDS (PostgreSQL) as the financial source of truth. The platform supports high-throughput idempotent event ingestion, automated monthly invoice generation, Razorpay webhook reconciliation, professional PDF invoices, email notifications for invoices and payments, full and partial refunds, usage dashboards and analytics APIs, multi-currency support, and threshold, spike, and cost alerts. Security features include API key hashing, role-based access control, rate limiting, optional IP whitelisting, and full audit logging. The entire codebase is open source on GitHub—you can clone, deploy, and customize it for your organisation.`
     };
     return descriptions[productName] || productName;
@@ -231,14 +231,14 @@ const ProductDetail = () => {
           name: 'Sarah Johnson',
           company: 'TechCorp Solutions',
           role: 'HR Director',
-          content: 'EUP Dashboard has revolutionized our HR operations. The automation features have saved us countless hours and the reporting capabilities give us insights we never had before.',
+          content: 'EUP Dashboard has improved our HR operations. The automation saves us significant time and the reporting gives us the insights we need.',
           rating: 5
         },
         {
           name: 'Michael Chen',
           company: 'FinanceFlow Inc',
           role: 'CFO',
-          content: 'The financial management tools in EUP Dashboard are exceptional. We can now track expenses, manage budgets, and generate reports with ease.',
+          content: 'The financial management tools in EUP Dashboard are solid. We track expenses, manage budgets, and generate reports with ease.',
           rating: 5
         }
       ],
@@ -247,7 +247,7 @@ const ProductDetail = () => {
           name: 'Emily Rodriguez',
           company: 'Creative Agency',
           role: 'Creative Director',
-          content: 'The quality of work from Undash-cop Studio is exceptional. They understood our vision and delivered beyond our expectations.',
+          content: 'The quality of work from Undash-cop Studio is strong. They understood our vision and delivered what we needed.',
           rating: 5
         },
         {
@@ -290,7 +290,7 @@ const ProductDetail = () => {
           name: 'Alex Thompson',
           company: 'Travel Enthusiast',
           role: 'Community Member',
-          content: 'Fotralife has connected me with amazing people and places. The community features make travel planning so much more enjoyable.',
+          content: 'Fotralife has connected me with people and places. The community features make travel planning more enjoyable.',
           rating: 5
         }
       ],
@@ -299,14 +299,14 @@ const ProductDetail = () => {
           name: 'Rajesh Kumar',
           company: 'Local Retail Business',
           role: 'Business Owner',
-          content: 'Aurum Signal has transformed how we communicate with our customers. Being able to send messages in multiple Indian languages has significantly increased our customer engagement.',
+          content: 'Aurum Signal has improved how we communicate with customers. Multi-language support has increased our engagement.',
           rating: 5
         },
         {
           name: 'Priya Sharma',
           company: 'E-commerce Startup',
           role: 'Marketing Manager',
-          content: 'The AI content generation and automation features have saved us countless hours. We can now focus on strategy while Aurum Signal handles our customer communication.',
+          content: 'Aurum Signal\'s AI content and automation have reduced our response time and kept messaging consistent. We focus on strategy while the system handles routine customer communication.',
           rating: 5
         }
       ],
@@ -315,14 +315,14 @@ const ProductDetail = () => {
           name: 'Michael Chen',
           company: 'TechConsult Solutions',
           role: 'Head of Talent Acquisition',
-          content: 'RecruitAI has transformed our recruitment process. The 87% automation rate means our team can focus on building relationships with top candidates instead of sifting through resumes. We\'ve reduced our time-to-hire by 60% while improving candidate quality.',
+          content: 'RecruitAI has improved our recruitment process. The 87% automation lets our team focus on building relationships with top candidates. We\'ve reduced time-to-hire while improving candidate quality.',
           rating: 5
         },
         {
           name: 'Sarah Johnson',
           company: 'Global Consulting Group',
           role: 'Recruitment Director',
-          content: 'The AI-powered candidate sourcing from job pools is incredible. RecruitAI finds candidates we would have never discovered manually. The intelligent matching algorithm has significantly improved our placement success rate.',
+          content: 'Sourcing and matching with AI surface candidates we would have missed manually. The system has improved our placement success rate and reduced time-to-fill.',
           rating: 5
         },
         {
@@ -338,21 +338,21 @@ const ProductDetail = () => {
           name: 'Alex Rodriguez',
           company: 'Software Engineer',
           role: 'Job Seeker',
-          content: 'Game Of Coders helped me ace my technical interview at a FAANG company. The real-time AI assistance gave me the confidence I needed, and the stealth overlay worked perfectly during screen sharing. Highly recommended!',
+          content: 'Game Of Coders gave me real-time assistance during my technical interview. The overlay worked during screen sharing and helped me stay consistent under pressure.',
           rating: 5
         },
         {
           name: 'Priya Patel',
           company: 'Full Stack Developer',
           role: 'Career Changer',
-          content: 'The screenshot analysis feature is incredible. It instantly helped me understand complex algorithms and coding problems during my interview. The auto-scroll feature kept everything visible and organized.',
+          content: 'The screenshot analysis helped me understand complex algorithms and coding problems during my interview. The auto-scroll kept everything visible and organized.',
           rating: 5
         },
         {
           name: 'James Wilson',
           company: 'Data Scientist',
           role: 'Interview Candidate',
-          content: 'Game Of Coders is a game-changer for technical interviews. The dual audio capture automatically detected questions and provided relevant answers. The privacy features gave me peace of mind during the entire process.',
+          content: 'Game Of Coders helped during my technical interview. The dual audio capture detected questions and provided relevant answers. The privacy features gave me peace of mind.',
           rating: 5
         }
       ],
@@ -361,7 +361,7 @@ const ProductDetail = () => {
           name: 'Sarah Mitchell',
           company: 'Fitness Enthusiast',
           role: 'Beta User',
-          content: 'My Macros has transformed how I track my nutrition. The AI health assistant gives instant meal suggestions and the macro tracking is so intuitive. Excited to be part of the beta!',
+          content: 'My Macros has improved how I track nutrition. Meal suggestions and guidance are consistent and useful. Good beta experience.',
           rating: 5
         },
         {
@@ -411,7 +411,7 @@ const ProductDetail = () => {
       'Undash-cop Studio': [
         {
           question: 'What technologies do you use for web development?',
-          answer: 'We use modern technologies including React, Next.js, Node.js, TypeScript, and various other cutting-edge frameworks.'
+          answer: 'We use modern technologies including React, Next.js, Node.js, TypeScript, and other current frameworks.'
         },
         {
           question: 'Do you provide ongoing maintenance and support?',
@@ -433,7 +433,7 @@ const ProductDetail = () => {
       'YRB Services': [
         {
           question: 'What types of IT services do you provide?',
-          answer: 'We provide comprehensive IT services including network management, cybersecurity, cloud solutions, and digital transformation.'
+          answer: 'We provide IT services including network management, cybersecurity, and cloud solutions.'
         }
       ],
       'Fotralife': [
@@ -453,13 +453,13 @@ const ProductDetail = () => {
         },
         {
           question: 'How does the AI content generation work?',
-          answer: 'Aurum Signal uses advanced AI to generate contextually appropriate content in multiple languages, helping you create engaging messages that resonate with your audience while maintaining brand consistency.'
+          answer: 'Aurum Signal uses AI trained on communication data to generate and adapt content in multiple languages. It improves response quality and consistency while keeping your brand voice. The system runs in production and is tuned for reliability.'
         }
       ],
       'RecruitAI': [
         {
           question: 'How does the 87% automation work?',
-          answer: 'RecruitAI automates candidate sourcing from multiple job pools, resume screening, initial candidate matching, interview scheduling, candidate communication, and ranking. Only final interviews and hiring decisions require human intervention, resulting in 87% process automation.'
+          answer: 'RecruitAI automates sourcing from job pools, resume screening, candidate matching, interview scheduling, and communication. Humans handle final interviews and hiring decisions. The result is faster time-to-hire and more consistent screening.'
         },
         {
           question: 'Which job pools does RecruitAI source candidates from?',
@@ -467,7 +467,7 @@ const ProductDetail = () => {
         },
         {
           question: 'How accurate is the AI candidate matching?',
-          answer: 'RecruitAI uses advanced machine learning algorithms that continuously learn from your hiring decisions. The system analyzes skills, experience, qualifications, and cultural fit to provide highly accurate candidate matches, with most consultancies reporting 85%+ match accuracy.'
+          answer: 'RecruitAI uses machine learning trained on your hiring data. The system analyzes skills, experience, and qualifications to rank candidates. Accuracy improves as more decisions feed back into the model. We focus on reliability and consistency in production.'
         },
         {
           question: 'Can RecruitAI integrate with our existing ATS?',
@@ -481,7 +481,7 @@ const ProductDetail = () => {
       'Game Of Coders': [
         {
           question: 'Is Game Of Coders detectable during screen sharing?',
-          answer: 'No, Game Of Coders features a stealth overlay mode that is completely undetectable during screen sharing. The transparent overlay works seamlessly without being visible to interviewers or screen recording software.'
+          answer: 'No, Game Of Coders features a stealth overlay mode that is undetectable during screen sharing. The transparent overlay works without being visible to interviewers or screen recording software.'
         },
         {
           question: 'Which operating systems are supported?',
@@ -489,7 +489,7 @@ const ProductDetail = () => {
         },
         {
           question: 'How does the real-time audio transcription work?',
-          answer: 'Game Of Coders uses dual audio capture technology to automatically detect interview questions in real-time. The system transcribes audio and provides instant AI-powered responses to help you during your interview.'
+          answer: 'Game Of Coders uses dual audio capture to detect interview questions in real time. The system transcribes audio and returns responses from production AI models—improving speed and consistency during the interview.'
         },
         {
           question: 'Is my data private and secure?',
@@ -497,7 +497,7 @@ const ProductDetail = () => {
         },
         {
           question: 'How does the screenshot analysis feature work?',
-          answer: 'You can capture screenshots of code, diagrams, or technical problems during your interview, and Game Of Coders will instantly analyze them using AI to provide comprehensive explanations, solutions, and insights.'
+          answer: 'You can capture screenshots of code, diagrams, or technical problems during your interview. Game Of Coders runs them through production AI models to return explanations and solutions—reducing latency and keeping quality consistent.'
         }
       ],
       'My Macros': [
@@ -507,7 +507,7 @@ const ProductDetail = () => {
         },
         {
           question: 'How does the AI health assistant work?',
-          answer: 'The AI health assistant provides instant answers to health questions, personalized meal suggestions, and expert guidance 24/7. It uses proven health science combined with AI to give recommendations that adapt to your goals and lifestyle.'
+          answer: 'The health assistant uses AI trained on nutrition and health data to answer questions and suggest meals. Recommendations adapt to your goals and inputs. The system is built for consistency and reliability in daily use.'
         },
         {
           question: 'Is my health data private?',
@@ -579,8 +579,8 @@ const ProductDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Product Not Found</h1>
-          <p className="text-gray-600 mb-8">The product you're looking for doesn't exist.</p>
+          <h1 className="heading-section">Product Not Found</h1>
+          <p className="text-neutral-600 mb-8">The product you're looking for doesn't exist.</p>
           <Link to="/products" className="btn-primary">
             <ArrowLeftIcon className="w-5 h-5 mr-2" />
             Back to Products
@@ -601,25 +601,25 @@ const ProductDetail = () => {
       <ProductSEO product={product} />
 
       {/* Breadcrumb */}
-      <div className="bg-gray-50 py-4">
+      <div className="bg-neutral-50 py-4">
         <div className="container-custom">
           <nav className="flex items-center space-x-2 text-sm">
-            <Link to="/" className="text-gray-500 hover:text-primary-600">Home</Link>
-            <span className="text-gray-400">/</span>
-            <Link to="/products" className="text-gray-500 hover:text-primary-600">Products</Link>
-            <span className="text-gray-400">/</span>
-            <span className="text-gray-900 font-medium">{product.name}</span>
+            <Link to="/" className="text-neutral-500 hover:text-primary-600">Home</Link>
+            <span className="text-neutral-400">/</span>
+            <Link to="/products" className="text-neutral-500 hover:text-primary-600">Products</Link>
+            <span className="text-neutral-400">/</span>
+            <span className="text-neutral-900 font-medium">{product.name}</span>
           </nav>
         </div>
       </div>
 
       {/* Hero Section */}
-      <section className="py-16 bg-gradient-to-br from-primary-50 to-primary-100">
+      <section className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               <div className="flex items-center mb-6">
-                <div className="w-20 h-20 bg-white rounded-2xl flex items-center justify-center mr-6 shadow-lg">
+                <div className="w-20 h-20 bg-white rounded-xl flex items-center justify-center mr-6 border border-neutral-200 shadow-soft">
                   <img 
                     src={product.logo} 
                     alt={`${product.name} logo`}
@@ -627,7 +627,7 @@ const ProductDetail = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="text-4xl font-bold text-gray-900 mb-2">{product.name}</h1>
+                  <h1 className="heading-page mb-2">{product.name}</h1>
                   {product.tagline && (
                     <p className="text-lg text-primary-600 font-semibold mb-3 italic">
                       {product.tagline}
@@ -639,7 +639,7 @@ const ProductDetail = () => {
                 </div>
               </div>
               
-              <p className="text-xl text-gray-600 leading-relaxed mb-8">
+              <p className="text-xl text-neutral-600 leading-relaxed mb-8">
                 {product.description}
               </p>
 
@@ -648,7 +648,7 @@ const ProductDetail = () => {
                   href={product.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="btn-primary text-lg px-8 py-4 inline-flex items-center justify-center"
+                  className="btn-primary btn-lg inline-flex items-center justify-center"
                 >
                   Try Now
                   <ArrowRightIcon className="w-5 h-5 ml-2" />
@@ -662,13 +662,13 @@ const ProductDetail = () => {
             </div>
 
             <div className="relative">
-              <div className="bg-white rounded-2xl shadow-2xl p-8">
-                <h3 className="text-xl font-semibold text-gray-900 mb-6">Key Features</h3>
+              <div className="card p-8">
+                <h3 className="text-xl font-semibold text-neutral-900 mb-6">Key Features</h3>
                 <div className="space-y-4">
                   {product.features.slice(0, 6).map((feature: string, index: number) => (
                     <div key={index} className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-green-500 rounded-full flex-shrink-0 mt-2"></div>
-                      <span className="text-gray-600">{feature}</span>
+                      <span className="text-neutral-600">{feature}</span>
                     </div>
                   ))}
                 </div>
@@ -679,7 +679,7 @@ const ProductDetail = () => {
       </section>
 
       {/* Navigation Tabs */}
-      <section className="bg-white border-b border-gray-200">
+      <section className="bg-white border-b border-neutral-200">
         <div className="container-custom">
           <nav className="flex space-x-8">
             {['overview', 'features', 'specifications', 'testimonials', 'faq'].map((tab) => (
@@ -689,7 +689,7 @@ const ProductDetail = () => {
                 className={`py-4 px-2 border-b-2 font-medium text-sm capitalize transition-colors duration-200 ${
                   activeTab === tab
                     ? 'border-primary-600 text-primary-600'
-                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300'
                 }`}
               >
                 {tab}
@@ -700,13 +700,13 @@ const ProductDetail = () => {
       </section>
 
       {/* Tab Content */}
-      <section className="py-16 bg-white">
+      <section className="section-padding bg-white">
         <div className="container-custom">
           {activeTab === 'overview' && (
             <div className="max-w-4xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Product Overview</h2>
+              <h2 className="heading-section-lg mb-8">Product Overview</h2>
               <div className="prose prose-lg max-w-none">
-                <p className="text-gray-600 leading-relaxed mb-6">
+                <p className="text-neutral-600 leading-relaxed mb-6">
                   {product.longDescription}
                 </p>
               </div>
@@ -714,7 +714,7 @@ const ProductDetail = () => {
               {/* Screenshots */}
               {product.screenshots && product.screenshots.length > 0 && (
                 <div className="mt-12">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-6">Screenshots</h3>
+                  <h3 className="heading-section mb-6">Screenshots</h3>
                   <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                     {product.screenshots.map((screenshot: string, index: number) => (
                       <div key={index} className="rounded-lg overflow-hidden shadow-lg">
@@ -733,12 +733,12 @@ const ProductDetail = () => {
 
           {activeTab === 'features' && (
             <div className="max-w-4xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Features & Benefits</h2>
+              <h2 className="heading-section-lg mb-8">Features & Benefits</h2>
               
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                 {/* Features */}
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                  <h3 className="heading-section mb-6 flex items-center">
                     <CogIcon className="w-6 h-6 mr-3 text-primary-600" />
                     All Features
                   </h3>
@@ -746,7 +746,7 @@ const ProductDetail = () => {
                     {product.features.map((feature: string, index: number) => (
                       <div key={index} className="flex items-start space-x-3">
                         <CheckCircleIcon className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
-                        <span className="text-gray-600">{feature}</span>
+                        <span className="text-neutral-600">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -754,7 +754,7 @@ const ProductDetail = () => {
 
                 {/* Benefits */}
                 <div>
-                  <h3 className="text-2xl font-semibold text-gray-900 mb-6 flex items-center">
+                  <h3 className="heading-section mb-6 flex items-center">
                     <ShieldCheckIcon className="w-6 h-6 mr-3 text-primary-600" />
                     Benefits
                   </h3>
@@ -762,7 +762,7 @@ const ProductDetail = () => {
                     {product.benefits.map((benefit: string, index: number) => (
                       <div key={index} className="flex items-start space-x-3">
                         <div className="w-2 h-2 bg-primary-500 rounded-full flex-shrink-0 mt-2"></div>
-                        <span className="text-gray-600">{benefit}</span>
+                        <span className="text-neutral-600">{benefit}</span>
                       </div>
                     ))}
                   </div>
@@ -773,9 +773,9 @@ const ProductDetail = () => {
 
           {activeTab === 'specifications' && product.specifications && (
             <div className="max-w-4xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Technical Specifications</h2>
+              <h2 className="heading-section-lg mb-8">Technical Specifications</h2>
               
-              <div className="bg-gray-50 rounded-2xl p-8">
+              <div className="bg-neutral-50 rounded-xl p-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   {Object.entries(product.specifications).map(([key, value]) => (
                     <div key={key} className="flex items-start space-x-4">
@@ -788,10 +788,10 @@ const ProductDetail = () => {
                         {key === 'integration' && <ChartBarIcon className="w-6 h-6 text-primary-600" />}
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900 capitalize mb-1">
+                        <h4 className="font-semibold text-neutral-900 capitalize mb-1">
                           {key.replace(/([A-Z])/g, ' $1').trim()}
                         </h4>
-                        <p className="text-gray-600">{value}</p>
+                        <p className="text-neutral-600">{value}</p>
                       </div>
                     </div>
                   ))}
@@ -802,26 +802,26 @@ const ProductDetail = () => {
 
           {activeTab === 'testimonials' && product.testimonials && product.testimonials.length > 0 && (
             <div className="max-w-4xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Customer Testimonials</h2>
+              <h2 className="heading-section-lg mb-8">Customer Testimonials</h2>
               
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {product.testimonials.map((testimonial: any, index: number) => (
-                  <div key={index} className="bg-white rounded-2xl shadow-lg p-6 border border-gray-100">
+                  <div key={index} className="card p-6">
                     <div className="flex items-center mb-4">
                       <div className="flex text-yellow-400">
                         {[...Array(5)].map((_, i) => (
                           <StarIcon 
                             key={i} 
-                            className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-gray-300'}`} 
+                            className={`w-5 h-5 ${i < testimonial.rating ? 'text-yellow-400' : 'text-neutral-300'}`} 
                           />
                         ))}
                       </div>
                     </div>
-                    <p className="text-gray-600 mb-4 italic">"{testimonial.content}"</p>
+                    <p className="text-neutral-600 mb-4 italic">"{testimonial.content}"</p>
                     <div className="flex items-center">
                       <div>
-                        <h4 className="font-semibold text-gray-900">{testimonial.name}</h4>
-                        <p className="text-sm text-gray-500">{testimonial.role} at {testimonial.company}</p>
+                        <h4 className="font-semibold text-neutral-900">{testimonial.name}</h4>
+                        <p className="text-sm text-neutral-500">{testimonial.role} at {testimonial.company}</p>
                       </div>
                     </div>
                   </div>
@@ -832,13 +832,13 @@ const ProductDetail = () => {
 
           {activeTab === 'faq' && product.faq && product.faq.length > 0 && (
             <div className="max-w-4xl">
-              <h2 className="text-3xl font-bold text-gray-900 mb-8">Frequently Asked Questions</h2>
+              <h2 className="heading-section-lg mb-8">Frequently Asked Questions</h2>
               
               <div className="space-y-6">
                 {product.faq.map((item: any, index: number) => (
-                  <div key={index} className="bg-gray-50 rounded-lg p-6">
-                    <h3 className="font-semibold text-gray-900 mb-3">{item.question}</h3>
-                    <p className="text-gray-600">{item.answer}</p>
+                  <div key={index} className="bg-neutral-50 rounded-lg p-6">
+                    <h3 className="font-semibold text-neutral-900 mb-3">{item.question}</h3>
+                    <p className="text-neutral-600">{item.answer}</p>
                   </div>
                 ))}
               </div>
@@ -848,27 +848,27 @@ const ProductDetail = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-primary-600">
+      <section className="section-padding bg-primary-600">
         <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          <h2 className="heading-section text-white mb-0">
             Ready to Get Started with {product.name}?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Join thousands of satisfied customers who have transformed their business with our solutions.
+            Startups and growing businesses use our software, cloud, and automation. Get in touch to discuss your needs.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={product.link}
               target="_blank"
               rel="noopener noreferrer"
-              className="bg-white text-primary-600 hover:bg-gray-100 font-medium py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center"
+              className="btn-secondary btn-lg inline-flex items-center justify-center"
             >
               Try {product.name} Now
               <ArrowRightIcon className="w-5 h-5 ml-2" />
             </a>
             <Link
               to="/contact"
-              className="border border-white text-white hover:bg-white hover:text-primary-600 font-medium py-3 px-8 rounded-lg transition-colors duration-200 inline-flex items-center justify-center"
+              className="btn-outline-light btn-lg inline-flex items-center justify-center"
             >
               Contact Sales
             </Link>

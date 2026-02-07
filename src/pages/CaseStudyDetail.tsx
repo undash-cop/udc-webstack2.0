@@ -29,7 +29,7 @@ const CaseStudyDetail = () => {
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Case Study Not Found</h1>
+          <h1 className="heading-section">Case Study Not Found</h1>
           <Link to="/case-studies" className="text-primary-600 hover:text-primary-700">
             ← Back to Case Studies
           </Link>
@@ -65,11 +65,11 @@ const CaseStudyDetail = () => {
       />
 
       {/* Back Button */}
-      <div className="bg-gray-50 py-4">
+      <div className="bg-neutral-50 py-4">
         <div className="container-custom">
           <Link 
             to="/case-studies" 
-            className="inline-flex items-center text-gray-600 hover:text-gray-900 transition-colors"
+            className="inline-flex items-center text-neutral-600 hover:text-neutral-900 transition-colors"
           >
             <ArrowLeftIcon className="h-5 w-5 mr-2" />
             Back to Case Studies
@@ -78,7 +78,7 @@ const CaseStudyDetail = () => {
       </div>
 
       {/* Hero Section */}
-      <div className="py-16 bg-gradient-to-br from-primary-50 to-primary-100">
+      <div className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
@@ -93,20 +93,20 @@ const CaseStudyDetail = () => {
                 )}
               </div>
               
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+              <h1 className="heading-page">
                 {caseStudy.title}
               </h1>
               
-              <p className="text-xl text-gray-600 mb-8">
+              <p className="text-xl text-neutral-600 mb-8">
                 {caseStudy.challenge}
               </p>
 
               <div className="flex items-center gap-6 mb-8">
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-neutral-600">
                   <BuildingOfficeIcon className="h-5 w-5" />
                   <span className="font-medium">{caseStudy.client}</span>
                 </div>
-                <div className="flex items-center gap-2 text-gray-600">
+                <div className="flex items-center gap-2 text-neutral-600">
                   <CalendarIcon className="h-5 w-5" />
                   <span>{caseStudy.publishedDate}</span>
                 </div>
@@ -118,7 +118,7 @@ const CaseStudyDetail = () => {
                   className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
                     isLiked 
                       ? 'bg-red-100 text-red-700 hover:bg-red-200' 
-                      : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
                   }`}
                 >
                   <HeartIcon className={`h-5 w-5 ${isLiked ? 'fill-current' : ''}`} />
@@ -126,7 +126,7 @@ const CaseStudyDetail = () => {
                 </button>
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-200 transition-colors"
                 >
                   <ShareIcon className="h-5 w-5" />
                   Share
@@ -157,43 +157,43 @@ const CaseStudyDetail = () => {
       <div className="py-16">
         <div className="container-custom">
           <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
                 <ClockIcon className="h-6 w-6 text-primary-600" />
-                <h3 className="text-lg font-semibold text-gray-900">Duration</h3>
+                <h3 className="text-lg font-semibold text-neutral-900">Duration</h3>
               </div>
-              <p className="text-gray-600">{caseStudy.duration}</p>
+              <p className="text-neutral-600">{caseStudy.duration}</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
                 <UserGroupIcon className="h-6 w-6 text-primary-600" />
-                <h3 className="text-lg font-semibold text-gray-900">Team Size</h3>
+                <h3 className="text-lg font-semibold text-neutral-900">Team Size</h3>
               </div>
-              <p className="text-gray-600">{caseStudy.teamSize}</p>
+              <p className="text-neutral-600">{caseStudy.teamSize}</p>
             </div>
             
-            <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">
+            <div className="card p-6">
               <div className="flex items-center gap-3 mb-3">
                 <CurrencyDollarIcon className="h-6 w-6 text-primary-600" />
-                <h3 className="text-lg font-semibold text-gray-900">Budget</h3>
+                <h3 className="text-lg font-semibold text-neutral-900">Budget</h3>
               </div>
-              <p className="text-gray-600">{caseStudy.budget}</p>
+              <p className="text-neutral-600">{caseStudy.budget}</p>
             </div>
           </div>
 
           {/* Challenge & Solution */}
           <div className="grid md:grid-cols-2 gap-12 mb-16">
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">The Challenge</h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <h2 className="heading-section-lg mb-6">The Challenge</h2>
+              <p className="text-lg text-neutral-700 leading-relaxed">
                 {caseStudy.challenge}
               </p>
             </div>
             
             <div>
-              <h2 className="text-3xl font-bold text-gray-900 mb-6">Our Solution</h2>
-              <p className="text-lg text-gray-700 leading-relaxed">
+              <h2 className="heading-section-lg mb-6">Our Solution</h2>
+              <p className="text-lg text-neutral-700 leading-relaxed">
                 {caseStudy.solution}
               </p>
             </div>
@@ -201,12 +201,12 @@ const CaseStudyDetail = () => {
 
           {/* Results */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Key Results</h2>
+            <h2 className="heading-section-lg mb-8 text-center">Key Results</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                       {caseStudy.results.map((result: string, index: number) => (
-                <div key={index} className="bg-white p-6 rounded-lg shadow-sm border border-gray-200 text-center">
+                <div key={index} className="card p-6 text-center">
                   <CheckCircleIcon className="h-8 w-8 text-green-500 mx-auto mb-4" />
-                  <p className="text-gray-700 font-medium">{result}</p>
+                  <p className="text-neutral-700 font-medium">{result}</p>
                 </div>
               ))}
             </div>
@@ -214,7 +214,7 @@ const CaseStudyDetail = () => {
 
           {/* Technologies */}
           <div className="mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Technologies Used</h2>
+            <h2 className="heading-section-lg mb-8 text-center">Technologies Used</h2>
             <div className="flex flex-wrap justify-center gap-3">
               {caseStudy.technologies.map((tech: string, index: number) => (
                 <span key={index} className="px-4 py-2 bg-primary-100 text-primary-800 rounded-full text-sm font-medium">
@@ -225,9 +225,9 @@ const CaseStudyDetail = () => {
           </div>
 
           {/* Testimonial */}
-          <div className="bg-gray-50 p-12 rounded-lg mb-16">
+          <div className="bg-neutral-50 p-12 rounded-lg mb-16">
             <div className="max-w-4xl mx-auto text-center">
-              <blockquote className="text-2xl text-gray-700 italic mb-8">
+              <blockquote className="text-2xl text-neutral-700 italic mb-8">
                 "{caseStudy.testimonial.quote}"
               </blockquote>
               <div className="flex items-center justify-center gap-4">
@@ -235,10 +235,10 @@ const CaseStudyDetail = () => {
                   {caseStudy.testimonial.author.charAt(0)}
                 </div>
                 <div className="text-left">
-                  <div className="font-semibold text-gray-900 text-lg">
+                  <div className="font-semibold text-neutral-900 text-lg">
                     {caseStudy.testimonial.author}
                   </div>
-                  <div className="text-gray-600">
+                  <div className="text-neutral-600">
                     {caseStudy.testimonial.role}, {caseStudy.testimonial.company}
                   </div>
                 </div>
@@ -248,22 +248,22 @@ const CaseStudyDetail = () => {
 
           {/* CTA Section */}
           <div className="bg-primary-600 rounded-lg p-12 text-center">
-            <h2 className="text-3xl font-bold text-white mb-4">
+            <h2 className="heading-section text-white mb-0">
               Ready to Start Your Project?
             </h2>
             <p className="text-xl text-primary-100 mb-8">
-              Let's discuss how we can help transform your business with innovative technology solutions.
+              Discuss how we can help with software, cloud, or automation for your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 to="/contact"
-                className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
+                className="bg-white text-primary-600 px-8 py-4 rounded-lg font-semibold hover:bg-neutral-100 transition-colors"
               >
                 Start Your Project
               </Link>
               <Link
                 to="/case-studies"
-                className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-primary-600 transition-colors"
+                className="btn-outline-light btn-lg inline-flex items-center justify-center"
               >
                 View More Case Studies
               </Link>

@@ -56,11 +56,11 @@ const Breadcrumb = ({ items, className = '' }: BreadcrumbProps) => {
         {breadcrumbs.map((item, index) => (
           <li key={item.href} className="flex items-center">
             {index > 0 && (
-              <ChevronRightIcon className="w-4 h-4 text-gray-400 mx-2" />
+              <ChevronRightIcon className="w-4 h-4 text-neutral-400 mx-2" />
             )}
             
             {item.current ? (
-              <span className="text-sm font-medium text-gray-900 dark:text-white">
+              <span className="text-sm font-medium text-neutral-900">
                 {index === 0 ? (
                   <HomeIcon className="w-4 h-4" />
                 ) : (
@@ -70,7 +70,7 @@ const Breadcrumb = ({ items, className = '' }: BreadcrumbProps) => {
             ) : (
               <Link
                 to={item.href}
-                className="text-sm font-medium text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-300 transition-colors"
+                className="text-sm font-medium text-neutral-500 hover:text-neutral-700 transition-colors"
               >
                 {index === 0 ? (
                   <HomeIcon className="w-4 h-4" />

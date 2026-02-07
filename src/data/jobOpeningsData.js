@@ -42,7 +42,7 @@ const jobOpeningsData = [
     posted: "1 week ago",
     featured: true,
     urgent: true,
-    description: "Join our product team as a Product Manager to drive the vision and strategy for our core products. You'll work closely with engineering, design, and business teams to deliver exceptional user experiences.",
+    description: "Join our product team as a Product Manager to drive the vision and strategy for our core products. You'll work closely with engineering, design, and business teams to deliver strong user experiences.",
     skills: [
       "Product Strategy",
       "User Research",
@@ -106,7 +106,7 @@ const jobOpeningsData = [
     posted: "5 days ago",
     featured: false,
     urgent: false,
-    description: "Join our DevOps team to help scale our infrastructure and improve our deployment processes. You'll work with cutting-edge cloud technologies and automation tools.",
+    description: "Join our DevOps team to help scale our infrastructure and improve our deployment processes. You'll work with modern cloud technologies and automation tools.",
     skills: [
       "AWS",
       "Docker",
@@ -138,7 +138,7 @@ const jobOpeningsData = [
     posted: "1 week ago",
     featured: false,
     urgent: false,
-    description: "We're looking for a Marketing Manager to lead our digital marketing efforts and drive growth. You'll develop and execute marketing campaigns across multiple channels.",
+    description: "We're looking for a Marketing Manager to lead our digital marketing efforts. You'll develop and execute marketing campaigns across multiple channels.",
     skills: [
       "Digital Marketing",
       "Google Analytics",
@@ -170,7 +170,7 @@ const jobOpeningsData = [
     posted: "4 days ago",
     featured: false,
     urgent: false,
-    description: "Join our data team to extract insights from our data and build machine learning models. You'll work with large datasets and help drive data-driven decision making across the company.",
+    description: "Join our data team to build and deploy machine learning models in production. You'll work with large datasets, improve reliability and speed of our AI systems, and support data-driven decisions across the company.",
     skills: [
       "Python",
       "R",
@@ -183,7 +183,7 @@ const jobOpeningsData = [
     ],
     responsibilities: [
       "Analyze large datasets to extract actionable insights",
-      "Build and deploy machine learning models",
+      "Build and deploy ML models in production",
       "Create data visualizations and reports",
       "Collaborate with product and engineering teams",
       "Design and implement A/B tests",

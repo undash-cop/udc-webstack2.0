@@ -102,7 +102,7 @@ const Home = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Undash-cop",
-    "description": "Leading provider of technology solutions, automation services, and digital transformation",
+    "description": "Undash-cop delivers proven results. AI is a core capability across our products—used in production to improve reliability, speed, and outcomes. Established. Reliable.",
     "url": "https://undash-cop.com",
     "logo": "https://undash-cop.com/logos/undash-cop-studio.png",
     "contactPoint": {
@@ -129,39 +129,39 @@ const Home = () => {
   return (
     <div>
       <SEOHead
-        title="Undash-cop - Technology Solutions & Automation Services"
-        description="Leading provider of technology solutions, automation services, and digital transformation. Discover our innovative products and services for your business growth."
-        keywords="technology solutions, automation, digital transformation, software development, business tools, AI, machine learning, cloud services"
+        title="Undash-cop - Proven Delivery. AI Built In."
+        description="Undash-cop delivers proven results. AI is a core capability across our products—used in production to improve reliability, speed, and outcomes. Established. Reliable."
+        keywords="software, cloud, automation, AI, startups, founders, proven delivery, engineering, SaaS, production AI"
         structuredData={structuredData}
       />
       {/* Hero Section */}
       <Hero
-        title="Complete Software Solutions for Startups & Small Businesses"
-        subtitle="Welcome to Undash-cop Private Limited"
-        description={companyData.descriptorTag}
+        title="Proven Delivery. AI Built In."
+        subtitle="Undash-cop — Established. AI as a core capability."
+        description="We deliver software, cloud, and automation you can count on. AI is built into many of our products—used in production to improve reliability, speed, and outcomes. Build with a partner that ships real systems."
         primaryAction={{
-          text: 'Explore Our Products',
-          href: '/products'
+          text: 'Work With Our Experts',
+          href: '/contact'
         }}
         secondaryAction={{
-          text: 'Get in Touch',
-          href: '/contact'
+          text: 'Build With Undash-cop',
+          href: '/products'
         }}
       />
 
       {/* Stats Section */}
-      <section ref={statsRef} className="py-16 tech-bg cyber-grid">
+      <section ref={statsRef} className="section-padding bg-white border-y border-neutral-200">
         <div className="container-custom">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 lg:gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
             {stats.map((stat, index) => (
               <div 
                 key={index} 
-                className={`text-center p-6 rounded-2xl bg-white shadow-lg hover:shadow-xl transition-all duration-500 transform hover:-translate-y-2 ${
+                className={`text-center p-6 rounded-xl border border-neutral-200 bg-neutral-50/50 shadow-subtle transition-shadow duration-250 hover:shadow-soft ${
                   statsVisible ? 'animate-fade-in-up' : 'opacity-0'
                 }`}
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-3xl lg:text-4xl font-bold text-primary-600 mb-2">
+                <div className="text-3xl lg:text-4xl font-semibold text-neutral-900 mb-2 tabular-nums">
                   <AnimatedCounter 
                     end={stat.value} 
                     prefix={stat.prefix} 
@@ -169,7 +169,7 @@ const Home = () => {
                     duration={2000}
                   />
                 </div>
-                <div className="text-gray-600 font-medium text-sm lg:text-base">
+                <div className="text-neutral-600 font-medium text-sm lg:text-base">
                   {stat.label}
                 </div>
               </div>
@@ -179,19 +179,18 @@ const Home = () => {
       </section>
 
       {/* Features Section */}
-      <section ref={featuresRef} className="section-padding tech-bg">
+      <section ref={featuresRef} className="section-padding bg-neutral-50">
         <div className="container-custom">
           <div className="text-center mb-16">
-            <h2 className={`text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 ${
+            <h2 className={`text-display font-semibold text-neutral-900 mb-4 ${
               featuresVisible ? 'animate-fade-in-up' : 'opacity-0'
             }`}>
-              Why Choose <span className="text-gradient">Undash-cop</span>?
+              Why <span className="text-gradient">Undash-cop</span>?
             </h2>
-            <p className={`text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8 ${
+            <p className={`text-body-lg text-neutral-600 max-w-wide mx-auto mb-10 ${
               featuresVisible ? 'animate-fade-in-up' : 'opacity-0'
             }`} style={{ animationDelay: '0.2s' }}>
-              We deliver exceptional value through innovative technology solutions 
-              tailored to your business needs.
+              Proven, consistent execution. Engineering maturity and domain expertise. We act as a long-term technology partner—stable, reliable, built for the long run.
             </p>
             
             {/* Search and Filter */}
@@ -199,7 +198,7 @@ const Home = () => {
               featuresVisible ? 'animate-fade-in-up' : 'opacity-0'
             }`} style={{ animationDelay: '0.4s' }}>
               <SearchBar
-                placeholder="Search our services..."
+                placeholder="Search services..."
                 onSearch={handleSearch}
                 suggestions={searchSuggestions}
                 className="w-full"
@@ -218,48 +217,44 @@ const Home = () => {
               {filteredFeatures.map((feature: any, index: number) => (
                 <div
                   key={index}
-                  className={`floating-card group p-8 text-center ${
+                  className={`feature-card group p-8 text-left ${
                     featuresVisible ? 'animate-fade-in-up' : 'opacity-0'
                   }`}
                   style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                 >
-                  <div className="relative mb-8">
-                    <div className="w-20 h-20 bg-gradient-to-br from-primary-100 via-primary-200 to-primary-300 rounded-3xl flex items-center justify-center mx-auto group-hover:scale-110 group-hover:rotate-6 transition-all duration-500 shadow-lg">
-                      <feature.icon className="w-10 h-10 text-primary-600 group-hover:text-primary-700 transition-colors duration-300" />
+                  <div className="mb-6">
+                    <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 transition-colors duration-250 group-hover:bg-primary-100">
+                      <feature.icon className="w-6 h-6" />
                     </div>
-                    <div className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full opacity-0 group-hover:opacity-100 transition-all duration-500 animate-pulse-custom" />
                   </div>
-                  <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-4 group-hover:text-primary-600 transition-colors duration-300">
+                  <h3 className="text-lg font-semibold text-neutral-900 mb-3">
                     {feature.title}
                   </h3>
-                  <p className="text-gray-600 text-sm lg:text-base leading-relaxed group-hover:text-gray-700 transition-colors duration-300">
+                  <p className="text-body-sm text-neutral-600 leading-relaxed">
                     {feature.description}
                   </p>
-                  <div className="mt-6 opacity-0 group-hover:opacity-100 transition-all duration-500 transform translate-y-4 group-hover:translate-y-0">
-                    <div className="w-full h-1 bg-gradient-to-r from-primary-500 to-primary-600 rounded-full" />
-                  </div>
                 </div>
               ))}
             </div>
           ) : (
-            <div className={`text-center py-12 ${
+            <div className={`text-center py-16 ${
               featuresVisible ? 'animate-fade-in-up' : 'opacity-0'
             }`} style={{ animationDelay: '0.5s' }}>
-              <div className="w-24 h-24 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                <MagnifyingGlassIcon className="w-12 h-12 text-gray-400" />
+              <div className="w-16 h-16 bg-neutral-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+                <MagnifyingGlassIcon className="w-8 h-8 text-neutral-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-2">No services found</h3>
-              <p className="text-gray-600 mb-4">
-                Try adjusting your search or filter criteria
+              <h3 className="text-lg font-semibold text-neutral-900 mb-2">No services match</h3>
+              <p className="text-neutral-600 mb-4 text-body-sm">
+                Try a different search or filter
               </p>
               <button
                 onClick={() => {
                   setSearchQuery('');
                   setActiveFilter('all');
                 }}
-                className="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-200"
+                className="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-250"
               >
-                Clear filters
+                Clear
               </button>
             </div>
           )}
@@ -267,42 +262,39 @@ const Home = () => {
       </section>
 
       {/* Benefits Section */}
-      <section ref={benefitsRef} className="py-16 lg:py-24 bg-gradient-to-br from-primary-50 via-white to-primary-100">
+      <section ref={benefitsRef} className="section-padding bg-white border-t border-neutral-200">
         <div className="container-custom">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-20 items-center">
             <div className={`${benefitsVisible ? 'animate-fade-in-left' : 'opacity-0'}`}>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Built for <span className="text-gradient">Modern Businesses</span>
+              <h2 className="text-display font-semibold text-neutral-900 mb-6">
+                Built for <span className="text-gradient">Startups & Founders</span>
               </h2>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Our solutions are designed to meet the evolving needs of modern businesses. 
-                We combine cutting-edge technology with industry best practices to deliver 
-                exceptional results.
+              <p className="text-body-lg text-neutral-600 mb-10 leading-relaxed">
+                We deliver with consistent execution and engineering maturity. A long-term technology partner—not a one-off vendor. Domain expertise in software, cloud, and automation. Stability you can count on.
               </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <ul className="space-y-4">
                 {benefits.map((benefit: any, index: number) => (
-                  <div 
-                    key={index} 
-                    className={`flex items-center space-x-3 p-3 rounded-lg hover:bg-white/50 transition-all duration-300 ${
+                  <li
+                    key={index}
+                    className={`flex items-start gap-3 text-body text-neutral-700 ${
                       benefitsVisible ? 'animate-fade-in-up' : 'opacity-0'
                     }`}
                     style={{ animationDelay: `${0.2 + index * 0.1}s` }}
                   >
-                    <CheckCircleIcon className="w-5 h-5 text-primary-600 flex-shrink-0" />
-                    <span className="text-gray-700 font-medium">{benefit}</span>
-                  </div>
+                    <CheckCircleIcon className="w-5 h-5 text-primary-600 flex-shrink-0 mt-0.5" />
+                    <span>{benefit}</span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
             <div className={`relative ${benefitsVisible ? 'animate-fade-in-right' : 'opacity-0'}`} style={{ animationDelay: '0.4s' }}>
-              <div className="bg-white rounded-3xl shadow-2xl p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2">
+              <div className="rounded-xl border border-neutral-200 bg-neutral-50/50 p-8 shadow-soft transition-shadow duration-250 hover:shadow-soft-lg">
                 <div className="space-y-6">
                   <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold text-gray-900">Dashboard Overview</h3>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
-                      <span className="text-sm text-gray-600">Live</span>
-                    </div>
+                    <h3 className="text-lg font-semibold text-neutral-900">Dashboard Overview</h3>
+                    <span className="flex items-center gap-2 text-body-sm text-neutral-500">
+                      <span className="w-2 h-2 bg-emerald-500 rounded-full" /> Live
+                    </span>
                   </div>
                   <div className="space-y-4">
                     <ProgressBar percentage={75} label="Performance" color="primary" />
@@ -310,17 +302,17 @@ const Home = () => {
                     <ProgressBar percentage={85} label="Satisfaction" color="warning" />
                   </div>
                   <div className="grid grid-cols-3 gap-4 pt-4">
-                    <div className="text-center p-3 rounded-lg bg-primary-50">
-                      <div className="text-2xl font-bold text-primary-600">98%</div>
-                      <div className="text-sm text-gray-600">Uptime</div>
+                    <div className="text-center p-4 rounded-lg bg-white border border-neutral-200">
+                      <div className="text-xl font-semibold text-neutral-900 tabular-nums">98%</div>
+                      <div className="text-body-sm text-neutral-600">Uptime</div>
                     </div>
-                    <div className="text-center p-3 rounded-lg bg-green-50">
-                      <div className="text-2xl font-bold text-green-600">2.5s</div>
-                      <div className="text-sm text-gray-600">Response</div>
+                    <div className="text-center p-4 rounded-lg bg-white border border-neutral-200">
+                      <div className="text-xl font-semibold text-neutral-900 tabular-nums">2.5s</div>
+                      <div className="text-body-sm text-neutral-600">Response</div>
                     </div>
-                    <div className="text-center p-3 rounded-lg bg-yellow-50">
-                      <div className="text-2xl font-bold text-yellow-600">99.9%</div>
-                      <div className="text-sm text-gray-600">Accuracy</div>
+                    <div className="text-center p-4 rounded-lg bg-white border border-neutral-200">
+                      <div className="text-xl font-semibold text-neutral-900 tabular-nums">99.9%</div>
+                      <div className="text-body-sm text-neutral-600">Accuracy</div>
                     </div>
                   </div>
                 </div>
@@ -334,35 +326,35 @@ const Home = () => {
       <Testimonials />
 
       {/* Newsletter Section */}
-      <section className="py-20">
+      <section className="section-padding bg-neutral-50 border-t border-neutral-200">
         <div className="container-custom">
           <NewsletterSignup variant="hero" />
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 bg-gradient-to-br from-gray-900 via-primary-900 to-gray-800 tech-bg cyber-grid">
-        <div className="container-custom text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Ready to Transform Your Business?
+      <section className="section-padding bg-neutral-900">
+        <div className="container-custom text-center max-w-3xl mx-auto">
+          <h2 className="text-display font-semibold text-white mb-4">
+            Ready to Build With Undash-cop?
           </h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto">
-            Join thousands of businesses that trust Undash-cop for their technology needs. 
-            Let's build something amazing together.
+          <p className="text-body-lg text-neutral-300 mb-10">
+            Proven delivery. AI built into our products—used in production for reliability, speed, and outcomes. 
+            Work with our experts—established and reliable.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/contact"
-              className="btn-primary text-lg px-8 py-4 inline-flex items-center justify-center"
+              className="btn-primary btn-lg inline-flex items-center justify-center"
             >
-              Start Your Project
+              Work With Our Experts
               <ArrowRightIcon className="w-5 h-5 ml-2" />
             </a>
             <a
               href="/products"
-              className="btn-outline text-lg px-8 py-4 inline-flex items-center justify-center border-white text-white hover:bg-white hover:text-gray-900"
+              className="btn-outline-light btn-lg inline-flex items-center justify-center"
             >
-              View Our Products
+              Build With Undash-cop
             </a>
           </div>
         </div>

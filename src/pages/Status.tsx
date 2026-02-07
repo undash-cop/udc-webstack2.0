@@ -136,7 +136,7 @@ const Status = () => {
       case "maintenance":
         return "text-blue-600 bg-blue-100";
       default:
-        return "text-gray-600 bg-gray-100";
+        return "text-neutral-600 bg-neutral-100";
     }
   };
 
@@ -157,13 +157,13 @@ const Status = () => {
 
 
   return (
-    <div className="bg-gray-50 py-16">
+    <div className="bg-neutral-50 section-padding">
       <div className="container-custom">
         {/* Breadcrumbs */}
-        <nav className="flex items-center space-x-2 text-sm text-gray-600 mb-8">
+        <nav className="flex items-center space-x-2 text-sm text-neutral-600 mb-8">
           <Link to="/" className="hover:text-primary-600 transition-colors duration-200">Home</Link>
           <span>/</span>
-          <span className="text-gray-900 font-medium">Status</span>
+          <span className="text-neutral-900 font-medium">Status</span>
         </nav>
 
         {/* Back Button */}
@@ -182,8 +182,8 @@ const Status = () => {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-primary-100 rounded-full mb-6">
             <ServerIcon className="h-8 w-8 text-primary-600" />
           </div>
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">System Status</h1>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+          <h1 className="heading-page">System Status</h1>
+          <p className="text-xl text-neutral-600 max-w-3xl mx-auto mb-4">
             Real-time status of our services and infrastructure. We're committed to providing reliable service.
           </p>
           <div className="inline-flex items-center px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm font-medium">
@@ -194,11 +194,11 @@ const Status = () => {
 
         {/* Overall Status */}
         <div className="mb-12">
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8">
+          <div className="card p-8">
             <div className="flex items-center justify-between mb-6">
               <div>
-                <h2 className="text-2xl font-semibold text-gray-900">Overall System Status</h2>
-                <p className="text-sm text-gray-500 mt-1">
+                <h2 className="heading-section">Overall System Status</h2>
+                <p className="text-sm text-neutral-500 mt-1">
                   Last updated: {lastUpdated.toLocaleTimeString()}
                 </p>
               </div>
@@ -213,20 +213,20 @@ const Status = () => {
             
             <div className="grid md:grid-cols-4 gap-6">
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-2">{systemStatus.uptime}</div>
-                <div className="text-gray-600">Uptime (30 days)</div>
+                <div className="text-3xl font-bold text-neutral-900 mb-2">{systemStatus.uptime}</div>
+                <div className="text-neutral-600">Uptime (30 days)</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-2">{systemStatus.responseTime}</div>
-                <div className="text-gray-600">Avg Response Time</div>
+                <div className="text-3xl font-bold text-neutral-900 mb-2">{systemStatus.responseTime}</div>
+                <div className="text-neutral-600">Avg Response Time</div>
               </div>
               <div className="text-center">
-                <div className="text-3xl font-bold text-gray-900 mb-2">{systemStatus.lastIncident}</div>
-                <div className="text-gray-600">Last Incident</div>
+                <div className="text-3xl font-bold text-neutral-900 mb-2">{systemStatus.lastIncident}</div>
+                <div className="text-neutral-600">Last Incident</div>
               </div>
               <div className="text-center">
                 <div className="text-3xl font-bold text-green-600 mb-2">0</div>
-                <div className="text-gray-600">Active Incidents</div>
+                <div className="text-neutral-600">Active Incidents</div>
               </div>
             </div>
           </div>
@@ -234,18 +234,18 @@ const Status = () => {
 
         {/* Services Status */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Service Status</h2>
+          <h2 className="heading-section">Service Status</h2>
           <div className="space-y-4">
             {services.map((service, index) => {
               const StatusIcon = getStatusIcon(service.status);
               return (
-                <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 p-6">
+                <div key={index} className="card p-6">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center space-x-3">
                       <StatusIcon className={`h-6 w-6 ${service.status === 'operational' ? 'text-green-600' : service.status === 'degraded' ? 'text-yellow-600' : 'text-red-600'}`} />
                       <div>
-                        <h3 className="text-lg font-semibold text-gray-900">{service.name}</h3>
-                        <p className="text-gray-600 text-sm">{service.description}</p>
+                        <h3 className="text-lg font-semibold text-neutral-900">{service.name}</h3>
+                        <p className="text-neutral-600 text-sm">{service.description}</p>
                       </div>
                     </div>
                     <div className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${getStatusColor(service.status)}`}>
@@ -255,16 +255,16 @@ const Status = () => {
                   
                   <div className="grid md:grid-cols-3 gap-4 text-sm">
                     <div>
-                      <span className="text-gray-600">Uptime:</span>
-                      <span className="ml-2 font-medium text-gray-900">{service.uptime}</span>
+                      <span className="text-neutral-600">Uptime:</span>
+                      <span className="ml-2 font-medium text-neutral-900">{service.uptime}</span>
                     </div>
                     <div>
-                      <span className="text-gray-600">Response Time:</span>
-                      <span className="ml-2 font-medium text-gray-900">{service.responseTime}ms</span>
+                      <span className="text-neutral-600">Response Time:</span>
+                      <span className="ml-2 font-medium text-neutral-900">{service.responseTime}ms</span>
                     </div>
                     <div>
-                      <span className="text-gray-600">Last Check:</span>
-                      <span className="ml-2 font-medium text-gray-900">{formatTimeAgo(service.lastCheck)}</span>
+                      <span className="text-neutral-600">Last Check:</span>
+                      <span className="ml-2 font-medium text-neutral-900">{formatTimeAgo(service.lastCheck)}</span>
                     </div>
                   </div>
                 </div>
@@ -275,11 +275,11 @@ const Status = () => {
 
         {/* Recent Incidents */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Recent Incidents</h2>
-          <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-8 text-center">
+          <h2 className="heading-section">Recent Incidents</h2>
+          <div className="card p-8 text-center">
             <CheckCircleIcon className="h-16 w-16 text-green-600 mx-auto mb-4" />
-            <h3 className="text-xl font-semibold text-gray-900 mb-2">All Systems Operational</h3>
-            <p className="text-gray-600 mb-4">
+            <h3 className="heading-subsection mb-2">All Systems Operational</h3>
+            <p className="text-neutral-600 mb-4">
               No incidents reported. All services are running smoothly with 100% uptime.
             </p>
             <div className="inline-flex items-center px-4 py-2 bg-green-100 text-green-800 rounded-full text-sm font-medium">
@@ -291,45 +291,45 @@ const Status = () => {
 
         {/* Performance Metrics */}
         <div className="mb-12">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-6">Performance Metrics</h2>
+          <h2 className="heading-section">Performance Metrics</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+            <div className="card p-6 text-center">
               <CpuChipIcon className="h-8 w-8 text-green-600 mx-auto mb-4" />
               <div className="text-2xl font-bold text-green-600 mb-2">45%</div>
-              <div className="text-gray-600 text-sm">CPU Usage</div>
+              <div className="text-neutral-600 text-sm">CPU Usage</div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+            <div className="card p-6 text-center">
               <ServerIcon className="h-8 w-8 text-green-600 mx-auto mb-4" />
               <div className="text-2xl font-bold text-green-600 mb-2">1.2GB</div>
-              <div className="text-gray-600 text-sm">Memory Usage</div>
+              <div className="text-neutral-600 text-sm">Memory Usage</div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+            <div className="card p-6 text-center">
               <CloudIcon className="h-8 w-8 text-green-600 mx-auto mb-4" />
               <div className="text-2xl font-bold text-green-600 mb-2">25ms</div>
-              <div className="text-gray-600 text-sm">Database Response</div>
+              <div className="text-neutral-600 text-sm">Database Response</div>
             </div>
-            <div className="bg-white rounded-lg shadow-sm border border-gray-200 p-6 text-center">
+            <div className="card p-6 text-center">
               <GlobeAltIcon className="h-8 w-8 text-green-600 mx-auto mb-4" />
               <div className="text-2xl font-bold text-green-600 mb-2">0.8s</div>
-              <div className="text-gray-600 text-sm">Page Load Time</div>
+              <div className="text-neutral-600 text-sm">Page Load Time</div>
             </div>
           </div>
         </div>
 
         {/* Contact Information */}
         <div className="bg-primary-50 rounded-lg p-8">
-          <h2 className="text-2xl font-semibold text-gray-900 mb-4 text-center">Status Notifications</h2>
-          <p className="text-gray-700 mb-6 text-center">
+          <h2 className="heading-section mb-4 text-center">Status Notifications</h2>
+          <p className="text-neutral-700 mb-6 text-center">
             Stay informed about service status and incidents. Subscribe to our status page notifications.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="inline-flex items-center justify-center px-6 py-3 bg-primary-600 text-white font-medium rounded-lg hover:bg-primary-700 transition-colors duration-200">
+            <button className="btn-primary inline-flex items-center justify-center">
               <ShieldCheckIcon className="h-5 w-5 mr-2" />
               Subscribe to Updates
             </button>
             <Link 
               to="/support"
-              className="inline-flex items-center justify-center px-6 py-3 bg-white text-primary-600 font-medium rounded-lg border border-primary-600 hover:bg-primary-50 transition-colors duration-200"
+              className="btn-outline inline-flex items-center justify-center"
             >
               <ServerIcon className="h-5 w-5 mr-2" />
               Report an Issue
