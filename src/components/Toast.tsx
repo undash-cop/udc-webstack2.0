@@ -84,7 +84,7 @@ const Toast = ({ id, type, title, message, duration = 5000, onClose }: ToastProp
         </div>
         <button
           onClick={handleClose}
-          className="flex-shrink-0 p-1 text-neutral-400 hover:text-neutral-600 rounded-lg hover:bg-neutral-100 transition-colors duration-200"
+          className="flex-shrink-0 p-1 text-neutral-400 hover:text-neutral-600 active:text-neutral-700 rounded-lg hover:bg-neutral-100 active:bg-neutral-150 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-neutral-300/60 focus:ring-offset-2 focus:ring-offset-white active:scale-[0.98]"
         >
           <XMarkIcon className="h-4 w-4" />
         </button>

@@ -66,60 +66,142 @@
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-neutral-400;
   }
+
+  /* Links - Calm, confident, premium */
+  a:not([class]) {
+    @apply text-primary-600 transition-colors duration-300 ease-out;
+    @apply hover:text-primary-700 active:text-primary-800;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-sm;
+  }
+
+  /* Focus visible for keyboard navigation - accessible but gentle */
+  *:focus-visible {
+    @apply outline-none ring-2 ring-primary-400/60 ring-offset-2 ring-offset-white;
+  }
+
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
 }
 
 @layer components {
+  /* Primary CTA - Prominent but calm, confident */
   .btn-primary {
-    @apply bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-soft hover:shadow-soft-lg;
+    @apply bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white font-semibold py-3 px-6 rounded-xl;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98];
   }
   
+  /* Secondary - Subtle, supportive */
   .btn-secondary {
-    @apply bg-white hover:bg-neutral-50 text-neutral-700 font-semibold py-3 px-6 rounded-xl border border-neutral-300 hover:border-neutral-400 transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-neutral-200 focus:ring-offset-2;
+    @apply bg-white hover:bg-neutral-50 active:bg-neutral-100 text-neutral-700 font-semibold py-3 px-6 rounded-xl;
+    @apply border border-neutral-200 hover:border-neutral-300 active:border-neutral-300;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-neutral-300/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply hover:shadow-subtle active:shadow-none active:scale-[0.98];
   }
   
+  /* Outline - Clear but not aggressive */
   .btn-outline {
-    @apply bg-transparent hover:bg-primary-600 text-primary-600 hover:text-white font-semibold py-3 px-6 rounded-xl border-2 border-primary-600 hover:border-primary-700 transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-primary-200 focus:ring-offset-2;
+    @apply bg-transparent hover:bg-primary-50 active:bg-primary-100 text-primary-600 hover:text-primary-700 active:text-primary-800;
+    @apply font-semibold py-3 px-6 rounded-xl border-2 border-primary-600 hover:border-primary-650 active:border-primary-700;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply active:scale-[0.98];
   }
 
-  /* Outline on dark background (e.g. CTA sections) */
+  /* Outline on dark background - Premium feel */
   .btn-outline-light {
-    @apply bg-transparent font-semibold py-3 px-6 rounded-xl border-2 border-white text-white hover:bg-white hover:text-neutral-900 transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-neutral-900;
+    @apply bg-transparent hover:bg-white/10 active:bg-white/15 font-semibold py-3 px-6 rounded-xl;
+    @apply border-2 border-white/90 hover:border-white active:border-white;
+    @apply text-white hover:text-white active:text-white;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-white/30 focus:ring-offset-2 focus:ring-offset-neutral-900;
+    @apply hover:shadow-soft active:shadow-none active:scale-[0.98];
   }
   
+  /* Ghost - Minimal, unobtrusive */
   .btn-ghost {
-    @apply bg-transparent hover:bg-neutral-100 text-neutral-600 hover:text-neutral-800 font-medium py-3 px-6 rounded-xl transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-neutral-200 focus:ring-offset-2;
+    @apply bg-transparent hover:bg-neutral-50 active:bg-neutral-100 text-neutral-600 hover:text-neutral-800 active:text-neutral-900;
+    @apply font-medium py-3 px-6 rounded-xl transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-neutral-300/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply active:scale-[0.98];
   }
   
+  /* Icon button - Subtle elevation */
   .btn-icon {
-    @apply p-3 rounded-xl bg-white hover:bg-neutral-50 text-neutral-600 hover:text-neutral-800 transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-neutral-200 focus:ring-offset-2 shadow-subtle;
+    @apply p-3 rounded-xl bg-white hover:bg-neutral-50 active:bg-neutral-100;
+    @apply text-neutral-600 hover:text-neutral-800 active:text-neutral-900;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-neutral-300/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply shadow-subtle hover:shadow-soft active:shadow-none active:scale-[0.98];
   }
 
   .btn-apply {
-    @apply bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-xl transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 shadow-soft hover:shadow-soft-lg flex items-center justify-center;
+    @apply bg-emerald-600 hover:bg-emerald-650 active:bg-emerald-700 text-white font-semibold py-3 px-6 rounded-xl;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-emerald-400/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98] flex items-center justify-center;
   }
   
+  /* Save button - Subtle destructive action */
   .btn-save {
-    @apply bg-transparent hover:bg-red-50 text-neutral-600 hover:text-red-600 font-medium py-2 px-4 rounded-lg border border-neutral-300 hover:border-red-300 transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-red-100 focus:ring-offset-2 flex items-center justify-center min-w-[44px] min-h-[44px];
+    @apply bg-transparent hover:bg-red-50 active:bg-red-100 text-neutral-600 hover:text-red-600 active:text-red-700;
+    @apply font-medium py-2 px-4 rounded-lg border border-neutral-300 hover:border-red-300 active:border-red-400;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-red-200/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply flex items-center justify-center min-w-[44px] min-h-[44px];
+    @apply active:scale-[0.98];
   }
   
+  /* Details button - Informative action */
   .btn-details {
-    @apply bg-transparent hover:bg-primary-50 text-primary-600 hover:text-primary-700 font-medium py-2 px-4 rounded-lg border border-primary-300 hover:border-primary-400 transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-primary-100 focus:ring-offset-2 flex items-center justify-center;
+    @apply bg-transparent hover:bg-primary-50 active:bg-primary-100 text-primary-600 hover:text-primary-700 active:text-primary-800;
+    @apply font-medium py-2 px-4 rounded-lg border border-primary-300 hover:border-primary-400 active:border-primary-500;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-200/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply flex items-center justify-center;
+    @apply active:scale-[0.98];
   }
 
+  /* Success button - Confident positive action */
   .btn-success {
-    @apply bg-emerald-600 hover:bg-emerald-700 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-offset-2 shadow-soft;
+    @apply bg-emerald-600 hover:bg-emerald-650 active:bg-emerald-700 text-white font-semibold py-4 px-8 rounded-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-emerald-400/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98];
   }
 
+  /* Warning button - Attention without alarm */
   .btn-warning {
-    @apply bg-amber-500 hover:bg-amber-600 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2;
+    @apply bg-amber-500 hover:bg-amber-550 active:bg-amber-600 text-white font-semibold py-4 px-8 rounded-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-amber-300/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply active:scale-[0.98];
   }
 
+  /* Danger button - Clear but not aggressive */
   .btn-danger {
-    @apply bg-red-600 hover:bg-red-700 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2;
+    @apply bg-red-600 hover:bg-red-650 active:bg-red-700 text-white font-semibold py-4 px-8 rounded-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-red-300/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply active:scale-[0.98];
   }
 
+  /* Info button - Informative, calm */
   .btn-info {
-    @apply bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2;
+    @apply bg-blue-600 hover:bg-blue-650 active:bg-blue-700 text-white font-semibold py-4 px-8 rounded-lg;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-blue-300/60 focus:ring-offset-2 focus:ring-offset-white;
+    @apply active:scale-[0.98];
   }
   
   .container-custom {
@@ -184,25 +266,50 @@
   .btn-apply:disabled {
     @apply opacity-50 cursor-not-allowed pointer-events-none;
   }
+
+  /* Form inputs - Calm, confident, accessible */
+  .form-input {
+    @apply w-full px-4 py-3 border border-neutral-300 rounded-lg;
+    @apply bg-white text-neutral-900 placeholder-neutral-400;
+    @apply transition-all duration-300 ease-out;
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500;
+    @apply hover:border-neutral-400;
+  }
+
+  .form-input:disabled {
+    @apply bg-neutral-50 text-neutral-500 cursor-not-allowed;
+  }
+
+  .form-input.error {
+    @apply border-red-400 focus:ring-red-300/60 focus:border-red-500;
+  }
   
   .gradient-bg {
     @apply bg-neutral-50;
   }
   
+  /* Card - Subtle elevation on hover, calm interaction */
   .card {
-    @apply bg-white rounded-xl border border-neutral-200 shadow-soft hover:shadow-soft-lg transition-shadow duration-250;
+    @apply bg-white rounded-xl border border-neutral-200 shadow-soft;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-neutral-250;
   }
   
   .card-glass {
     @apply bg-white/80 backdrop-blur-sm rounded-xl border border-neutral-200/80 shadow-soft;
+    @apply transition-all duration-300 ease-out;
   }
   
   .card-gradient {
-    @apply bg-white rounded-xl border border-neutral-200 shadow-soft hover:shadow-soft-lg transition-shadow duration-250;
+    @apply bg-white rounded-xl border border-neutral-200 shadow-soft;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-neutral-250;
   }
   
   .card-premium {
-    @apply bg-white rounded-xl border border-primary-100 shadow-soft hover:shadow-soft-lg transition-shadow duration-250;
+    @apply bg-white rounded-xl border border-primary-100 shadow-soft;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-primary-200;
   }
   
   .text-gradient {
@@ -362,20 +469,29 @@
     @apply text-4xl font-bold text-primary-600;
   }
   
+  /* Feature card - Calm hover, confident feel */
   .feature-card {
-    @apply relative overflow-hidden bg-white rounded-xl border border-neutral-200 shadow-soft hover:shadow-soft-lg transition-shadow duration-250;
+    @apply relative overflow-hidden bg-white rounded-xl border border-neutral-200 shadow-soft;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-neutral-250;
   }
   
   .interactive-card {
-    @apply relative overflow-hidden bg-white rounded-xl border border-neutral-200 shadow-soft hover:shadow-soft-lg transition-shadow duration-250;
+    @apply relative overflow-hidden bg-white rounded-xl border border-neutral-200 shadow-soft;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-neutral-250;
   }
   
   .floating-card {
-    @apply relative overflow-hidden bg-white rounded-xl border border-neutral-200 shadow-soft hover:shadow-soft-lg transition-shadow duration-250;
+    @apply relative overflow-hidden bg-white rounded-xl border border-neutral-200 shadow-soft;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-neutral-250;
   }
   
   .testimonial-card {
-    @apply relative bg-white rounded-xl border border-neutral-200 shadow-soft p-8 transition-shadow duration-250 hover:shadow-soft-lg;
+    @apply relative bg-white rounded-xl border border-neutral-200 shadow-soft p-8;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-neutral-250;
   }
   
   .testimonial-card::before {
@@ -384,7 +500,9 @@
   }
   
   .pricing-card {
-    @apply relative bg-white rounded-xl border border-neutral-200 shadow-soft p-8 transition-shadow duration-250 hover:shadow-soft-lg;
+    @apply relative bg-white rounded-xl border border-neutral-200 shadow-soft p-8;
+    @apply transition-all duration-300 ease-out;
+    @apply hover:shadow-soft-lg hover:border-neutral-250;
   }
   
   .pricing-card.featured {
@@ -575,7 +693,11 @@
 .hs-form .hs-form-field input[type="tel"],
 .hs-form .hs-form-field select,
 .hs-form .hs-form-field textarea {
-  @apply w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  @apply w-full px-4 py-3 border border-neutral-300 rounded-lg;
+  @apply bg-white text-neutral-900 placeholder-neutral-400;
+  @apply transition-all duration-300 ease-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500;
+  @apply hover:border-neutral-400;
 }
 
 .hs-form .hs-form-field textarea {
@@ -599,7 +721,10 @@
 .hs-form .hs-submit button[type="submit"],
 .hs-form .hs-submit .hs-button.primary,
 .hs-form .hs-submit .hs-button[type="submit"] {
-  @apply w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-soft hover:shadow-soft-lg !important;
+  @apply w-full bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white font-semibold py-4 px-8 rounded-xl;
+  @apply transition-all duration-300 ease-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white;
+  @apply shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98] !important;
   border: none !important;
   cursor: pointer !important;
   min-height: 48px !important;
@@ -610,7 +735,7 @@
 .hs-form .hs-submit button[type="submit"]:focus,
 .hs-form .hs-submit .hs-button.primary:focus,
 .hs-form .hs-submit .hs-button[type="submit"]:focus {
-  @apply outline-none ring-4 ring-primary-300 ring-offset-2 !important;
+  @apply outline-none ring-2 ring-primary-400/60 ring-offset-2 ring-offset-white !important;
 }
 
 .hs-form .hs-submit .hs-button:active,
@@ -618,7 +743,7 @@
 .hs-form .hs-submit button[type="submit"]:active,
 .hs-form .hs-submit .hs-button.primary:active,
 .hs-form .hs-submit .hs-button[type="submit"]:active {
-  @apply shadow-soft !important;
+  @apply shadow-soft scale-[0.98] !important;
 }
 
 .hs-form .hs-form-required {
@@ -643,7 +768,10 @@
 /* Additional button variants for different states */
 .hs-form .hs-submit input[type="submit"],
 .hs-form .hs-submit button[type="submit"] {
-  @apply w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-soft hover:shadow-soft-lg;
+  @apply w-full bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white font-semibold py-4 px-8 rounded-xl;
+  @apply transition-all duration-300 ease-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white;
+  @apply shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98];
 }
 
 /* Custom HubSpot form styling */
@@ -652,11 +780,14 @@
 }
 
 .custom-submit-button {
-  @apply w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-4 px-8 rounded-xl transition-colors duration-250 focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 shadow-soft hover:shadow-soft-lg border-none cursor-pointer;
+  @apply w-full bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white font-semibold py-4 px-8 rounded-xl;
+  @apply transition-all duration-300 ease-out;
+  @apply focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white;
+  @apply shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98] border-none cursor-pointer;
 }
 
 .custom-submit-button:focus {
-  @apply outline-none ring-4 ring-primary-300 ring-offset-2;
+  @apply outline-none ring-2 ring-primary-400/60 ring-offset-2 ring-offset-white;
 }
 
 .custom-submit-button:disabled {

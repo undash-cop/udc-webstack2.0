@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 
 interface HeroProps {
-  title: string;
+  title: string | ReactNode;
   subtitle?: string;
   description: string;
   primaryAction?: {

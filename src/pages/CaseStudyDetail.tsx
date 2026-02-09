@@ -115,10 +115,10 @@ const CaseStudyDetail = () => {
               <div className="flex items-center gap-4">
                 <button
                   onClick={handleLike}
-                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-colors ${
+                  className={`flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-red-300/60 focus:ring-offset-2 focus:ring-offset-white active:scale-[0.98] ${
                     isLiked 
-                      ? 'bg-red-100 text-red-700 hover:bg-red-200' 
-                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                      ? 'bg-red-100 text-red-700 hover:bg-red-150 active:bg-red-200' 
+                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-150 active:bg-neutral-200'
                   }`}
                 >
                   <HeartIcon className={`h-5 w-5 ${isLiked ? 'fill-current' : ''}`} />
@@ -126,7 +126,7 @@ const CaseStudyDetail = () => {
                 </button>
                 <button
                   onClick={handleShare}
-                  className="flex items-center gap-2 px-6 py-3 bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-200 transition-colors"
+                  className="flex items-center gap-2 px-6 py-3 bg-neutral-100 text-neutral-700 rounded-lg hover:bg-neutral-150 active:bg-neutral-200 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-neutral-300/60 focus:ring-offset-2 focus:ring-offset-white active:scale-[0.98]"
                 >
                   <ShareIcon className="h-5 w-5" />
                   Share
@@ -142,7 +142,7 @@ const CaseStudyDetail = () => {
               />
               {caseStudy.videoUrl && (
                 <button 
-                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg hover:bg-opacity-60 transition-all"
+                  className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-lg hover:bg-opacity-60 active:bg-opacity-70 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-white/40 focus:ring-offset-2 focus:ring-offset-black/50"
                   aria-label="Play video"
                 >
                   <PlayIcon className="h-16 w-16 text-white" />

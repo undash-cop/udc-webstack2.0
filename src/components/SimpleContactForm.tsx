@@ -68,7 +68,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             value={formData.name}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg bg-white text-neutral-900 placeholder-neutral-400 hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500 transition-all duration-300 ease-out"
             placeholder="Enter your full name"
           />
         </div>
@@ -84,7 +84,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             value={formData.email}
             onChange={handleChange}
             required
-            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg bg-white text-neutral-900 placeholder-neutral-400 hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500 transition-all duration-300 ease-out"
             placeholder="Enter your email address"
           />
         </div>
@@ -99,7 +99,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             name="company"
             value={formData.company}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg bg-white text-neutral-900 placeholder-neutral-400 hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500 transition-all duration-300 ease-out"
             placeholder="Enter your company name"
           />
         </div>
@@ -114,7 +114,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
             name="phone"
             value={formData.phone}
             onChange={handleChange}
-            className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+            className="w-full px-4 py-3 border border-neutral-300 rounded-lg bg-white text-neutral-900 placeholder-neutral-400 hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500 transition-all duration-300 ease-out"
             placeholder="Enter your phone number"
           />
         </div>
@@ -130,7 +130,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
           value={formData.inquiry}
           onChange={handleChange}
           required
-          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200"
+          className="w-full px-4 py-3 border border-neutral-300 rounded-lg bg-white text-neutral-900 placeholder-neutral-400 hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500 transition-all duration-300 ease-out"
         >
           <option value="general">General Inquiry</option>
           <option value="sales">Sales Inquiry</option>
@@ -151,7 +151,7 @@ const SimpleContactForm = ({ onSubmit }: SimpleContactFormProps) => {
           onChange={handleChange}
           required
           rows={5}
-          className="w-full px-4 py-3 border border-neutral-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200 resize-y min-h-[120px]"
+          className="w-full px-4 py-3 border border-neutral-300 rounded-lg bg-white text-neutral-900 placeholder-neutral-400 hover:border-neutral-400 focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500 transition-all duration-300 ease-out resize-y min-h-[120px]"
           placeholder="Tell us about your project or inquiry"
         />
       </div>

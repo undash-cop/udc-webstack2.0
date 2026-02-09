@@ -227,10 +227,10 @@ const Header = () => {
                           <Link
                             key={subItem.name}
                             to={subItem.href}
-                            className={`block px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-250 ${
+                            className={`block px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ease-out ${
                               isActive(subItem.href)
                                 ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
-                                : 'text-neutral-600 hover:text-primary-600 hover:bg-neutral-50'
+                                : 'text-neutral-600 hover:text-primary-600 hover:bg-neutral-50 active:bg-neutral-100'
                             }`}
                             onClick={() => {
                               setIsMenuOpen(false);
@@ -246,10 +246,10 @@ const Header = () => {
                 ) : (
                   <Link
                     to={item.href}
-                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-colors duration-250 ${
+                    className={`block px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 ease-out ${
                       isActive(item.href)
                         ? 'text-primary-600 bg-primary-50 border-l-4 border-primary-600'
-                        : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50'
+                        : 'text-neutral-700 hover:text-primary-600 hover:bg-neutral-50 active:bg-neutral-100'
                     }`}
                     onClick={() => setIsMenuOpen(false)}
                   >

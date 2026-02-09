@@ -16,8 +16,10 @@ import {
   RocketLaunchIcon,
   CheckCircleIcon,
   ArrowRightIcon,
-  MagnifyingGlassIcon
+  MagnifyingGlassIcon,
+  SparklesIcon
 } from '@heroicons/react/24/outline';
+import AIBadge from '../components/AIBadge';
 
 const Home = () => {
   const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
@@ -31,6 +33,10 @@ const Home = () => {
     title: feature.title,
     description: feature.description,
     category: getFeatureCategory(feature.title, feature.description),
+    isAIEnhanced: feature.title.toLowerCase().includes('content') || 
+                  feature.title.toLowerCase().includes('analytics') ||
+                  feature.description.toLowerCase().includes('ai') ||
+                  feature.description.toLowerCase().includes('translation'),
   }));
 
   function getFeatureCategory(title: string, description: string): string {
@@ -136,7 +142,11 @@ const Home = () => {
       />
       {/* Hero Section */}
       <Hero
-        title="Proven Delivery. AI Built In."
+        title={
+          <span className="flex items-center justify-center gap-3 flex-wrap">
+            <span>Proven Delivery. AI Built In.</span>
+          </span>
+        }
         subtitle="Undash-cop — Established. AI as a core capability."
         description="We deliver software, cloud, and automation you can count on. AI is built into many of our products—used in production to improve reliability, speed, and outcomes. Build with a partner that ships real systems."
         primaryAction={{
@@ -222,10 +232,13 @@ const Home = () => {
                   }`}
                   style={{ animationDelay: `${0.5 + index * 0.1}s` }}
                 >
-                  <div className="mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 transition-colors duration-250 group-hover:bg-primary-100">
+                  <div className="mb-6 flex items-start justify-between">
+                    <div className="w-12 h-12 rounded-xl bg-primary-50 flex items-center justify-center text-primary-600 transition-all duration-300 ease-out group-hover:bg-primary-100">
                       <feature.icon className="w-6 h-6" />
                     </div>
+                    {feature.isAIEnhanced && (
+                      <AIBadge variant="subtle" size="sm" />
+                    )}
                   </div>
                   <h3 className="text-lg font-semibold text-neutral-900 mb-3">
                     {feature.title}
@@ -252,7 +265,7 @@ const Home = () => {
                   setSearchQuery('');
                   setActiveFilter('all');
                 }}
-                className="text-primary-600 hover:text-primary-700 font-medium transition-colors duration-250"
+                className="text-primary-600 hover:text-primary-700 active:text-primary-800 font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-sm"
               >
                 Clear
               </button>
@@ -335,9 +348,14 @@ const Home = () => {
       {/* CTA Section */}
       <section className="section-padding bg-neutral-900">
         <div className="container-custom text-center max-w-3xl mx-auto">
-          <h2 className="text-display font-semibold text-white mb-4">
-            Ready to Build With Undash-cop?
-          </h2>
+          <div className="flex items-center justify-center gap-3 mb-4 flex-wrap">
+            <h2 className="text-display font-semibold text-white">
+              Ready to Build With Undash-cop?
+            </h2>
+            <div className="flex items-center gap-1.5 text-primary-400">
+              <SparklesIcon className="w-6 h-6" />
+            </div>
+          </div>
           <p className="text-body-lg text-neutral-300 mb-10">
             Proven delivery. AI built into our products—used in production for reliability, speed, and outcomes. 
             Work with our experts—established and reliable.

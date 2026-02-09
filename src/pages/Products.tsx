@@ -11,8 +11,10 @@ import {
   CloudIcon,
   XMarkIcon,
   EyeIcon,
-  ClockIcon
+  ArrowTrendingUpIcon
 } from '@heroicons/react/24/outline';
+import AIBadge from '../components/AIBadge';
+import ProductionStatus from '../components/ProductionStatus';
 
 interface Product {
   id: string;
@@ -25,6 +27,8 @@ interface Product {
   pricing: string;
   category: string;
   link: string;
+  isAIPowered?: boolean;
+  productionStatus?: 'production' | 'stable' | 'evolving';
 }
 
 interface CompanyProduct {
@@ -42,30 +46,38 @@ const Products = () => {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedCategory, setSelectedCategory] = useState('All');
   
-  const products: Product[] = companyData.products.map((product: CompanyProduct) => ({
-    id: product.name.toLowerCase().replace(/\s+/g, '-'),
-    name: product.name,
-    tagline: (product as any).tagline,
-    description: product.description,
-    logo: product.photo,
-    features: product.features || [
-      'Complete solution',
-      'User-friendly interface',
-      '24/7 support',
-      'Regular updates',
-      'Mobile responsive',
-      'Secure & reliable'
-    ],
-    benefits: product.benefits || [
-      'High Performance',
-      'Cost Effective',
-      'Easy to Use',
-      'Scalable Solution'
-    ],
-    pricing: getProductCategory(product.name) === 'Open Source' ? 'Free / Open Source' : 'Contact for pricing',
-    category: getProductCategory(product.name),
-    link: product.link
-  }));
+  const products: Product[] = companyData.products.map((product: CompanyProduct) => {
+    const isAIPowered = ['RecruitAI', 'Game Of Coders', 'My Macros', 'Aurum Signal'].includes(product.name);
+    const isBeta = product.name === 'My Macros';
+    const isOpenSource = product.name === 'Metrics Billing Platform';
+    
+    return {
+      id: product.name.toLowerCase().replace(/\s+/g, '-'),
+      name: product.name,
+      tagline: (product as any).tagline,
+      description: product.description,
+      logo: product.photo,
+      features: product.features || [
+        'Complete solution',
+        'User-friendly interface',
+        '24/7 support',
+        'Regular updates',
+        'Mobile responsive',
+        'Secure & reliable'
+      ],
+      benefits: product.benefits || [
+        'High Performance',
+        'Cost Effective',
+        'Easy to Use',
+        'Scalable Solution'
+      ],
+      pricing: isOpenSource ? 'Free / Open Source' : 'Contact for pricing',
+      category: getProductCategory(product.name),
+      link: product.link,
+      isAIPowered,
+      productionStatus: isBeta ? 'evolving' : 'production' as 'production' | 'stable' | 'evolving'
+    };
+  });
 
   function getProductCategory(productName: string): string {
     const categoryMap: { [key: string]: string } = {
@@ -95,21 +107,38 @@ const Products = () => {
       {/* Hero Section */}
       <section className="section-padding bg-neutral-50">
         <div className="container-custom text-center">
-          <h1 className="text-display md:text-display-lg font-semibold text-neutral-900 mb-6">
-            Our Products & Solutions
-          </h1>
-          <p className="text-body-lg text-neutral-600 max-w-3xl mx-auto mb-8">
-            Proven delivery. AI is a core capability across many of our products—used in production to improve reliability, speed, and outcomes. Built for startups, growing businesses, and founders.
+          <div className="flex items-center justify-center gap-3 mb-6 flex-wrap">
+            <h1 className="text-display md:text-display-lg font-semibold text-neutral-900">
+              Our Products & Solutions
+            </h1>
+            <AIBadge variant="subtle" size="md" />
+          </div>
+          <p className="text-body-lg text-neutral-600 max-w-3xl mx-auto mb-6">
+            Production-ready systems trusted by organizations worldwide. Our products are built for reliability, scale, and continuous evolution—with AI capabilities integrated where they deliver measurable value. Established systems, proven adoption, stable operations.
           </p>
+          <div className="flex items-center justify-center gap-4 flex-wrap text-sm text-neutral-500">
+            <span className="flex items-center gap-1.5">
+              <CheckCircleIcon className="w-4 h-4 text-emerald-600" />
+              Production Systems
+            </span>
+            <span className="flex items-center gap-1.5">
+              <ShieldCheckIcon className="w-4 h-4 text-emerald-600" />
+              Stable & Reliable
+            </span>
+            <span className="flex items-center gap-1.5">
+              <ArrowTrendingUpIcon className="w-4 h-4 text-primary-600" />
+              Continuously Evolving
+            </span>
+          </div>
           <div className="flex flex-wrap justify-center gap-4">
             {categories.map((category) => (
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full border transition-colors duration-200 ${
+                className={`px-6 py-3 rounded-full border transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white active:scale-[0.98] ${
                   selectedCategory === category
-                    ? 'bg-primary-600 text-white border-primary-600'
-                    : 'border-primary-200 text-primary-700 hover:bg-primary-600 hover:text-white'
+                    ? 'bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white border-primary-600 shadow-soft'
+                    : 'border-primary-200 text-primary-700 hover:bg-primary-600 hover:text-white hover:border-primary-600 active:bg-primary-650'
                 }`}
               >
                 {category}
@@ -148,9 +177,17 @@ const Products = () => {
                           {product.tagline}
                         </p>
                       )}
-                      <span className="inline-block px-3 py-1 bg-primary-600 text-white text-xs font-medium rounded-full">
-                        {product.category}
-                      </span>
+                      <div className="flex items-center justify-center gap-2 flex-wrap">
+                        <span className="inline-block px-3 py-1 bg-primary-600 text-white text-xs font-medium rounded-full">
+                          {product.category}
+                        </span>
+                        {product.productionStatus && (
+                          <ProductionStatus status={product.productionStatus} />
+                        )}
+                        {product.isAIPowered && (
+                          <AIBadge variant="default" size="sm" />
+                        )}
+                      </div>
                     </div>
                   </div>
 
@@ -163,6 +200,11 @@ const Products = () => {
                           : product.description
                         }
                       </p>
+                      {product.isAIPowered && (
+                        <p className="text-xs text-neutral-500 italic mb-2">
+                          AI capabilities integrated and continuously improved based on production usage.
+                        </p>
+                      )}
                     </div>
 
                     {/* Features & Benefits Grid */}
@@ -230,15 +272,23 @@ const Products = () => {
                       </a>
                     </div>
 
-                    {/* Pricing */}
+                    {/* Pricing & Status */}
                     <div className="mt-4 pt-4 border-t border-neutral-100">
-                      <div className="flex items-center justify-between">
+                      <div className="flex items-center justify-between flex-wrap gap-2">
                         <span className="text-sm font-semibold text-primary-600">
                           {product.pricing}
                         </span>
-                        <div className="flex items-center text-xs text-neutral-500">
-                          <ClockIcon className="w-3 h-3 mr-1" />
-                          <span>Available Now</span>
+                        <div className="flex items-center gap-3 text-xs text-neutral-500">
+                          <div className="flex items-center">
+                            <CheckCircleIcon className="w-3 h-3 mr-1 text-emerald-600" />
+                            <span>Production Ready</span>
+                          </div>
+                          {product.isAIPowered && (
+                            <div className="flex items-center">
+                              <ArrowTrendingUpIcon className="w-3 h-3 mr-1 text-primary-600" />
+                              <span>AI Enhanced</span>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -258,7 +308,7 @@ const Products = () => {
               Enterprise Solutions
             </h2>
             <p className="text-xl text-neutral-600 max-w-3xl mx-auto">
-              Custom development, integration, and cloud migration for growing and enterprise teams.
+              Production-ready custom development, system integration, and cloud migration. Built for stability, scale, and long-term reliability.
             </p>
           </div>
 
@@ -271,13 +321,13 @@ const Products = () => {
                 Custom Development
               </h3>
               <p className="text-neutral-600 mb-4">
-                Custom software built for your requirements—engineering-first, stable delivery.
+                Production-ready custom software built for your requirements. Engineering-first approach ensures stable delivery and long-term maintainability.
               </p>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Dedicated development team</li>
-                <li>• Agile methodology</li>
-                <li>• Regular progress updates</li>
-                <li>• Post-launch support</li>
+                <li>• Production-grade architecture</li>
+                <li>• Stable, tested delivery</li>
+                <li>• Ongoing maintenance & evolution</li>
+                <li>• Enterprise support</li>
               </ul>
             </Card>
 
@@ -289,13 +339,13 @@ const Products = () => {
                 System Integration
               </h3>
               <p className="text-neutral-600 mb-4">
-                Integrate our products with your existing systems and workflows.
+                Reliable integration of production systems with your existing infrastructure. Proven approaches ensure stability and minimal disruption.
               </p>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Legacy system integration</li>
-                <li>• API development</li>
-                <li>• Data migration</li>
-                <li>• Training & documentation</li>
+                <li>• Stable legacy integrations</li>
+                <li>• Production-ready APIs</li>
+                <li>• Zero-downtime migrations</li>
+                <li>• Comprehensive documentation</li>
               </ul>
             </Card>
 
@@ -307,13 +357,13 @@ const Products = () => {
                 Cloud Migration
               </h3>
               <p className="text-neutral-600 mb-4">
-                Migrate to the cloud with minimal downtime and strong security practices.
+                Production-grade cloud migration with proven reliability. Minimize downtime, maintain stability, ensure security.
               </p>
               <ul className="text-sm text-neutral-600 space-y-1">
-                <li>• Cloud architecture design</li>
-                <li>• Data migration strategy</li>
-                <li>• Security implementation</li>
-                <li>• Performance optimization</li>
+                <li>• Production-ready architecture</li>
+                <li>• Stable migration processes</li>
+                <li>• Enterprise security standards</li>
+                <li>• Continuous optimization</li>
               </ul>
             </Card>
           </div>
@@ -324,10 +374,10 @@ const Products = () => {
       <section className="section-padding bg-primary-600">
         <div className="container-custom text-center">
           <h2 className="heading-section text-white mb-0">
-            Ready to Get Started?
+            Ready to Deploy Production Systems?
           </h2>
           <p className="text-xl text-primary-100 mb-8 max-w-2xl mx-auto">
-            Contact us to discuss your requirements and find the right fit for your business.
+            Discuss your requirements with our team. We deliver stable, production-ready systems built for reliability and scale.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
@@ -355,7 +405,7 @@ const Products = () => {
               <h2 className="heading-section mb-0">{selectedProduct.name}</h2>
               <button
                 onClick={() => setSelectedProduct(null)}
-                className="p-2 hover:bg-neutral-100 rounded-full transition-colors duration-200"
+                className="p-2 hover:bg-neutral-100 active:bg-neutral-150 rounded-full transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-neutral-300/60 focus:ring-offset-2 focus:ring-offset-white active:scale-[0.98]"
               >
                 <XMarkIcon className="w-6 h-6 text-neutral-500" />
               </button>

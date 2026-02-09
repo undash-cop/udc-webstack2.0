@@ -15,8 +15,11 @@ import {
   ChartBarIcon,
   GlobeAltIcon,
   LockClosedIcon,
-  ArrowLeftIcon
+  ArrowLeftIcon,
+  ArrowTrendingUpIcon
 } from '@heroicons/react/24/outline';
+import AIBadge from '../components/AIBadge';
+import ProductionStatus from '../components/ProductionStatus';
 
 interface Product {
   id: string;
@@ -627,21 +630,50 @@ const ProductDetail = () => {
                   />
                 </div>
                 <div>
-                  <h1 className="heading-page mb-2">{product.name}</h1>
+                  <div className="flex items-center gap-3 flex-wrap mb-2">
+                    <h1 className="heading-page mb-0">{product.name}</h1>
+                    {product.name === 'My Macros' ? (
+                      <ProductionStatus status="evolving" />
+                    ) : (
+                      <ProductionStatus status="production" />
+                    )}
+                    {['RecruitAI', 'Game Of Coders', 'My Macros', 'Aurum Signal'].includes(product.name) && (
+                      <AIBadge variant="default" size="md" />
+                    )}
+                  </div>
                   {product.tagline && (
                     <p className="text-lg text-primary-600 font-semibold mb-3 italic">
                       {product.tagline}
                     </p>
                   )}
-                  <span className="inline-block px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-full">
-                    {product.category}
-                  </span>
+                  <div className="flex items-center gap-2 flex-wrap mb-4">
+                    <span className="inline-block px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-full">
+                      {product.category}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-4 text-sm text-neutral-600 mb-6">
+                    <span className="flex items-center gap-1.5">
+                      <CheckCircleIcon className="w-4 h-4 text-emerald-600" />
+                      Production System
+                    </span>
+                    {['RecruitAI', 'Game Of Coders', 'My Macros', 'Aurum Signal'].includes(product.name) && (
+                      <span className="flex items-center gap-1.5">
+                        <ArrowTrendingUpIcon className="w-4 h-4 text-primary-600" />
+                        AI Continuously Evolving
+                      </span>
+                    )}
+                  </div>
                 </div>
               </div>
               
-              <p className="text-xl text-neutral-600 leading-relaxed mb-8">
+              <p className="text-xl text-neutral-600 leading-relaxed mb-4">
                 {product.description}
               </p>
+              {['RecruitAI', 'Game Of Coders', 'My Macros', 'Aurum Signal'].includes(product.name) && (
+                <p className="text-sm text-neutral-500 italic mb-8">
+                  AI capabilities are integrated and continuously improved based on real production usage and user feedback. This system evolves to deliver better reliability, speed, and outcomes over time.
+                </p>
+              )}
 
               <div className="flex flex-col sm:flex-row gap-4">
                 <a
@@ -686,10 +718,10 @@ const ProductDetail = () => {
               <button
                 key={tab}
                 onClick={() => setActiveTab(tab)}
-                className={`py-4 px-2 border-b-2 font-medium text-sm capitalize transition-colors duration-200 ${
+                className={`py-4 px-2 border-b-2 font-medium text-sm capitalize transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white ${
                   activeTab === tab
                     ? 'border-primary-600 text-primary-600'
-                    : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300'
+                    : 'border-transparent text-neutral-500 hover:text-neutral-700 hover:border-neutral-300 active:text-neutral-800'
                 }`}
               >
                 {tab}

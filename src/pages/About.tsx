@@ -201,9 +201,9 @@ const About = () => {
                   <img
                     src={member.image}
                     alt={member.name}
-                    className="w-20 h-20 rounded-xl mx-auto object-cover transition-shadow duration-250"
+                    className="w-20 h-20 rounded-xl mx-auto object-cover transition-all duration-300 ease-out"
                   />
-                  <div className="absolute inset-0 w-20 h-20 rounded-xl mx-auto bg-primary-600/0 group-hover:bg-primary-600/10 transition-colors duration-250 flex items-center justify-center">
+                  <div className="absolute inset-0 w-20 h-20 rounded-xl mx-auto bg-primary-600/0 group-hover:bg-primary-600/10 transition-all duration-300 ease-out flex items-center justify-center">
                     <a
                       href={member.linkedin}
                       target="_blank"

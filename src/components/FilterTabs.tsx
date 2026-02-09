@@ -25,11 +25,12 @@ const FilterTabs = ({
           key={option.id}
           onClick={() => onFilterChange(option.id)}
           className={`
-            relative px-6 py-3 rounded-xl font-medium transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-4 focus:ring-primary-200
+            relative px-6 py-3 rounded-xl font-medium transition-all duration-300 ease-out
+            focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white
             ${
               activeFilter === option.id
-                ? 'bg-primary-600 text-white shadow-soft'
-                : 'bg-white/80 backdrop-blur-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 shadow-soft border border-neutral-200'
+                ? 'bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98]'
+                : 'bg-white/80 backdrop-blur-sm text-neutral-700 hover:bg-primary-50 hover:text-primary-600 active:bg-primary-100 active:text-primary-700 shadow-soft hover:shadow-soft-lg active:shadow-soft active:scale-[0.98] border border-neutral-200 hover:border-primary-200'
             }
           `}
         >

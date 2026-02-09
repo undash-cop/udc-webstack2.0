@@ -67,8 +67,10 @@ const Form = ({
 
   const renderField = (field: FormField) => {
     const baseClasses = `
-      w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-colors duration-200
-      ${errors[field.name] ? 'border-red-500' : 'border-neutral-300'}
+      w-full px-4 py-3 border rounded-lg bg-white text-neutral-900 placeholder-neutral-400
+      focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white focus:border-primary-500
+      hover:border-neutral-400 transition-all duration-300 ease-out
+      ${errors[field.name] ? 'border-red-400 focus:ring-red-300/60 focus:border-red-500' : 'border-neutral-300'}
     `;
 
     switch (field.type) {

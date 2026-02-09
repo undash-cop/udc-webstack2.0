@@ -68,7 +68,7 @@ const SearchBar = ({
               setIsOpen(false);
               inputRef.current?.focus();
             }}
-            className="absolute inset-y-0 right-0 pr-4 flex items-center text-neutral-400 hover:text-neutral-600 transition-colors duration-200"
+            className="absolute inset-y-0 right-0 pr-4 flex items-center text-neutral-400 hover:text-neutral-600 active:text-neutral-700 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-neutral-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-lg"
           >
             <XMarkIcon className="h-5 w-5" />
           </button>
@@ -82,7 +82,7 @@ const SearchBar = ({
             <button
               key={index}
               onClick={() => handleSearch(suggestion)}
-              className="w-full px-4 py-3 text-left hover:bg-primary-50 transition-colors duration-200 flex items-center justify-between group"
+              className="w-full px-4 py-3 text-left hover:bg-primary-50 active:bg-primary-100 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white flex items-center justify-between group"
             >
               <span className="text-neutral-700 group-hover:text-primary-600 font-medium">
                 {suggestion}

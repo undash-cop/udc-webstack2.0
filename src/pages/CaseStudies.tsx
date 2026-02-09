@@ -211,10 +211,10 @@ const CaseStudies = () => {
               <button
                 key={category}
                 onClick={() => setSelectedCategory(category)}
-                className={`px-6 py-3 rounded-full border transition-colors duration-200 ${
+                className={`px-6 py-3 rounded-full border transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white active:scale-[0.98] ${
                   selectedCategory === category
-                    ? 'bg-primary-600 text-white border-primary-600'
-                    : 'border-primary-200 text-primary-700 hover:bg-primary-600 hover:text-white'
+                    ? 'bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white border-primary-600 shadow-soft'
+                    : 'border-primary-200 text-primary-700 hover:bg-primary-600 hover:text-white hover:border-primary-600 active:bg-primary-650'
                 }`}
               >
                 {category}

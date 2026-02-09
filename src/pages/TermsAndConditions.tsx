@@ -8,7 +8,7 @@ const TermsAndConditions = () => {
       <div className="container-custom">
         {/* Breadcrumbs */}
         <nav className="flex items-center space-x-2 text-sm text-neutral-600 mb-8">
-          <Link to="/" className="hover:text-primary-600 transition-colors duration-200">Home</Link>
+          <Link to="/" className="hover:text-primary-600 active:text-primary-700 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-sm">Home</Link>
           <span>/</span>
           <span className="text-neutral-900 font-medium">Terms and Conditions</span>
         </nav>
@@ -17,7 +17,7 @@ const TermsAndConditions = () => {
         <div className="mb-8">
           <Link 
             to="/" 
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 transition-colors duration-200"
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 active:text-primary-800 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-sm"
           >
             <ArrowLeftIcon className="h-4 w-4 mr-2" />
             Back to Home

@@ -98,7 +98,7 @@ const Footer = () => {
                 <EnvelopeIcon className="h-5 w-5 text-neutral-500 shrink-0" />
                 <a 
                   href={`mailto:${companyData.address.email}`}
-                  className="text-neutral-300 hover:text-primary-400 transition-colors duration-250"
+                  className="text-neutral-300 hover:text-primary-400 active:text-primary-500 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-sm"
                 >
                   {companyData.address.email}
                 </a>
@@ -107,7 +107,7 @@ const Footer = () => {
                 <PhoneIcon className="h-5 w-5 text-neutral-500 shrink-0" />
                 <a 
                   href={`tel:${companyData.address.phoneno}`}
-                  className="text-neutral-300 hover:text-primary-400 transition-colors duration-250"
+                  className="text-neutral-300 hover:text-primary-400 active:text-primary-500 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-sm"
                 >
                   {companyData.address.phoneno}
                 </a>
@@ -127,7 +127,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-neutral-400 hover:text-primary-400 transition-colors duration-250 text-body-sm"
+                    className="text-neutral-400 hover:text-primary-400 active:text-primary-500 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-sm text-body-sm"
                   >
                     {link.name}
                   </Link>
@@ -144,7 +144,7 @@ const Footer = () => {
                 <li key={link.name}>
                   <Link
                     to={link.href}
-                    className="text-neutral-400 hover:text-primary-400 transition-colors duration-250 text-body-sm"
+                    className="text-neutral-400 hover:text-primary-400 active:text-primary-500 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-sm text-body-sm"
                   >
                     {link.name}
                   </Link>
@@ -169,7 +169,7 @@ const Footer = () => {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-neutral-500 hover:text-primary-400 text-body-sm transition-colors duration-250 hover:underline"
+                      className="text-neutral-500 hover:text-primary-400 active:text-primary-500 text-body-sm transition-all duration-300 ease-out hover:underline focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-sm"
                     >
                       {link.name}
                       <svg className="inline-block w-3 h-3 ml-1" fill="currentColor" viewBox="0 0 20 20">
@@ -180,7 +180,7 @@ const Footer = () => {
                     <Link
                       key={link.name}
                       to={link.href}
-                      className="text-neutral-500 hover:text-primary-400 text-body-sm transition-colors duration-250 hover:underline"
+                      className="text-neutral-500 hover:text-primary-400 active:text-primary-500 text-body-sm transition-all duration-300 ease-out hover:underline focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-900 rounded-sm"
                     >
                       {link.name}
                     </Link>
@@ -199,7 +199,7 @@ const Footer = () => {
                     href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`text-neutral-500 ${social.color} transition-colors duration-250 p-2 rounded-lg hover:bg-neutral-800`}
+                    className={`text-neutral-500 ${social.color} transition-all duration-300 ease-out p-2 rounded-lg hover:bg-neutral-800 active:bg-neutral-700 focus:outline-none focus:ring-2 focus:ring-primary-400/40 focus:ring-offset-2 focus:ring-offset-neutral-900 active:scale-[0.98]`}
                     aria-label={social.name}
                   >
                     <IconComponent />

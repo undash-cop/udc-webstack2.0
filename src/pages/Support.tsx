@@ -195,7 +195,7 @@ const Support = () => {
       <div className="container-custom">
         {/* Breadcrumbs */}
         <nav className="flex items-center space-x-2 text-sm text-neutral-600 mb-8">
-          <Link to="/" className="hover:text-primary-600 transition-colors duration-200">Home</Link>
+          <Link to="/" className="hover:text-primary-600 active:text-primary-700 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-sm">Home</Link>
           <span>/</span>
           <span className="text-neutral-900 font-medium">Support</span>
         </nav>
@@ -204,7 +204,7 @@ const Support = () => {
         <div className="mb-8">
           <Link 
             to="/" 
-            className="inline-flex items-center text-primary-600 hover:text-primary-700 transition-colors duration-200"
+            className="inline-flex items-center text-primary-600 hover:text-primary-700 active:text-primary-800 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-sm"
           >
             <ArrowLeftIcon className="h-4 w-4 mr-2" />
             Back to Home
@@ -309,10 +309,10 @@ const Support = () => {
                 <button
                   key={category.id}
                   onClick={() => setSelectedCategory(category.id)}
-                  className={`px-4 py-2 rounded-full text-sm font-medium transition-colors duration-200 ${
+                  className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-400/60 focus:ring-offset-2 focus:ring-offset-white active:scale-[0.98] ${
                     selectedCategory === category.id
-                      ? 'bg-primary-600 text-white'
-                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'
+                      ? 'bg-primary-600 hover:bg-primary-650 active:bg-primary-700 text-white shadow-soft'
+                      : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-150 active:bg-neutral-200'
                   }`}
                 >
                   {category.name} ({category.count})
@@ -335,7 +335,7 @@ const Support = () => {
                   <div key={faq.id} className="card">
                     <button
                       onClick={() => toggleItem(faq.id)}
-                      className="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-50 transition-colors duration-200"
+                      className="w-full flex items-center justify-between p-6 text-left hover:bg-neutral-50 active:bg-neutral-100 transition-all duration-300 ease-out focus:outline-none focus:ring-2 focus:ring-primary-300/60 focus:ring-offset-2 focus:ring-offset-white rounded-xl"
                     >
                       <div className="flex-1 pr-4">
                         <h3 className="text-lg font-medium text-neutral-900 mb-1">{faq.question}</h3>
