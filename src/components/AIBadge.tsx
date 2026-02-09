@@ -26,9 +26,9 @@ const AIBadge = ({ variant = 'default', size = 'sm', className = '' }: AIBadgePr
   };
 
   return (
-    <span className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`}>
-      <SparklesIcon className={iconSizes[size]} />
-      <span>AI-powered</span>
+    <span className={`${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} whitespace-nowrap ${className}`}>
+      <SparklesIcon className={`${iconSizes[size]} flex-shrink-0`} />
+      <span className="whitespace-nowrap">AI-powered</span>
     </span>
   );
 };

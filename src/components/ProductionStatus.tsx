@@ -40,10 +40,10 @@ const ProductionStatus = ({
 
   return (
     <span 
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium ${config.color} ${config.bgColor} border ${config.borderColor} ${className}`}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium whitespace-nowrap ${config.color} ${config.bgColor} border ${config.borderColor} ${className}`}
     >
-      {showIcon && <Icon className="w-3 h-3" />}
-      <span>{config.label}</span>
+      {showIcon && <Icon className="w-3 h-3 flex-shrink-0" />}
+      <span className="whitespace-nowrap">{config.label}</span>
     </span>
   );
 };

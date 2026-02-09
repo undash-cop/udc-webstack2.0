@@ -173,7 +173,7 @@ const Products = () => {
                       </div>
                       <h3 className="text-xl font-bold text-neutral-900 mb-2">{product.name}</h3>
                       {product.tagline && (
-                        <p className="text-sm text-primary-600 font-medium mb-2 italic">
+                        <p className="text-sm text-primary-600 font-medium mb-3 italic">
                           {product.tagline}
                         </p>
                       )}
@@ -181,6 +181,8 @@ const Products = () => {
                         <span className="inline-block px-3 py-1 bg-primary-600 text-white text-xs font-medium rounded-full">
                           {product.category}
                         </span>
+                      </div>
+                      <div className="flex items-center justify-center gap-2 flex-wrap mt-3">
                         {product.productionStatus && (
                           <ProductionStatus status={product.productionStatus} />
                         )}

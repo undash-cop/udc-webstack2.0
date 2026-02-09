@@ -630,19 +630,9 @@ const ProductDetail = () => {
                   />
                 </div>
                 <div>
-                  <div className="flex items-center gap-3 flex-wrap mb-2">
-                    <h1 className="heading-page mb-0">{product.name}</h1>
-                    {product.name === 'My Macros' ? (
-                      <ProductionStatus status="evolving" />
-                    ) : (
-                      <ProductionStatus status="production" />
-                    )}
-                    {['RecruitAI', 'Game Of Coders', 'My Macros', 'Aurum Signal'].includes(product.name) && (
-                      <AIBadge variant="default" size="md" />
-                    )}
-                  </div>
+                  <h1 className="heading-page mb-3">{product.name}</h1>
                   {product.tagline && (
-                    <p className="text-lg text-primary-600 font-semibold mb-3 italic">
+                    <p className="text-lg text-primary-600 font-semibold mb-4 italic">
                       {product.tagline}
                     </p>
                   )}
@@ -650,15 +640,23 @@ const ProductDetail = () => {
                     <span className="inline-block px-4 py-2 bg-primary-600 text-white text-sm font-medium rounded-full">
                       {product.category}
                     </span>
+                    {product.name === 'My Macros' ? (
+                      <ProductionStatus status="evolving" />
+                    ) : (
+                      <ProductionStatus status="production" />
+                    )}
+                    {['RecruitAI', 'Game Of Coders', 'My Macros', 'Aurum Signal'].includes(product.name) && (
+                      <AIBadge variant="default" size="sm" />
+                    )}
                   </div>
-                  <div className="flex items-center gap-4 text-sm text-neutral-600 mb-6">
+                  <div className="flex items-center gap-4 text-sm text-neutral-600 mb-6 flex-wrap">
                     <span className="flex items-center gap-1.5">
-                      <CheckCircleIcon className="w-4 h-4 text-emerald-600" />
+                      <CheckCircleIcon className="w-4 h-4 text-emerald-600 flex-shrink-0" />
                       Production System
                     </span>
                     {['RecruitAI', 'Game Of Coders', 'My Macros', 'Aurum Signal'].includes(product.name) && (
                       <span className="flex items-center gap-1.5">
-                        <ArrowTrendingUpIcon className="w-4 h-4 text-primary-600" />
+                        <ArrowTrendingUpIcon className="w-4 h-4 text-primary-600 flex-shrink-0" />
                         AI Continuously Evolving
                       </span>
                     )}
